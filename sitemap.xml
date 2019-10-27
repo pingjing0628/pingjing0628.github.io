@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/about/index.html</loc>
+    <loc>http://yoursite.com/2019/10/27/1-Laravel-Practice/</loc>
     
-    <lastmod>2019-10-26T16:17:27.625Z</lastmod>
+    <lastmod>2019-10-27T06:40:37.709Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/10/27/1-Laravel-Practice/</loc>
+    <loc>http://yoursite.com/2019/10/27/2-Laravel-blade/</loc>
     
-    <lastmod>2019-10-26T16:16:33.457Z</lastmod>
+    <lastmod>2019-10-27T06:09:15.642Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/about/index.html</loc>
+    
+    <lastmod>2019-10-26T16:17:27.625Z</lastmod>
     
   </url>
   

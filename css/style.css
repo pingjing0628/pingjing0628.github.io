@@ -1632,3 +1632,10 @@ code {
 .highlight .line {
   height: 22px;
 }
+
+#particles-js {
+  width: 100%;
+  position: absolute;
+  margin-left: -28%;
+  z-index: -1;
+}
