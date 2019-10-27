@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","width":260,"display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="搭建Laravel後台  使用Artisan 去搭建後台 php artisan make:controller Admin&#x2F;HomeController 此時 laravel會幫我們自己建一個admin資料夾在controller裡面   增加路由於web.php 123Route::group([&amp;apos;middleware&amp;apos; =&amp;gt; &amp;apos;auth&amp;apos;, &amp;apos;namespace&amp;apos; =&amp;gt; &amp;apos;Adm">
+<meta name="keywords" content="Laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3. 搭建Laravel後台">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0&#x2F;index.html">
+<meta property="og:site_name" content="About My Things">
+<meta property="og:description" content="搭建Laravel後台  使用Artisan 去搭建後台 php artisan make:controller Admin&#x2F;HomeController 此時 laravel會幫我們自己建一個admin資料夾在controller裡面   增加路由於web.php 123Route::group([&amp;apos;middleware&amp;apos; =&amp;gt; &amp;apos;auth&amp;apos;, &amp;apos;namespace&amp;apos; =&amp;gt; &amp;apos;Adm">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-10-27T07:47:45.243Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>3. 搭建Laravel後台 | About My Things</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">About My Things</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-records">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Records</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          3. 搭建Laravel後台
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-10-27 15:46:51 / Modified: 15:47:45" itemprop="dateCreated datePublished" datetime="2019-10-27T15:46:51+08:00">2019-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">Laravel</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2>搭建Laravel後台</h2><ol>
+<li>
+<p>使用Artisan 去搭建後台
+<code>php artisan make:controller Admin/HomeController</code>
+此時 laravel會幫我們自己建一個admin資料夾在controller裡面</p>
+</li>
+<li>
+<p>增加路由於web.php
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'middleware'</span> =&gt; <span class="string">'auth'</span>, <span class="string">'namespace'</span> =&gt; <span class="string">'Admin'</span>, <span class="string">'prefix'</span> =&gt; <span class="string">'admin'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'/'</span>, <span class="string">'HomeController@index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+於是在網址後方加上<code>/admin</code>即可</p>
+</li>
+<li>
+<p>新建index首頁，在admin/Homecontroller加上
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'admin/home'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>create 後台首頁view</p>
+</li>
+</ol><a id="more"></a>
+
+<ul>
+<li>create admin folder in resource/views</li>
+<li>create home.blade.php
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@extends(&apos;layouts.app&apos;)</span><br><span class="line"></span><br><span class="line">@section(&apos;content&apos;)</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;col-md-10 col-md-offset-1&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;panel panel-default&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;panel-heading&quot;&gt;Learn Laravel 5 后台&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                &lt;div class=&quot;panel-body&quot;&gt;</span><br><span class="line"></span><br><span class="line">                    &lt;a href=&quot;&#123;&#123; url(&apos;admin/article&apos;) &#125;&#125;&quot; class=&quot;btn btn-lg btn-success col-xs-12&quot;&gt;管理文章&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="5">
+<li>修改 Auth 系統登入成功之後的跳轉路徑
+<code>Controllers/Auth/LoginController.php</code>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> $redirectTo = <span class="string">'/admin'</span>;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2>開始建立 Article 管理功能</h2>
+<ol>
+<li>add route
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'middleware'</span> =&gt; <span class="string">'auth'</span>, <span class="string">'namespace'</span> =&gt; <span class="string">'Admin'</span>, <span class="string">'prefix'</span> =&gt; <span class="string">'admin'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'/'</span>, <span class="string">'HomeController@index'</span>);</span><br><span class="line">    Route::get(<span class="string">'article'</span>, <span class="string">'ArticleController@index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+<li>create controller
+<code>php artisan make:controller Admin/ArticleController</code></li>
+<li>新增index方法
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'admin/article/index'</span>)-&gt;withArticles(Article::all());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>新增view</li>
+</ol>
+<ul>
+<li>在resources/views/admin增加article folder</li>
+<li>create a index.blade.php in article folder</li>
+<li>然後貼上以下
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">@extends(&apos;layouts.app&apos;)</span><br><span class="line"></span><br><span class="line">@section(&apos;content&apos;)</span><br><span class="line">&lt;div class=&quot;container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;row&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;col-md-10 col-md-offset-1&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;panel panel-default&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;panel-heading&quot;&gt;文章管理&lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;panel-body&quot;&gt;</span><br><span class="line">                    @if (count($errors) &gt; 0)</span><br><span class="line">                        &lt;div class=&quot;alert alert-danger&quot;&gt;</span><br><span class="line">                            &#123;!! implode(&apos;&lt;br&gt;&apos;, $errors-&gt;all()) !!&#125;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    @endif</span><br><span class="line"></span><br><span class="line">                    &lt;a href=&quot;&#123;&#123; url(&apos;admin/article/create&apos;) &#125;&#125;&quot; class=&quot;btn btn-lg btn-primary&quot;&gt;新增&lt;/a&gt;</span><br><span class="line"></span><br><span class="line">                    @foreach ($articles as $article)</span><br><span class="line">                        &lt;hr&gt;</span><br><span class="line">                        &lt;div class=&quot;article&quot;&gt;</span><br><span class="line">                            &lt;h4&gt;&#123;&#123; $article-&gt;title &#125;&#125;&lt;/h4&gt;</span><br><span class="line">                            &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">                                &lt;p&gt;</span><br><span class="line">                                    &#123;&#123; $article-&gt;body &#125;&#125;</span><br><span class="line">                                &lt;/p&gt;</span><br><span class="line">                            &lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;a href=&quot;&#123;&#123; url(&apos;admin/article/&apos;.$article-&gt;id.&apos;/edit&apos;) &#125;&#125;&quot; class=&quot;btn btn-success&quot;&gt;编辑&lt;/a&gt;</span><br><span class="line">                        &lt;form action=&quot;&#123;&#123; url(&apos;admin/article/&apos;.$article-&gt;id) &#125;&#125;&quot; method=&quot;POST&quot; style=&quot;display: inline;&quot;&gt;</span><br><span class="line">                            &#123;&#123; method_field(&apos;DELETE&apos;) &#125;&#125;</span><br><span class="line">                            &#123;&#123; csrf_field() &#125;&#125;</span><br><span class="line">                            &lt;button type=&quot;submit&quot; class=&quot;btn btn-danger&quot;&gt;删除&lt;/button&gt;</span><br><span class="line">                        &lt;/form&gt;</span><br><span class="line">                    @endforeach</span><br><span class="line"></span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="5">
+<li>需要增加調用
+<code>use App\Article;</code></li>
+</ol>
+<h6>tags: <code>Laravel</code>,</h6>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10/27/2-Laravel-blade/" rel="next" title="2. Laravel blade">
+                  <i class="fa fa-chevron-left"></i> 2. Laravel blade
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/27/4-Laravel-Restful/" rel="prev" title="4. Laravel Restful">
+                  4. Laravel Restful <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">搭建Laravel後台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">開始建立 Article 管理功能</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#null"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">tags: Laravel,</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="PingJing Wang"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PingJing Wang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pingjing0628" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;pingjing0628" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fish1063345@gmail.com" title="E-Mail &amp;rarr; mailto:fish1063345@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PingJing Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='210, 224, 216' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -2,16 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/10/27/4-Laravel-Restful/</loc>
+    
+    <lastmod>2019-10-27T07:59:11.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/PHP-Setter-and-Getter/</loc>
+    
+    <lastmod>2019-10-27T07:56:32.728Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/Laravel-Middleware/</loc>
+    
+    <lastmod>2019-10-27T07:56:27.484Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/Laravel-Database/</loc>
+    
+    <lastmod>2019-10-27T07:56:10.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/Laravel-CSRF/</loc>
+    
+    <lastmod>2019-10-27T07:55:26.131Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/5-%25E5%2588%25A9%25E7%2594%25A8Laravel%25E5%25BB%25BA%25E7%25AB%258B%25E8%25A9%2595%25E8%25AB%2596%25E7%25B3%25BB%25E7%25B5%25B1/</loc>
+    
+    <lastmod>2019-10-27T07:55:13.897Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/10/27/1-Laravel-Practice/</loc>
     
-    <lastmod>2019-10-27T06:40:37.709Z</lastmod>
+    <lastmod>2019-10-27T07:54:40.122Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/PHP-Operators/</loc>
+    
+    <lastmod>2019-10-27T07:54:19.711Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/Eloquent/</loc>
+    
+    <lastmod>2019-10-27T07:53:48.878Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/10/27/3-%25E6%2590%25AD%25E5%25BB%25BALaravel%25E5%25BE%258C%25E5%258F%25B0/</loc>
+    
+    <lastmod>2019-10-27T07:47:45.243Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/10/27/2-Laravel-blade/</loc>
     
-    <lastmod>2019-10-27T06:09:15.642Z</lastmod>
+    <lastmod>2019-10-27T07:45:56.040Z</lastmod>
     
   </url>
   

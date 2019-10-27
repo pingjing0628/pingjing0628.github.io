@@ -50,14 +50,18 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="About My Things">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;index.html">
+  <meta name="description" content="Setter and Getter123456789101112131415161718192021Class T &amp;#123;public $A;protected $B;private $C;public function setA()&amp;#123;    $this-&amp;gt;A = A;&amp;#125;protected function setB()&amp;#123;&amp;#125;public func">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP Setter and Getter">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;PHP-Setter-and-Getter&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
+<meta property="og:description" content="Setter and Getter123456789101112131415161718192021Class T &amp;#123;public $A;protected $B;private $C;public function setA()&amp;#123;    $this-&amp;gt;A = A;&amp;#125;protected function setB()&amp;#123;&amp;#125;public func">
 <meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-10-27T07:56:32.728Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/archives/2019/">
+<link rel="canonical" href="http://yoursite.com/2019/10/27/PHP-Setter-and-Getter/">
 
 
 <script id="page-configurations">
@@ -65,13 +69,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false,
+    isPost: true,
     isPage: false,
-    isArchive: true
+    isArchive: false
   };
 </script>
 
-  <title>Archive | About My Things</title>
+  <title>PHP Setter and Getter | About My Things</title>
   
 
 
@@ -183,232 +187,130 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 11 posts in total. Keep on posting.</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/PHP-Setter-and-Getter/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PHP Setter and Getter
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-10-27 15:51:42 / Modified: 15:56:32" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:42+08:00">2019-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
+        <h2>Setter and Getter</h2><p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $A;</span><br><span class="line"><span class="keyword">protected</span> $B;</span><br><span class="line"><span class="keyword">private</span> $C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><a id="more"></a>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:53:03+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/Eloquent/" itemprop="url">
-            <span itemprop="name">Eloquent</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:52:16+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/PHP-Operators/" itemprop="url">
-            <span itemprop="name">PHP Operators</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:51:42+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/PHP-Setter-and-Getter/" itemprop="url">
-            <span itemprop="name">PHP Setter and Getter</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:51:08+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/Laravel-Middleware/" itemprop="url">
-            <span itemprop="name">Laravel Middleware</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:50:28+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/Laravel-CSRF/" itemprop="url">
-            <span itemprop="name">Laravel CSRF</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:49:59+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/Laravel-Database/" itemprop="url">
-            <span itemprop="name">Laravel Database</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:48:54+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/" itemprop="url">
-            <span itemprop="name">5.利用Laravel建立評論系統</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:48:11+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/4-Laravel-Restful/" itemprop="url">
-            <span itemprop="name">4. Laravel Restful</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T15:46:51+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/" itemprop="url">
-            <span itemprop="name">3. 搭建Laravel後台</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-10-27T11:14:14+08:00"
-              content="2019-10-27">
-          10-27
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/10/27/2-Laravel-blade/" itemprop="url">
-            <span itemprop="name">2. Laravel blade</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+<ul>
+<li>應用在讓程式可視性更高，不直接在變數定義，而是在setter去定義，再透過getter去拿取</li>
+</ul>
+<p>function的部分</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>外部</th>
+<th>繼承</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>protected</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>private</td>
+<td>No</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<h6>tags: <code>php</code></h6>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PHP/" rel="tag"># PHP</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10/27/Laravel-Middleware/" rel="next" title="Laravel Middleware">
+                  <i class="fa fa-chevron-left"></i> Laravel Middleware
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/27/PHP-Operators/" rel="prev" title="PHP Operators">
+                  PHP Operators <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
-  </nav>
-
 
 
           </div>
@@ -437,6 +339,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Setter and Getter</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#null"><span class="nav-number">1.0.0.0.1.</span> <span class="nav-text">tags: php</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

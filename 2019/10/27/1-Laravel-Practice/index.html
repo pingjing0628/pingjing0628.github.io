@@ -50,15 +50,15 @@
   };
 </script>
 
-  <meta name="description" content="InstallationInstall in docker (using richarvey now , should create by myself) 透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash : laravel command not found 的問題，透過 export PATH=&amp;quot;~&#x2F;.compose">
-<meta name="keywords" content="Laravel">
+  <meta name="description" content="InstallationInstall with docker(using richarvey now , should create by myself) 透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash:laravel command not found的問題 透過 export PATH=&amp;quot;~&#x2F;.composer&#x2F;">
+<meta name="keywords" content="Laravel, Database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Laravel Practice">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;1-Laravel-Practice&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="InstallationInstall in docker (using richarvey now , should create by myself) 透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash : laravel command not found 的問題，透過 export PATH=&amp;quot;~&#x2F;.compose">
+<meta property="og:description" content="InstallationInstall with docker(using richarvey now , should create by myself) 透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash:laravel command not found的問題 透過 export PATH=&amp;quot;~&#x2F;.composer&#x2F;">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-10-27T06:40:37.709Z">
+<meta property="og:updated_time" content="2019-10-27T07:54:40.122Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/10/27/1-Laravel-Practice/">
@@ -216,7 +216,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 00:08:28 / Modified: 14:40:37" itemprop="dateCreated datePublished" datetime="2019-10-27T00:08:28+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 00:08:28 / Modified: 15:54:40" itemprop="dateCreated datePublished" datetime="2019-10-27T00:08:28+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -241,21 +241,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2>Installation</h2><hr><p>Install in docker (using richarvey now , should create by myself)</p><ul>
+        <h1>Installation</h1><hr><h2>Install with docker</h2><p>(using richarvey now , should create by myself)</p><ol>
 <li>透過 <code>composer global require laravel/installer</code> 去安裝</li>
-<li>會面臨到 <code>bash : laravel command not found</code> 的問題，透過 <code>export PATH=&quot;~/.composer/vendor/bin:$PATH&quot;</code> 去解決</li>
+<li>會面臨到 <code>bash:laravel command not found</code>的問題</li>
+<li>透過 <code>export PATH=&quot;~/.composer/vendor/bin:$PATH&quot;</code> 去解決</li>
 <li>接著， <code>laravel new project</code> (記得要加-f )</li>
-<li>然後記得去改 <code>vi /etc/nginx/sites-enabled/*</code></li>
-<li><code>/project/public</code></li>
-<li>以上是以 nginx 環境</li>
-</ul><a id="more"></a>
+<li>記得去改 <code>vi /etc/nginx/sites-enabled/*</code></li>
+<li>更改裡面檔案路徑<code>/project/public</code></li>
+</ol><a id="more"></a>
 
 
 
+
+<p>以上是以 nginx 環境操作</p>
 <h2>DB setting</h2>
 <ol>
 <li>via <code>php artisan make:auth</code> create 登入畫面</li>
-<li>via <code>php artisan migrate</code> create DB structure，根據 <code>database/migrations/2014_10_12_000000_create_users_table.php</code> 去部署 DB structure</li>
+<li>via <code>php artisan migrate</code> create DB structure</li>
+<li>根據 <code>database/migrations/2014_10_12_000000_create_users_table.php</code> 去部署 DB structure</li>
 </ol>
 <h2>Eloquent</h2>
 <ul>
@@ -264,20 +267,22 @@
 <code>php artisan make:model Article</code> Artisan 幫我們生成的Model 文件</p>
 </li>
 <li>
-<p>Eloquent讓一個 &lt;b&gt; Model &lt;/b&gt;對應一張數據庫表，並且在底層封裝了很多&lt;b&gt;function&lt;/b&gt;，可以讓Model非常方便地調用</p>
+<p>Eloquent讓一個 <strong>Model</strong> 對應一張數據庫表，並且在底層封裝了很多 <strong>function</strong> ，可以讓Model非常方便地調用</p>
 </li>
 <li>
-<p>只需要繼承Eloquent，就可以 use &lt;b&gt;first() find() where() orderBy()&lt;/b&gt; 等事情
+<p>只需要繼承Eloquent，就可以 use <strong>first() find() where() orderBy()</strong> 等功能
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> \<span class="title">Eloquent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> $fillable = [];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h5>基礎使用要點</h5>
+<h4>基礎使用要點</h4>
 <ol>
-<li>
-<p>每一個繼承Eloquent 的類都有兩個'固定用法'
-<code>Article::find($number)</code> <code>Article::all()</code>
-前者會得到一個帶有DB中取出來值的對象，後者會得到一個包含整個DB的對象合集。</p>
-</li>
+<li>每一個繼承Eloquent 的類都有兩個'固定用法'</li>
+</ol>
+<ul>
+<li><code>Article::find($number)</code> 會得到一個帶有DB中取出來值的對象</li>
+<li><code>Article::all()</code> 會得到一個包含整個DB的對象合集。</li>
+</ul>
+<ol start="2">
 <li>
 <p>所有的中間方法如<code>where()</code> <code>orderBy()</code> 等都能夠同時支持'靜態' 和'非靜態式' 兩種方式調用
 即<code>Article::where()...</code>  和 <code>Article::....-&gt;where()</code>。</p>
@@ -286,27 +291,25 @@
 <p>所有的'非固定用法' 的調用最後都需要一個操作來'收尾'，本片教程中有兩個'收尾操作'：<code>-&gt;get()</code> 和<code>-&gt;first()</code>。</p>
 </li>
 <li>
-<p>如果你不理解為什麼'Article'這個類可以使用<code>-&gt;where()</code> <code>-&gt;get()</code>等很多方法的話，說明你需要去讀一下PHP對象繼承的文檔了：對象繼承。</p>
+<p>如果不理解為什麼'Article'這個類可以使用<code>-&gt;where()</code> <code>-&gt;get()</code>等很多方法的話，需要去讀一下PHP對象繼承的文檔了：對象繼承。</p>
 </li>
 </ol>
-<h4>model DB manipulation</h4>
-<h6>Example</h6>
+<h3>Model DB manipulation</h3>
+<h5>Example</h5>
 <ol>
 <li>Find the article which id = 2 and print it out
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article  =  Article :: find( <span class="number">2</span> );</span><br><span class="line"><span class="keyword">echo</span>  $article -&gt; title ;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::find(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">echo</span> $article-&gt;title;</span><br></pre></td></tr></table></figure></li>
 <li>Search and find the title which is &quot;我是標題&quot;，and print id
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article  =  Article :: where( <span class="string">' title '</span> , <span class="string">'我是標題'</span> ) -&gt; first();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span>  $article -&gt; id ;</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::where(<span class="string">'title'</span>, <span class="string">'我是標題'</span>)-&gt;first();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $article-&gt;id;</span><br></pre></td></tr></table></figure></li>
 <li>Search all article and repeat to print all title
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles  =  Article :: all(); <span class="comment">//此處得到的$articles是一個對象集合，可以在後面加上'-&gt;toArray()'變成多維數組。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> ( $articles  <span class="keyword">as</span>  $article ) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span>  $article -&gt; title ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Search all the article which id is between 10~20 and print all the title out</li>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::all(); <span class="comment">//此處得到的$articles是一個對象集合，可以在後面加上'-&gt;toArray()'變成多維數組。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Search all the article which id is between 10~20 and print all the title out
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Search all the article and repeat to print all the title ,按照updated_at 倒序排序
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;orderBy(<span class="string">'updated_at'</span>, <span class="string">'desc'</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ol>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles  =  Article :: where( <span class="string">' id '</span> , <span class="string">' &gt; '</span> , <span class="number">10</span> ) -&gt; where( <span class="string">' id '</span> , <span class="string">' &lt; '</span> , <span class="number">20</span> ) -&gt; get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> ( $articles  <span class="keyword">as</span>  $article ) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span>  $article -&gt; title ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ol start="9">
-<li>Search all the article and repeat to print all the title ,按照updated_at 倒序排序</li>
-</ol>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles  =  Article :: where( <span class="string">' id '</span> , <span class="string">' &gt; '</span> , <span class="number">10</span> ) -&gt; where( <span class="string">' id '</span> , <span class="string">' &lt; '</span> , <span class="number">20</span> ) -&gt; orderBy( <span class="string">' updated_at '</span> , <span class="string">' desc '</span> ) -&gt; get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span> ( $articles  <span class="keyword">as</span>  $article ) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span>  $article -&gt; title ;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2>使用Migration 和Seeder</h2>
-<h4>Use artisan 生成 Migration</h4>
+<h3>Use artisan 生成 Migration</h3>
 <ul>
 <li>
 <p><code>php artisan make:migration create_articles_table</code></p>
@@ -321,13 +324,19 @@ We edit its &quot;up&quot; function:
 </li>
 </ul>
 <p><code>php artisan migrate</code></p>
-<h4>Use artisan 生成 model and migration</h4>
-<p><code>php artisan make:model Post -m</code></p>
+<h3>Use artisan 生成 model and migration</h3>
 <ul>
-<li>model本身是個類別，所以採「大駝峰」命名，且名稱最後不加s</li>
-<li>資料表命名規則為：table名稱小寫，且補上s</li>
+<li>
+<p><code>php artisan make:model Post -m</code></p>
+</li>
+<li>
+<p>model本身是個類別，所以採「大駝峰」命名，且名稱最後不加s</p>
+</li>
+<li>
+<p>資料表命名規則為：table名稱小寫，且補上s</p>
+</li>
 </ul>
-<h4>Use artisan 生成 Seeder</h4>
+<h3>Use artisan 生成 Seeder</h3>
 <ul>
 <li>
 <p><code>php artisan make:seeder ArticleSeeder</code></p>
@@ -356,7 +365,7 @@ We edit its &quot;up&quot; function:
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Laravel/" rel="tag"># Laravel</a>
+              <a href="/tags/Laravel-Database/" rel="tag"># Laravel, Database</a>
           </div>
 
         
@@ -409,7 +418,7 @@ We edit its &quot;up&quot; function:
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">DB setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">Eloquent</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">基礎使用要點</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">3.0.1.</span> <span class="nav-text">model DB manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#null"><span class="nav-number">3.0.1.0.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">4.</span> <span class="nav-text">使用Migration 和Seeder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.0.1.</span> <span class="nav-text">Use artisan 生成 Migration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.0.2.</span> <span class="nav-text">Use artisan 生成 model and migration</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">4.0.3.</span> <span class="nav-text">Use artisan 生成 Seeder</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Install with docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">DB setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">Eloquent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">基礎使用要點</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.1.</span> <span class="nav-text">Model DB manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">1.3.1.0.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">使用Migration 和Seeder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.1.</span> <span class="nav-text">Use artisan 生成 Migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.2.</span> <span class="nav-text">Use artisan 生成 model and migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.3.</span> <span class="nav-text">Use artisan 生成 Seeder</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -424,20 +433,20 @@ We edit its &quot;up&quot; function:
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

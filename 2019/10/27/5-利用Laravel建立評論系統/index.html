@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.4.2',
+    exturl: false,
+    sidebar: {"position":"left","width":260,"display":"hide","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="5.建立評論系統基礎規則 需要新建一個表專門用來存放每一條評論，每一條評論都屬於某一篇文章。 建立 model 和資料表 建立名為Comment的model，並順便建立附帶的migration php artisan make:model Comment -m 這樣一次性的建立兩個文件 database&#x2F;migrations&#x2F;2017_11_11_151823_create_comments_ta">
+<meta name="keywords" content="Laravel, Database">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5.利用Laravel建立評論系統">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1&#x2F;index.html">
+<meta property="og:site_name" content="About My Things">
+<meta property="og:description" content="5.建立評論系統基礎規則 需要新建一個表專門用來存放每一條評論，每一條評論都屬於某一篇文章。 建立 model 和資料表 建立名為Comment的model，並順便建立附帶的migration php artisan make:model Comment -m 這樣一次性的建立兩個文件 database&#x2F;migrations&#x2F;2017_11_11_151823_create_comments_ta">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-10-27T07:55:13.897Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>5.利用Laravel建立評論系統 | About My Things</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">About My Things</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-records">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Records</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          5.利用Laravel建立評論系統
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-10-27 15:48:54 / Modified: 15:55:13" itemprop="dateCreated datePublished" datetime="2019-10-27T15:48:54+08:00">2019-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">Laravel</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2>5.建立評論系統</h2><h3>基礎規則</h3><ul>
+<li>需要新建一個表專門用來存放每一條評論，每一條評論都屬於某一篇文章。</li>
+</ul><h3>建立 model 和資料表</h3><ul>
+<li>建立名為Comment的model，並順便建立附帶的migration
+<code>php artisan make:model Comment -m</code></li>
+<li>這樣一次性的建立兩個文件
+<code>database/migrations/2017_11_11_151823_create_comments_table.php</code> 和Comment類</li>
+<li>填寫<code>up()</code>方法，給<code>comments</code>表增加
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Schema::create(<span class="string">'comments'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</span><br><span class="line">        $table-&gt;increments(<span class="string">'id'</span>);</span><br><span class="line">        $table-&gt;string(<span class="string">'nickname'</span>);</span><br><span class="line">        $table-&gt;string(<span class="string">'email'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;string(<span class="string">'website'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;text(<span class="string">'content'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;integer(<span class="string">'article_id'</span>);</span><br><span class="line">        $table-&gt;timestamps();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>接著運行
+<code>php artisan migrate</code></li>
+<li>最後資料表已經建立完成</li>
+</ul><a id="more"></a>
+
+
+
+
+<h3>建立一對多關係</h3>
+<ul>
+<li>在 Article 模型中增加一對多關係的函數：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> <span class="title">Model</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hasManyComments</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'App\Comment'</span>, <span class="string">'article_id'</span>, <span class="string">'id'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>完成！</li>
+</ul>
+<h2>構建前台UI</h2>
+<ul>
+<li>修改前台的視圖文件，想辦法把評論功能加進去。</li>
+</ul>
+<h4>建立前台的 ArticleController</h4>
+<p><code>php artisan make:controller ArticleController</code>
+<code>Route::get('article/{id}', 'ArticleController@show');</code></p>
+<ul>
+<li>
+<p>此處的 {id} 指任意字符串，此字段為文章 ID，為數字，但是本路由卻會嘗試匹配所有請求，所以當遇到奇怪的路由調用的方法，記得檢查路由順序。路由匹配方式為前置匹配：任何一條路由規則匹配成功，會立刻返回结果，後面的路由便没有響應機會。</p>
+</li>
+<li>
+<p>增加 show 函數
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">show</span><span class="params">($id)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'article/show'</span>)-&gt;withArticle(Article::with(<span class="string">'hasManyComments'</span>)-&gt;find($id));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>在頂部引入 Model，否則會報錯
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">....</span><br><span class="line"><span class="keyword">use</span> <span class="title">App</span>\<span class="title">Article</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArticleController</span> <span class="keyword">extends</span> <span class="title">Controller</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">....</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h4>建立前台文章</h4>
+<ul>
+<li>建立<code>resources/views/article/show.blade.php</code>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;title&gt;Learn Laravel 5&lt;/title&gt;</span><br><span class="line"></span><br><span class="line">    &lt;link href=&quot;//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;</span><br><span class="line">    &lt;script src=&quot;//cdn.bootcss.com/jquery/2.2.4/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script src=&quot;//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line"></span><br><span class="line">    &lt;div id=&quot;content&quot; style=&quot;padding: 50px;&quot;&gt;</span><br><span class="line"></span><br><span class="line">        &lt;h4&gt;</span><br><span class="line">            &lt;a href=&quot;/&quot;&gt;&lt;&lt; 返回首页&lt;/a&gt;</span><br><span class="line">        &lt;/h4&gt;</span><br><span class="line"></span><br><span class="line">        &lt;h1 style=&quot;text-align: center; margin-top: 50px;&quot;&gt;&#123;&#123; $article-&gt;title &#125;&#125;&lt;/h1&gt;</span><br><span class="line">        &lt;hr&gt;</span><br><span class="line">        &lt;div id=&quot;date&quot; style=&quot;text-align: right;&quot;&gt;</span><br><span class="line">            &#123;&#123; $article-&gt;updated_at &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div id=&quot;content&quot; style=&quot;margin: 20px;&quot;&gt;</span><br><span class="line">            &lt;p&gt;</span><br><span class="line">                &#123;&#123; $article-&gt;body &#125;&#125;</span><br><span class="line">            &lt;/p&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">        &lt;div id=&quot;comments&quot; style=&quot;margin-top: 50px;&quot;&gt;</span><br><span class="line"></span><br><span class="line">            @if (count($errors) &gt; 0)</span><br><span class="line">                &lt;div class=&quot;alert alert-danger&quot;&gt;</span><br><span class="line">                    &lt;strong&gt;操作失败&lt;/strong&gt; 输入不符合要求&lt;br&gt;&lt;br&gt;</span><br><span class="line">                    &#123;!! implode(&apos;&lt;br&gt;&apos;, $errors-&gt;all()) !!&#125;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            @endif</span><br><span class="line"></span><br><span class="line">            &lt;div id=&quot;new&quot;&gt;</span><br><span class="line">                &lt;form action=&quot;&#123;&#123; url(&apos;comment&apos;) &#125;&#125;&quot; method=&quot;POST&quot;&gt;</span><br><span class="line">                    &#123;!! csrf_field() !!&#125;</span><br><span class="line">                    &lt;input type=&quot;hidden&quot; name=&quot;article_id&quot; value=&quot;&#123;&#123; $article-&gt;id &#125;&#125;&quot;&gt;</span><br><span class="line">                    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                        &lt;label&gt;Nickname&lt;/label&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; name=&quot;nickname&quot; class=&quot;form-control&quot; style=&quot;width: 300px;&quot; required=&quot;required&quot;&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                        &lt;label&gt;Email address&lt;/label&gt;</span><br><span class="line">                        &lt;input type=&quot;email&quot; name=&quot;email&quot; class=&quot;form-control&quot; style=&quot;width: 300px;&quot;&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                        &lt;label&gt;Home page&lt;/label&gt;</span><br><span class="line">                        &lt;input type=&quot;text&quot; name=&quot;website&quot; class=&quot;form-control&quot; style=&quot;width: 300px;&quot;&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;div class=&quot;form-group&quot;&gt;</span><br><span class="line">                        &lt;label&gt;Content&lt;/label&gt;</span><br><span class="line">                        &lt;textarea name=&quot;content&quot; id=&quot;newFormContent&quot; class=&quot;form-control&quot; rows=&quot;10&quot; required=&quot;required&quot;&gt;&lt;/textarea&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line">                    &lt;button type=&quot;submit&quot; class=&quot;btn btn-lg btn-success col-lg-12&quot;&gt;Submit&lt;/button&gt;</span><br><span class="line">                &lt;/form&gt;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">            &lt;script&gt;</span><br><span class="line">            function reply(a) &#123;</span><br><span class="line">              var nickname = a.parentNode.parentNode.firstChild.nextSibling.getAttribute(&apos;data&apos;);</span><br><span class="line">              var textArea = document.getElementById(&apos;newFormContent&apos;);</span><br><span class="line">              textArea.innerHTML = &apos;@&apos;+nickname+&apos; &apos;;</span><br><span class="line">            &#125;</span><br><span class="line">            &lt;/script&gt;</span><br><span class="line"></span><br><span class="line">            &lt;div class=&quot;conmments&quot; style=&quot;margin-top: 100px;&quot;&gt;</span><br><span class="line">                @foreach ($article-&gt;hasManyComments as $comment)</span><br><span class="line"></span><br><span class="line">                    &lt;div class=&quot;one&quot; style=&quot;border-top: solid 20px #efefef; padding: 5px 20px;&quot;&gt;</span><br><span class="line">                        &lt;div class=&quot;nickname&quot; data=&quot;&#123;&#123; $comment-&gt;nickname &#125;&#125;&quot;&gt;</span><br><span class="line">                            @if ($comment-&gt;website)</span><br><span class="line">                                &lt;a href=&quot;&#123;&#123; $comment-&gt;website &#125;&#125;&quot;&gt;</span><br><span class="line">                                    &lt;h3&gt;&#123;&#123; $comment-&gt;nickname &#125;&#125;&lt;/h3&gt;</span><br><span class="line">                                &lt;/a&gt;</span><br><span class="line">                            @else</span><br><span class="line">                                &lt;h3&gt;&#123;&#123; $comment-&gt;nickname &#125;&#125;&lt;/h3&gt;</span><br><span class="line">                            @endif</span><br><span class="line">                            &lt;h6&gt;&#123;&#123; $comment-&gt;created_at &#125;&#125;&lt;/h6&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;content&quot;&gt;</span><br><span class="line">                            &lt;p style=&quot;padding: 20px;&quot;&gt;</span><br><span class="line">                                &#123;&#123; $comment-&gt;content &#125;&#125;</span><br><span class="line">                            &lt;/p&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                        &lt;div class=&quot;reply&quot; style=&quot;text-align: right; padding: 5px;&quot;&gt;</span><br><span class="line">                            &lt;a href=&quot;#new&quot; onclick=&quot;reply(this);&quot;&gt;回复&lt;/a&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                @endforeach</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4>建立評論儲存功能</h4>
+<ul>
+<li>建立controller
+<code>php artisan make:controller CommentController</code></li>
+<li>建立route
+<code>Route::post('comment', 'CommentController@store');</code></li>
+<li>增加 store 函數
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">store</span><span class="params">(Request $request)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (Comment::create($request-&gt;all())) &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect()-&gt;back();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> redirect()-&gt;back()-&gt;withInput()-&gt;withErrors(<span class="string">'评论发表失败！'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>批量賦值
+採用批量賦值方法來減少儲存評論的代碼
+model可利用「create」方法將array型態的資料進行模型(實體)的新增，而一般的「save」方法僅能進行單一屬性(欄位)設定，例如：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// create方法</span></span><br><span class="line">$data = [</span><br><span class="line">    <span class="string">'column_1'</span> =&gt; <span class="string">'...'</span>,</span><br><span class="line">    <span class="string">'column_2'</span> =&gt; <span class="string">'...'</span>,</span><br><span class="line">];</span><br><span class="line">Post::create($data);</span><br><span class="line"></span><br><span class="line"><span class="comment">// save方法</span></span><br><span class="line">$post = <span class="keyword">new</span> Post;</span><br><span class="line">$post-&gt;column_1 = <span class="string">'...'</span>;</span><br><span class="line">$post-&gt;column_2 = <span class="string">'...'</span>;</span><br><span class="line">$post-&gt;save();</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h6>tags: <code>Laravel</code></h6>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Laravel-Database/" rel="tag"># Laravel, Database</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2019/10/27/4-Laravel-Restful/" rel="next" title="4. Laravel Restful">
+                  <i class="fa fa-chevron-left"></i> 4. Laravel Restful
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2019/10/27/Laravel-Database/" rel="prev" title="Laravel Database">
+                  Laravel Database <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">5.建立評論系統</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">基礎規則</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">建立 model 和資料表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">建立一對多關係</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">構建前台UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.0.1.</span> <span class="nav-text">建立前台的 ArticleController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.0.2.</span> <span class="nav-text">建立前台文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">2.0.3.</span> <span class="nav-text">建立評論儲存功能</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#null"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">tags: Laravel</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="PingJing Wang"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">PingJing Wang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/pingjing0628" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;pingjing0628" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:fish1063345@gmail.com" title="E-Mail &amp;rarr; mailto:fish1063345@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PingJing Wang</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='210, 224, 216' opacity='0.5' zIndex='-1' count='99' src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/muse.js"></script>
+<script src="/js/next-boot.js"></script>
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+    <script defer src="/lib/three/canvas_sphere.min.js"></script>
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
