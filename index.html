@@ -188,6 +188,75 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/PHP-Basic-Rules/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/27/PHP-Basic-Rules/" class="post-title-link" itemprop="url">PHP Basic Rules</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-10-27 23:53:15 / Modified: 23:53:49" itemprop="dateCreated datePublished" datetime="2019-10-27T23:53:15+08:00">2019-10-27</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/Eloquent/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -213,7 +282,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:53:03 / Modified: 15:53:48" itemprop="dateCreated datePublished" datetime="2019-10-27T15:53:03+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:53:03 / Modified: 23:28:14" itemprop="dateCreated datePublished" datetime="2019-10-27T15:53:03+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -238,47 +307,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Eloquent</h2><h3>1. What is Eloquent?</h3><ul>
-<li>Eloquent是一個ORM，Object Relational Mapping，翻譯為“對象關係映射”。</li>
-<li>所謂“對象”，就是“模型(Model)”</li>
-<li>對象關係映射，即為模型間關係。</li>
-</ul><h3>一對一關係</h3><ul>
-<li>
-<p>這描述的是兩個模型之間一對一的關係。</p>
-</li>
-<li>
-<p>假如我們有兩個模型：User 和Account，分別對應user和消費者，他們是一對一的關係，那麼如果我們要使用Eloquent 提供的一對一關係方法，表格結構應該是這樣的：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user: id ... ... account_id</span><br><span class="line"></span><br><span class="line">account: id ... ... user_id</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>假設我們需要在User 模型中查詢對應的Account 表的信息，那麼應該是這樣的。<code>/app/models/User.php</code>:
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'users'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hasOneAccount</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasOne(<span class="string">'Account'</span>, <span class="string">'user_id'</span>, <span class="string">'id'</span>);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>當我們需要用到這種關係的時候
-<code>$account = User::find(10)-&gt;hasOneAccount;</code></p>
-</li>
-<li>
-<p>此時得到的<code>$account</code> 即為<code>Account</code> 類的一個實例。</p>
-</li>
-<li>
-<p>這裡最難的地方在於後面的兩個foreign_key 和local_key 的設置，</p>
-</li>
-<li>
-<p>在User 類中，無論hasOne 誰，第二個參數都是<code>user_id</code>，第三個參數一般都是<code>id</code>。由於前面的<code>find(10)</code> 已經鎖定了id = 10，所以這段函數對應的SQL 為： <code>select * from account where user_id=10</code>。</p>
-</li>
-<li>
-<p>使用Eloquent 時候的建議：</p>
-<ol>
-<li>每一個Model 中都指定表名</li>
-<li>has one account 這樣的關係寫成<code>hasOneAccount()</code> 而不是簡單的<code>account()</code></li>
-<li>每次使用模型間關係的時候都寫全參數，不要省略</li>
-</ol>
-</li>
-</ul>
+          <h2 id="What-is-Eloquent"><a href="#What-is-Eloquent" class="headerlink" title="What is Eloquent?"></a>What is Eloquent?</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/Eloquent/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/Eloquent/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -327,7 +359,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:52:16 / Modified: 15:54:19" itemprop="dateCreated datePublished" datetime="2019-10-27T15:52:16+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:52:16 / Modified: 23:29:23" itemprop="dateCreated datePublished" datetime="2019-10-27T15:52:16+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -352,18 +384,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>PHP Operators</h2><ul>
-<li>
-<p>Return true if $a is not TRUE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Not -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(! <span class="number">0</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">false</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">null</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="string">''</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! []); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">new</span> stdClass); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Return true if $a is not FALSE.</p>
-</li>
-</ul>
+          <h2 id="PHP-Operators"><a href="#PHP-Operators" class="headerlink" title="PHP Operators"></a>PHP Operators</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/PHP-Operators/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/PHP-Operators/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -412,7 +436,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:51:42 / Modified: 15:56:32" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:42+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:51:42 / Modified: 23:34:10" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:42+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -437,10 +461,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Setter and Getter</h2><p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $A;</span><br><span class="line"><span class="keyword">protected</span> $B;</span><br><span class="line"><span class="keyword">private</span> $C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <h2 id="Setter-and-Getter"><a href="#Setter-and-Getter" class="headerlink" title="Setter and Getter"></a>Setter and Getter</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/PHP-Setter-and-Getter/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/PHP-Setter-and-Getter/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -489,7 +513,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:51:08 / Modified: 15:56:27" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:08+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:51:08 / Modified: 23:33:03" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:08+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -514,14 +538,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Laravel Middleware</h2><h3>Middleware</h3><ul>
-<li>Middleware提供了一種方便的機制來過濾進入應用程序的 HTTP 請求。</li>
-<li>最簡單的使用方法就是比對使用者的請求資料是不是符合我們的要求，如果符合，就繼續下一個個程序；如果不符合，可以導向另外一個頁面 or 回傳一個錯誤訊息。</li>
-<li>假設我們有&lt;font color=&quot;red&quot;&gt;重複要驗證&lt;/font&gt;的資料，我們可以寫在 Middleware，不用每次在 Controller 中各 function 執行的時候都要重複寫。</li>
-</ul>
+          <h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/Laravel-Middleware/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/Laravel-Middleware/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -570,7 +590,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:50:28 / Modified: 15:55:26" itemprop="dateCreated datePublished" datetime="2019-10-27T15:50:28+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:50:28 / Modified: 23:36:13" itemprop="dateCreated datePublished" datetime="2019-10-27T15:50:28+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -595,13 +615,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Laravel CSRF</h2><h3>CSRF</h3><ul>
-<li>跨站請求偽造（英語：Cross-site request forgery），也被稱為 one-click attack 或者 session riding，通常縮寫為 CSRF 或者 XSRF，是一種挾制用戶在當前已登錄的Web應用程式上執行非本意的操作的攻擊方法。</li>
-<li>跟跨網站指令碼（XSS）相比，XSS 利用的是用戶對指定網站的信任，CSRF 利用的是網站對用戶網頁瀏覽器的信任。</li>
-</ul>
+          <h2 id="CSRF"><a href="#CSRF" class="headerlink" title="CSRF"></a>CSRF</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/Laravel-CSRF/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/Laravel-CSRF/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -650,7 +667,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:49:59 / Modified: 15:56:10" itemprop="dateCreated datePublished" datetime="2019-10-27T15:49:59+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:49:59 / Modified: 23:41:56" itemprop="dateCreated datePublished" datetime="2019-10-27T15:49:59+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -675,14 +692,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Laravel Database</h2><p>Laravel 將Model分成三個部分</p><ol>
+          <p>Laravel 將Model分成三個部分</p>
+<ol>
 <li>原生 SQL 查詢</li>
 <li>查詢建構器</li>
 <li>Eloquent ORM</li>
-</ol><hr><h2>原生 SQL 查詢</h2><p>如果資料庫設定完成，接著用 <code>DB::connection('資料庫類型')</code> 連線後，就可以使用 <code>DB</code> facade 進行查詢。DB facade 提供每個類型的查詢方法：<code>select</code>、<code>update</code>、<code>insert</code>、<code>delete</code>、<code>statement</code>。</p>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/Laravel-Database/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/Laravel-Database/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -731,7 +749,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:48:54 / Modified: 15:55:13" itemprop="dateCreated datePublished" datetime="2019-10-27T15:48:54+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:48:54 / Modified: 23:44:20" itemprop="dateCreated datePublished" datetime="2019-10-27T15:48:54+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -756,22 +774,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>5.建立評論系統</h2><h3>基礎規則</h3><ul>
+          <h3 id="基礎規則"><a href="#基礎規則" class="headerlink" title="基礎規則"></a>基礎規則</h3><ul>
 <li>需要新建一個表專門用來存放每一條評論，每一條評論都屬於某一篇文章。</li>
-</ul><h3>建立 model 和資料表</h3><ul>
-<li>建立名為Comment的model，並順便建立附帶的migration
-<code>php artisan make:model Comment -m</code></li>
-<li>這樣一次性的建立兩個文件
-<code>database/migrations/2017_11_11_151823_create_comments_table.php</code> 和Comment類</li>
-<li>填寫<code>up()</code>方法，給<code>comments</code>表增加
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Schema::create(<span class="string">'comments'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</span><br><span class="line">        $table-&gt;increments(<span class="string">'id'</span>);</span><br><span class="line">        $table-&gt;string(<span class="string">'nickname'</span>);</span><br><span class="line">        $table-&gt;string(<span class="string">'email'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;string(<span class="string">'website'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;text(<span class="string">'content'</span>)-&gt;nullable();</span><br><span class="line">        $table-&gt;integer(<span class="string">'article_id'</span>);</span><br><span class="line">        $table-&gt;timestamps();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>接著運行
-<code>php artisan migrate</code></li>
-<li>最後資料表已經建立完成</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -820,7 +828,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:48:11 / Modified: 15:59:11" itemprop="dateCreated datePublished" datetime="2019-10-27T15:48:11+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:48:11 / Modified: 23:48:10" itemprop="dateCreated datePublished" datetime="2019-10-27T15:48:11+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -845,67 +853,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>4. Laravel Restful</h2><ol>
-<li>進行增刪改查
-<code>Route::resource('photo', 'PhotoController');</code></li>
-<li></li>
-</ol><table>
-<thead>
-<tr>
-<th>動作</th>
-<th>URI</th>
-<th>行為</th>
-<th>路由名稱</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td>/photos</td>
-<td>index</td>
-<td>photos.index</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>/photos/create</td>
-<td>create</td>
-<td>photos.create</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>/photos</td>
-<td>store</td>
-<td>photos.store</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>/photos/{photo}</td>
-<td>show</td>
-<td>photos.show</td>
-</tr>
-<tr>
-<td>GET</td>
-<td>/photos/{photo}/edit</td>
-<td>edit</td>
-<td>photos.edit</td>
-</tr>
-<tr>
-<td>PUT / PATCH</td>
-<td>/photos/{photo}</td>
-<td>update</td>
-<td>photos.update</td>
-</tr>
-<tr>
-<td>DELETE</td>
-<td>/photos/{photo}</td>
-<td>destory</td>
-<td>photos.destory</td>
-</tr>
-</tbody>
-</table>
+          <h2 id="Restful"><a href="#Restful" class="headerlink" title="Restful"></a>Restful</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/4-Laravel-Restful/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/4-Laravel-Restful/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -954,7 +905,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-10-27 15:46:51 / Modified: 15:47:45" itemprop="dateCreated datePublished" datetime="2019-10-27T15:46:51+08:00">2019-10-27</time>
+              <time title="Created: 2019-10-27 15:46:51 / Modified: 23:49:00" itemprop="dateCreated datePublished" datetime="2019-10-27T15:46:51+08:00">2019-10-27</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -979,158 +930,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>搭建Laravel後台</h2><ol>
-<li>
-<p>使用Artisan 去搭建後台
-<code>php artisan make:controller Admin/HomeController</code>
-此時 laravel會幫我們自己建一個admin資料夾在controller裡面</p>
-</li>
-<li>
-<p>增加路由於web.php
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Route::group([<span class="string">'middleware'</span> =&gt; <span class="string">'auth'</span>, <span class="string">'namespace'</span> =&gt; <span class="string">'Admin'</span>, <span class="string">'prefix'</span> =&gt; <span class="string">'admin'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Route::get(<span class="string">'/'</span>, <span class="string">'HomeController@index'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-於是在網址後方加上<code>/admin</code>即可</p>
-</li>
-<li>
-<p>新建index首頁，在admin/Homecontroller加上
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'admin/home'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>create 後台首頁view</p>
-</li>
-</ol>
+          <h2 id="搭建Laravel後台"><a href="#搭建Laravel後台" class="headerlink" title="搭建Laravel後台"></a>搭建Laravel後台</h2>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/27/2-Laravel-blade/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/10/27/2-Laravel-blade/" class="post-title-link" itemprop="url">2. Laravel blade</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-10-27 11:14:14 / Modified: 15:45:56" itemprop="dateCreated datePublished" datetime="2019-10-27T11:14:14+08:00">2019-10-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">Laravel</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2>Laravel blade</h2><hr><ul>
-<li>
-<p>When you see route to trace controller and then when you see <code>return view('home');</code></p>
-</li>
-<li>
-<p>means you have to find <code>home.blade.php</code></p>
-</li>
-<li>
-<p><code>@extends('layouts.app')</code>
-表示此blade的基礎view</p>
-</li>
-<li>
-<p><code>@section（'content'）... @endsection</code>
-這兩個代碼之間的程式，會被放到基礎view的<code>@yield('content')</code>這個區塊輸出</p>
-</li>
-<li>
-<p>刪除homeController 中的 建構子即可取消登入
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;middleware(<span class="string">'auth'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>接下來引入model，於Controller的index更改
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> view(<span class="string">'home'</span>)-&gt;withArticles(\App\Article::all());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>\App\Article::all()</code> 是以<strong>絕對命名空間的方式</strong> 對Article 調用。</p>
-</li>
-<li>
-<p><code>withArticles</code> 是我定義的方法，Laravel View 採用<code>__call</code> 来 handle 對未定義 function 的調用，给view注入 $articles 的變數，這行code等於 <code>-&gt;with('articles', \App\Article::all())</code></p>
-</li>
-<li>
-<p><code>-&gt;withFooBar(100)</code> 等於 <code>-&gt;with('foo_bar', 100)</code>，即駝峰變數會被轉換為蛇形變數。</p>
-</li>
-<li>
-<p>修改view文件
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">@extends(&apos;layouts.app&apos;)</span><br><span class="line"></span><br><span class="line">@section(&apos;content&apos;)</span><br><span class="line">    &lt;div id=&quot;title&quot; style=&quot;text-align: center;&quot;&gt;</span><br><span class="line">        &lt;h1&gt;Learn Laravel 5&lt;/h1&gt;</span><br><span class="line">        &lt;div style=&quot;padding: 5px; font-size: 16px;&quot;&gt;Learn Laravel 5&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;div id=&quot;content&quot;&gt;</span><br><span class="line">        &lt;ul&gt;</span><br><span class="line">            @foreach ($articles as $article)</span><br><span class="line">            &lt;li style=&quot;margin: 50px 0;&quot;&gt;</span><br><span class="line">                &lt;div class=&quot;title&quot;&gt;</span><br><span class="line">                    &lt;a href=&quot;&#123;&#123; url(&apos;article/&apos;.$article-&gt;id) &#125;&#125;&quot;&gt;</span><br><span class="line">                        &lt;h4&gt;&#123;&#123; $article-&gt;title &#125;&#125;&lt;/h4&gt;</span><br><span class="line">                    &lt;/a&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">                &lt;div class=&quot;body&quot;&gt;</span><br><span class="line">                    &lt;p&gt;&#123;&#123; $article-&gt;body &#125;&#125;&lt;/p&gt;</span><br><span class="line">                &lt;/div&gt;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">            @endforeach</span><br><span class="line">        &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">@endsection</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>調整view，以增加頂端菜單欄
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Learn Laravel 5<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"title"</span> <span class="attr">style</span>=<span class="string">"text-align: center;"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Learn Laravel 5<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"padding: 5px; font-size: 16px;"</span>&gt;</span>Learn Laravel 5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">            @foreach ($articles as $article)</span><br><span class="line">            <span class="tag">&lt;<span class="name">li</span> <span class="attr">style</span>=<span class="string">"margin: 50px 0;"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"title"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123; url('article/'.$article-&gt;id) &#125;&#125;"</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h4</span>&gt;</span>&#123;&#123; $article-&gt;title &#125;&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"body"</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123; $article-&gt;body &#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">            @endforeach</span><br><span class="line">        <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>view 變成一個獨立的view，不再有基底view，并將 jQuery 和 BootStrap 替換為CDN，更快更稳定了。</p>
-</li>
-<li>
-<p>同理也更改 <code>app.blade.php</code></p>
-</li>
-<li>
-<p>删除 <code>&lt;script src=&quot;&quot;&gt;&lt;/script&gt;</code>和</p>
-</li>
-<li>
-<p>替换 <code>&lt;link href=&quot;&quot; rel=&quot;stylesheet&quot;&gt;</code>為
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/10/27/2-Laravel-blade/#more" rel="contents">
+              <a class="btn" href="/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/" rel="contents">
                 Read more &raquo;
               </a>
             </div>
@@ -1199,7 +1002,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1212,7 +1015,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
