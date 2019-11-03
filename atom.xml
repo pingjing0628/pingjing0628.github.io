@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-03T07:21:14.239Z</updated>
+  <updated>2019-11-03T08:13:52.431Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP 特點- 閉包</title>
+    <link href="http://yoursite.com/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/"/>
+    <id>http://yoursite.com/2019/11/03/PHP-特點-閉包/</id>
+    <published>2019-11-03T07:23:13.000Z</published>
+    <updated>2019-11-03T08:13:52.431Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2><a id="more"></a><ul><li>閉包是在創造時就封裝了內部狀態的函式，即使原有的環境已經消失了這個被封裝的狀態會中被寶存在閉包中</li><li>Example <code>array_map</code>閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$numbersPlusOne = array_map(<span class="function"><span class="keyword">function</span> <span class="params">($number)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> $number + <span class="number">1</span>;</span><br><span class="line">&#125;, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">print_r($numbersPlusOne);</span><br><span class="line"><span class="comment">//輸出 --&gt; [2,3,4]</span></span><br></pre></td></tr></table></figure></li><li>PHP閉包是一種物件，每一閉包實體都有其內部狀態，就跟其他PHP物件一樣可以用 <code>$this</code> 關鍵字存取</li></ul><h4 id="繫結狀態"><a href="#繫結狀態" class="headerlink" title="繫結狀態"></a>繫結狀態</h4><ul><li>Example 利用 <code>use</code>關鍵字繫結狀態到閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enclosePerson</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">($doCommand)</span> <span class="title">use</span> <span class="params">($name)</span> </span>&#123;</span><br><span class="line"><span class="keyword">return</span> sprintf(<span class="string">'%s, %s'</span>, $name, $doCommand);</span><br><span class="line">&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將"Clay"關閉在閉包中</span></span><br><span class="line">$clay = enclosePerson(<span class="string">'Clay'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用指令呼叫閉包</span></span><br><span class="line"><span class="keyword">echo</span> $clay(<span class="string">'get me sweet tea!'</span>);</span><br><span class="line"><span class="comment">// 輸出 --&gt; "Clay, get me sweet tea!"</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;閉包&quot;&gt;&lt;a href=&quot;#閉包&quot; class=&quot;headerlink&quot; title=&quot;閉包&quot;&gt;&lt;/a&gt;閉包&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="closure" scheme="http://yoursite.com/tags/closure/"/>
+    
+  </entry>
   
   <entry>
     <title>PHP 特點- 特徵機制</title>
