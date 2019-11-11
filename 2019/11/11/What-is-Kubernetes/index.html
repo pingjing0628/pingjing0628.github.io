@@ -61,7 +61,10 @@
 <meta property="og:image" content="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-tw&#x2F;dotnet&#x2F;architecture&#x2F;microservices&#x2F;docker-application-development-process&#x2F;media&#x2F;image1.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;www.mundodocker.com.br&#x2F;wp-content&#x2F;uploads&#x2F;2017&#x2F;06&#x2F;namespaces.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;i0.wp.com&#x2F;foxutech.com&#x2F;wp-content&#x2F;uploads&#x2F;2018&#x2F;02&#x2F;Kubernetes-Pod.jpg">
-<meta property="og:updated_time" content="2019-11-11T08:45:09.799Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;prod-edxapp.edx-cdn.org&#x2F;assets&#x2F;courseware&#x2F;v1&#x2F;bfc5b38f02fcd9cd9c290750ecbc70a1&#x2F;asset-v1:LinuxFoundationX+LFS158x+2T2017+type@asset+block&#x2F;replicaset-1.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;codelabs.developers.google.com&#x2F;codelabs&#x2F;k8s-kickstart&#x2F;img&#x2F;6a62a850f2be0c9b.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;codelabs.developers.google.com&#x2F;codelabs&#x2F;k8s-kickstart&#x2F;img&#x2F;8d107e36763fd5c1.png">
+<meta property="og:updated_time" content="2019-11-11T09:07:33.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;docs.microsoft.com&#x2F;zh-tw&#x2F;dotnet&#x2F;architecture&#x2F;microservices&#x2F;docker-application-development-process&#x2F;media&#x2F;image1.png">
 
@@ -220,7 +223,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2019-11-11 15:44:19 / Modified: 16:45:09" itemprop="dateCreated datePublished" datetime="2019-11-11T15:44:19+08:00">2019-11-11</time>
+              <time title="Created: 2019-11-11 15:44:19 / Modified: 17:07:33" itemprop="dateCreated datePublished" datetime="2019-11-11T15:44:19+08:00">2019-11-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -326,7 +329,7 @@
 <ul>
 <li>一組資源的集合</li>
 <li>隔離不同 namespace 之間的資源 (persistant volume除外)</li>
-<li>預設有 kube-system/kube-public/default<img src="http://www.mundodocker.com.br/wp-content/uploads/2017/06/namespaces.png" class="" width="1000" height="500" title="vi-vim-cheat-sheet">
+<li>預設有 kube-system/kube-public/default<img src="http://www.mundodocker.com.br/wp-content/uploads/2017/06/namespaces.png" class="" width="600" height="300" title="vi-vim-cheat-sheet">
 </li>
 </ul>
 <ol start="2">
@@ -336,6 +339,53 @@
 <li>Kubernetes中最小執行單位</li>
 <li>一個完整的 application 部署封裝，可能有一個以上的container</li>
 <li>共享儲存空間/網路<img src="http://i0.wp.com/foxutech.com/wp-content/uploads/2018/02/Kubernetes-Pod.jpg" class="" width="1000" height="500" title="vi-vim-cheat-sheet">
+</li>
+</ul>
+<ol start="3">
+<li>ReplicaSet</li>
+</ol>
+<ul>
+<li>保證Pod數量跟設定中要求的一樣<br>ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，假設今天把一台pod刪掉，那麼他今天就會再幫你生一台新的出來，那如果有多的話，就會把最舊的那台砍掉</li>
+<li>少了就補齊，多了就砍掉，絕對不多不少</li>
+<li>支援動態縮放<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bfc5b38f02fcd9cd9c290750ecbc70a1/asset-v1:LinuxFoundationX+LFS158x+2T2017+type@asset+block/replicaset-1.png" class="" width="700" height="500" title="vi-vim-cheat-sheet">
+</li>
+</ul>
+<ol start="4">
+<li>Deployment </li>
+</ol>
+<ul>
+<li><p>管理 Pod 與 ReplicaSet</p>
+</li>
+<li><p>聲明式更新</p>
+</li>
+<li><p>支援Rolling Update</p>
+</li>
+<li><p><strong>Rolling Update</strong></p>
+</li>
+<li><p>此image版本為1.0，若此時想換成2.0時</p>
+<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/6a62a850f2be0c9b.png" class="" width="1000" height="500" title="vi-vim-cheat-sheet"></li>
+<li><p>此時deployment會去開一個新的replicaSet，這個replicaSet會去開一個新的Pod，而這個Pod會去用2.0的image，此時2.0開了新的一台，而就的那邊就會關掉一台，且不會斷掉，以此類推，最後就會把舊的1.0的都關掉，變成2.0的Pod(先開新的，確定能夠使用，才把1.0關掉)</p>
+<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/8d107e36763fd5c1.png" class="" width="1000" height="500" title="vi-vim-cheat-sheet">
+</li>
+</ul>
+<ol start="5">
+<li>Job (與deployment不同的是，deployment是提供一個持續性的服務，不會斷掉)</li>
+</ol>
+<ul>
+<li>啟動Pod並且執行指定次數 (譬如像是migration，就是在上版的那一次要跑而已，run完即結束)</li>
+<li>Pod 如果執行錯誤，會重新開啟直到完成(重新開啟的次數是可以設定的)</li>
+</ul>
+<ol start="6">
+<li>Services</li>
+</ol>
+<ul>
+<li>用來存取Pod的資源(因為Pod 不會讓外面的Cluster直接存取到，所以中間會經過Services)</li>
+<li>可透過 Kubernetes內部的 DNS來對應</li>
+<li>有提供各種的 Service Types：<ul>
+<li>ClusterIP</li>
+<li>Node Port</li>
+<li>LoadBalancer </li>
+</ul>
 </li>
 </ul>
 
