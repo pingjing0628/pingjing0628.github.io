@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/11/What-is-Kubernetes/</loc>
+    
+    <lastmod>2019-11-11T08:15:00.352Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/03/%25E5%2588%25A9%25E7%2594%25A8-PHPUnit-Mockery-%25E9%2596%258B%25E7%2599%25BC-API/</loc>
     
     <lastmod>2019-11-09T15:12:56.600Z</lastmod>
