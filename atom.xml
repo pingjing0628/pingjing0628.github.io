@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-11T09:17:12.689Z</updated>
+  <updated>2019-11-15T16:58:55.219Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 串列、Tuple、字典與集合</title>
+    <link href="http://yoursite.com/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/"/>
+    <id>http://yoursite.com/2019/11/16/python-串列、Tuple、字典與集合/</id>
+    <published>2019-11-15T16:18:31.000Z</published>
+    <updated>2019-11-15T16:58:55.219Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Python-串列與tuple"><a href="#Python-串列與tuple" class="headerlink" title="Python 串列與tuple"></a>Python 串列與tuple</h3><a id="more"></a><ul><li>Python有兩種序列結構：<strong>tuple</strong> 與 <strong>串列(list)</strong></li><li>他們都有零個或多個元素，與字串不同的是，可以用不同類型的元素</li><li>每一個元素都可以是<strong>任何Python</strong>物件，因此可以任意地創造有深度且複雜的結構</li></ul><h4 id="Tuple-vs-串列"><a href="#Tuple-vs-串列" class="headerlink" title="Tuple vs 串列"></a>Tuple vs 串列</h4><ul><li>Tuple是不可變的，當指派一個元素給tuple後，他就再也不能更改了</li><li>串列是可變的，可以盡情地插入與刪除元素</li></ul><h3 id="串列"><a href="#串列" class="headerlink" title="串列"></a>串列</h3><ul><li>串列適合用來追蹤東西的順序，特別是順序與內容可能會改變的時候</li><li>在串列中，同一個值可能會出現一次以上</li></ul><h4 id="用-或-list-建立"><a href="#用-或-list-建立" class="headerlink" title="用 [] 或 list() 建立"></a>用 [] 或 list() 建立</h4><ul><li>串列由0或多個元素組成的，以逗號分隔<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>big_birds = [<span class="string">'emu'</span>, <span class="string">'ostrich'</span>, <span class="string">'cassowary'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>first_names = [<span class="string">'Graham'</span>, <span class="string">'John'</span>, <span class="string">'Terry'</span>, <span class="string">'Michael'</span>]</span><br></pre></td></tr></table></figure></li><li>也可以用 <code>list()</code>函式製作一個空串列<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>another_empty_list = list()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>another_empty_list</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;Python-串列與tuple&quot;&gt;&lt;a href=&quot;#Python-串列與tuple&quot; class=&quot;headerlink&quot; title=&quot;Python 串列與tuple&quot;&gt;&lt;/a&gt;Python 串列與tuple&lt;/h3&gt;
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
+    
+    
+      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>What is Kubernetes?</title>
