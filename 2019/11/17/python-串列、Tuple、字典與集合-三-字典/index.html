@@ -50,12 +50,15 @@
   };
 </script>
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="Python 字典">
+<meta name="keywords" content="python,字典">
+<meta property="og:type" content="article">
 <meta property="og:title" content="python 串列、Tuple、字典與集合(三)-字典">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;17&#x2F;python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
+<meta property="og:description" content="Python 字典">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-11-17T07:08:50.223Z">
+<meta property="og:updated_time" content="2019-11-17T07:31:28.649Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://yoursite.com/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/">
@@ -211,8 +214,20 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-17 15:08:50" itemprop="dateCreated datePublished" datetime="2019-11-17T15:08:50+08:00">2019-11-17</time>
+              <time title="Created: 2019-11-17 15:08:50 / Modified: 15:31:28" itemprop="dateCreated datePublished" datetime="2019-11-17T15:08:50+08:00">2019-11-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -226,7 +241,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h2 id="Python-字典"><a href="#Python-字典" class="headerlink" title="Python 字典"></a>Python 字典</h2><a id="more"></a>
+
+<h3 id="字典-Dictionary"><a href="#字典-Dictionary" class="headerlink" title="字典(Dictionary)"></a>字典(Dictionary)</h3><ul>
+<li>字典與串列很像，但他不在乎項目的順序，且不會用0或1等位移值還選擇項目</li>
+<li>必須為每一個值指定一個獨一無二的<strong>鍵</strong></li>
+<li>這個鍵通常是個字串，但其實可以用任何一種不可變的Python類型：布林、整數、浮點數、tuple、字串…</li>
+<li>字典通常是可變的，可以添加、刪除、改變他們的 “鍵/值”元素</li>
+</ul>
+<blockquote>
+<p>其他語言可能會將字典稱為<strong>關聯陣列(associative array)、雜湊(Hash)或 hashmap</strong>，在Python，字典也可稱為dict還減少字母數 </p>
+</blockquote>
+<h4 id="用-來建立"><a href="#用-來建立" class="headerlink" title="用 {}來建立"></a>用 <code>{}</code>來建立</h4><ul>
+<li>要建立字典，要用大括號包住以逗號分隔的<strong>鍵</strong><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_dict = &#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_dict</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h4 id="用dict-來轉換"><a href="#用dict-來轉換" class="headerlink" title="用dict()來轉換"></a>用<code>dict()</code>來轉換</h4><ul>
+<li>可以使用<code>dict()</code>，將雙值序列轉換到字典裡面，每一個序列的第一個項目都會被當成鍵，第二個項目會被當成值<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lol = [[<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>], [<span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(lol)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p>字典裡的鍵的順序都是任意排列的</p>
+</blockquote>
+<ul>
+<li>可以使用任何存放雙項目序列的序列</li>
+</ul>
+<ol>
+<li><p>一個含有雙項目tuple的串列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lot = [(<span class="string">'a'</span>, <span class="string">'b'</span>), (<span class="string">'c'</span>, <span class="string">'d'</span>), (<span class="string">'e'</span>, <span class="string">'f'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(lot)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一個含有雙項目串列的tuple</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tol = ([<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>], [<span class="string">'e'</span>, <span class="string">'f'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(tol)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一個含有雙字元字串的串列</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>los = [<span class="string">'ab'</span>, <span class="string">'cd'</span>, <span class="string">'ef'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(los)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>一個含有雙字元字串的tuple</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tos = (<span class="string">'ab'</span>, <span class="string">'cd'</span>, <span class="string">'ef'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(tos)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h4 id="用-鍵-來添加或變更項目"><a href="#用-鍵-來添加或變更項目" class="headerlink" title="用[鍵]來添加或變更項目"></a>用[鍵]來添加或變更項目</h4>
     </div>
 
     
@@ -234,6 +291,10 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/%E5%AD%97%E5%85%B8/" rel="tag"># 字典</a>
+          </div>
 
         
 
@@ -285,6 +346,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-字典"><span class="nav-number">1.</span> <span class="nav-text">Python 字典</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字典-Dictionary"><span class="nav-number">1.1.</span> <span class="nav-text">字典(Dictionary)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#用-來建立"><span class="nav-number">1.1.1.</span> <span class="nav-text">用 {}來建立</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用dict-來轉換"><span class="nav-number">1.1.2.</span> <span class="nav-text">用dict()來轉換</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用-鍵-來添加或變更項目"><span class="nav-number">1.1.3.</span> <span class="nav-text">用[鍵]來添加或變更項目</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -312,7 +374,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
