@@ -50,13 +50,13 @@
   };
 </script>
 
-  <meta name="description" content="Installation">
+  <meta name="description" content="Installation &amp;lt;!--more--&amp;gt;  Install with docker (using richarvey now , should create by myself)  透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash:laravel command not found的問題 透過 export P">
 <meta name="keywords" content="Laravel,Database">
 <meta property="og:type" content="article">
 <meta property="og:title" content="1. Laravel Practice">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;27&#x2F;1-Laravel-Practice&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Installation">
+<meta property="og:description" content="Installation &amp;lt;!--more--&amp;gt;  Install with docker (using richarvey now , should create by myself)  透過 composer global require laravel&#x2F;installer 去安裝 會面臨到 bash:laravel command not found的問題 透過 export P">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2019-10-27T15:50:28.555Z">
 <meta name="twitter:card" content="summary">
@@ -241,9 +241,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h1><a id="more"></a>
+        <h1>Installation</h1>
+<p>&lt;!--more--&gt;</p>
 <hr>
-<h2 id="Install-with-docker"><a href="#Install-with-docker" class="headerlink" title="Install with docker"></a>Install with docker</h2><p>(using richarvey now , should create by myself)</p>
+<h2>Install with docker</h2>
+<p>(using richarvey now , should create by myself)</p>
 <ol>
 <li>透過 <code>composer global require laravel/installer</code> 去安裝</li>
 <li>會面臨到 <code>bash:laravel command not found</code>的問題</li>
@@ -253,72 +255,106 @@
 <li>更改裡面檔案路徑<code>/project/public</code></li>
 </ol>
 <p>以上是以 nginx 環境操作</p>
-<h2 id="DB-setting"><a href="#DB-setting" class="headerlink" title="DB setting"></a>DB setting</h2><ol>
+<h2>DB setting</h2>
+<ol>
 <li>via <code>php artisan make:auth</code> create 登入畫面</li>
 <li>via <code>php artisan migrate</code> create DB structure</li>
 <li>根據 <code>database/migrations/2014_10_12_000000_create_users_table.php</code> 去部署 DB structure</li>
 </ol>
-<h2 id="Eloquent"><a href="#Eloquent" class="headerlink" title="Eloquent"></a>Eloquent</h2><ul>
-<li><p>Eloquent is laravel ORM<br><code>php artisan make:model Article</code> Artisan 幫我們生成的Model 文件</p>
+<h2>Eloquent</h2>
+<ul>
+<li>
+<p>Eloquent is laravel ORM
+<code>php artisan make:model Article</code> Artisan 幫我們生成的Model 文件</p>
 </li>
-<li><p>Eloquent讓一個 <strong>Model</strong> 對應一張數據庫表，並且在底層封裝了很多 <strong>function</strong> ，可以讓Model非常方便地調用</p>
+<li>
+<p>Eloquent讓一個 <strong>Model</strong> 對應一張數據庫表，並且在底層封裝了很多 <strong>function</strong> ，可以讓Model非常方便地調用</p>
 </li>
-<li><p>只需要繼承Eloquent，就可以 use <strong>first() find() where() orderBy()</strong> 等功能</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> \<span class="title">Eloquent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> $fillable = [];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li>
+<p>只需要繼承Eloquent，就可以 use <strong>first() find() where() orderBy()</strong> 等功能
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Article</span> <span class="keyword">extends</span> \<span class="title">Eloquent</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">protected</span> $fillable = [];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
 </ul>
-<h4 id="基礎使用要點"><a href="#基礎使用要點" class="headerlink" title="基礎使用要點"></a>基礎使用要點</h4><ol>
-<li><p>每一個繼承Eloquent 的類都有兩個’固定用法’</p>
+<h4>基礎使用要點</h4>
+<ol>
+<li>每一個繼承Eloquent 的類都有兩個'固定用法'</li>
+</ol>
 <ul>
 <li><code>Article::find($number)</code> 會得到一個帶有DB中取出來值的對象</li>
 <li><code>Article::all()</code> 會得到一個包含整個DB的對象合集。</li>
 </ul>
+<ol start="2">
+<li>
+<p>所有的中間方法如<code>where()</code> <code>orderBy()</code> 等都能夠同時支持'靜態' 和'非靜態式' 兩種方式調用
+即<code>Article::where()...</code>  和 <code>Article::....-&gt;where()</code>。</p>
 </li>
-<li><p>所有的中間方法如<code>where()</code> <code>orderBy()</code> 等都能夠同時支持’靜態’ 和’非靜態式’ 兩種方式調用<br>即<code>Article::where()...</code>  和 <code>Article::....-&gt;where()</code>。</p>
+<li>
+<p>所有的'非固定用法' 的調用最後都需要一個操作來'收尾'，本片教程中有兩個'收尾操作'：<code>-&gt;get()</code> 和<code>-&gt;first()</code>。</p>
 </li>
-<li><p>所有的’非固定用法’ 的調用最後都需要一個操作來’收尾’，本片教程中有兩個’收尾操作’：<code>-&gt;get()</code> 和<code>-&gt;first()</code>。</p>
-</li>
-<li><p>如果不理解為什麼’Article’這個類可以使用<code>-&gt;where()</code> <code>-&gt;get()</code>等很多方法的話，需要去讀一下PHP對象繼承的文檔了：對象繼承。</p>
-</li>
-</ol>
-<h3 id="Model-DB-manipulation"><a href="#Model-DB-manipulation" class="headerlink" title="Model DB manipulation"></a>Model DB manipulation</h3><h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><ol>
-<li>Find the article which id = 2 and print it out<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::find(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">echo</span> $article-&gt;title;</span><br></pre></td></tr></table></figure></li>
-<li>Search and find the title which is “我是標題”，and print id<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::where(<span class="string">'title'</span>, <span class="string">'我是標題'</span>)-&gt;first();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $article-&gt;id;</span><br></pre></td></tr></table></figure></li>
-<li>Search all article and repeat to print all title<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::all(); <span class="comment">//此處得到的$articles是一個對象集合，可以在後面加上'-&gt;toArray()'變成多維數組。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Search all the article which id is between 10~20 and print all the title out<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>Search all the article and repeat to print all the title ,按照updated_at 倒序排序<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;orderBy(<span class="string">'updated_at'</span>, <span class="string">'desc'</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<li>
+<p>如果不理解為什麼'Article'這個類可以使用<code>-&gt;where()</code> <code>-&gt;get()</code>等很多方法的話，需要去讀一下PHP對象繼承的文檔了：對象繼承。</p>
 </li>
 </ol>
-<h2 id="使用Migration-和Seeder"><a href="#使用Migration-和Seeder" class="headerlink" title="使用Migration 和Seeder"></a>使用Migration 和Seeder</h2><h3 id="Use-artisan-生成-Migration"><a href="#Use-artisan-生成-Migration" class="headerlink" title="Use artisan 生成 Migration"></a>Use artisan 生成 Migration</h3><ul>
-<li><p><code>php artisan make:migration create_articles_table</code></p>
+<h3>Model DB manipulation</h3>
+<h5>Example</h5>
+<ol>
+<li>Find the article which id = 2 and print it out
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::find(<span class="number">2</span>);</span><br><span class="line"><span class="keyword">echo</span> $article-&gt;title;</span><br></pre></td></tr></table></figure></li>
+<li>Search and find the title which is &quot;我是標題&quot;，and print id
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$article = Article::where(<span class="string">'title'</span>, <span class="string">'我是標題'</span>)-&gt;first();</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> $article-&gt;id;</span><br></pre></td></tr></table></figure></li>
+<li>Search all article and repeat to print all title
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::all(); <span class="comment">//此處得到的$articles是一個對象集合，可以在後面加上'-&gt;toArray()'變成多維數組。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Search all the article which id is between 10~20 and print all the title out
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>Search all the article and repeat to print all the title ,按照updated_at 倒序排序
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$articles = Article::where(<span class="string">'id'</span>, <span class="string">'&gt;'</span>, <span class="number">10</span>)-&gt;where(<span class="string">'id'</span>, <span class="string">'&lt;'</span>, <span class="number">20</span>)-&gt;orderBy(<span class="string">'updated_at'</span>, <span class="string">'desc'</span>)-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($articles <span class="keyword">as</span> $article) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">echo</span> $article-&gt;title;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2>使用Migration 和Seeder</h2>
+<h3>Use artisan 生成 Migration</h3>
+<ul>
+<li>
+<p><code>php artisan make:migration create_articles_table</code></p>
 </li>
-<li><p>A file which name is 2*****_create_articles_table has been create successfully。<br>We edit its “up” function:</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>  <span class="function"><span class="keyword">function</span>  <span class="title">up</span> <span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    Schema::create(<span class="string">'articles'</span> , <span class="function"><span class="keyword">function</span> <span class="params">( Blueprint $table )</span>     </span>&#123; </span><br><span class="line">        $table -&gt; increments( <span class="string">'id'</span> ); </span><br><span class="line">        $table -&gt; string( <span class="string">'title'</span> ); </span><br><span class="line">        $table -&gt; text( <span class="string">'body'</span> ) -&gt; nullable(); </span><br><span class="line">        $table -&gt; integer( <span class="string">'user_id'</span> ); </span><br><span class="line">        $table -&gt;timestamps(); </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>And we make the php into real MySQL database:</p>
+<li>
+<p>A file which name is 2*****_create_articles_table has been create successfully。
+We edit its &quot;up&quot; function:
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>  <span class="function"><span class="keyword">function</span>  <span class="title">up</span> <span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    Schema::create(<span class="string">'articles'</span> , <span class="function"><span class="keyword">function</span> <span class="params">( Blueprint $table )</span>     </span>&#123; </span><br><span class="line">        $table -&gt; increments( <span class="string">'id'</span> ); </span><br><span class="line">        $table -&gt; string( <span class="string">'title'</span> ); </span><br><span class="line">        $table -&gt; text( <span class="string">'body'</span> ) -&gt; nullable(); </span><br><span class="line">        $table -&gt; integer( <span class="string">'user_id'</span> ); </span><br><span class="line">        $table -&gt;timestamps(); </span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>And we make the php into real MySQL database:</p>
 </li>
 </ul>
 <p><code>php artisan migrate</code></p>
-<h3 id="Use-artisan-生成-model-and-migration"><a href="#Use-artisan-生成-model-and-migration" class="headerlink" title="Use artisan 生成 model and migration"></a>Use artisan 生成 model and migration</h3><ul>
-<li><p><code>php artisan make:model Post -m</code></p>
+<h3>Use artisan 生成 model and migration</h3>
+<ul>
+<li>
+<p><code>php artisan make:model Post -m</code></p>
 </li>
-<li><p>model本身是個類別，所以採「大駝峰」命名，且名稱最後不加s</p>
+<li>
+<p>model本身是個類別，所以採「大駝峰」命名，且名稱最後不加s</p>
 </li>
-<li><p>資料表命名規則為：table名稱小寫，且補上s</p>
+<li>
+<p>資料表命名規則為：table名稱小寫，且補上s</p>
 </li>
 </ul>
-<h3 id="Use-artisan-生成-Seeder"><a href="#Use-artisan-生成-Seeder" class="headerlink" title="Use artisan 生成 Seeder"></a>Use artisan 生成 Seeder</h3><ul>
-<li><p><code>php artisan make:seeder ArticleSeeder</code></p>
+<h3>Use artisan 生成 Seeder</h3>
+<ul>
+<li>
+<p><code>php artisan make:seeder ArticleSeeder</code></p>
 </li>
-<li><p>Edit its “run” function</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        </span><br><span class="line">	DB::table(<span class="string">'articles'</span>) -&gt; delete();    </span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>($i = <span class="number">0</span> ; $i &lt; <span class="number">10</span> ; $i ++) &#123; </span><br><span class="line">	    \App\Article::create([<span class="string">'title'</span>=&gt;<span class="string">'Title'</span>.$i,<span class="string">'body'</span>=&gt;<span class="string">'Body'</span>.$i,<span class="string">'user_id'</span>=&gt;<span class="number">1</span>,]);</span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>
+<p>Edit its &quot;run&quot; function
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">run</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        </span><br><span class="line">	DB::table(<span class="string">'articles'</span>) -&gt; delete();    </span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>($i = <span class="number">0</span> ; $i &lt; <span class="number">10</span> ; $i ++) &#123; </span><br><span class="line">	    \App\Article::create([<span class="string">'title'</span>=&gt;<span class="string">'Title'</span>.$i,<span class="string">'body'</span>=&gt;<span class="string">'Body'</span>.$i,<span class="string">'user_id'</span>=&gt;<span class="number">1</span>,]);</span><br><span class="line">	&#125;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>把ArticleSeeder註冊到系統內。修改DatabaseSeeder.php的 “run” function</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>  <span class="function"><span class="keyword">function</span>  <span class="title">run</span> <span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">$this</span> -&gt; call( ArticleSeeder::class ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li><p>執行<code>php artisan db:seed</code></p>
+<li>
+<p>把ArticleSeeder註冊到系統內。修改DatabaseSeeder.php的 &quot;run&quot; function
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>  <span class="function"><span class="keyword">function</span>  <span class="title">run</span> <span class="params">()</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">$this</span> -&gt; call( ArticleSeeder::class ); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>Refresh articles table，already have 10 rows of fake data</p>
+<li>
+<p>執行<code>php artisan db:seed</code></p>
+</li>
+<li>
+<p>Refresh articles table，already have 10 rows of fake data</p>
 </li>
 </ul>
 
@@ -384,7 +420,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Installation"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-with-docker"><span class="nav-number">1.1.</span> <span class="nav-text">Install with docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DB-setting"><span class="nav-number">1.2.</span> <span class="nav-text">DB setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eloquent"><span class="nav-number">1.3.</span> <span class="nav-text">Eloquent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基礎使用要點"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">基礎使用要點</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Model-DB-manipulation"><span class="nav-number">1.3.1.</span> <span class="nav-text">Model DB manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Example"><span class="nav-number">1.3.1.0.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Migration-和Seeder"><span class="nav-number">1.4.</span> <span class="nav-text">使用Migration 和Seeder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-artisan-生成-Migration"><span class="nav-number">1.4.1.</span> <span class="nav-text">Use artisan 生成 Migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-artisan-生成-model-and-migration"><span class="nav-number">1.4.2.</span> <span class="nav-text">Use artisan 生成 model and migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-artisan-生成-Seeder"><span class="nav-number">1.4.3.</span> <span class="nav-text">Use artisan 生成 Seeder</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">Install with docker</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">DB setting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">Eloquent</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#null"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">基礎使用要點</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.1.</span> <span class="nav-text">Model DB manipulation</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#null"><span class="nav-number">1.3.1.0.1.</span> <span class="nav-text">Example</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">使用Migration 和Seeder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.1.</span> <span class="nav-text">Use artisan 生成 Migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.2.</span> <span class="nav-text">Use artisan 生成 model and migration</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.3.</span> <span class="nav-text">Use artisan 生成 Seeder</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -399,7 +435,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
