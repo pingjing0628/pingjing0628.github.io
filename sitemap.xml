@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/26/Database-ERModel/</loc>
+    
+    <lastmod>2019-11-26T15:19:00.709Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/24/Laravel-service-container/</loc>
+    
+    <lastmod>2019-11-24T08:21:15.259Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/22/python-%25E5%2591%25BD%25E5%2590%258D%25E7%25A9%25BA%25E9%2596%2593%25E8%2588%2587%25E7%25AF%2584%25E5%259C%258D/</loc>
     
     <lastmod>2019-11-21T16:34:43.848Z</lastmod>
