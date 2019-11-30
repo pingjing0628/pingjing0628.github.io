@@ -188,6 +188,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/30/GoLang-Environment/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/30/GoLang-Environment/" class="post-title-link" itemprop="url">GoLang - Environment</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-30 23:12:58 / Modified: 23:54:05" itemprop="dateCreated datePublished" datetime="2019-11-30T23:12:58+08:00">2019-11-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GoLang/" itemprop="url" rel="index">
+                    <span itemprop="name">GoLang</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="安裝主程式"><a href="#安裝主程式" class="headerlink" title="安裝主程式"></a>安裝主程式</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Environment/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/Database-ERModel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -238,92 +315,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Database 實體關聯模型(E-R model)</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>實體 (Entity)</h3>
-<ul>
-<li>將真實世界的人、事、物等實體，以一個方框圖來表示，如果實體必須依附其他實體而存在，則為弱實體，使用雙方v框圖表示。</li>
-<li>例如選課系統中的學生與課程兩個實體:
-<ul>
-<li>學生的緊急聯絡人則為弱實體</li>
-<li>因為學生轉學，則該學生的緊急連絡人資料便不需要被紀錄</li>
-</ul>
-</li>
-<li>下圖是學生選課系統中的實體：
-<img src="http://database.klab.tw/teach/img/t4_2_01.png" class="" width="300" height="150" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>屬性 (Attribute)</h3>
-<ul>
-<li>
-<p>實體擁有的特性稱為屬性(Attribute)，以橢圓形來表示屬性，</p>
-</li>
-<li>
-<p>當屬性具有多重值時，則以雙橢圓形來表示，</p>
-</li>
-<li>
-<p>屬性為主鍵，則屬性名稱底下畫一條底線區別，</p>
-</li>
-<li>
-<p>複合屬性(Composite attribute)則為屬性再分割，</p>
-</li>
-<li>
-<p>衍生屬性(Derived attribute)則以虛橢圓形來表示，</p>
-</li>
-<li>
-<p>例如選課系統中的學生實體擁有學號、姓名、性別、地址、年齡和電話等屬性，可以如下所示：
-<img src="http://database.klab.tw/teach/img/t4_2_02.png" class="" width="400" height="350" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>課程實體其屬性如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_03.png" class="" width="200" height="150" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>緊急聯絡人是弱實體，必須依附著學生實體，其主鍵若設定為學生學號，則此處不必繪出，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_04.png" class="" width="150" height="100" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>實體關係 (Relationship)</h3>
-<ul>
-<li>
-<p>說明各實體之間相互關聯(relationship)的限制(constraints)，是指實體與實體之間如果有關聯，則將此關聯以菱形連結兩實體，並寫出對應的基數。</p>
-</li>
-<li>
-<p>例如：每一個學生可以選修許多課程，一門課程可以被許多學生所選；每位學生皆有一位緊急聯絡人，每位聯絡人也只對應到一位學生。
-<img src="http://database.klab.tw/teach/img/t4_2_05.png" class="" width="300" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>當實體間的關聯為多對多時，並需將此關聯改為一個實體，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_06.png" class="" width="400" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>E-R關聯圖 (E-R Diagram)</h3>
-<ul>
-<li>第4步驟則畫出完整之E-R關聯圖(E-R Diagram)。例如學生選課的ER model如下：
-<img src="http://database.klab.tw/teach/img/t4_2_07.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>外來鍵參考圖 (relational model schema)</h3>
-<ol>
-<li>實體轉成一個資料表</li>
-<li>多值屬性轉成一個資料表</li>
-<li>複合屬性可以轉成一個資料表，也可以只記錄複合不分拆成不同欄位。</li>
-<li>衍生屬性記錄為計算值，並增加適當的欄位</li>
-<li>一般屬性轉成資料表的欄位</li>
-<li>多對多關聯轉成一個資料表</li>
-<li>1對多關聯必須多一個外來鍵置於多的那一個資料表，已便關聯到另一個資料表的主鍵。</li>
-<li>1對1關聯時，如果其中一個實體只有單一屬性，則可併入另一個資料表中，否則獨立為一個資料表，則仍須多一個外來鍵置已便關聯到另一個資料表的主鍵。</li>
-</ol>
-<ul>
-<li>
-<p>例如學生選課資料表之ER model轉成綱要如下：
-<img src="http://database.klab.tw/teach/img/t4_2_08.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>外來鍵參考圖(relational model schema)如下：
-<img src="http://database.klab.tw/teach/img/t4_2_09.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-
+          <h2 id="Database-實體關聯模型-E-R-model"><a href="#Database-實體關聯模型-E-R-model" class="headerlink" title="Database 實體關聯模型(E-R model)"></a>Database 實體關聯模型(E-R model)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/26/Database-ERModel/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -952,83 +952,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%BA%8C-Tuple/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%BA%8C-Tuple/" class="post-title-link" itemprop="url">python 串列、Tuple、字典與集合(二)-Tuple</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2019-11-17 12:05:10 / Modified: 23:57:38" itemprop="dateCreated datePublished" datetime="2019-11-17T12:05:10+08:00">2019-11-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Python-串列與tuple"><a href="#Python-串列與tuple" class="headerlink" title="Python 串列與tuple"></a>Python 串列與tuple</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%BA%8C-Tuple/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1078,20 +1001,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
