@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2019/12/01/About-GoLang/</loc>
+    <loc>http://yoursite.com/2019/12/01/Golang-Variables-Constants-declarations/</loc>
     
-    <lastmod>2019-12-01T03:19:44.643Z</lastmod>
+    <lastmod>2019-12-01T14:44:34.064Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/30/GoLang-Constants/</loc>
     
-    <lastmod>2019-12-01T02:56:12.269Z</lastmod>
+    <lastmod>2019-12-01T14:05:27.372Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/01/About-GoLang/</loc>
+    
+    <lastmod>2019-12-01T03:19:44.643Z</lastmod>
     
   </url>
   
