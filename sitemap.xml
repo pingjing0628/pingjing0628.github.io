@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/01/GoLang-Slice-Type/</loc>
+    
+    <lastmod>2019-12-01T15:50:23.792Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/01/GoLang-Array-Type/</loc>
+    
+    <lastmod>2019-12-01T15:49:17.229Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/12/01/GoLang-Predeclared-Type/</loc>
     
     <lastmod>2019-12-01T14:57:06.589Z</lastmod>
