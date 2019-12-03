@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-03T15:29:00.634Z</updated>
+  <updated>2019-12-03T15:37:19.850Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,25 @@
     <link href="http://yoursite.com/2019/12/03/GoLang-Struct/"/>
     <id>http://yoursite.com/2019/12/03/GoLang-Struct/</id>
     <published>2019-12-03T15:29:00.000Z</published>
-    <updated>2019-12-03T15:29:00.634Z</updated>
+    <updated>2019-12-03T15:37:19.850Z</updated>
+    
+    <content type="html"><![CDATA[<h2>Struct</h2>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2&gt;Struct&lt;/h2&gt;
+
+      
     
     </summary>
     
     
+      <category term="GoLang" scheme="http://yoursite.com/categories/GoLang/"/>
+    
+    
+      <category term="GoLang" scheme="http://yoursite.com/tags/GoLang/"/>
     
   </entry>
   
