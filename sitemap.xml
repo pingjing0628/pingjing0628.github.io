@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/03/GoLang-Anonymous-Function/</loc>
+    
+    <lastmod>2019-12-03T14:57:19.104Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/12/03/GoLang-First-class-function/</loc>
     
-    <lastmod>2019-12-03T14:48:22.507Z</lastmod>
+    <lastmod>2019-12-03T14:56:10.961Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/12/02/GoLang-Function-declarations/</loc>
     
-    <lastmod>2019-12-03T14:46:55.535Z</lastmod>
+    <lastmod>2019-12-03T14:50:50.583Z</lastmod>
     
   </url>
   
