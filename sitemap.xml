@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/08/GoLang-Method/</loc>
+    
+    <lastmod>2019-12-07T17:20:47.033Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/12/03/GoLang-Struct/</loc>
     
-    <lastmod>2019-12-07T17:14:48.915Z</lastmod>
+    <lastmod>2019-12-07T17:15:00.404Z</lastmod>
     
   </url>
   
