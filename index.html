@@ -188,6 +188,83 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/09/GoLang-%E7%B7%B4%E7%BF%92%E5%A7%93%E5%90%8D%E7%94%A2%E7%94%9F%E5%99%A8-dep/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/09/GoLang-%E7%B7%B4%E7%BF%92%E5%A7%93%E5%90%8D%E7%94%A2%E7%94%9F%E5%99%A8-dep/" class="post-title-link" itemprop="url">GoLang-練習姓名產生器-dep</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-09 00:13:35 / Modified: 00:14:35" itemprop="dateCreated datePublished" datetime="2019-12-09T00:13:35+08:00">2019-12-09</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GoLang/" itemprop="url" rel="index">
+                    <span itemprop="name">GoLang</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Practice"><a href="#Practice" class="headerlink" title="Practice"></a>Practice</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/09/GoLang-%E7%B7%B4%E7%BF%92%E5%A7%93%E5%90%8D%E7%94%A2%E7%94%9F%E5%99%A8-dep/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/08/GoLang-Inheritance/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -315,35 +392,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Method</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li>
-<p>結構可以定義同類型的資料，而同類型的資料通常又會有同類型的行為。</p>
-</li>
-<li>
-<p>Go 有 <code>Anonymous Function</code> ，有寫過 Javascript 可能第一個想到的解法是這樣：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">	name  <span class="keyword">string</span></span><br><span class="line">	age   <span class="keyword">int</span></span><br><span class="line">	Hello <span class="function"><span class="keyword">func</span><span class="params">(other People)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> yu People  <span class="comment">// var 變數名稱 變數型態</span></span><br><span class="line"></span><br><span class="line">	other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">	yu = People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>, <span class="function"><span class="keyword">func</span><span class="params">(other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + yu.name</span><br><span class="line">	&#125;&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(yu.Hello(other)) <span class="comment">// Hi! Someone, I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但缺點是，需要動態給匿名函式的值，且需要閉包才能取得 yu 變數，這樣函式就很難共用，且得先宣告 yu ，才能把匿名函式指定給 yu ，整個程式會變得有點混亂。因此
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">	name  <span class="keyword">string</span></span><br><span class="line">	age   <span class="keyword">int</span></span><br><span class="line">	Hello <span class="function"><span class="keyword">func</span><span class="params">(self People, other People)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	hello := <span class="function"><span class="keyword">func</span><span class="params">(self People, other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + self.name</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">	yu := People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>, hello&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(yu.Hello(yu, other)) <span class="comment">// Hi! I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>第一個傳的值就是結構變數，在函式裡就可以使用 <code>self</code> 取得結構的資料。這做法有點類似 Python 定義類別裡的 <code>self</code> ，只是需要自己手動傳值。</p>
-</li>
-<li>
-<p>事實上 Go 有提供更好的寫法：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">	name  <span class="keyword">string</span></span><br><span class="line">	age   <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(people People)</span> <span class="title">Hello</span><span class="params">(other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + people.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">	yu := People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(yu.Hello(other)) <span class="comment">// Hi! Someone, I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>它的概念是定義一個函式 <code>func</code> ，開頭就宣告這是哪個結構所使用的，以及裡面將會用什麼變數來代表結構本身 <code>(people People)</code> （傳值或傳址都可以），後面就跟平常定義函數一樣。</p>
-</li>
-<li>
-<p>這樣的寫法，就會把 <code>Hello</code> 函式跟 <code>People</code> 綁定在一起，用起來就會非常像物件導向的寫法了。</p>
-</li>
-</ul>
-
+          <h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/08/GoLang-Method/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -939,89 +996,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/01/GoLang-Predeclared-Type/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/01/GoLang-Predeclared-Type/" class="post-title-link" itemprop="url">GoLang-Predeclared Type</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-01 22:47:49" itemprop="dateCreated datePublished" datetime="2019-12-01T22:47:49+08:00">2019-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-02 22:52:05" itemprop="dateModified" datetime="2019-12-02T22:52:05+08:00">2019-12-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GoLang/" itemprop="url" rel="index">
-                    <span itemprop="name">GoLang</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="Predeclared-Type"><a href="#Predeclared-Type" class="headerlink" title="Predeclared Type"></a>Predeclared Type</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2019/12/01/GoLang-Predeclared-Type/" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1071,7 +1045,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">43</span>
+          <span class="site-state-item-count">44</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
