@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-09T14:59:30.005Z</updated>
+  <updated>2019-12-09T15:13:08.252Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PHP vs GoLang</title>
+    <link href="http://yoursite.com/2019/12/09/PHP-vs-GoLang/"/>
+    <id>http://yoursite.com/2019/12/09/PHP-vs-GoLang/</id>
+    <published>2019-12-09T15:10:51.000Z</published>
+    <updated>2019-12-09T15:13:08.252Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PHP-vs-GoLang"><a href="#PHP-vs-GoLang" class="headerlink" title="PHP vs GoLang"></a>PHP vs GoLang</h2><a id="more"></a><hr><h3 id="定義變數－Variables"><a href="#定義變數－Variables" class="headerlink" title="定義變數－Variables"></a>定義變數－Variables</h3><ul><li>PHP<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$a = <span class="string">"foo"</span>;</span><br><span class="line">$b = <span class="string">"bar"</span>;</span><br></pre></td></tr></table></figure></li><li>GoLang</li><li>區分為「新定義」、「預先定義」、「自動新定義」、「覆蓋」。<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 新定義：定義新的 a 變數為字串型別，而且值是「foo」</span></span><br><span class="line"><span class="keyword">var</span> a <span class="keyword">string</span> = <span class="string">"foo"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 預先定義：先定義一個新的 b 變數為字串型別但是不賦予值</span></span><br><span class="line"><span class="keyword">var</span> b <span class="keyword">string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 自動新定義：讓 Golang 依照值的內容自己定義新變數的資料型態</span></span><br><span class="line">c := <span class="string">"bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 覆蓋：先前已經定義過 a 了，所以可以像這樣直接覆蓋其值</span></span><br><span class="line">a = <span class="string">"fooooooo"</span></span><br></pre></td></tr></table></figure></li></ul><h3 id="輸出－Echo"><a href="#輸出－Echo" class="headerlink" title="輸出－Echo"></a>輸出－Echo</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;PHP-vs-GoLang&quot;&gt;&lt;a href=&quot;#PHP-vs-GoLang&quot; class=&quot;headerlink&quot; title=&quot;PHP vs GoLang&quot;&gt;&lt;/a&gt;PHP vs GoLang&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="GoLang" scheme="http://yoursite.com/categories/GoLang/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/GoLang/PHP/"/>
+    
+    
+      <category term="GoLang" scheme="http://yoursite.com/tags/GoLang/"/>
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+  </entry>
   
   <entry>
     <title>GoLang-練習姓名產生器-dep</title>
@@ -69,7 +96,7 @@
     <link href="http://yoursite.com/2019/12/08/GoLang-Method/"/>
     <id>http://yoursite.com/2019/12/08/GoLang-Method/</id>
     <published>2019-12-07T17:15:39.000Z</published>
-    <updated>2019-12-07T17:28:41.436Z</updated>
+    <updated>2019-12-09T15:00:05.348Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><a id="more"></a><hr><ul><li><p>結構可以定義同類型的資料，而同類型的資料通常又會有同類型的行為。</p></li><li><p>Go 有 <code>Anonymous Function</code> ，有寫過 Javascript 可能第一個想到的解法是這樣：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">name  <span class="keyword">string</span></span><br><span class="line">age   <span class="keyword">int</span></span><br><span class="line">Hello <span class="function"><span class="keyword">func</span><span class="params">(other People)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="keyword">var</span> yu People  <span class="comment">// var 變數名稱 變數型態</span></span><br><span class="line"></span><br><span class="line">other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">yu = People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>, <span class="function"><span class="keyword">func</span><span class="params">(other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + yu.name</span><br><span class="line">&#125;&#125;</span><br><span class="line"></span><br><span class="line">fmt.Println(yu.Hello(other)) <span class="comment">// Hi! Someone, I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>但缺點是，需要動態給匿名函式的值，且需要閉包才能取得 yu 變數，這樣函式就很難共用，且得先宣告 yu ，才能把匿名函式指定給 yu ，整個程式會變得有點混亂。因此</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">name  <span class="keyword">string</span></span><br><span class="line">age   <span class="keyword">int</span></span><br><span class="line">Hello <span class="function"><span class="keyword">func</span><span class="params">(self People, other People)</span> <span class="title">string</span></span></span><br><span class="line"><span class="function">&#125;</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">hello := <span class="function"><span class="keyword">func</span><span class="params">(self People, other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + self.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">yu := People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>, hello&#125;</span><br><span class="line"></span><br><span class="line">fmt.Println(yu.Hello(yu, other)) <span class="comment">// Hi! I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>第一個傳的值就是結構變數，在函式裡就可以使用 <code>self</code> 取得結構的資料。這做法有點類似 Python 定義類別裡的 <code>self</code> ，只是需要自己手動傳值。</p></li><li><p>事實上 Go 有提供更好的寫法：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> People <span class="keyword">struct</span> &#123;</span><br><span class="line">name  <span class="keyword">string</span></span><br><span class="line">age   <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(people People)</span> <span class="title">Hello</span><span class="params">(other People)</span> <span class="title">string</span></span> &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="string">`Hi! `</span> + other.name + <span class="string">`, I am `</span> + people.name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">other := People&#123;name: <span class="string">`Someone`</span>&#125;</span><br><span class="line">yu := People&#123;<span class="string">`Yu`</span>, <span class="number">18</span>&#125;</span><br><span class="line"></span><br><span class="line">fmt.Println(yu.Hello(other)) <span class="comment">// Hi! Someone, I am Yu</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>它的概念是定義一個函式 <code>func</code> ，開頭就宣告這是哪個結構所使用的，以及裡面將會用什麼變數來代表結構本身 <code>(people People)</code> （傳值或傳址都可以），後面就跟平常定義函數一樣。</p></li><li><p>這樣的寫法，就會把 <code>Hello</code> 函式跟 <code>People</code> 綁定在一起，用起來就會非常像物件導向的寫法了。</p></li></ul>]]></content>
     
@@ -470,31 +497,6 @@
       <category term="python" scheme="http://yoursite.com/tags/python/"/>
     
       <category term="裝飾器" scheme="http://yoursite.com/tags/%E8%A3%9D%E9%A3%BE%E5%99%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>python 產生器</title>
-    <link href="http://yoursite.com/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/"/>
-    <id>http://yoursite.com/2019/11/21/python-產生器/</id>
-    <published>2019-11-21T15:21:25.000Z</published>
-    <updated>2019-11-21T16:14:11.610Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Python-產生器"><a href="#Python-產生器" class="headerlink" title="Python 產生器"></a>Python 產生器</h2><a id="more"></a><hr><ul><li><p>產生器generator是一種Python序列建立物件</p></li><li><p>可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列</p></li><li><p>ex: <code>range()</code></p></li><li><p>每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值</p></li><li><p>一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始</p></li><li><p>若想建立一個可能會很大的序列，且程式很大，無法使用產生器生成式，可以編寫<strong>產生器函式</strong>，他是一種一般的函式，但會用 <code>yield</code>陳述式來回傳值，而不是 <code>return</code></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_range</span><span class="params">(first=<span class="number">0</span>, last=<span class="number">10</span>, step=<span class="number">1</span>)</span>:</span></span><br><span class="line">        number = first</span><br><span class="line">        <span class="keyword">while</span> number &lt; last:</span><br><span class="line">        <span class="keyword">yield</span> number</span><br><span class="line">        number += step</span><br><span class="line">// 是一個普通的函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_range</span><br><span class="line">&lt;function my_range at <span class="number">0x10193e268</span>&gt;</span><br><span class="line"></span><br><span class="line">// 回傳一個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger = my_range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger</span><br><span class="line">&lt;generator object my_range at <span class="number">0x10193e168</span>&gt;</span><br><span class="line"></span><br><span class="line">// 迭代這個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> ranger:</span><br><span class="line">        print(x)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Python-產生器&quot;&gt;&lt;a href=&quot;#Python-產生器&quot; class=&quot;headerlink&quot; title=&quot;Python 產生器&quot;&gt;&lt;/a&gt;Python 產生器&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="http://yoursite.com/categories/Python/"/>
-    
-    
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
-    
-      <category term="產生器" scheme="http://yoursite.com/tags/%E7%94%A2%E7%94%9F%E5%99%A8/"/>
     
   </entry>
   
