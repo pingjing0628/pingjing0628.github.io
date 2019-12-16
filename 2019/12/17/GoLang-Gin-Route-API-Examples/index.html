@@ -50,20 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="CSRF &amp;lt;!--more--&amp;gt;   跨站請求偽造（英語：Cross-site request forgery），也被稱為 one-click attack 或者 session riding，通常縮寫為 CSRF 或者 XSRF，是一種挾制用戶在當前已登錄的Web應用程式上執行非本意的操作的攻擊方法。 跟跨網站指令碼（XSS）相比，XSS 利用的是用戶對指定網站的信任，CSRF 利用">
-<meta name="keywords" content="Laravel,CSRF">
+  <meta name="description" content="API Examples &amp;lt;!--more--&amp;gt; Using GET, POST, PUT, PATCH, DELETE and OPTIONS 1234567891011121314151617func main() &amp;#123;	&#x2F;&#x2F; Creates a gin router with default middleware:	&#x2F;&#x2F; logger and recovery (cras">
+<meta name="keywords" content="GoLang,Gin,Route">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Laravel CSRF">
-<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;10&#x2F;27&#x2F;Laravel-CSRF&#x2F;index.html">
+<meta property="og:title" content="GoLang-Gin Route API Examples">
+<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;12&#x2F;17&#x2F;GoLang-Gin-Route-API-Examples&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="CSRF &amp;lt;!--more--&amp;gt;   跨站請求偽造（英語：Cross-site request forgery），也被稱為 one-click attack 或者 session riding，通常縮寫為 CSRF 或者 XSRF，是一種挾制用戶在當前已登錄的Web應用程式上執行非本意的操作的攻擊方法。 跟跨網站指令碼（XSS）相比，XSS 利用的是用戶對指定網站的信任，CSRF 利用">
+<meta property="og:description" content="API Examples &amp;lt;!--more--&amp;gt; Using GET, POST, PUT, PATCH, DELETE and OPTIONS 1234567891011121314151617func main() &amp;#123;	&#x2F;&#x2F; Creates a gin router with default middleware:	&#x2F;&#x2F; logger and recovery (cras">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;T6PLbma.png">
-<meta property="og:updated_time" content="2019-11-17T15:46:00.648Z">
+<meta property="og:updated_time" content="2019-12-16T16:04:03.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;i.imgur.com&#x2F;T6PLbma.png">
 
-<link rel="canonical" href="https://pingjing0628.github.io/2019/10/27/Laravel-CSRF/">
+<link rel="canonical" href="https://pingjing0628.github.io/2019/12/17/GoLang-Gin-Route-API-Examples/">
 
 
 <script id="page-configurations">
@@ -77,7 +75,7 @@
   };
 </script>
 
-  <title>Laravel CSRF | About My Things</title>
+  <title>GoLang-Gin Route API Examples | About My Things</title>
   
 
 
@@ -220,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/10/27/Laravel-CSRF/">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/17/GoLang-Gin-Route-API-Examples/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -233,7 +231,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Laravel CSRF
+          GoLang-Gin Route API Examples
         </h1>
 
         <div class="post-meta">
@@ -242,24 +240,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-10-27 15:50:28" itemprop="dateCreated datePublished" datetime="2019-10-27T15:50:28+08:00">2019-10-27</time>
+              <time title="Created: 2019-12-17 00:03:32 / Modified: 00:04:03" itemprop="dateCreated datePublished" datetime="2019-12-17T00:03:32+08:00">2019-12-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:46:00" itemprop="dateModified" datetime="2019-11-17T23:46:00+08:00">2019-11-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Laravel/" itemprop="url" rel="index">
-                    <span itemprop="name">Laravel</span>
+                  <a href="/categories/GoLang/" itemprop="url" rel="index">
+                    <span itemprop="name">GoLang</span>
                   </a>
                 </span>
             </span>
@@ -275,35 +267,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2>CSRF</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>跨站請求偽造（英語：Cross-site request forgery），也被稱為 one-click attack 或者 session riding，通常縮寫為 CSRF 或者 XSRF，是一種挾制用戶在當前已登錄的Web應用程式上執行非本意的操作的攻擊方法。</li>
-<li>跟跨網站指令碼（XSS）相比，XSS 利用的是用戶對指定網站的信任，CSRF 利用的是網站對用戶網頁瀏覽器的信任。</li>
-</ul>
-<h2>Laravel 內建 CSRF token</h2>
-<ul>
-<li>Laravel 透過應用程式自動產生一個 CSRF「token」來管理每個活躍的使用者 session。這個 token 用於驗證已認證使用者是否實際向應用程式發出請求。</li>
-</ul>
-<ol>
-<li>
-<p><code>vender/laravel/framework/src/Illuminate/Session/Store.php</code> 這支檔案，可以知道每次進入 laravel 專案的時候，都會檢查 session 中 <code>_token</code> 是否存在，如果不存在就會呼叫 <code>regenerateToken</code> 重新生成一個 token
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">start</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">$this</span>-&gt;loadSession();</span><br><span class="line"></span><br><span class="line">      <span class="keyword">if</span> (! <span class="keyword">$this</span>-&gt;has(<span class="string">'_token'</span>)) &#123;</span><br><span class="line">          <span class="keyword">$this</span>-&gt;regenerateToken();</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;started = <span class="keyword">true</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>regenerateToken</code> 實作內容，即隨機產生亂數字元。
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">regenerateToken</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;put(<span class="string">'_token'</span>, Str::random(<span class="number">40</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>實際用 POSTMAN 看看伺服器是不是真的有回傳 token
-<img src="https://i.imgur.com/T6PLbma.png" alt=""></p>
-</li>
-<li>
-<p>確實有一個名為 XSRF-TOKEN 的 token。</p>
-</li>
-</ol>
-<h2>添加校驗 token</h2>
+        <h2>API Examples</h2>
+<h2>&lt;!--more--&gt;</h2>
+<h3>Using GET, POST, PUT, PATCH, DELETE and OPTIONS</h3>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// Creates a gin router with default middleware:</span></span><br><span class="line">	<span class="comment">// logger and recovery (crash-free) middleware</span></span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	router.GET(<span class="string">"/someGet"</span>, getting)</span><br><span class="line">	router.POST(<span class="string">"/somePost"</span>, posting)</span><br><span class="line">	router.PUT(<span class="string">"/somePut"</span>, putting)</span><br><span class="line">	router.DELETE(<span class="string">"/someDelete"</span>, deleting)</span><br><span class="line">	router.PATCH(<span class="string">"/somePatch"</span>, patching)</span><br><span class="line">	router.HEAD(<span class="string">"/someHead"</span>, head)</span><br><span class="line">	router.OPTIONS(<span class="string">"/someOptions"</span>, options)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// By default it serves on :8080 unless a PORT environment variable was defined.</span></span><br><span class="line">	router.Run()</span><br><span class="line">	<span class="comment">// router.Run(":3000") for a hard coded port</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3>Parameters in path</h3>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	router := gin.Default()</span><br><span class="line"></span><br><span class="line">	<span class="comment">// This handler will match /user/john but will not match /user/ or /user</span></span><br><span class="line">	router.GET(<span class="string">"/user/:name"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Param(<span class="string">"name"</span>)</span><br><span class="line">		c.String(http.StatusOK, <span class="string">"Hello %s"</span>, name)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// However, this one will match /user/john/ and also /user/john/send</span></span><br><span class="line">	<span class="comment">// If no other routers match /user/john, it will redirect to /user/john/</span></span><br><span class="line">	router.GET(<span class="string">"/user/:name/*action"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Param(<span class="string">"name"</span>)</span><br><span class="line">		action := c.Param(<span class="string">"action"</span>)</span><br><span class="line">		message := name + <span class="string">" is "</span> + action</span><br><span class="line">		c.String(http.StatusOK, message)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// For each matched request Context will hold the route definition</span></span><br><span class="line">	router.POST(<span class="string">"/user/:name/*action"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.FullPath() == <span class="string">"/user/:name/*action"</span> <span class="comment">// true</span></span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	router.Run(<span class="string">":8080"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
     </div>
 
@@ -313,25 +282,23 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Laravel/" rel="tag"># Laravel</a>
-              <a href="/tags/CSRF/" rel="tag"># CSRF</a>
+              <a href="/tags/GoLang/" rel="tag"># GoLang</a>
+              <a href="/tags/Gin/" rel="tag"># Gin</a>
+              <a href="/tags/Route/" rel="tag"># Route</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/10/27/Laravel-Database/" rel="next" title="Laravel Database">
-                  <i class="fa fa-chevron-left"></i> Laravel Database
+                <a href="/2019/12/16/GoLang-Gin-Installation/" rel="next" title="GoLang-Gin Installation">
+                  <i class="fa fa-chevron-left"></i> GoLang-Gin Installation
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/10/27/Laravel-Middleware/" rel="prev" title="Laravel Middleware">
-                  Laravel Middleware <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -370,7 +337,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">CSRF</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">Laravel 內建 CSRF token</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">3.</span> <span class="nav-text">添加校驗 token</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">API Examples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">&lt;!--more--&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.1.</span> <span class="nav-text">Using GET, POST, PUT, PATCH, DELETE and OPTIONS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">2.2.</span> <span class="nav-text">Parameters in path</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

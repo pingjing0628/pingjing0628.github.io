@@ -50,13 +50,13 @@
   };
 </script>
 
-  <meta name="description" content="安裝">
+  <meta name="description" content="安裝 &amp;lt;!--more--&amp;gt; $ go get -u github.com&#x2F;gin-gonic&#x2F;gin import in code import &amp;quot;github.com&#x2F;gin-gonic&#x2F;gin&amp;quot; 12345678910111213package mainimport &quot;github.com&#x2F;gin-gonic&#x2F;gin&quot;func main() &amp;#123;	r">
 <meta name="keywords" content="GoLang,Gin,Installation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GoLang-Gin Installation">
 <meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;12&#x2F;16&#x2F;GoLang-Gin-Installation&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="安裝">
+<meta property="og:description" content="安裝 &amp;lt;!--more--&amp;gt; $ go get -u github.com&#x2F;gin-gonic&#x2F;gin import in code import &amp;quot;github.com&#x2F;gin-gonic&#x2F;gin&amp;quot; 12345678910111213package mainimport &quot;github.com&#x2F;gin-gonic&#x2F;gin&quot;func main() &amp;#123;	r">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2019-12-16T15:59:57.857Z">
 <meta name="twitter:card" content="summary">
@@ -267,13 +267,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="安裝"><a href="#安裝" class="headerlink" title="安裝"></a>安裝</h2><a id="more"></a>
-<hr>
-<p><code>$ go get -u github.com/gin-gonic/gin</code><br>import in code<br><code>import &quot;github.com/gin-gonic/gin&quot;</code></p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line">	r.GET(<span class="string">"/ping"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">"message"</span>: <span class="string">"pong"</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run() <span class="comment">// listen and serve on 0.0.0.0:8080 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>or</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">"/ping"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Query(<span class="string">"name"</span>)</span><br><span class="line">		c.String(http.StatusOK, <span class="string">"Hello %s"</span>, name)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//預設監聽8080</span></span><br><span class="line">	r.Run(<span class="string">":8090"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        <h2>安裝</h2>
+<h2>&lt;!--more--&gt;</h2>
+<p><code>$ go get -u github.com/gin-gonic/gin</code>
+import in code
+<code>import &quot;github.com/gin-gonic/gin&quot;</code></p>
+<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line">	r.GET(<span class="string">"/ping"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		c.JSON(<span class="number">200</span>, gin.H&#123;</span><br><span class="line">			<span class="string">"message"</span>: <span class="string">"pong"</span>,</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;)</span><br><span class="line">	r.Run() <span class="comment">// listen and serve on 0.0.0.0:8080 </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+or
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"github.com/gin-gonic/gin"</span></span><br><span class="line">	<span class="string">"net/http"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	r := gin.Default()</span><br><span class="line"></span><br><span class="line">	r.GET(<span class="string">"/ping"</span>, <span class="function"><span class="keyword">func</span><span class="params">(c *gin.Context)</span></span> &#123;</span><br><span class="line">		name := c.Query(<span class="string">"name"</span>)</span><br><span class="line">		c.String(http.StatusOK, <span class="string">"Hello %s"</span>, name)</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">	<span class="comment">//預設監聽8080</span></span><br><span class="line">	r.Run(<span class="string">":8090"</span>)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>go run example.go</code></p>
 
     </div>
@@ -301,6 +302,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/17/GoLang-Gin-Route-API-Examples/" rel="prev" title="GoLang-Gin Route API Examples">
+                  GoLang-Gin Route API Examples <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -339,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安裝"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">安裝</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">2.</span> <span class="nav-text">&lt;!--more--&gt;</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -354,7 +358,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">48</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -367,7 +371,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
