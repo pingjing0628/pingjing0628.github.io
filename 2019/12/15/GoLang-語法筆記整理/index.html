@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="About My Things">
 <meta property="og:description" content="整理">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-12-15T16:25:46.991Z">
+<meta property="og:updated_time" content="2019-12-16T11:56:13.381Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://pingjing0628.github.io/2019/12/15/GoLang-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E6%95%B4%E7%90%86/">
@@ -248,7 +248,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-16 00:25:46" itemprop="dateModified" datetime="2019-12-16T00:25:46+08:00">2019-12-16</time>
+                <time title="Modified: 2019-12-16 19:56:13" itemprop="dateModified" datetime="2019-12-16T19:56:13+08:00">2019-12-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -296,7 +296,7 @@
 <li><p><code>Println</code> vs <code>Print</code></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  fmt.Println(<span class="string">"Let's first see how"</span>, <span class="string">"the Println() method works."</span>)</span><br><span class="line">  fmt.Println(<span class="string">"There's also a default space"</span>)</span><br><span class="line">  </span><br><span class="line">  fmt.Print(<span class="string">"Print"</span>, <span class="string">"is"</span>, <span class="string">"different"</span>)</span><br><span class="line">  fmt.Print(<span class="string">"See?"</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Let's first see how the Println() method works.</span></span><br><span class="line"><span class="comment">    There's also a default space between the string arguments.</span></span><br><span class="line"><span class="comment">    PrintisdifferentSee?</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>使用 <code>%v</code></p>
+<li><p>使用 <code>%v</code>, use <code>Printf</code></p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  animal1 := <span class="string">"cat"</span></span><br><span class="line">  animal2 := <span class="string">"dog"</span></span><br><span class="line">  </span><br><span class="line">  fmt.Printf(<span class="string">"Are you a %v or a %v person?"</span>, animal1, animal2)</span><br><span class="line"></span><br><span class="line">  <span class="comment">// Are you a cat or a dog person?</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><code>%T</code> is Type</p>
@@ -317,8 +317,17 @@
 <li><p>random number</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">  <span class="string">"math/rand"</span></span><br><span class="line">  <span class="string">"time"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  <span class="comment">// Add your code below:</span></span><br><span class="line">  rand.Seed(time.Now().UnixNano())</span><br><span class="line">  </span><br><span class="line">  amountLeft := rand.Intn(<span class="number">10000</span>)</span><br><span class="line">  </span><br><span class="line">  fmt.Println(<span class="string">"amountLeft is: "</span>, amountLeft)</span><br><span class="line">  </span><br><span class="line">	<span class="keyword">if</span> amountLeft &gt; <span class="number">5000</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"What should I spend this on?"</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    fmt.Println(<span class="string">"Where did all my money go?"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// amountLeft is:  7298</span></span><br><span class="line"><span class="comment">// What should I spend this on?</span></span><br></pre></td></tr></table></figure>
 </li>
+<li><p><strong>address</strong> use <code>&amp;</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	treasure := <span class="string">"The friends we make along the way."</span></span><br><span class="line">	</span><br><span class="line">    fmt.Println(&amp;treasure)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 0xc0000101e0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Pointers</strong> are variables that specifically store addresses.<br><code>var pointerForInt *int</code><br><code>pointerForInt</code> will store the address of a variable that has an <code>int</code> data type. </p>
+</li>
 </ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">lyrics := <span class="string">"Moments so dear"</span> </span><br><span class="line">pointerForStr := &amp;lyrics</span><br><span class="line"></span><br><span class="line">*pointerForStr = <span class="string">"Journeys to plan"</span> </span><br><span class="line"></span><br><span class="line">fmt.Println(lyrics) <span class="comment">// Prints: Journeys to plan</span></span><br></pre></td></tr></table></figure>
 
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addHundred</span><span class="params">(num <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">  num += <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  x := <span class="number">1</span></span><br><span class="line">  addHundred(x)</span><br><span class="line">  fmt.Println(x) <span class="comment">// Prints 1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">addHundred</span> <span class="params">(numPtr *<span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">  *numPtr += <span class="number">100</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">  x := <span class="number">1</span></span><br><span class="line">  addHundred(&amp;x)</span><br><span class="line">  fmt.Println(x) <span class="comment">// Prints 101</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -342,6 +351,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/16/GoLang-Gin-Installation/" rel="prev" title="GoLang-Gin Installation">
+                  GoLang-Gin Installation <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -395,7 +407,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -408,7 +420,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

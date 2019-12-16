@@ -50,18 +50,14 @@
   };
 </script>
 
-  <meta name="description" content="閉包">
-<meta name="keywords" content="PHP,closure">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PHP 特點- 閉包">
-<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85&#x2F;index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="About My Things">
+<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;tags&#x2F;Gin&#x2F;index.html">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="閉包">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-11-17T15:45:38.752Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://pingjing0628.github.io/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/">
+<link rel="canonical" href="https://pingjing0628.github.io/tags/Gin/">
 
 
 <script id="page-configurations">
@@ -69,13 +65,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: true,
+    isPost: false,
     isPage: false,
     isArchive: false
   };
 </script>
 
-  <title>PHP 特點- 閉包 | About My Things</title>
+  <title>Tag: Gin | About My Things</title>
   
 
 
@@ -213,114 +209,50 @@
           <div class="content">
             
 
-  <div class="posts-expand">
-      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          PHP 特點- 閉包
+  
+  <div class="post-block">
+    <div class="posts-collapse">
+      <div class="collection-title">
+        <h1 class="collection-header">Gin
+          <small>Tag</small>
         </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-03 15:23:13" itemprop="dateCreated datePublished" datetime="2019-11-03T15:23:13+08:00">2019-11-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:45:38" itemprop="dateModified" datetime="2019-11-17T23:45:38+08:00">2019-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+      </div>
 
       
-        <h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2><a id="more"></a>
-<hr>
-<ul>
-<li>閉包是在創造時就封裝了內部狀態的函式，即使原有的環境已經消失了這個被封裝的狀態會中被寶存在閉包中</li>
-<li>Example <code>array_map</code>閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$numbersPlusOne = array_map(<span class="function"><span class="keyword">function</span> <span class="params">($number)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $number + <span class="number">1</span>;</span><br><span class="line">&#125;, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">print_r($numbersPlusOne);</span><br><span class="line"><span class="comment">//輸出 --&gt; [2,3,4]</span></span><br></pre></td></tr></table></figure></li>
-<li>PHP閉包是一種物件，每一閉包實體都有其內部狀態，就跟其他PHP物件一樣可以用 <code>$this</code> 關鍵字存取</li>
-</ul>
-<h4 id="繫結狀態"><a href="#繫結狀態" class="headerlink" title="繫結狀態"></a>繫結狀態</h4><ul>
-<li>Example 利用 <code>use</code>關鍵字繫結狀態到閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enclosePerson</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">($doCommand)</span> <span class="title">use</span> <span class="params">($name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sprintf(<span class="string">'%s, %s'</span>, $name, $doCommand);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將"Clay"關閉在閉包中</span></span><br><span class="line">$clay = enclosePerson(<span class="string">'Clay'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用指令呼叫閉包</span></span><br><span class="line"><span class="keyword">echo</span> $clay(<span class="string">'get me sweet tea!'</span>);</span><br><span class="line"><span class="comment">// 輸出 --&gt; "Clay, get me sweet tea!"</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
+    <div class="collection-year">
+      <h1 class="collection-header">2019</h1>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-      <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/PHP/" rel="tag"># PHP</a>
-              <a href="/tags/closure/" rel="tag"># closure</a>
-          </div>
+      <div class="post-meta">
+        <time itemprop="dateCreated"
+              datetime="2019-12-16T23:56:28+08:00"
+              content="2019-12-16">
+          12-16
+        </time>
+      </div>
 
-        
+      <h2 class="post-title">
+          <a class="post-title-link" href="/2019/12/16/GoLang-Gin-Installation/" itemprop="url">
+            <span itemprop="name">GoLang-Gin Installation</span>
+          </a>
+      </h2>
 
-          <div class="post-nav">
-            <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E7%89%B9%E5%BE%B5%E6%A9%9F%E5%88%B6/" rel="next" title="PHP 特點- 特徵機制">
-                  <i class="fa fa-chevron-left"></i> PHP 特點- 特徵機制
-                </a>
-            </div>
-
-            <span class="post-nav-divider"></span>
-
-            <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E6%B6%88%E6%AF%92%E3%80%81%E9%A9%97%E8%AD%89%E5%92%8C%E9%80%83%E8%84%AB/" rel="prev" title="PHP 良好習慣- 消毒、驗證和逃脫">
-                  PHP 良好習慣- 消毒、驗證和逃脫 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-      </footer>
-    
+    </header>
   </article>
+
+    </div>
+  </div>
   
   
   
 
-  </div>
+  
+
 
 
           </div>
@@ -349,7 +281,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#閉包"><span class="nav-number">1.</span> <span class="nav-text">閉包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#繫結狀態"><span class="nav-number">1.0.1.</span> <span class="nav-text">繫結狀態</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
