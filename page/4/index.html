@@ -214,244 +214,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/11/What-is-Kubernetes/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/11/What-is-Kubernetes/" class="post-title-link" itemprop="url">What is Kubernetes?</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-11 15:44:19" itemprop="dateCreated datePublished" datetime="2019-11-11T15:44:19+08:00">2019-11-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:45:13" itemprop="dateModified" datetime="2019-11-17T23:45:13+08:00">2019-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/" itemprop="url" rel="index">
-                    <span itemprop="name">Kubernetes</span>
-                  </a>
-                </span>
-                  , 
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Kubernetes/deploy/" itemprop="url" rel="index">
-                    <span itemprop="name">deploy</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3>Kubernetes</h3>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>容器的全自動管理/調度平台，誕生自Google Borg</li>
-<li>不限制application類型，只要能容器化都吃</li>
-<li>具有各種抽象化的資源類型
-<ul>
-<li>web/database</li>
-<li>task runner</li>
-<li>auto scaler</li>
-<li>Ingress</li>
-</ul>
-</li>
-</ul>
-<h3>Why is Container</h3>
-<ul>
-<li>一致性的執行環境</li>
-<li>方便的應用部署，有利於CI/CD</li>
-<li>清楚的分離Dev與Ops，有利於分工</li>
-<li>以應用為中心的管理方式</li>
-</ul>
-<h3>Docker</h3>
-<hr>
-<h4>Docker生命週期</h4>
-<ol>
-<li>Code your app</li>
-<li>Write Dockerfile</li>
-<li>Create images. Defined at Dockerfiles</li>
-<li>Define services at writing</li>
-<li>Run containers / Compose app</li>
-<li>Test your app or microservices</li>
-<li>Push or continue developing</li>
-</ol>
-<ul>
-<li>寫好的dockerfile，build 成image後只是存在你build 好的那台機器上面，所以若是要share給別人使用的話，就是要放到第三方的地方，所以image會放在registry的地方
-<img src="https://docs.microsoft.com/zh-tw/dotnet/architecture/microservices/docker-application-development-process/media/image1.png" class="" width="1000" height="400" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h4>Docker Registry</h4>
-<ul>
-<li>維護方式跟 github 機制有87%像，但只是拿來放docker image</li>
-<li>DockerHub ，目前最大的public registry</li>
-<li>private registry
-<ul>
-<li>VMware Harbor</li>
-<li>gitlab registry
-<ul>
-<li>在900之後，有一個內建的registry，gitlab.com上面就有提供一個免費的registry，可以build 自己的code，丟到gitlab registry</li>
-</ul>
-</li>
-<li>Cloud: AWS/GCP/Azure...</li>
-</ul>
-</li>
-</ul>
-<h3>Kubernetes 資源介紹</h3>
-<hr>
-<h4>Kubernetes Nodes</h4>
-<ul>
-<li>Node (就是實體機，分成以下兩個)
-<ol>
-<li>Worker Node
-<ul>
-<li>負責 Resource 的執行</li>
-<li>監控 Resource 的健康狀態</li>
-</ul>
-</li>
-<li>Master Node
-<ul>
-<li>管理與監控 Node</li>
-<li>負責調度所有的 Resource</li>
-<li>儲存整個 Cluster 的運作狀態</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>架設方式
-<ul>
-<li>自架：minikube/kubeadm/Rancher 2.x(不建議自己架，因為會有很多雷)</li>
-<li>直接用 Cloud AWS/GCP/Azure/DigitalOcean</li>
-</ul>
-</li>
-</ul>
-<h4>Kubernetes 抽象資源</h4>
-<ol>
-<li>Namespace</li>
-</ol>
-<ul>
-<li>一組資源的集合</li>
-<li>隔離不同 namespace 之間的資源 (persistant volume除外)</li>
-<li>預設有 kube-system/kube-public/default
-<img src="http://www.mundodocker.com.br/wp-content/uploads/2017/06/namespaces.png" class="" width="600" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="2">
-<li>Pod</li>
-</ol>
-<ul>
-<li>Kubernetes中最小執行單位</li>
-<li>一個完整的 application 部署封裝，可能有一個以上的container</li>
-<li>共享儲存空間/網路
-<img src="http://i0.wp.com/foxutech.com/wp-content/uploads/2018/02/Kubernetes-Pod.jpg" class="" width="800" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="3">
-<li>ReplicaSet</li>
-</ol>
-<ul>
-<li>保證Pod數量跟設定中要求的一樣
-ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，假設今天把一台pod刪掉，那麼他今天就會再幫你生一台新的出來，那如果有多的話，就會把最舊的那台砍掉</li>
-<li>少了就補齊，多了就砍掉，絕對不多不少</li>
-<li>支援動態縮放
-<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bfc5b38f02fcd9cd9c290750ecbc70a1/asset-v1:LinuxFoundationX+LFS158x+2T2017+type@asset+block/replicaset-1.png" class="" width="500" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="4">
-<li>Deployment</li>
-</ol>
-<ul>
-<li>
-<p>管理 Pod 與 ReplicaSet</p>
-</li>
-<li>
-<p>聲明式更新</p>
-</li>
-<li>
-<p>支援Rolling Update</p>
-</li>
-<li>
-<p><strong>Rolling Update</strong></p>
-</li>
-<li>
-<p>此image版本為1.0，若此時想換成2.0時
-<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/6a62a850f2be0c9b.png" class="" width="600" height="400" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>此時deployment會去開一個新的replicaSet，這個replicaSet會去開一個新的Pod，而這個Pod會去用2.0的image，此時2.0開了新的一台，而就的那邊就會關掉一台，且不會斷掉，以此類推，最後就會把舊的1.0的都關掉，變成2.0的Pod(先開新的，確定能夠使用，才把1.0關掉)
-<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/8d107e36763fd5c1.png" class="" width="800" height="400" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<ol start="5">
-<li>Job (與deployment不同的是，deployment是提供一個持續性的服務，不會斷掉)</li>
-</ol>
-<ul>
-<li>啟動Pod並且執行指定次數 (譬如像是migration，就是在上版的那一次要跑而已，run完即結束)</li>
-<li>Pod 如果執行錯誤，會重新開啟直到完成(重新開啟的次數是可以設定的)</li>
-</ul>
-<ol start="6">
-<li>Services</li>
-</ol>
-<ul>
-<li>用來存取Pod的資源(因為Pod 不會讓外面的Cluster直接存取到，所以中間會經過Services)</li>
-<li>可透過 Kubernetes內部的 DNS來對應</li>
-<li>有提供各種的 Service Types：
-<ul>
-<li>ClusterIP</li>
-<li>Node Port</li>
-<li>LoadBalancer</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/03/%E5%88%A9%E7%94%A8-PHPUnit-Mockery-%E9%96%8B%E7%99%BC-API/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -508,94 +270,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Mockery</h2>
-<p>&lt;!---more--&gt;</p>
-<hr>
-<h3>先建立一個服務</h3>
-<ul>
-<li>先於 <code>app</code>底下建立一個 <code>Services</code>資料夾</li>
-</ul>
-<h3>建立測試資料</h3>
-<ul>
-<li>於 <code>Tests\Unit</code> 底下建立一個 <code>Services</code>資料夾，在建立一個 <code>ClientTest.php</code>的檔案</li>
-<li>建立一個 <code>test_query()</code>的function</li>
-<li>function 內建立連線且設定需送出與回傳的值
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$guzzleClient-&gt;shouldReceive(<span class="string">'request'</span>)-&gt;andReturn(</span><br><span class="line">        <span class="keyword">new</span> Response(<span class="number">200</span>, [], file_get_contents(<span class="keyword">__DIR__</span>.<span class="string">'/result.txt'</span>))</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">$client = <span class="keyword">new</span> Client($guzzleClient, $log, $key);</span><br></pre></td></tr></table></figure></li>
-<li>確認建立連線後，檢視所需得到的資料格式，在建立 <code>ClientTest.php</code>的檔案同層建立 <code>result.txt</code>假資料</li>
-<li>而後於檔案上方引入，並使用
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> <span class="title">Mockery</span> <span class="title">as</span> <span class="title">m</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$guzzleClient = m::mock(GuzzleClient::class);</span><br></pre></td></tr></table></figure></li>
-<li>最後放入測試資料的格式驗證
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;assertArraySubset([</span><br><span class="line">    <span class="string">'price'</span> =&gt; <span class="number">9165.74788036</span>,</span><br><span class="line">    <span class="string">'volume_24h'</span> =&gt; <span class="number">15782991288.054</span>,</span><br><span class="line">    <span class="string">'percent_change_1h'</span> =&gt; <span class="number">-0.537992</span>,</span><br><span class="line">    <span class="string">'percent_change_24h'</span> =&gt; <span class="number">-1.19578</span>,</span><br><span class="line">    <span class="string">'percent_change_7d'</span> =&gt; <span class="number">16.4927</span>,</span><br><span class="line">    <span class="string">'market_cap'</span> =&gt; <span class="number">162835578819.6922</span>,</span><br><span class="line">    <span class="string">'last_updated'</span> =&gt; <span class="string">'2019-06-18T12:14:22.000Z'</span>,</span><br><span class="line">], $client-&gt;query(<span class="string">'btC'</span>));</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>回到服務資料夾內建立連線檔案</h3>
-<ul>
-<li>建立連線的 <code>Client</code> 檔案，使用GuzzleHttp連線，並於建構子中依賴注入</li>
-<li>建立 <code>query()</code>透過key去發出 <code>request</code> ，並將取回的資料進行 <code>json_decode()</code>，於最後透過laravel collection的方法，filter 出符合的值
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(GuzzleClient $client)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;client = $client;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">query</span><span class="params">($symbol = <span class="string">'BTC'</span>)</span></span></span><br><span class="line"><span class="function">    </span></span><br><span class="line">    $response = $this-&gt;client-&gt;request('GET','https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest', [</span><br><span class="line">        <span class="string">'headers'</span> =&gt; [</span><br><span class="line">            <span class="string">'X-CMC_PRO_API_KEY'</span> =&gt; <span class="string">'xxxxxxx'</span>,</span><br><span class="line">        ],</span><br><span class="line">    ]);</span><br><span class="line"></span><br><span class="line">    $results = json_decode($response-&gt;getBody()-&gt;getContents(), <span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Arr::get(collect($results[<span class="string">'data'</span>])-&gt;filter(<span class="function"><span class="keyword">function</span> <span class="params">($item)</span> <span class="title">use</span> <span class="params">($symbol)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> $item[<span class="string">'symbol'</span>] === trim(strtoupper($symbol));</span><br><span class="line">    &#125;)-&gt;first(), <span class="string">'quote.USD'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>想要紀錄呼叫api次數</h3>
-<ul>
-<li>
-<p>由於紀錄log是呼出去，因此需使用 <code>spy</code>去監測紀錄</p>
-</li>
-<li>
-<p>於服務資料夾下建立 <code>Log.php</code>檔案，並建立 <code>info()</code>function
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">namespace</span> <span class="title">App</span>\<span class="title">Services</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Log</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">info</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>在測試檔案中加上log , 也於連線方法上引入
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$log = m::spy(Log::class);</span><br><span class="line">$client = <span class="keyword">new</span> Client($guzzleClient, $log);</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>需在驗證連線上加上 <code>once()</code>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$guzzleClient-&gt;shouldReceive(<span class="string">'request'</span>)-&gt;andReturn(</span><br><span class="line">    <span class="keyword">new</span> Response(<span class="number">200</span>, [], file_get_contents(<span class="keyword">__DIR__</span>.<span class="string">'/result.txt'</span>))</span><br><span class="line">)-&gt;once();</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>於測試程式最後加上
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$log-&gt;shouldHaveReceived(<span class="string">'info'</span>)-&gt;with(<span class="string">'xxxxxxxx'</span>)-&gt;once();</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最後需在此方法之上加入 <code>teardown()</code> function</p>
-</li>
-<li>
-<p>此意思是代表 在每個測試後執行，另外也可以只在整個測試類別執行一次的
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">tearDown</span><span class="params">()</span>:<span class="title">void</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">parent</span>::tearDown();</span><br><span class="line">    m::close();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最後在連線的建構子上加上
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(GuzzleClient $client, Log $log)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;client = $client;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;log = $log;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>query()加上
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;log-&gt;info(<span class="string">'xxxxxxxx'</span>);</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>加上環境檔的key，使用依賴注入</h3>
-<ul>
-<li>
-<p>於 <code>Providers</code>資料夾內的 <code>AppServiceProvider</code>加上
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">register</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;app-&gt;singleton(Client::class, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Client(<span class="keyword">new</span> GuzzleClient, <span class="keyword">new</span> Log(), env(<span class="string">'CMC_API_KEY'</span>));</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>連線檔案的建構子加上key依賴注入
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">(GuzzleClient $client, Log $log, $key = null)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;client = $client;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;log = $log;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;key = $key;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>query()內也更改key的引入
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">$this</span>-&gt;log-&gt;info(<span class="keyword">$this</span>-&gt;key);</span><br><span class="line"></span><br><span class="line">$response = <span class="keyword">$this</span>-&gt;client-&gt;request(<span class="string">'GET'</span>,<span class="string">'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'</span>, [</span><br><span class="line">    <span class="string">'headers'</span> =&gt; [</span><br><span class="line">        <span class="string">'X-CMC_PRO_API_KEY'</span> =&gt; <span class="keyword">$this</span>-&gt;key,</span><br><span class="line">    ],</span><br><span class="line">]);</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>測試檔案key的更改
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">test_query</span><span class="params">()</span> //<span class="title">this</span> <span class="title">test</span> <span class="title">failed</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $key = <span class="string">'xxx'</span>;</span><br><span class="line">    $guzzleClient = m::mock(GuzzleClient::class);</span><br><span class="line">    $guzzleClient-&gt;shouldReceive(<span class="string">'request'</span>)-&gt;andReturn(</span><br><span class="line">        <span class="keyword">new</span> Response(<span class="number">200</span>, [], file_get_contents(<span class="keyword">__DIR__</span>.<span class="string">'/result.txt'</span>))</span><br><span class="line">    )-&gt;once();</span><br><span class="line"></span><br><span class="line">    $log = m::spy(Log::class);</span><br><span class="line">    $client = <span class="keyword">new</span> Client($guzzleClient, $log, $key); </span><br><span class="line">    <span class="comment">// assertions</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">$this</span>-&gt;assertArraySubset([</span><br><span class="line">        <span class="string">'price'</span> =&gt; <span class="number">9165.74788036</span>,</span><br><span class="line">        <span class="string">'volume_24h'</span> =&gt; <span class="number">15782991288.054</span>,</span><br><span class="line">        <span class="string">'percent_change_1h'</span> =&gt; <span class="number">-0.537992</span>,</span><br><span class="line">        <span class="string">'percent_change_24h'</span> =&gt; <span class="number">-1.19578</span>,</span><br><span class="line">        <span class="string">'percent_change_7d'</span> =&gt; <span class="number">16.4927</span>,</span><br><span class="line">        <span class="string">'market_cap'</span> =&gt; <span class="number">162835578819.6922</span>,</span><br><span class="line">        <span class="string">'last_updated'</span> =&gt; <span class="string">'2019-06-18T12:14:22.000Z'</span>,</span><br><span class="line">    ], $client-&gt;query(<span class="string">'btC'</span>)); </span><br><span class="line"></span><br><span class="line">    $log-&gt;shouldHaveReceived(<span class="string">'info'</span>)-&gt;with($key)-&gt;once();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>為何要使用測試</h3>
-<ul>
-<li>寫測試不是為了驗證結果，而是為了驗證過程</li>
-<li>要用什麼測試，假資料或是等等等，須自行摸索</li>
-</ul>
-
+          <h2 id="Mockery"><a href="#Mockery" class="headerlink" title="Mockery"></a>Mockery</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/%E5%88%A9%E7%94%A8-PHPUnit-Mockery-%E9%96%8B%E7%99%BC-API/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -670,20 +353,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Database</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>PDO 擴充</h3>
-<ul>
-<li>
-<p>PHP 提供了原生的PDO擴充，PDO(PHP data objects)是一組PHP類別，可以用單一使用者介面和許多不同的SQL資料庫溝通，讓資料庫的實作方式被抽象化出來，無論使用哪種資料庫系統，都可以用單一的介面撰寫和執行資料庫查詢</p>
-</li>
-<li>
-<p>PDO 建構子
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	$pdo = <span class="keyword">new</span> PDO(</span><br><span class="line">		<span class="string">'mysql:host=127.0.0.1;dbname=books;port=3306;charset=utf8'</span>,</span><br><span class="line">		<span class="string">'USERNAME'</span>,</span><br><span class="line">		<span class="string">'PASSWORD'</span></span><br><span class="line">	);</span><br><span class="line">&#125; <span class="keyword">catch</span> (PDOException $e) &#123;</span><br><span class="line">	<span class="comment">// 資料庫連線失敗</span></span><br><span class="line">	<span class="keyword">echo</span> <span class="string">"Database connection failed"</span>;</span><br><span class="line">	<span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E8%B3%87%E6%96%99%E5%BA%AB/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -758,57 +436,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>消毒</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>別相信任何人</h3>
-<ul>
-<li>$_GET</li>
-<li>$_POST</li>
-<li>$_REQUEST</li>
-<li>$_COOKIE</li>
-<li>$argv</li>
-<li>php://stdin</li>
-<li>php://input</li>
-<li>file_get_contents()</li>
-<li>遠端資料庫</li>
-<li>遠端API</li>
-<li>來自客戶端的資料</li>
-</ul>
-<p>suggestions: <strong>消毒</strong>使用者輸入, <strong>驗證</strong>資料, <strong>逃脫</strong>使用者輸出</p>
-<h3>消毒使用者輸入</h3>
-<ul>
-<li>消除不安全的字元，在資料到達應用程式存儲層<strong>之前</strong>就消毒</li>
-<li>假設你的網頁允許用HTML下評論，原始設定中，沒有任何東西會阻止使用者在評論中使用不合理的 <code>&lt;script&gt;</code>標籤</li>
-<li>會遭遇到以下幾種類別的輸入資料：HTML、SQL查詢、使用者個人資料</li>
-</ul>
-<h4>HTML</h4>
-<ul>
-<li>利用 <code>htmlentities()</code>函式，將HTML的特殊字元消毒成對應的HTML代表字元</li>
-</ul>
-<h4>SQL查詢</h4>
-<ul>
-<li>有些情況會以使用者輸入的資料來建立SQL查詢，有時這些資料由HTTP請求的查詢字串而來(例如 <code>?user = 1</code>)，有時由HTTP請求的URI片段而來(ex: <code>/user/1</code>)</li>
-</ul>
-<h4>使用個人資料</h4>
-<ul>
-<li>PHP提供 <code>filter_var()</code>和 <code>filter_input()</code>函式</li>
-<li>這兩個函式接受不同的旗標來消毒不同形式的使用者輸入：電子郵件、URL編碼字串、整數、浮點數、HTML字元、URL和指定的ASCII字元範圍</li>
-</ul>
-<h3>驗證資料</h3>
-<ul>
-<li>驗證與消毒不同，驗證並沒有把輸入資料中的資訊去除，驗證只有確認輸入資料有達到你的預期，如果你預期一個電子郵件位址，確認這個輸入資料真的是個電子郵件位址</li>
-</ul>
-<h3>逃脫使用者輸出</h3>
-<ul>
-<li>當要把資料輸出到網頁或是API回應時，逃脫你的輸出是重要的，這讓應用程式多增加了一層防護，防止惡意程式被輸出或是被使用者執行</li>
-</ul>
-<h3>密碼雜湊API</h3>
-<ul>
-<li>使用者註冊腳本
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">	<span class="comment">// 驗證電子郵件</span></span><br><span class="line">	$email = filter_input(INPUT_POST, <span class="string">'email'</span>, FILTER_VALIDATE_EMAIL);</span><br><span class="line">	<span class="keyword">if</span> (! $email) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'Invalid email'</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 驗證密碼</span></span><br><span class="line">	$password = filter_input(INPUT_POST, <span class="string">'password'</span>);</span><br><span class="line">	<span class="keyword">if</span> (! $password || mb_strlen($password) &lt; <span class="number">8</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'Password must contain 8+ characters'</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 建立密碼雜湊值</span></span><br><span class="line">	$passwordHash = password_hash(</span><br><span class="line">		$password,</span><br><span class="line">		PASSWORD_DEFAULT,</span><br><span class="line">		[<span class="string">'cost'</span> =&gt; <span class="number">12</span>]</span><br><span class="line">	);</span><br><span class="line">	<span class="keyword">if</span> ($passwordHash === <span class="keyword">false</span>) &#123;</span><br><span class="line">		<span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'Password hash failed'</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 建立使用者帳戶（這是虛擬碼）</span></span><br><span class="line">	$user = <span class="keyword">new</span> User();</span><br><span class="line">	$user-&gt;email = $email;</span><br><span class="line">	$user-&gt;password_hash = $passwordHash;</span><br><span class="line">	$user-&gt;save();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 重新導向到登入頁面</span></span><br><span class="line">	header(<span class="string">'HTTP/1.1 302 Bad Redirect'</span>);</span><br><span class="line">	header(<span class="string">'Location: /login.php'</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $e) &#123;</span><br><span class="line">	<span class="comment">// 回報錯誤</span></span><br><span class="line">	header(<span class="string">'HTTP/1.1 400 Bad request'</span>);</span><br><span class="line">	<span class="keyword">echo</span> $e-&gt;getMessage();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="消毒"><a href="#消毒" class="headerlink" title="消毒"></a>消毒</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E6%B6%88%E6%AF%92%E3%80%81%E9%A9%97%E8%AD%89%E5%92%8C%E9%80%83%E8%84%AB/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -883,21 +519,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>閉包</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>閉包是在創造時就封裝了內部狀態的函式，即使原有的環境已經消失了這個被封裝的狀態會中被寶存在閉包中</li>
-<li>Example <code>array_map</code>閉包
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$numbersPlusOne = array_map(<span class="function"><span class="keyword">function</span> <span class="params">($number)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $number + <span class="number">1</span>;</span><br><span class="line">&#125;, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">print_r($numbersPlusOne);</span><br><span class="line"><span class="comment">//輸出 --&gt; [2,3,4]</span></span><br></pre></td></tr></table></figure></li>
-<li>PHP閉包是一種物件，每一閉包實體都有其內部狀態，就跟其他PHP物件一樣可以用 <code>$this</code> 關鍵字存取</li>
-</ul>
-<h4>繫結狀態</h4>
-<ul>
-<li>Example 利用 <code>use</code>關鍵字繫結狀態到閉包
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enclosePerson</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">($doCommand)</span> <span class="title">use</span> <span class="params">($name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sprintf(<span class="string">'%s, %s'</span>, $name, $doCommand);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將"Clay"關閉在閉包中</span></span><br><span class="line">$clay = enclosePerson(<span class="string">'Clay'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用指令呼叫閉包</span></span><br><span class="line"><span class="keyword">echo</span> $clay(<span class="string">'get me sweet tea!'</span>);</span><br><span class="line"><span class="comment">// 輸出 --&gt; "Clay, get me sweet tea!"</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -972,43 +602,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>特徵機制 Traits</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>一個特徵機制是一個局部的類別實作（像是常數、屬性和方法），他可以被<strong>混入</strong>一個以上的現存PHP類別，特徵機制有雙重用途：他用來形容一個類別可以做什麼（如同介面），她也提供一個模組化的實作（如同類別）</li>
-</ul>
-<h4>為何使用特徵機制</h4>
-<p>PHP會使用類別繼承模式，但倘若想要兩個不相關的PHP類別有相似的行為呢？
-特徵機制就是讓模組化實作方式可以被插入到不相關的類別中，同樣促使程式碼重用</p>
-<h4>舉例兩個不相關的類別需使用同樣程式碼</h4>
-<ul>
-<li>一個PHP類別 <code>RetailStore</code>和另一個PHP類別Car是相差很大的類別，並且在繼承階層中沒有共享相同的母類別，但兩個類別都應當可以被地理編碼成經緯度以顯示在地圖上</li>
-</ul>
-<ol>
-<li>
-<p>第一個解法（不良的）
-建立一個共同的副類別 <code>Geocodable</code>同時讓 <code>RetailStore</code> 和 <code>Car</code>繼承，不良的方式是因為他強迫兩個不相關的類別共享相同的祖先，但這並不是原生屬於它們的繼承階層</p>
-</li>
-<li>
-<p>第二個解法（較好的）
-建立一個 <code>Geocodable</code>介面定義了地理編碼所需要的行為方法，而 <code>RetailStore</code>和 <code>Car</code>類別可以同時實作 <code>Geocodable</code>介面，這是個好方法，因為允許每個類別保有原本的繼承階層，但是這需要我們在每個類別中重複撰寫相同的地理編碼行為，這並不是 DRY 原則的解法</p>
-</li>
-</ol>
-<blockquote>
-<p>DRY 是 <code>Do not repeat youself</code>，他被認為是個良好習慣，不要再多個位置重複相同的程式碼，應當不需要因為改變一處的程式碼而改變另一處</p>
-</blockquote>
-<ol start="3">
-<li>第三個解法（最好的）
-建立一個 <code>Geocodable</code>特徵機制定義<strong>並且</strong>時做了地理編碼的行為，可以在 <code>RetailStore</code>和 <code>Car</code>類別中都混入 <code>Geocodable</code>特徵機制，而沒有污染原先的繼承階層架構</li>
-</ol>
-<h3>如何建立一個特徵機制</h3>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">trait</span> MyTrait &#123;</span><br><span class="line">	<span class="comment">//此處是特徵機制實作內容</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>Geocodable</code>特徵機制定義
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">trait</span> Geocodable &#123;</span><br><span class="line">	<span class="comment">/** <span class="doctag">@var</span> string */</span></span><br><span class="line">	<span class="keyword">protected</span> $address;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** <span class="doctag">@var</span> \Geocoder\Geocoder */</span></span><br><span class="line">	<span class="keyword">protected</span> $geocoder;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/** <span class="doctag">@var</span> \Geocoder\Result\Geocoded */</span></span><br><span class="line">	<span class="keyword">protected</span> $geocoderResult;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setGeocoder</span><span class="params">(\Geocoder\GeocoderInterface $geocoder)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;geocoder = $geocoder;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setAddress</span><span class="params">($address)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;address = $address;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLatitude</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;geocoderResult) === <span class="keyword">false</span>) &#123;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;geocoderAddress();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;geocoderResult-&gt;getLatitude();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getLongitude</span><span class="params">()</span> </span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;geocoderResult) === <span class="keyword">false</span>) &#123;</span><br><span class="line">			<span class="keyword">$this</span>-&gt;geocoderAddress();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;geocoderResult-&gt;getLongitude();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">geocoderAddress</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;geocoderResult = <span class="keyword">$this</span>-&gt;geocoder-&gt;geocode(<span class="keyword">$this</span>-&gt;address);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="特徵機制-Traits"><a href="#特徵機制-Traits" class="headerlink" title="特徵機制 Traits"></a>特徵機制 Traits</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E7%89%B9%E5%BE%B5%E6%A9%9F%E5%88%B6/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1083,38 +685,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>名稱空間 Namespaces</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>現代PHP特點之一</li>
-<li>創造出程式碼並獨立運作於其他開發者的程式</li>
-<li>缺乏Namespace，若發生名稱的重複會導致PHP運作失敗</li>
-</ul>
-<h2>程式碼作為介面</h2>
-<ul>
-<li>介面是一個介於兩個PHP物件之間的合約，讓一個物件了解另一個物件<strong>可以做什麼</strong>，而非另一個物件<strong>是什麼</strong></li>
-<li>Example:
-一個PHP類別為 <code>DocumentStore</code> ，他用來搜集來自不同來源的文字
-<strong>DocumentStore類別定義</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DocumentStore</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $data = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">addDocument</span><span class="params">(Documentable $document)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		$key = $document-&gt;getId();</span><br><span class="line">		$value = $document-&gt;getContent();</span><br><span class="line">		<span class="keyword">$this</span>-&gt;data[$key] = $value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getDocuments</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;data;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果addDocument()方法只接受 <code>Documentable</code> 類別的實例，那這段程式碼要如何運作？但 <code>Documentable</code> 並不是一個類別而是一個介面，如下：
-<strong>Documentable介面定義</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-這個介面定義說明了任何實作 <code>Documentable</code> 介面的物件都必須提供一個公開(public)的 <code>getId()</code> 方法和一個公開(public)的 <code>getContent()</code> 方法</li>
-</ul>
-<ol>
-<li>以下示範一個<strong>從遠端URL用curl擷取HTML的實作方式</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTMLDocument</span> <span class="keyword">implements</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $url;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($url)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;url = $url;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;url;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		$ch = curl_init();</span><br><span class="line">		curl_setopt($ch, CURLOPT_URL, <span class="keyword">$this</span>-&gt;url);</span><br><span class="line">		curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">3</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_MAXREDIRS, <span class="number">3</span>);</span><br><span class="line">		$html = curl_exec($ch);</span><br><span class="line">		curl_close($ch);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> $html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>擷取終端機指令的結果
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandOutputDocument</span> <span class="keyword">implements</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $command;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($command)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;command = $command;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;command;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> shell_exec(<span class="keyword">$this</span>-&gt;command);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以下示範如何用 <code>DocumentStore</code> 類別配合上述文件收集實作方式
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$documentStore = <span class="keyword">new</span> DocumentStore;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入HTML文件</span></span><br><span class="line">$htmlDoc = <span class="keyword">new</span> HTMLDocument(<span class="string">'http://php.net'</span>);</span><br><span class="line">$documentStore-&gt;addDocument($htmlDoc);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入終端機指令文件</span></span><br><span class="line">$cmdDoc = <span class="keyword">new</span> CommandOutputDocument(<span class="string">'cat /etc/hosts'</span>);</span><br><span class="line">$documentStore-&gt;addDocument($cmdDoc);</span><br><span class="line"></span><br><span class="line">print_r($documentStore-&gt;getDocuments());</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>介面創造了更多彈性的程式碼，讓其他人可以專注在實作的細節考量上．</li>
-</ul>
-
+          <h2 id="名稱空間-Namespaces"><a href="#名稱空間-Namespaces" class="headerlink" title="名稱空間 Namespaces"></a>名稱空間 Namespaces</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E5%90%8D%E7%A8%B1%E7%A9%BA%E9%96%93-%E4%BB%8B%E9%9D%A2/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1189,109 +768,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>What is Eloquent?</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<ul>
-<li>Eloquent是一個ORM，Object Relational Mapping，翻譯為“對象關係映射”。</li>
-<li>所謂“對象”，就是“模型(Model)”</li>
-<li>對象關係映射，即為模型間關係。</li>
-</ul>
-<h2>一對一關係</h2>
-<ul>
-<li>
-<p>這描述的是兩個模型之間一對一的關係。</p>
-</li>
-<li>
-<p>假如我們有兩個模型：User 和Account，分別對應user和消費者，他們是一對一的關係，那麼如果我們要使用Eloquent 提供的一對一關係方法，表格結構應該是這樣的：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user: id ... ... account_id</span><br><span class="line"></span><br><span class="line">account: id ... ... user_id</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>假設我們需要在User模型中查詢對應的Account表的信息，那麼應該是這樣的。</p>
-</li>
-<li>
-<p><code>/app/models/User.php</code>:
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'users'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hasOneAccount</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasOne(<span class="string">'Account'</span>, <span class="string">'user_id'</span>, <span class="string">'id'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>當我們需要用到這種關係的時候
-<code>$account = User::find(10)-&gt;hasOneAccount;</code></p>
-</li>
-<li>
-<p>此時得到的<code>$account</code> 即為<code>Account</code> 類的一個實例。</p>
-</li>
-<li>
-<p>這裡最難的地方在於後面的兩個foreign_key 和local_key 的設置，</p>
-</li>
-<li>
-<p>在User 類中，無論hasOne 誰，第二個參數都是<code>user_id</code>，第三個參數一般都是<code>id</code>。由於前面的<code>find(10)</code> 已經鎖定了id = 10，所以這段函數對應的SQL 為： <code>select * from account where user_id=10</code>。</p>
-</li>
-<li>
-<p>使用Eloquent 時候的建議：</p>
-<ol>
-<li>每一個Model 中都指定表名</li>
-<li>has one account 這樣的關係寫成<code>hasOneAccount()</code> 而不是簡單的<code>account()</code></li>
-<li>每次使用模型間關係的時候都寫全參數，不要省略</li>
-</ol>
-</li>
-</ul>
-<h4>belongsTo()</h4>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Account</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'accounts'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">belongsToUser</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(<span class="string">'User'</span>, <span class="string">'user_id'</span>, <span class="string">'id'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3>一對多關係</h3>
-<ul>
-<li>我們引入一個新的Model：Pay，付款記錄。表結構應該是這樣的：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user: id ... ...</span><br><span class="line"></span><br><span class="line">pay: id ... ... user_id</span><br></pre></td></tr></table></figure></li>
-<li>User 和Pay 具有一對多關係，換句話說就是一個User 可以有多個Pay，這樣的話，只在Pay 表中存在一個<code>user_id</code> 字段即可。</li>
-<li><code>/app/models/User.php</code>:
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'users'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">hasManyPays</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;hasMany(<span class="string">'Pay'</span>, <span class="string">'user_id'</span>, <span class="string">'id'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>需要用到這種關係的時候
-<code>$accounts = User::find(10)-&gt;hasManyPays()-&gt;get();</code></li>
-<li>此時得到的<code>$accounts</code> 即為<code>Illuminate\Database\Eloquent\Collection</code> 類的一個實例。</li>
-<li>這裡不是簡單的<code>-&gt; hasOneAccount</code> 而是<code>-&gt;hasManyPays()-&gt;get()</code>，因為這裡是<code>hasMany</code>，操作的是一個對象集合。</li>
-</ul>
-<h4>相應的belongsTo() 的用法跟上面一對一關係一樣：</h4>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Pay</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'pays'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">belongsToUser</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsTo(<span class="string">'User'</span>, <span class="string">'user_id'</span>, <span class="string">'id'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3>多對多關係</h3>
-<ul>
-<li>
-<p>多對多關係和之前的關係完全不一樣，因為多對多關係可能出現很多冗餘數據，用之前自帶的表存不下了。</p>
-</li>
-<li>
-<p>我們定義兩個模型：Article 和Tag，分別表示文章和標籤，他們是多對多的關係。表格結構應該是這樣的：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">article: id ... ...</span><br><span class="line"></span><br><span class="line">tag: id ... ...</span><br><span class="line"></span><br><span class="line">article_tag: article_id tag_id</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>在Model 中使用：
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tag</span> <span class="keyword">extends</span> <span class="title">Eloquent</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">  <span class="keyword">protected</span> $table = <span class="string">'tags'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">belongsToManyArticle</span><span class="params">()</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(<span class="string">'Article'</span>, <span class="string">'article_tag'</span>, <span class="string">'tag_id'</span>, <span class="string">'article_id'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>需要注意的是，第三個參數是本類的id，第四個參數是第一個參數那個類的id。</p>
-</li>
-<li>
-<p>使用跟hasMany 一樣：
-<code>$tagsWithArticles = Tag::take(10)-&gt;get()-&gt;belongsToManyArticle()-&gt;get();</code></p>
-</li>
-<li>
-<p>這裡會得到一個非常複雜的對象，可以自行<code>var_dump()</code>。跟大家說一個訣竅，<code>var_dump()</code> 以後，用Chrome 右鍵“查看原始代碼”，就可以看到非常整齊的對象/數組展開了。
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">parent_video</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(<span class="keyword">$this</span>, <span class="string">'video_hierarchy'</span>, <span class="string">'video_id'</span>, <span class="string">'video_parent_id'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">children_video</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;belongsToMany(<span class="keyword">$this</span>, <span class="string">'video_hierarchy'</span>, <span class="string">'video_parent_id'</span>, <span class="string">'video_id'</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>可以belongsToMany 自己</p>
-</li>
-</ul>
-<h4>其他關係</h4>
-<ul>
-<li>Eloquent 還提供“遠層一對多關聯”、“多態關聯” 和“多態的多對多關聯” 這另外三種用法，經過上面的學習，我們已經掌握了Eloquent 模型間關係的基本概念和使用方法，剩下的幾種不常用的方法就留到我們用到的時候再自己探索吧。</li>
-</ul>
-<h3>重要技巧：關係預載入</h3>
-<ul>
-<li>在一對一關係中，需要一次性查詢出10個User並帶上對應的Account的話，需要給數據庫打1 + 10條SQL，這樣性能是很差的。
-<code>$users = User::with('hasOneAccount')-&gt;take(10)-&gt;get()</code></li>
-<li>這樣生成的SQL 就是這個樣子的：
-<code>select * from account where id in (1, 2, 3, ... ...)</code></li>
-<li>這樣1 + 10 條SQL 就變成了1 + 1 條，性能大增。</li>
-</ul>
-
+          <h2 id="What-is-Eloquent"><a href="#What-is-Eloquent" class="headerlink" title="What is Eloquent?"></a>What is Eloquent?</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/27/Eloquent/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1366,39 +851,15 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>PHP Operators</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>
-<p>Return true if $a is not TRUE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Not -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(! <span class="number">0</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">false</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">null</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="string">''</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(! []); <span class="comment">// true</span></span><br><span class="line">var_dump(! <span class="keyword">new</span> stdClass); <span class="comment">// false</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Return true if $a is not FALSE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Is -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(!! <span class="number">0</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(!! <span class="keyword">false</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(!! <span class="keyword">null</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(!! <span class="string">''</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(!! []); <span class="comment">// false</span></span><br><span class="line">var_dump(!! <span class="keyword">new</span> stdClass); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<ul>
-<li>
-<p>Return true if either $a or $b is TRUE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Or -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(<span class="number">0</span> || <span class="string">'value'</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(<span class="keyword">false</span> || <span class="string">'value'</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(<span class="keyword">null</span> || <span class="string">'value'</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(<span class="string">''</span> || <span class="string">'value'</span>); <span class="comment">// true</span></span><br><span class="line">var_dump([] || <span class="string">'value'</span>); <span class="comment">// true</span></span><br><span class="line">var_dump(<span class="keyword">new</span> stdClass || <span class="string">'value'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Return true if both $a and $b are TRUE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- And -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(<span class="number">0</span> &amp;&amp; <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(<span class="keyword">false</span> &amp;&amp; <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(<span class="keyword">null</span> &amp;&amp; <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(<span class="string">''</span> &amp;&amp; <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump([] &amp;&amp; <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(<span class="keyword">new</span> stdClass &amp;&amp; <span class="string">'value'</span>); <span class="comment">// true</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Return $a if $a is not FALSE.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Ternary -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(<span class="number">0</span> ?: <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump(<span class="keyword">false</span> ?: <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump(<span class="keyword">null</span> ?: <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump(<span class="string">''</span> ?: <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump([] ?: <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump(<span class="keyword">new</span> stdClass ?: <span class="string">'value'</span>); <span class="comment">// &#123;&#125;</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Return $a if $a exists and is not NULL.
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"\n"</span>.<span class="string">'- Null Coalescing -'</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">var_dump(<span class="number">0</span> ?? <span class="string">'value'</span>); <span class="comment">// 0</span></span><br><span class="line">var_dump(<span class="keyword">false</span> ?? <span class="string">'value'</span>); <span class="comment">// false</span></span><br><span class="line">var_dump(<span class="keyword">null</span> ?? <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br><span class="line">var_dump(<span class="string">''</span> ?? <span class="string">'value'</span>); <span class="comment">// ''</span></span><br><span class="line">var_dump([] ?? <span class="string">'value'</span>);  <span class="comment">// []</span></span><br><span class="line">var_dump(<span class="keyword">new</span> stdClass ?? <span class="string">'value'</span>); <span class="comment">// &#123;&#125;</span></span><br><span class="line">var_dump($foo ?? $bar ?? <span class="string">'value'</span>); <span class="comment">// "value"</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<p><code>die();</code></p>
-
+          <h2 id="PHP-Operators"><a href="#PHP-Operators" class="headerlink" title="PHP Operators"></a>PHP Operators</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/27/PHP-Operators/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1473,41 +934,98 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Setter and Getter</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $A;</span><br><span class="line"><span class="keyword">protected</span> $B;</span><br><span class="line"><span class="keyword">private</span> $C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>應用在讓程式可視性更高，不直接在變數定義，而是在setter去定義，再透過getter去拿取</li>
-</ul>
-<p>function的部分</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>外部</th>
-<th>繼承</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>protected</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>private</td>
-<td>No</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
+          <h2 id="Setter-and-Getter"><a href="#Setter-and-Getter" class="headerlink" title="Setter and Getter"></a>Setter and Getter</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/27/PHP-Setter-and-Getter/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/10/27/Laravel-Middleware/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/10/27/Laravel-Middleware/" class="post-title-link" itemprop="url">Laravel Middleware</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-10-27 15:51:08" itemprop="dateCreated datePublished" datetime="2019-10-27T15:51:08+08:00">2019-10-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-11-17 23:45:55" itemprop="dateModified" datetime="2019-11-17T23:45:55+08:00">2019-11-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Laravel/" itemprop="url" rel="index">
+                    <span itemprop="name">Laravel</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Middleware"><a href="#Middleware" class="headerlink" title="Middleware"></a>Middleware</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/10/27/Laravel-Middleware/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1571,7 +1089,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1584,7 +1102,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

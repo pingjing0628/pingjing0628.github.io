@@ -214,121 +214,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/02/GoLang-Function-declarations/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/02/GoLang-Function-declarations/" class="post-title-link" itemprop="url">GoLang-Function declarations</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-12-02 23:57:34" itemprop="dateCreated datePublished" datetime="2019-12-02T23:57:34+08:00">2019-12-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-03 22:50:50" itemprop="dateModified" datetime="2019-12-03T22:50:50+08:00">2019-12-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GoLang/" itemprop="url" rel="index">
-                    <span itemprop="name">GoLang</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2>Function declarations</h2>
-<h2>&lt;!--more--&gt;</h2>
-<h3>定義函式</h3>
-<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> &lt;<span class="title">funcName</span>&gt;<span class="params">([param1 type1[, param2 type2 ...]])</span> <span class="params">([return1 type1[, return2 type2 ...]])</span></span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Do something</span></span><br><span class="line">	</span><br><span class="line">    <span class="keyword">return</span> [value1[, value2 ...]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p><code>funcName</code> 為 <code>function</code> 名稱，首字大寫為 <code>public</code> 是外部套件可以共用的，小寫為 <code>private</code> 只有套件內部可以看得到。</p>
-</li>
-<li>
-<p><code>param</code> 為傳入值。</p>
-</li>
-<li>
-<p><code>return</code> 為回傳值。 Go 可以定義多個回傳值，而且還能定義它的名稱。定義名稱時，回傳的用法會有點特別。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">	<span class="keyword">return</span> a + b, <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// add is a private function name</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(sum)    <span class="comment">// 3</span></span><br><span class="line">	fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>有點類似 <code>Map</code> 取值的用法</p>
-</li>
-<li>
-<p>若有定義名稱的話， <code>return</code> 會把當下兩個變數的內容回傳出去。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>, ok <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">	sum = a + b</span><br><span class="line">	ok = <span class="literal">true</span> </span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(sum)    <span class="comment">// 3</span></span><br><span class="line">	fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>許多程式在一開始就定義 result ，在 return 的時候回傳出去。 Go 則是在規格上直接實作出來</p>
-</li>
-<li>
-<p>傳回多個值時，必須照順序接值；若不需要回傳值，可以用 <code>_</code> 略過：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>, ok <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">	sum = a + b</span><br><span class="line">	ok = <span class="literal">true</span> </span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	_, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>傳回多值通常會用在錯誤處理，若使用不恰當的話，容易違反<strong>單一職責原則</strong>。</p>
-</li>
-<li>
-<p>若傳入值是不定的，可以用 <code>...</code> 來表示
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(numbers ...<span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">	sum = <span class="number">0</span></span><br><span class="line">	<span class="keyword">for</span> _, num := <span class="keyword">range</span> numbers &#123;</span><br><span class="line">		sum += num</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// _為忽略index</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sum := add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(sum)     <span class="comment">// 15</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>裡面的 <code>numbers</code> 型態會是 Slice <code>[]int</code> ，所以可以用 <code>for range</code> 迭代。</p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/02/GoLang-Map-Type/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -385,55 +270,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Map Type</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li>許多語言都提供 <code>key-value</code> 存放方法的 <code>map</code> 結構， Go 使用內建型態 <code>map</code> 實作。</li>
-<li><code>map</code> 型態表示方法為： <code>map[keyType]valueType</code> ， <code>map</code> 是關鍵字， <code>keyType</code> 必須是可比較（Comparable）的型態，如 string 、 int 等， <code>valueType</code> 則是內容形態。</li>
-</ul>
-<h3>建立</h3>
-<ul>
-<li>
-<p>建立 <code>Map</code> 資料型態也是用 <code>make</code> ，設定與取值的方法跟大部分的語言（如 PHP ）很像
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	score := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(score)  <span class="comment">// map[]</span></span><br><span class="line">	</span><br><span class="line">	score[<span class="string">"Yu"</span>] = <span class="number">80</span></span><br><span class="line">	score[<span class="string">"Wang"</span>] = <span class="number">60</span></span><br><span class="line">	</span><br><span class="line">	fmt.Println(score)          <span class="comment">// map[Yu:80 Wang:60]</span></span><br><span class="line">	fmt.Println(score[<span class="string">"Yu"</span>]) <span class="comment">// 80</span></span><br><span class="line">	fmt.Println(score[<span class="string">"Wang"</span>])  <span class="comment">// 60</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如果有初值的話，設定的方法很像 JSON
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	score := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		<span class="string">"Yu"</span>: <span class="number">80</span>,</span><br><span class="line">		<span class="string">"Wang"</span>: <span class="number">60</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(score)  <span class="comment">// map[]</span></span><br><span class="line"></span><br><span class="line">	score[<span class="string">"Yu"</span>] = <span class="number">80</span></span><br><span class="line">	score[<span class="string">"Wang"</span>] = <span class="number">60</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(score)          <span class="comment">// map[Yu:80 Wang:60]</span></span><br><span class="line">	fmt.Println(score[<span class="string">"Yu"</span>]) <span class="comment">// 80</span></span><br><span class="line">	fmt.Println(score[<span class="string">"Wang"</span>])  <span class="comment">// 60</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>宣告值最後一行 <code>&quot;Wang&quot;: 60,</code> 的逗號是必要要加的。</p>
-</li>
-<li>
-<p>這個寫法如果不給初值的話，就會跟使用 <code>make</code> 方法結果一樣：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">score := <span class="built_in">make</span>(<span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>)</span><br><span class="line"></span><br><span class="line">score := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>map</code> 跟 <code>slice</code> 一樣是使用參考
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	score := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		<span class="string">"Yu"</span>: <span class="number">80</span>,</span><br><span class="line">		<span class="string">"Wang"</span>: <span class="number">60</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	ref := score</span><br><span class="line"></span><br><span class="line">	fmt.Println(score)          <span class="comment">// map[Yu:80 Wang:60]</span></span><br><span class="line">	fmt.Println(ref)            <span class="comment">// map[Yu:80 Wang:60]</span></span><br><span class="line"></span><br><span class="line">	score[<span class="string">"Someone"</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(score)          <span class="comment">// map[Wang:60 Someone:0 Yu:80]</span></span><br><span class="line">	fmt.Println(ref)            <span class="comment">// map[Someone:0 Yu:80 Wang:60]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<blockquote>
-<p>它的順序應該是不固定的。</p>
-</blockquote>
-<h3>操作</h3>
-<ul>
-<li>
-<p>取值使用 <code>[]</code> 指定 <code>key</code></p>
-</li>
-<li>
-<p>會回傳兩個值，如果 <code>key</code> 存在，會回傳值與 <code>true</code></p>
-</li>
-<li>
-<p><code>key</code> 不存在則回傳零值與 <code>false</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	score := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		<span class="string">"Yu"</span>: <span class="number">80</span>,</span><br><span class="line">		<span class="string">"Wang"</span>: <span class="number">60</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> value <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> ok <span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line">    value, ok = score[<span class="string">"Yu"</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(value)     <span class="comment">// 80</span></span><br><span class="line">	fmt.Println(ok)        <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    value, ok = score[<span class="string">"Nobody"</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(value)     <span class="comment">// 0</span></span><br><span class="line">	fmt.Println(ok)        <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>移除 <code>key</code> 使用 <code>delete</code>函式：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	score := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">		<span class="string">"Yu"</span>: <span class="number">80</span>,</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> value <span class="keyword">int</span></span><br><span class="line">	<span class="keyword">var</span> ok <span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line">    value, ok = score[<span class="string">"Yu"</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(value)     <span class="comment">// 80</span></span><br><span class="line">	fmt.Println(ok)        <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">delete</span>(score, <span class="string">"Yu"</span>)</span><br><span class="line">	value, ok = score[<span class="string">"Yu"</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(value)     <span class="comment">// 0</span></span><br><span class="line">	fmt.Println(ok)        <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Map-Type"><a href="#Map-Type" class="headerlink" title="Map Type"></a>Map Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/02/GoLang-Map-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -508,79 +353,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Slice Type</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li><code>Slice</code> 跟陣列使用起來很像，最大的不同是，陣列是值， <code>Slice</code> 是參考到一個陣列。</li>
-</ul>
-<h3>建立</h3>
-<ul>
-<li>
-<p>要建立一個全新的 <code>Slice</code>有兩種方法，一個是使用 <code>make</code>函式：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	slice := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)  <span class="comment">// [0 0 0 0 0]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>另一個方法是<strong>指定初值</strong>，雖然用法跟陣列很像，但形態不一樣就不能拿來一起比較。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"reflect"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	slice := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)  <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line"></span><br><span class="line">	arr := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(reflect.TypeOf(slice))  <span class="comment">// []int</span></span><br><span class="line">	fmt.Println(reflect.TypeOf(arr))    <span class="comment">// [5]int</span></span><br><span class="line">	fmt.Println(arr == slice)           <span class="comment">// invalid operation: arr == slice (mismatched types [5]int and []int)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Slice 是參考到一個陣列
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	slice := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	ref := slice</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)  <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	fmt.Println(ref)    <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line"></span><br><span class="line">	slice[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)  <span class="comment">// [100 2 3 4 5]</span></span><br><span class="line">	fmt.Println(ref)    <span class="comment">// [100 2 3 4 5]</span></span><br><span class="line"></span><br><span class="line">	ref[<span class="number">4</span>] = <span class="number">500</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)  <span class="comment">// [100 2 3 4 500]</span></span><br><span class="line">	fmt.Println(ref)    <span class="comment">// [100 2 3 4 500]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>操作</h3>
-<ul>
-<li>
-<p>對 <code>Slice</code> 做一些操作</p>
-</li>
-<li>
-<p><code>len</code> 函式可以查長度</p>
-</li>
-<li>
-<p><code>cap</code> 可以查參考的陣列有多少容量
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	slice := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice))  <span class="comment">// 3</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice))  <span class="comment">// 3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>append</code> 函式可以追加新元素在 Slice 最後面
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	slice1 := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice1)       <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice1))  <span class="comment">// 3</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice1))  <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">	slice2 := <span class="built_in">append</span>(slice1, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice2)       <span class="comment">// [1 2 3 10]</span></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice2))  <span class="comment">// 4</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice2))  <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line">	slice3 := <span class="built_in">append</span>(slice2, <span class="number">20</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice3)       <span class="comment">// [1 2 3 10 20]</span></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice3))  <span class="comment">// 5</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice3))  <span class="comment">// 6</span></span><br><span class="line"></span><br><span class="line">	slice3[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line">	fmt.Println(slice1)       <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(slice2)       <span class="comment">// [100 2 3 10]</span></span><br><span class="line">	fmt.Println(slice3)       <span class="comment">// [100 2 3 10 20]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>slice1</code> 加入新元素產生出 <code>slice2</code> 有發生長度與容量的變化（長度 + 1 ，容量 * 2），並且最後面 <code>slice1</code> 與 <code>slice2</code> 的值<strong>沒有</strong>參考到同個陣列。</p>
-</li>
-<li>
-<p><code>slice2</code> 加入新元素產生出 <code>slice3</code> 只有長度 + 1 而已，最後面的值<strong>有</strong>參考到同個陣列。</p>
-</li>
-<li>
-<p><code>Slice</code> 新增元素超過了容量的時候，它會產生新的陣列，且容量有兩倍，給新的 <code>Slice</code> 參考；而容量夠用的時候，則不會產生新陣列。</p>
-</li>
-<li>
-<p><code>copy</code> 函式可以複製內容到另一個 <code>Slice</code> 裡
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	src := []<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	dst1 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">2</span>)</span><br><span class="line">	dst2 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">3</span>)</span><br><span class="line">	dst3 := <span class="built_in">make</span>([]<span class="keyword">int</span>, <span class="number">4</span>)</span><br><span class="line"></span><br><span class="line">	fmt.Println(src)     <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(dst1)    <span class="comment">// [0 0]</span></span><br><span class="line">	fmt.Println(dst2)    <span class="comment">// [0 0 0]</span></span><br><span class="line">	fmt.Println(dst3)    <span class="comment">// [0 0 0 0]</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">copy</span>(dst1, src)</span><br><span class="line">	<span class="built_in">copy</span>(dst2, src)</span><br><span class="line">	<span class="built_in">copy</span>(dst3, src)</span><br><span class="line"></span><br><span class="line">	fmt.Println(src)     <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(dst1)    <span class="comment">// [1 2]</span></span><br><span class="line">	fmt.Println(dst2)    <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(dst3)    <span class="comment">// [1 2 3 0]</span></span><br><span class="line"></span><br><span class="line">	src[<span class="number">0</span>] = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(src)     <span class="comment">// [100 2 3]</span></span><br><span class="line">	fmt.Println(dst1)    <span class="comment">// [1 2]</span></span><br><span class="line">	fmt.Println(dst2)    <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(dst3)    <span class="comment">// [1 2 3 0]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>複製時，即使長度不一還是會執行成功，只是會沒有複製完全。</p>
-</li>
-</ul>
-<h3>從陣列或 Slice 產生 Slice</h3>
-<ul>
-<li>
-<p>除了從頭建一個新的 <code>Slice</code> 外，也可以從陣列或 <code>Slice</code> 上產生新的 <code>Slice</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125; <span class="comment">// array</span></span><br><span class="line"></span><br><span class="line">	slice := arr[<span class="number">1</span>:<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice)        <span class="comment">// [2 3 4]</span></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice))   <span class="comment">// 3</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice))   <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line">	slice2 := slice[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line"></span><br><span class="line">	fmt.Println(slice2)       <span class="comment">// [3 4]</span></span><br><span class="line">	fmt.Println(<span class="built_in">len</span>(slice2))  <span class="comment">// 2</span></span><br><span class="line">	fmt.Println(<span class="built_in">cap</span>(slice2))  <span class="comment">// 3</span></span><br><span class="line"></span><br><span class="line">	slice2[<span class="number">0</span>] = <span class="number">300</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(arr)          <span class="comment">// [1 2 300 4 5]</span></span><br><span class="line">	fmt.Println(slice)        <span class="comment">// [2 300 4]</span></span><br><span class="line">	fmt.Println(slice2)       <span class="comment">// [300 4 5]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>[1:4]</code> 代表的意思是，從**「第 1 個元素開始，到第 4 個元素，不含第 4 個元素」**，因此取得 [2 3 4] 三個元素。而容量會從第 1 個元素開始，一直到結尾。</p>
-</li>
-<li>
-<p><code>[1:3]</code> 會從 [2 3 4] 這個 <code>Slice</code> 取元素，所以取到的是 [3 4] ，容量是 3。</p>
-</li>
-<li>
-<p>因為沒有使用 <code>append</code> 函式，所以都參考到第一個陣列。</p>
-</li>
-<li>
-<p>另外也可以使用 <code>[:]</code> 來取得全部陣列的內容。</p>
-</li>
-</ul>
-
+          <h2 id="Slice-Type"><a href="#Slice-Type" class="headerlink" title="Slice Type"></a>Slice Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/GoLang-Slice-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -655,76 +436,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Array Type</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li>在Go裡，陣列為固定長度，元素型態和長度都是陣列型態的一部份</li>
-</ul>
-<h3>宣告</h3>
-<ul>
-<li>
-<p>使用 <code>[n]type</code>來宣告一個陣列，其中 <code>n</code>是數字，<code>type</code> 為型態
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> arr [<span class="number">5</span>]<span class="keyword">int</span></span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">5</span></span><br><span class="line">	arr[<span class="number">1</span>] = <span class="number">4</span></span><br><span class="line">	</span><br><span class="line">	fmt.Println(arr)  <span class="comment">// [5 4 0 0 0]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這裡宣告 arr 的型態是 <code>[5]int</code> ，因「元素型態與長度都是陣列型態的一部分」，所以 <code>[10]int</code> 與 <code>[5]int</code> 會是不同的型態。</p>
-</li>
-<li>
-<p>因為後面三個元素並沒有指定新值，但可以看到它的初值是 0 ，也就是 zero value 。</p>
-</li>
-<li>
-<p>宣告給值的話要使用 <code>:=</code> 指定，也可以使用不固定長度 <code>[...]</code> 來宣告，它會依後面給值的數量來決定陣列長度：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr1 := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	arr2 := [<span class="number">5</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	arr3 := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	</span><br><span class="line">	fmt.Println(arr1)  <span class="comment">// [1 2 3]</span></span><br><span class="line">	fmt.Println(arr2)  <span class="comment">// [1 2 3 0 0]</span></span><br><span class="line">	fmt.Println(arr3)  <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如果存取陣列超過範圍時，會出現 out of bounds 的編譯錯誤
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Println(arr[<span class="number">9</span>])  <span class="comment">// invalid array index 9 (out of bounds for 5-element array)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>複製</h3>
-<ul>
-<li>
-<p>陣列的內容是值，所以也可以複製給另一個變數
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> arrCopy [<span class="number">5</span>]<span class="keyword">int</span></span><br><span class="line">	</span><br><span class="line">	arrCopy := arr</span><br><span class="line"></span><br><span class="line"> 	fmt.Println(arr)         <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arrCopy)     <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	</span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(arr)         <span class="comment">// [10 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arrCopy)     <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">var</span> arrErr [<span class="number">10</span>]<span class="keyword">int</span></span><br><span class="line">	arrErr = arrCopy         <span class="comment">// cannot use arrCopy (type [5]int) as type [10]int in assignment</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最後一行是型態不一致的錯，<strong>型態與長度相同</strong>，才有辦法複製值。</p>
-</li>
-</ul>
-<h3>比較</h3>
-<ul>
-<li>陣列可以用 <code>==</code> 與 <code>!=</code> 來比較內容，一樣型態與長度相同才能比較。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := [...]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;</span><br><span class="line">	arrCopy := arr</span><br><span class="line"></span><br><span class="line"> 	fmt.Println(arr)             <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arrCopy)         <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arr == arrCopy)  <span class="comment">// true</span></span><br><span class="line">	</span><br><span class="line">	arr[<span class="number">0</span>] = <span class="number">10</span></span><br><span class="line"></span><br><span class="line">	fmt.Println(arr)             <span class="comment">// [10 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arrCopy)         <span class="comment">// [1 2 3 4 5]</span></span><br><span class="line">	fmt.Println(arr == arrCopy)  <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>巢狀陣列</h3>
-<ul>
-<li>
-<p>當宣告陣列時， <code>int</code> 是一種型態，所以我們在前面加上 <code>[n]</code> 即成為 <code>int</code> 的陣列型態。</p>
-</li>
-<li>
-<p><code>[n]int</code> 也是一種型態，在前面加上 <code>[m]</code> 就會成為 <code>[n]int</code> 的陣列型態。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> arr [<span class="number">3</span>][<span class="number">2</span>]<span class="keyword">int</span></span><br><span class="line">	fmt.Println(arr)    <span class="comment">// [[0 0] [0 0] [0 0]]</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>以上，這是一個有 3 個 <code>[n]int</code> 元素的陣列。</p>
-</li>
-<li>
-<p>巢狀陣列也可以宣告同時指定初值：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr1 := [<span class="number">3</span>][<span class="number">2</span>]<span class="keyword">int</span>&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">4</span>&#125;, &#123;<span class="number">5</span>, <span class="number">6</span>&#125;&#125;</span><br><span class="line">	fmt.Println(arr1)    <span class="comment">// [[1 2] [3 4] [5 6]]</span></span><br><span class="line">	</span><br><span class="line">	arr2 := [...][<span class="number">2</span>]<span class="keyword">int</span>&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">4</span>&#125;, &#123;<span class="number">5</span>, <span class="number">6</span>&#125;&#125;</span><br><span class="line">	fmt.Println(arr2)    <span class="comment">// [[1 2] [3 4] [5 6]]</span></span><br><span class="line"></span><br><span class="line">	arr3 := [...][...]<span class="keyword">int</span>&#123;&#123;<span class="number">1</span>, <span class="number">2</span>&#125;, &#123;<span class="number">3</span>, <span class="number">4</span>&#125;, &#123;<span class="number">5</span>, <span class="number">6</span>&#125;&#125;  <span class="comment">// use of [...] array outside of array literal</span></span><br><span class="line">	fmt.Println(arr3)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>其中 arr3 不能這樣宣告的原因是：因為長度也是型態的一部分，宣告陣列時元素的型態必須是確定的</p>
-</li>
-<li>
-<p>因此，<code>[2]int</code> 才能拿來做最外層陣列的元素型態， 而 <code>[...]int</code> 不行。</p>
-</li>
-</ul>
-<h3>走訪 (我想翻譯成迭代？)</h3>
-<ul>
-<li>陣列除了可以用 <code>for + len()</code> 來走訪外，也可以使用 <code>for range</code> ：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	arr := [<span class="number">3</span>]<span class="keyword">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line">	<span class="keyword">for</span> index, element := <span class="keyword">range</span> arr &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%d =&gt; %d\n"</span>, index, element)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">0</span> =&gt; <span class="number">1</span></span><br><span class="line"><span class="number">1</span> =&gt; <span class="number">2</span></span><br><span class="line"><span class="number">2</span> =&gt; <span class="number">3</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="Array-Type"><a href="#Array-Type" class="headerlink" title="Array Type"></a>Array Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/GoLang-Array-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -799,56 +519,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Predeclared Type</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li>Go 的資料型別有 11 種，其中 Predeclared Type，他們是「有名稱的型態（Named Type）」。</li>
-</ul>
-<h3>Boolean types</h3>
-<ul>
-<li>最簡單的型別 <code>bool</code> ，只有兩個預定義的常數 <code>true</code> 和 <code>false</code> 。</li>
-</ul>
-<h3>Numeric types</h3>
-<ul>
-<li>
-<p>numeric 型態包含了 <code>integer</code> （整數）、 <code>float</code>（浮點數）、 <code>complex</code>（複數）三種。</p>
-</li>
-<li>
-<p>整數又分帶號 <code>int</code> 與不帶號 <code>uint</code> 兩類，也可以直接指定大小 <code>int8</code> 、 <code>int16</code> 、 <code>int32</code> 、 <code>int64</code> 或是不帶號的 <code>uint8</code> 、 <code>uint16</code> 、 <code>uint32</code> 、 <code>uint64</code> ，這些相信一看就知道佔了多少容量（bit</p>
-</li>
-<li>
-<p>至於 <code>int</code> 和 <code>uint</code> 會使用哪一個要看平台實作決定，有可能是 32 bit 也有可能是 64 bit。</p>
-</li>
-<li>
-<p>而另外還有兩個整數型態： <code>rune</code> 是 <code>int32</code> 的別名， <code>byte</code> 是 <code>int8</code> 的別名。</p>
-</li>
-<li>
-<p><code>float</code> 有 <code>float32</code> 與 <code>float64</code> 兩種，但沒有 <code>float</code> 。</p>
-</li>
-<li>
-<p>complex 則表示複數，以 RE + IMi 的方法表示，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span>+<span class="number">5i</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>大小則有分 <code>complex64</code> 與 <code>complex128</code> 兩種。</p>
-</li>
-<li>
-<p>Go 內建的 <code>math</code> 套件提供常數取得各型態的最大值和最小值，除了解整數範圍外，也有助於實作上的判斷。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"math"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(math.MinInt8)</span><br><span class="line">	fmt.Println(math.MaxInt8)</span><br><span class="line">	fmt.Println(math.MinInt16)</span><br><span class="line">	fmt.Println(math.MaxInt16)</span><br><span class="line">	fmt.Println(math.MinInt32)</span><br><span class="line">	fmt.Println(math.MaxInt32)</span><br><span class="line">	fmt.Println(math.MinInt64)</span><br><span class="line">	fmt.Println(math.MaxInt64)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Uint 最小值是 0</span></span><br><span class="line">	fmt.Println(math.MaxUint8)</span><br><span class="line">	fmt.Println(math.MaxUint16)</span><br><span class="line">	fmt.Println(math.MaxUint32)</span><br><span class="line">	fmt.Println(math.MaxUint64)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Float 的表示是最小非 0 浮點數</span></span><br><span class="line">	fmt.Println(math.SmallestNonzeroFloat32)</span><br><span class="line">	fmt.Println(math.MaxFloat32)</span><br><span class="line">	fmt.Println(math.SmallestNonzeroFloat64)</span><br><span class="line">	fmt.Println(math.MaxFloat64)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>注意，不同的數字型態，是不能直接摻在一起操作的。如 <code>int8</code> 不能跟 <code>uint8</code> 相加。</p>
-</li>
-<li>
-<p><code>int</code> 有可能是 32 位元，但 <code>int</code> 也不能跟 int32 相加。</p>
-</li>
-</ul>
-<h3>String types</h3>
-<ul>
-<li>Go 語言字串都是 UTF-8 字元集編碼，它可以正常的處理多國語言。字串可以使用雙引號 &quot; 或反引號 ` 定義，也可以相加</li>
-</ul>
-<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello 雙引號"</span>)</span><br><span class="line">	fmt.Println(<span class="string">`Hello 反引號`</span>)</span><br><span class="line">	fmt.Println(<span class="string">"雙引號"</span> + <span class="string">`反引號`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+          <h2 id="Predeclared-Type"><a href="#Predeclared-Type" class="headerlink" title="Predeclared Type"></a>Predeclared Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/GoLang-Predeclared-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -917,82 +596,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>變數與常數的宣告</h2>
-<p>&lt;!--more--&gt;</p>
-<h3>變數宣告</h3>
-<ul>
-<li>
-<p>宣告變數使用 <code>var</code>，以下宣告num 變數為int 型態，給予初始值 <code>10</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>int</code>可以省略
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若不給初始值，預定義變數都會有預設值，Go語言稱之為零值(The zero value)， <code>int</code>的零值是0，所以下面兩行宣告是等價的
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Go可以一次宣告多個變數，下面的型態分別會推斷為 <code>string</code>、<code>int</code>、<code>float64</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name, age, height = <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>也可分多行宣告
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name = <span class="string">"Miles"</span></span><br><span class="line">	age = <span class="number">18</span></span><br><span class="line">	height = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告並指定型態與指定初始值
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name <span class="keyword">string</span> = <span class="string">"Miles"</span></span><br><span class="line">	age <span class="keyword">uint</span> = <span class="number">18</span></span><br><span class="line">	height <span class="keyword">float32</span> = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告定指定型態不指定初始值
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name <span class="keyword">string</span></span><br><span class="line">	age <span class="keyword">uint</span></span><br><span class="line">	height <span class="keyword">float32</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>短變數宣告</h3>
-<ul>
-<li>在func裡，若要宣告變數同時指定初值，可以使用<strong>短變數宣告</strong>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name := <span class="string">"Miles"</span></span><br><span class="line">age := <span class="number">18</span></span><br><span class="line">height := <span class="number">169.9</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>就如同 PHP 的 $name = 'Miles' 一樣，宣告變數同時給值</p>
-</blockquote>
-<ul>
-<li>一樣可以寫成一行
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name, age, height := <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>常數宣告</h3>
-<ul>
-<li>
-<p>宣告變數使用 const 關鍵字，下面宣告了 num 變數為 int 型態，並給值為 10：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>num 會是不可變的常數，試圖指定新值會在編譯時報錯
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Error</span></span><br><span class="line">num = <span class="number">20</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>除了常數一定要給值，其他宣告的方法都跟變數一樣，如一次宣告多個常數
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name, age, height = <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	name = <span class="string">"Miles"</span></span><br><span class="line">	age = <span class="number">18</span></span><br><span class="line">	height = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告並指定型態
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	name <span class="keyword">string</span> = <span class="string">"Miles"</span></span><br><span class="line">	age <span class="keyword">uint</span> = <span class="number">18</span></span><br><span class="line">	height <span class="keyword">float32</span> = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如果宣告了一個 num 變數沒使用， Go 會在編譯時期出錯：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./hello.<span class="keyword">go</span>:<span class="number">8</span>:<span class="number">6</span>: num declared and not used</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>常數則可以宣告但不使用。</p>
-</li>
-</ul>
-
+          <h2 id="變數與常數的宣告"><a href="#變數與常數的宣告" class="headerlink" title="變數與常數的宣告"></a>變數與常數的宣告</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/Golang-Variables-Constants-declarations/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1061,48 +673,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Introduction</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<h3>語言本身的特性</h3>
-<ul>
-<li><strong>Go是為軟體工程服務而設計的語言</strong></li>
-<li>現代程式語言最大特徵之一是混合了多種典範</li>
-<li>在Go中，可以看到C的struct，Java的interface，函數式的典型特徵一級函式等特徵。</li>
-<li>實際上，Go不是物件導向語言，沒有物件，沒有繼承，然而在精神的實現上，使用了struct作為資料與邏輯的聯結（就實現方式上，感覺又有點像Python了），以組合、has-a的關係來消弭程式碼重複的問題，就操作上，又滿像是物件導向語言了。</li>
-<li>因應多核處理器普及，並行（Concurrency）程式設計的支援是現代語言的目標，Go就直接在語法上支援並行程式設計，只要在函式前放一個go關鍵字，就可以建立可與其他函式並行運作的goroutine，之間的通訊，則透過channel來實現。</li>
-</ul>
-<h3>慣例方面的特性</h3>
-<ul>
-<li>Workspaces開頭就提到，go工具一開始就是為了公開檔案庫（repositories）中的開放原始碼而設計，不管你是否發布程式碼，都得遵守它既定的環境設置規範，無從選擇。</li>
-<li>原始碼必須放在 <code>src</code>目錄（依<code>package</code>放在各自子目錄），編譯出來的套件會放在<code>pkg</code>目錄，執行檔就放在<code>bin</code>中（也可以自定義<code>GOBIN</code>環境變數），對於相依套件，也可以透過<code>GOPATH</code>來管理。</li>
-</ul>
-<h3>工具與文件上的特性</h3>
-<ul>
-<li>
-<p>談到工具，現代程式語言在工具的完備性上也有所重視，比方說最常見的是程式庫、套件等的管理，</p>
-<ul>
-<li>Ruby從1.9開始內建了RubyGems，</li>
-<li>Python 3.4之後預設就有pip可以使用，</li>
-<li>JavaScript，使用的是著名的npm套件管理器，</li>
-<li>Go可以透過內建的go get指令，來下載套件，go get可以支援svn、hg、git、bzr等檔案庫的安裝，只要有安裝相對應的版本控制程式。</li>
-</ul>
-</li>
-<li>
-<p>多環境的版本控制</p>
-<ul>
-<li>Python中的virtualenv，從Python 3.4開始也開始內建，</li>
-<li>GOPATH的存在，在Go也可達到這類目的，或者是安裝第三方的gvp與搭配gpm（類似Python的pip），至於Go語言本身多版本的並存需求，則可透過gvm（類似Ruby的rvm）。</li>
-</ul>
-</li>
-<li>
-<p>Go內建了測試機制，執行go test的話，會自動讀取套件目錄中的 <code>*_test.go</code>來編譯、運行測試；</p>
-</li>
-<li>
-<p>在文件的支援上，有著godoc（或go doc）這樣的工具，可以直接查閱套件、函式等的文件說明，實際上，它們讀取了原始碼中的註解內容，概念上類似於Python的Docstring或者是Java的Javadoc，不過更為簡單，沒有特定的語言結構與標記，如同〈Godoc: documenting Go code〉談到的，目的是希望<strong>註解本身就是文件</strong>，即便在沒有godoc的情况下，也希望能從程式碼註解中直接獲得文件說明。</p>
-</li>
-</ul>
-
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/About-GoLang/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1177,123 +756,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Constants</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<h3>Go 的常數類型</h3>
-<ul>
-<li>boolean constants ，布林常數。</li>
-<li>rune constants ，表示字元的常數。</li>
-<li>integer constants ，整數常數</li>
-<li>floating-point constants ，浮點數常數</li>
-<li>complex constants ，複數常數</li>
-<li>string constants ，字串常數</li>
-</ul>
-<p>這些常數都可以用實字（literal）表示，實字又分成下面幾種：</p>
-<ul>
-<li>
-<p>rune literal ， Rune 實字</p>
-</li>
-<li>
-<p>integer literal ，整數實字</p>
-</li>
-<li>
-<p>floating-point literal ，浮點數實字</p>
-</li>
-<li>
-<p>imaginary literal ，虛數實字</p>
-</li>
-<li>
-<p>string literal ，字串實字</p>
-</li>
-<li>
-<p>常數有可能是已定義型態（typed）或是未定型態（untyped），實字常數、 <code>true</code> 、 <code>false</code> 、 <code>iota</code> 都屬於未定型態。</p>
-</li>
-<li>
-<p>常數運算式裡的運算元都是未定型態時，運算完的結果也會是未定型態。example：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10        // 10, Untyped integer constant.</span><br><span class="line">10 + 20   // 30, Untyped integer constant.</span><br><span class="line">10 / 20   // 0,  Untyped integer constant.</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但如果有一個型態是確定的，那運算完的結果也會是確定的，如：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int32(10)           // 10,  type int32</span><br><span class="line">int32(10) + 20      // 30,  type int32</span><br><span class="line">float64(10) / 20    // 0.5, type float64</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>Boolean constants</h3>
-<ul>
-<li>布林常數是內建的常數，就只有兩個： <code>true</code> 和 <code>false</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// true and false are the two untyped boolean values.</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	<span class="literal">true</span>  = <span class="number">0</span> == <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">	<span class="literal">false</span> = <span class="number">0</span> != <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Rune constants</h3>
-<ul>
-<li>Rune 常數使用 Rune 實字（rune literal）來表示，它其實是代表一個 Unicode 的整數。可以使用單引號 <code>'</code> 括住 Unicode 字元，或是 byte 值來表示，如下面的範例是輸出 <code>a</code> 的三種方法，與輸出 <code>中</code> 的三種方法：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'a'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\141'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\x61'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'中'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\u4e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\U00004e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\n'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>string() 函式為強制轉型字串</p>
-</blockquote>
-<ul>
-<li>
-<p>Byte 值的表示方法：</p>
-<ul>
-<li>直接給字元 <code>a</code></li>
-<li><code>\</code> 開頭為八進制，後面必須是 3 個八進位的字元（<code>[0-9]{3}</code>）</li>
-<li><code>\x</code> 開頭為十六進制表示，後面必須是 2 個十六進位的字元（<code>[0-9a-f]{2}</code>）</li>
-</ul>
-</li>
-<li>
-<p>Unicode 表示方法：</p>
-<ul>
-<li>直接給字元 <code>中</code></li>
-<li><code>\u</code> 開頭，後面必須是 4 個十六進位的字元（<code>[0-9a-f]{4}</code>）</li>
-<li><code>\U</code> 開頭，後面必須是 8 個十六進位的字元（<code>[0-9a-f]{8}</code>）</li>
-<li>跳脫字元： <code>\</code> 後面接 <code>a</code> <code>b</code> <code>f</code> <code>n</code> <code>r</code> <code>t</code> <code>v</code> <code>\</code> <code>'</code> <code>&quot;</code> 。</li>
-</ul>
-</li>
-</ul>
-<h3>Integer constants</h3>
-<ul>
-<li>數字常數使用數字實字（integer literal）表示。數字實字有三種表示法：
-<ul>
-<li>十進位，跟大部分的程式碼一樣，為非 <code>0</code> 開頭的連續數字（<code>[1-9][0-9]+</code>）</li>
-<li>八進位， <code>0</code> 開頭，後面接八進位數字（<code>0[0-9]+</code>）</li>
-<li>十六進位， <code>0</code> 開頭，後面接八進位數字（<code>0[x|X][0-9a-fA-F]+</code>）</li>
-</ul>
-</li>
-</ul>
-<h3>Floating-point constants</h3>
-<ul>
-<li>浮點數常數使用浮點數實字（floating-point literal）表示，浮點數使用的兩種表示法：小數點與科學符號：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 10.0</span></span><br><span class="line">	fmt.Println(<span class="number">10.</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">010.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 0.1</span></span><br><span class="line">	fmt.Println(<span class="number">.1e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1E0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 10.1</span></span><br><span class="line">	fmt.Println(<span class="number">10.1</span>)</span><br><span class="line">	fmt.Println(<span class="number">1.01E1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Complex constants</h3>
-<ul>
-<li>複數常數為數字實字加虛數實字（imaginary literal）組合而成。</li>
-<li>虛數實字的表示法為：
-<ul>
-<li>十進位 + 小寫 <code>i</code> ，如 <code>10i</code></li>
-<li>浮點數 + 小寫 <code>i</code> ，如 <code>1E1i</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="number">10</span> + <span class="number">10i</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span> + <span class="number">1E1i</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h3>String constants</h3>
-<ul>
-<li>
-<p>字串常數使用字串實字（string literal）表示。如果是純字串，可以使用 ` 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">`\n`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>\n</code> 兩個字元</p>
-</li>
-<li>
-<p>如果需要轉譯 rune 常數為字元的話，可以用雙引號 <code>&quot;</code> 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"這是\u4e2d\u6587"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>這是中文</code></p>
-</li>
-</ul>
-
+          <h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Constants/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1362,118 +833,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>安裝主程式</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<ul>
-<li>主程式是指 go 指令，它能處理編譯、直譯、建置、格式化程式碼、測試、下載依賴等多種工具的組合。</li>
-</ul>
-<h3>MacOS</h3>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br><span class="line">$ go version</span><br><span class="line">go version go1.9.2 darwin/amd64</span><br></pre></td></tr></table></figure></p>
-<h3>環境變數設定</h3>
-<ul>
-<li>可下 <code>go env</code> 取得環境變數：</li>
-</ul>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ go env</span><br><span class="line">GO111MODULE=&quot;&quot;</span><br><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOBIN=&quot;&quot;</span><br><span class="line">GOCACHE=&quot;/Users/pingjing/Library/Caches/go-build&quot;</span><br><span class="line">GOENV=&quot;/Users/pingjing/Library/Application Support/go/env&quot;</span><br><span class="line">GOEXE=&quot;&quot;</span><br><span class="line">GOFLAGS=&quot;&quot;</span><br><span class="line">GOHOSTARCH=&quot;amd64&quot;</span><br><span class="line">GOHOSTOS=&quot;darwin&quot;</span><br><span class="line">GONOPROXY=&quot;&quot;</span><br><span class="line">GONOSUMDB=&quot;&quot;</span><br><span class="line">GOOS=&quot;darwin&quot;</span><br><span class="line">GOPATH=&quot;/Users/pingjing/go&quot;</span><br><span class="line">GOPRIVATE=&quot;&quot;</span><br><span class="line">GOPROXY=&quot;https://proxy.golang.org,direct&quot;</span><br><span class="line">GOROOT=&quot;/usr/local/Cellar/go/1.13.4/libexec&quot;</span><br><span class="line">GOSUMDB=&quot;sum.golang.org&quot;</span><br><span class="line">GOTMPDIR=&quot;&quot;</span><br><span class="line">GOTOOLDIR=&quot;/usr/local/Cellar/go/1.13.4/libexec/pkg/tool/darwin_amd64&quot;</span><br><span class="line">GCCGO=&quot;gccgo&quot;</span><br><span class="line">AR=&quot;ar&quot;</span><br><span class="line">CC=&quot;clang&quot;</span><br><span class="line">CXX=&quot;clang++&quot;</span><br><span class="line">CGO_ENABLED=&quot;1&quot;</span><br><span class="line">GOMOD=&quot;&quot;</span><br><span class="line">CGO_CFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_CPPFLAGS=&quot;&quot;</span><br><span class="line">CGO_CXXFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_FFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_LDFLAGS=&quot;-g -O2&quot;</span><br><span class="line">PKG_CONFIG=&quot;pkg-config&quot;</span><br><span class="line">GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/2l/n_g57dsd76n0xvwjmnx5xf6h0000gn/T/go-build181465848=/tmp/go-build -gno-record-gcc-switches -fno-common&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p>其中 <code>GOPATH</code> ，是需要設定的環境變數。</p>
-</li>
-<li>
-<p>它代表著 go 程式的工作空間（workspace）， Windows 預設會設定在 <code>~\Go</code> ， Unix-like 則沒有預設，官方建議設定在 <code>~/go</code> 。</p>
-</li>
-<li>
-<p><code>Workspace</code> 裡，劃分成三個主要目錄：</p>
-<ul>
-<li>src - 原始碼</li>
-<li>pkg - go package</li>
-<li>bin - 編譯好的執行檔，有需要也可以加入 PATH 環境變數</li>
-</ul>
-</li>
-<li>
-<p>接著使用 go 的第一個指令 <code>go get</code> ，它會把目標下載回來放在 <code>src</code> 裡，如：
-<code>go get github.com/MilesChou/book-start-golang-30-days</code></p>
-</li>
-<li>
-<p>這樣會把上面這個 repo ，使用 HTTPS 協定 clone 到硬碟裡。</p>
-</li>
-<li>
-<p>當編譯需要第三方的原始碼時，即可使用 go get 下載，同時這也可以用來下載自己或是第三方的原始碼。把所有原始碼集中成一個大大的 workspace ，這就是 go 管理原始碼的概念。</p>
-</li>
-</ul>
-<h3>Hello World</h3>
-<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello, 世界"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>讓程式在建好的環境執行，先建個目錄，檔案名叫 <code>main.go</code>，切換到目錄後，將以上的內容輸入到檔案內，接著 <code>go run main.go</code>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p /path/to/helloworld</span><br><span class="line">$ cd /path/to/helloworld</span><br><span class="line"># 輸入程式碼</span><br><span class="line">$ vim main.go</span><br><span class="line"># 執行程式碼</span><br><span class="line">$ go run main.go</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>解釋</h3>
-<p><strong>go run</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>go run</code> 所做的事正是直譯，也就是直接拿原始碼編譯，同時執行。</li>
-</ul>
-<p><strong>package</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p><code>package</code> 指的是定義套件名稱。</p>
-</li>
-<li>
-<p>每個 <code>.go</code> 原始碼開頭都必須要宣告 <code>package</code> 。</p>
-</li>
-<li>
-<p><code>main</code> 套件是有特殊意義的套件名，它是程式的起始點。執行程式的時候，將會從 <code>main</code> 套件開始。</p>
-</li>
-<li>
-<p>若把 <code>main</code> 名字換成其他名字，再執行一次，將會出現錯誤訊息：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">go run: cannot run non-main package</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>不能跑非 <code>main</code> 的套件。這個概念與大多數 PHP 框架的 <code>index.php</code> 類似，是所有 <code>request</code> 的起始點。</p>
-</li>
-</ul>
-<p><strong>import</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;fmt&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>import</code> 表示要引用套件，而 <code>fmt</code> 套件是 <code>Go</code> 內建的處理格式化輸入輸出函式庫。</li>
-<li><code>Hello World</code> 的目的是要輸出文字，所以需要這個函式庫。</li>
-</ul>
-<p><strong>func</strong></p>
-<ul>
-<li>
-<p>這是定義函式，也就是要寫流程了。
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	fmt.Println(&quot;Hello, 世界&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>func</code> 定義了程式流程，供其他函式呼叫使用。</p>
-</li>
-<li>
-<p>程式碼可以看到兩個函式，一個是現正定義的 <code>main</code> ，另一個則是 <code>fmt</code> 套件所提供的 <code>Println</code>函式，把後面帶入的文字印出來，然後再另外加一個換行。</p>
-</li>
-<li>
-<p>Go 語言有套件庫的概念，同時的函式也有能見度的規範。</p>
-</li>
-<li>
-<p>Go 採用比較特別的方法：開頭<strong>大寫</strong>的函式是 <code>public</code> ，不同的套件庫可以呼叫 <code>public func</code> ；開頭<strong>小寫</strong>的則是 <code>private</code> ，只限套件庫內部使用。</p>
-</li>
-<li>
-<p><code>Println</code> 是屬於 <code>fmt</code> 套件的 <code>public func</code> ，因此雖然套件庫不同（main 與 fmt），仍然可以正常呼叫。</p>
-</li>
-<li>
-<p><code>func main</code> 比較特別，它會搭配 <code>package main</code> 一起使用。</p>
-</li>
-<li>
-<p><code>package main</code> 是所有程式的進入點</p>
-</li>
-<li>
-<p><code>go run</code> 會把 <code>package main</code> 的 <code>func main</code> 拿出來呼叫。</p>
-</li>
-<li>
-<p><code>go run main.go</code> 實際上就是執行 <code>fmt.Println(&quot;Hello, 世界&quot;)</code></p>
-</li>
-</ul>
-
+          <h2 id="安裝主程式"><a href="#安裝主程式" class="headerlink" title="安裝主程式"></a>安裝主程式</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Environment/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1542,92 +910,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Database 實體關聯模型(E-R model)</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>實體 (Entity)</h3>
-<ul>
-<li>將真實世界的人、事、物等實體，以一個方框圖來表示，如果實體必須依附其他實體而存在，則為弱實體，使用雙方v框圖表示。</li>
-<li>例如選課系統中的學生與課程兩個實體:
-<ul>
-<li>學生的緊急聯絡人則為弱實體</li>
-<li>因為學生轉學，則該學生的緊急連絡人資料便不需要被紀錄</li>
-</ul>
-</li>
-<li>下圖是學生選課系統中的實體：
-<img src="http://database.klab.tw/teach/img/t4_2_01.png" class="" width="300" height="150" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>屬性 (Attribute)</h3>
-<ul>
-<li>
-<p>實體擁有的特性稱為屬性(Attribute)，以橢圓形來表示屬性，</p>
-</li>
-<li>
-<p>當屬性具有多重值時，則以雙橢圓形來表示，</p>
-</li>
-<li>
-<p>屬性為主鍵，則屬性名稱底下畫一條底線區別，</p>
-</li>
-<li>
-<p>複合屬性(Composite attribute)則為屬性再分割，</p>
-</li>
-<li>
-<p>衍生屬性(Derived attribute)則以虛橢圓形來表示，</p>
-</li>
-<li>
-<p>例如選課系統中的學生實體擁有學號、姓名、性別、地址、年齡和電話等屬性，可以如下所示：
-<img src="http://database.klab.tw/teach/img/t4_2_02.png" class="" width="400" height="350" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>課程實體其屬性如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_03.png" class="" width="200" height="150" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>緊急聯絡人是弱實體，必須依附著學生實體，其主鍵若設定為學生學號，則此處不必繪出，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_04.png" class="" width="150" height="100" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>實體關係 (Relationship)</h3>
-<ul>
-<li>
-<p>說明各實體之間相互關聯(relationship)的限制(constraints)，是指實體與實體之間如果有關聯，則將此關聯以菱形連結兩實體，並寫出對應的基數。</p>
-</li>
-<li>
-<p>例如：每一個學生可以選修許多課程，一門課程可以被許多學生所選；每位學生皆有一位緊急聯絡人，每位聯絡人也只對應到一位學生。
-<img src="http://database.klab.tw/teach/img/t4_2_05.png" class="" width="300" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>當實體間的關聯為多對多時，並需將此關聯改為一個實體，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_06.png" class="" width="400" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>E-R關聯圖 (E-R Diagram)</h3>
-<ul>
-<li>第4步驟則畫出完整之E-R關聯圖(E-R Diagram)。例如學生選課的ER model如下：
-<img src="http://database.klab.tw/teach/img/t4_2_07.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>外來鍵參考圖 (relational model schema)</h3>
-<ol>
-<li>實體轉成一個資料表</li>
-<li>多值屬性轉成一個資料表</li>
-<li>複合屬性可以轉成一個資料表，也可以只記錄複合不分拆成不同欄位。</li>
-<li>衍生屬性記錄為計算值，並增加適當的欄位</li>
-<li>一般屬性轉成資料表的欄位</li>
-<li>多對多關聯轉成一個資料表</li>
-<li>1對多關聯必須多一個外來鍵置於多的那一個資料表，已便關聯到另一個資料表的主鍵。</li>
-<li>1對1關聯時，如果其中一個實體只有單一屬性，則可併入另一個資料表中，否則獨立為一個資料表，則仍須多一個外來鍵置已便關聯到另一個資料表的主鍵。</li>
-</ol>
-<ul>
-<li>
-<p>例如學生選課資料表之ER model轉成綱要如下：
-<img src="http://database.klab.tw/teach/img/t4_2_08.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>外來鍵參考圖(relational model schema)如下：
-<img src="http://database.klab.tw/teach/img/t4_2_09.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
+          <h2 id="Database-實體關聯模型-E-R-model"><a href="#Database-實體關聯模型-E-R-model" class="headerlink" title="Database 實體關聯模型(E-R model)"></a>Database 實體關聯模型(E-R model)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/26/Database-ERModel/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
 
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/24/Laravel-service-container/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/24/Laravel-service-container/" class="post-title-link" itemprop="url">Laravel service container</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-24 16:21:15" itemprop="dateCreated datePublished" datetime="2019-11-24T16:21:15+08:00">2019-11-24</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
       
     </div>
 
@@ -1691,7 +1039,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">48</span>
+          <span class="site-state-item-count">47</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1704,7 +1052,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">43</span>
+        <span class="site-state-item-count">42</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
