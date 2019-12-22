@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="About My Things">
 <meta property="og:description" content="REST API with Mux">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-12-18T15:30:48.409Z">
+<meta property="og:updated_time" content="2019-12-18T15:42:15.570Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://pingjing0628.github.io/2019/12/17/GoLang-REST-API-with-Mux/">
@@ -248,7 +248,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-18 23:30:48" itemprop="dateModified" datetime="2019-12-18T23:30:48+08:00">2019-12-18</time>
+                <time title="Modified: 2019-12-18 23:42:15" itemprop="dateModified" datetime="2019-12-18T23:42:15+08:00">2019-12-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -286,7 +286,8 @@
 <figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">r.HandleFunc(<span class="string">"/books/&#123;title&#125;/page/&#123;page&#125;"</span>, <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    <span class="comment">// get the book</span></span><br><span class="line">    <span class="comment">// navigate to the page</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>The last thing is to get the data from these segments. The package comes with the function mux.Vars(r) which takes the http.Request as parameter and returns a map of the segments.</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    vars := mux.Vars(r)</span><br><span class="line">    vars[<span class="string">"title"</span>] <span class="comment">// the book title slug</span></span><br><span class="line">    vars[<span class="string">"page"</span>] <span class="comment">// the page</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+</li>
+<li><p>manipulate memory space<br>create and update are manipulate memory space, so when you disconnect, then the data will go back to the default value</p>
 </li>
 </ol>
 <h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
@@ -319,6 +320,9 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+                <a href="/2019/12/22/docker-create-dockerfile-1/" rel="prev" title="docker-create dockerfile(1)">
+                  docker-create dockerfile(1) <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
       </footer>
@@ -372,20 +376,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">49</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pingjing0628.github.io/2019/12/22/docker-Multi-Stage/</loc>
+    
+    <lastmod>2019-12-22T08:05:58.643Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/12/22/docker-create-dockerfile-1/</loc>
+    
+    <lastmod>2019-12-22T08:03:23.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pingjing0628.github.io/2019/12/17/GoLang-REST-API-with-Mux/</loc>
     
-    <lastmod>2019-12-18T15:30:48.409Z</lastmod>
+    <lastmod>2019-12-18T15:42:15.570Z</lastmod>
     
   </url>
   
