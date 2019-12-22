@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>docker-ENTRYPOINT介紹</title>
+    <url>/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</url>
+    <content><![CDATA[<h2 id="Docker-ENTRYPOINT"><a href="#Docker-ENTRYPOINT" class="headerlink" title="Docker ENTRYPOINT"></a>Docker ENTRYPOINT</h2><a id="more"></a>
+<hr>
+<ul>
+<li><code>ENTRYPOINT</code>的目的和 <code>CMD</code>一樣</li>
+<li>當指定了<code>ENTRYPOINT</code>後，<code>CMD</code>的含義就發生了改變，不再是直接的運行其命令，而是將<code>CMD</code>的內容作為參數傳給<code>ENTRYPOINT</code>指令，換句話說實際執行時，將變為：<br><code>&lt;ENTRYPOINT&gt; &quot;&lt;CMD&gt;&quot;</code></li>
+</ul>
+<hr>
+<h3 id="狀況一"><a href="#狀況一" class="headerlink" title="狀況一"></a>狀況一</h3><p>假設需要得知自己當前公網IP，可以先用CMD來實現：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line">RUN apt-get update \</span><br><span class="line">    &amp;&amp; apt-get install -y curl \</span><br><span class="line">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span><br><span class="line">CMD [ &quot;curl&quot;, &quot;-s&quot;, &quot;https://ip.cn&quot; ]</span><br></pre></td></tr></table></figure>
+<p>執行 <code>docker build -t myip</code>建立image<br>則查詢ip執行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run myip</span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br></pre></td></tr></table></figure>
+
+<p>上述的<code>CMD</code>中可以看到實質命令是<code>curl</code>，那若希望顯示HTTP header 訊息，就需要加上<code>-i</code>參數。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run myip -i</span><br><span class="line">docker: Error response from daemon: invalid header field value &quot;oci runtime error: container_linux.go:247: starting container process caused \&quot;exec: \\\&quot;-i\\\&quot;: executable file not found in $PATH\&quot;\n&quot;.</span><br></pre></td></tr></table></figure>
+<p>出現找不到可執行檔案的錯誤訊息，因為這裡的<code>-i</code>替換了原來的<code>CMD</code>，而不是添加在原來的<code>curl -s https://ip.cn</code>後面。而<code>-i</code>根本不是命令，所以自然找不到，必須重新完整的輸入命令才可以執行<br><code>docker run myip curl -s https://ip.cn -i</code></p>
+<p><strong>使用Entrypoint</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line">RUN apt-get update \</span><br><span class="line">    &amp;&amp; apt-get install -y curl \</span><br><span class="line">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span><br><span class="line">ENTRYPOINT [ &quot;curl&quot;, &quot;-s&quot;, &quot;https://ip.cn&quot; ]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"> docker run myip</span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br><span class="line"></span><br><span class="line">$ docker run myip -i</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.8.0</span><br><span class="line">Date: Tue, 22 Nov 2016 05:12:40 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Powered-By: PHP/5.6.24-1~dotdeb+7.1</span><br><span class="line">X-Cache: MISS from cache-2</span><br><span class="line">X-Cache-Lookup: MISS from cache-2:80</span><br><span class="line">X-Cache: MISS from proxy-2_6</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Via: 1.1 cache-2:80, 1.1 proxy-2_6:8006</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br></pre></td></tr></table></figure>
+<p>因為當存在<code>ENTRYPOINT</code>後，<code>CMD</code>的內容將會作為參數傳給<code>ENTRYPOINT</code>，而這裡<code>-i</code>就是新的<code>CMD</code>，因此會作為參數傳給<code>curl</code>，從而達到了我們預期的效果。</p>
+<hr>
+<h3 id="狀況二"><a href="#狀況二" class="headerlink" title="狀況二"></a>狀況二</h3><p>啟動容器就是啟動主進程，但有些時候，啟動主進程前，需要一些準備工作。<br>比如<code>mysql</code>的資料庫，可能需要一些資料庫配置、初始化的工作，這些工作要在最終的<code>mysql</code>服務器運行之前解決。<br>此外，可能希望避免使用<code>root</code>使用者去啟動服務，從而提高安全性，而在啟動服務前還需要以<code>root</code>身份執行一些必要的準備工作，最後切換到服務使用者身份啟動服務。或者除了服務外，其它命令依舊可以使用<code>root</code>身份執行，方便調整等。<br>這些準備工作是和容器<code>CMD</code>無關，都需要事先進行一個預處理的工作。這種情況下，可以寫一個腳本，然後放入<code>ENTRYPOINT</code>中去執行，而這個腳本會將接到的參數（也就是<CMD>）作為命令，在腳本最後執行。比如官方鏡像redis中就是這麼做的：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM alpine:3.4</span><br><span class="line">...</span><br><span class="line">RUN addgroup -S redis &amp;&amp; adduser -S -G redis redis</span><br><span class="line">...</span><br><span class="line">ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]</span><br><span class="line"></span><br><span class="line">EXPOSE 6379</span><br><span class="line">CMD [ &quot;redis-server&quot; ]</span><br></pre></td></tr></table></figure>
+<p>在最後指定了<code>ENTRYPOINT</code>為<code>docker-entrypoint.sh</code>腳本。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">...</span><br><span class="line"># allow the container to be started with `--user`</span><br><span class="line">if [ &quot;$1&quot; = &apos;redis-server&apos; -a &quot;$(id -u)&quot; = &apos;0&apos; ]; then</span><br><span class="line">    chown -R redis .</span><br><span class="line">    exec su-exec redis &quot;$0&quot; &quot;$@&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">exec &quot;$@&quot;</span><br></pre></td></tr></table></figure>
+<p>該腳本的內容就是根據<code>CMD</code>的內容來判斷，如果是<code>redis-server</code>的話，則切換到redis使用者身份啟動服務器，否則依舊使用root身份執行。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker run -it redis id</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="REFERENCES"><a href="#REFERENCES" class="headerlink" title="REFERENCES"></a>REFERENCES</h3><ul>
+<li><a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/entrypoint.html" target="_blank" rel="noopener">Entrypoint</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>dockerfile</tag>
+        <tag>Entrypoint</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>docker-Multi-Stage</title>
     <url>/2019/12/22/docker-Multi-Stage/</url>
     <content><![CDATA[<h2 id="Docker-Multi-Stage-compile-Golang-Image"><a href="#Docker-Multi-Stage-compile-Golang-Image" class="headerlink" title="Docker Multi-Stage compile Golang Image"></a>Docker Multi-Stage compile Golang Image</h2><a id="more"></a>
@@ -15,13 +60,30 @@
 </li>
 </ol>
 <blockquote>
-<p>補充說明：<br>1.</p>
+<p>補充說明：</p>
+<ol>
+<li><code>WORKDIR &lt;工作目錄路徑&gt;</code><br>使用<code>WORKDIR</code>指令用來指定工作目錄（或稱為當前目錄），以後各層的當前目錄就被改為指定的目錄，如該目錄不存在，<code>WORKDIR</code>會幫你建立目錄。</li>
+<li><code>COPY</code>和<code>ADD</code>兩個的功用都一樣，就是將檔案複製進去image<br>差別在於：<br>• <code>COPY</code>只能複製本機端的檔案或目錄<br>• <code>ADD</code>能增加遠端url的檔案到docker image<br>• <code>ADD</code>能順手將本機端複製進去的tar檔解開(遠端的tar不行！)<br>在實例上並不建議使用<code>ADD</code>來抓取網路上的檔案，會使用<code>RUN curl or wget</code>的方式。<br>原因是使用一次<code>ADD</code>指令會增加docker image layers一次，layers越多，docker image size就會越大</li>
+<li><code>ENTRYPOINT</code>的部分，待其他章節說明</li>
+</ol>
 </blockquote>
 <ol start="3">
-<li>執行編譯指令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker build -t yu/go- .</span><br><span class="line">docker run --rm yu/go-app</span><br></pre></td></tr></table></figure>
+<li>執行編譯指令<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker build -t yu/go-app .</span><br><span class="line">docker run --rm yu/go-app</span><br></pre></td></tr></table></figure>
 檢查看看編譯出來的 Image 大小，使用 <code>docker images | grep go-app</code>，會發現 Image 大小為 258 MB</li>
 </ol>
 <hr>
+<h3 id="Multiple-build"><a href="#Multiple-build" class="headerlink" title="Multiple build"></a>Multiple build</h3><p>Multiple build 可以在 <code>Dockerfile</code> 使用多個不同的 Image 來源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># build stage</span><br><span class="line">FROM golang:alpine AS build-env</span><br><span class="line">ADD . /src</span><br><span class="line">RUN cd /src &amp;&amp; go build -o app</span><br><span class="line"> </span><br><span class="line"># final stage</span><br><span class="line">FROM alpine</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY --from=build-env /src/app /app/</span><br><span class="line">ENTRYPOINT ./app</span><br></pre></td></tr></table></figure>
+<p><code>AS</code> 及 <code>--from</code> 互相溝通，以往需要寫兩個 <code>Dockerfile</code>，現在只要一個就可以。最後執行編譯指令:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker build -t yu/go-app .</span><br><span class="line">docker run --rm yu/go-app</span><br></pre></td></tr></table></figure>
+<p>最後大小為 6.35 MB，比較小了</p>
+<p>參考範例:<br><code>cmd/server/server.go</code> 需要被更改成你的檔案</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM golang:1.13 as builder</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY . /app</span><br><span class="line">RUN CGO_ENABLED=0 GOOS=linux GOPROXY=https://proxy.golang.org go build -o app cmd/server/server.go</span><br><span class="line"></span><br><span class="line">FROM alpine:latest</span><br><span class="line"># mailcap adds mime detection and ca-certificates help with TLS (basic stuff)</span><br><span class="line">RUN apk --no-cache add ca-certificates mailcap &amp;&amp; addgroup -S app &amp;&amp; adduser -S app -G app</span><br><span class="line">USER app</span><br><span class="line">WORKDIR /app</span><br><span class="line">COPY --from=builder /app/app .</span><br><span class="line">ENTRYPOINT [&quot;./app&quot;]</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Docker-提供的-image-scratch"><a href="#Docker-提供的-image-scratch" class="headerlink" title="Docker 提供的 image scratch"></a>Docker 提供的 image scratch</h3><p>並不適用於每一個案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FROM golang as base</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">ENV GO111MODULE=on \</span><br><span class="line">    CGO_ENABLED=0 \</span><br><span class="line">    GOOS=linux \</span><br><span class="line">    GOARCH=amd64</span><br><span class="line"></span><br><span class="line">COPY go.mod .</span><br><span class="line">COPY go.sum .</span><br><span class="line"></span><br><span class="line">RUN go mod download</span><br><span class="line"></span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line"># it will take the flags from the environment</span><br><span class="line">RUN go build</span><br><span class="line"></span><br><span class="line">### Certs</span><br><span class="line">FROM alpine:latest as certs</span><br><span class="line">RUN apk --update add ca-certificates</span><br><span class="line"></span><br><span class="line">### App</span><br><span class="line">FROM scratch as app</span><br><span class="line">COPY --from=certs /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt</span><br><span class="line">COPY --from=base app /</span><br><span class="line">ENTRYPOINT [&quot;/app&quot;]</span><br></pre></td></tr></table></figure>
+
 <h3 id="REFERENCES"><a href="#REFERENCES" class="headerlink" title="REFERENCES"></a>REFERENCES</h3><ul>
 <li><a href="https://blog.wu-boy.com/2017/04/build-minimal-docker-container-using-multi-stage-for-go-app/" target="_blank" rel="noopener">用 Docker Multi-Stage 編譯 Golang 最小 Image</a></li>
 <li><a href="https://dev.to/andrioid/slim-docker-images-for-your-go-application-11oo" target="_blank" rel="noopener">Slim Docker images for your Go application</a></li>

@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pingjing0628.github.io/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</loc>
+    
+    <lastmod>2019-12-22T14:25:59.645Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pingjing0628.github.io/2019/12/22/docker-Multi-Stage/</loc>
     
-    <lastmod>2019-12-22T08:05:58.643Z</lastmod>
+    <lastmod>2019-12-22T14:07:32.039Z</lastmod>
     
   </url>
   

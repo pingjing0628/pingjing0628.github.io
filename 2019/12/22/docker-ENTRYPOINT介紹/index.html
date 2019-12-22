@@ -50,18 +50,18 @@
   };
 </script>
 
-  <meta name="description" content="閉包">
-<meta name="keywords" content="PHP,closure">
+  <meta name="description" content="Docker ENTRYPOINT">
+<meta name="keywords" content="docker,dockerfile,Entrypoint">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP 特點- 閉包">
-<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;11&#x2F;03&#x2F;PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85&#x2F;">
+<meta property="og:title" content="docker-ENTRYPOINT介紹">
+<meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;12&#x2F;22&#x2F;docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9&#x2F;">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="閉包">
+<meta property="og:description" content="Docker ENTRYPOINT">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-11-17T15:45:38.752Z">
+<meta property="og:updated_time" content="2019-12-22T14:25:59.645Z">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://pingjing0628.github.io/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/">
+<link rel="canonical" href="https://pingjing0628.github.io/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>PHP 特點- 閉包 | About My Things</title>
+  <title>docker-ENTRYPOINT介紹 | About My Things</title>
   
 
 
@@ -218,7 +218,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -231,7 +231,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          PHP 特點- 閉包
+          docker-ENTRYPOINT介紹
         </h1>
 
         <div class="post-meta">
@@ -240,24 +240,18 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2019-11-03 15:23:13" itemprop="dateCreated datePublished" datetime="2019-11-03T15:23:13+08:00">2019-11-03</time>
+              <time title="Created: 2019-12-22 22:08:51 / Modified: 22:25:59" itemprop="dateCreated datePublished" datetime="2019-12-22T22:08:51+08:00">2019-12-22</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:45:38" itemprop="dateModified" datetime="2019-11-17T23:45:38+08:00">2019-11-17</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
                   </a>
                 </span>
             </span>
@@ -273,15 +267,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2><a id="more"></a>
+        <h2 id="Docker-ENTRYPOINT"><a href="#Docker-ENTRYPOINT" class="headerlink" title="Docker ENTRYPOINT"></a>Docker ENTRYPOINT</h2><a id="more"></a>
 <hr>
 <ul>
-<li>閉包是在創造時就封裝了內部狀態的函式，即使原有的環境已經消失了這個被封裝的狀態會中被寶存在閉包中</li>
-<li>Example <code>array_map</code>閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$numbersPlusOne = array_map(<span class="function"><span class="keyword">function</span> <span class="params">($number)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> $number + <span class="number">1</span>;</span><br><span class="line">&#125;, [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</span><br><span class="line">print_r($numbersPlusOne);</span><br><span class="line"><span class="comment">//輸出 --&gt; [2,3,4]</span></span><br></pre></td></tr></table></figure></li>
-<li>PHP閉包是一種物件，每一閉包實體都有其內部狀態，就跟其他PHP物件一樣可以用 <code>$this</code> 關鍵字存取</li>
+<li><code>ENTRYPOINT</code>的目的和 <code>CMD</code>一樣</li>
+<li>當指定了<code>ENTRYPOINT</code>後，<code>CMD</code>的含義就發生了改變，不再是直接的運行其命令，而是將<code>CMD</code>的內容作為參數傳給<code>ENTRYPOINT</code>指令，換句話說實際執行時，將變為：<br><code>&lt;ENTRYPOINT&gt; &quot;&lt;CMD&gt;&quot;</code></li>
 </ul>
-<h4 id="繫結狀態"><a href="#繫結狀態" class="headerlink" title="繫結狀態"></a>繫結狀態</h4><ul>
-<li>Example 利用 <code>use</code>關鍵字繫結狀態到閉包<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">enclosePerson</span><span class="params">($name)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">($doCommand)</span> <span class="title">use</span> <span class="params">($name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> sprintf(<span class="string">'%s, %s'</span>, $name, $doCommand);</span><br><span class="line">	&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將"Clay"關閉在閉包中</span></span><br><span class="line">$clay = enclosePerson(<span class="string">'Clay'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用指令呼叫閉包</span></span><br><span class="line"><span class="keyword">echo</span> $clay(<span class="string">'get me sweet tea!'</span>);</span><br><span class="line"><span class="comment">// 輸出 --&gt; "Clay, get me sweet tea!"</span></span><br></pre></td></tr></table></figure></li>
+<hr>
+<h3 id="狀況一"><a href="#狀況一" class="headerlink" title="狀況一"></a>狀況一</h3><p>假設需要得知自己當前公網IP，可以先用CMD來實現：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line">RUN apt-get update \</span><br><span class="line">    &amp;&amp; apt-get install -y curl \</span><br><span class="line">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span><br><span class="line">CMD [ &quot;curl&quot;, &quot;-s&quot;, &quot;https://ip.cn&quot; ]</span><br></pre></td></tr></table></figure>
+<p>執行 <code>docker build -t myip</code>建立image<br>則查詢ip執行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run myip</span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br></pre></td></tr></table></figure>
+
+<p>上述的<code>CMD</code>中可以看到實質命令是<code>curl</code>，那若希望顯示HTTP header 訊息，就需要加上<code>-i</code>參數。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run myip -i</span><br><span class="line">docker: Error response from daemon: invalid header field value &quot;oci runtime error: container_linux.go:247: starting container process caused \&quot;exec: \\\&quot;-i\\\&quot;: executable file not found in $PATH\&quot;\n&quot;.</span><br></pre></td></tr></table></figure>
+<p>出現找不到可執行檔案的錯誤訊息，因為這裡的<code>-i</code>替換了原來的<code>CMD</code>，而不是添加在原來的<code>curl -s https://ip.cn</code>後面。而<code>-i</code>根本不是命令，所以自然找不到，必須重新完整的輸入命令才可以執行<br><code>docker run myip curl -s https://ip.cn -i</code></p>
+<p><strong>使用Entrypoint</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">FROM ubuntu:18.04</span><br><span class="line">RUN apt-get update \</span><br><span class="line">    &amp;&amp; apt-get install -y curl \</span><br><span class="line">    &amp;&amp; rm -rf /var/lib/apt/lists/*</span><br><span class="line">ENTRYPOINT [ &quot;curl&quot;, &quot;-s&quot;, &quot;https://ip.cn&quot; ]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> docker run myip</span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br><span class="line"></span><br><span class="line">$ docker run myip -i</span><br><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Server: nginx/1.8.0</span><br><span class="line">Date: Tue, 22 Nov 2016 05:12:40 GMT</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Vary: Accept-Encoding</span><br><span class="line">X-Powered-By: PHP/5.6.24-1~dotdeb+7.1</span><br><span class="line">X-Cache: MISS from cache-2</span><br><span class="line">X-Cache-Lookup: MISS from cache-2:80</span><br><span class="line">X-Cache: MISS from proxy-2_6</span><br><span class="line">Transfer-Encoding: chunked</span><br><span class="line">Via: 1.1 cache-2:80, 1.1 proxy-2_6:8006</span><br><span class="line">Connection: keep-alive</span><br><span class="line"></span><br><span class="line">當前 IP：61.148.226.66 來自：北京市 聯通</span><br></pre></td></tr></table></figure>
+<p>因為當存在<code>ENTRYPOINT</code>後，<code>CMD</code>的內容將會作為參數傳給<code>ENTRYPOINT</code>，而這裡<code>-i</code>就是新的<code>CMD</code>，因此會作為參數傳給<code>curl</code>，從而達到了我們預期的效果。</p>
+<hr>
+<h3 id="狀況二"><a href="#狀況二" class="headerlink" title="狀況二"></a>狀況二</h3><p>啟動容器就是啟動主進程，但有些時候，啟動主進程前，需要一些準備工作。<br>比如<code>mysql</code>的資料庫，可能需要一些資料庫配置、初始化的工作，這些工作要在最終的<code>mysql</code>服務器運行之前解決。<br>此外，可能希望避免使用<code>root</code>使用者去啟動服務，從而提高安全性，而在啟動服務前還需要以<code>root</code>身份執行一些必要的準備工作，最後切換到服務使用者身份啟動服務。或者除了服務外，其它命令依舊可以使用<code>root</code>身份執行，方便調整等。<br>這些準備工作是和容器<code>CMD</code>無關，都需要事先進行一個預處理的工作。這種情況下，可以寫一個腳本，然後放入<code>ENTRYPOINT</code>中去執行，而這個腳本會將接到的參數（也就是<CMD>）作為命令，在腳本最後執行。比如官方鏡像redis中就是這麼做的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FROM alpine:3.4</span><br><span class="line">...</span><br><span class="line">RUN addgroup -S redis &amp;&amp; adduser -S -G redis redis</span><br><span class="line">...</span><br><span class="line">ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]</span><br><span class="line"></span><br><span class="line">EXPOSE 6379</span><br><span class="line">CMD [ &quot;redis-server&quot; ]</span><br></pre></td></tr></table></figure>
+<p>在最後指定了<code>ENTRYPOINT</code>為<code>docker-entrypoint.sh</code>腳本。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">...</span><br><span class="line"># allow the container to be started with `--user`</span><br><span class="line">if [ &quot;$1&quot; = &apos;redis-server&apos; -a &quot;$(id -u)&quot; = &apos;0&apos; ]; then</span><br><span class="line">    chown -R redis .</span><br><span class="line">    exec su-exec redis &quot;$0&quot; &quot;$@&quot;</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">exec &quot;$@&quot;</span><br></pre></td></tr></table></figure>
+<p>該腳本的內容就是根據<code>CMD</code>的內容來判斷，如果是<code>redis-server</code>的話，則切換到redis使用者身份啟動服務器，否則依舊使用root身份執行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run -it redis id</span><br><span class="line">uid=0(root) gid=0(root) groups=0(root)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="REFERENCES"><a href="#REFERENCES" class="headerlink" title="REFERENCES"></a>REFERENCES</h3><ul>
+<li><a href="https://yeasy.gitbooks.io/docker_practice/image/dockerfile/entrypoint.html" target="_blank" rel="noopener">Entrypoint</a></li>
 </ul>
 
     </div>
@@ -292,25 +308,23 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/PHP/" rel="tag"># PHP</a>
-              <a href="/tags/closure/" rel="tag"># closure</a>
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/dockerfile/" rel="tag"># dockerfile</a>
+              <a href="/tags/Entrypoint/" rel="tag"># Entrypoint</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
-                <a href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E7%89%B9%E5%BE%B5%E6%A9%9F%E5%88%B6/" rel="next" title="PHP 特點- 特徵機制">
-                  <i class="fa fa-chevron-left"></i> PHP 特點- 特徵機制
+                <a href="/2019/12/22/docker-Multi-Stage/" rel="next" title="docker-Multi-Stage">
+                  <i class="fa fa-chevron-left"></i> docker-Multi-Stage
                 </a>
             </div>
 
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-                <a href="/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E6%B6%88%E6%AF%92%E3%80%81%E9%A9%97%E8%AD%89%E5%92%8C%E9%80%83%E8%84%AB/" rel="prev" title="PHP 良好習慣- 消毒、驗證和逃脫">
-                  PHP 良好習慣- 消毒、驗證和逃脫 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
       </footer>
@@ -349,7 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#閉包"><span class="nav-number">1.</span> <span class="nav-text">閉包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#繫結狀態"><span class="nav-number">1.0.1.</span> <span class="nav-text">繫結狀態</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-ENTRYPOINT"><span class="nav-number">1.</span> <span class="nav-text">Docker ENTRYPOINT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#狀況一"><span class="nav-number">1.1.</span> <span class="nav-text">狀況一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#狀況二"><span class="nav-number">1.2.</span> <span class="nav-text">狀況二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REFERENCES"><span class="nav-number">1.3.</span> <span class="nav-text">REFERENCES</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
