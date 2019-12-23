@@ -62,10 +62,8 @@
 <blockquote>
 <p>補充說明：</p>
 <ol>
-<li><code>WORKDIR &lt;工作目錄路徑&gt;</code><br>使用<code>WORKDIR</code>指令用來指定工作目錄（或稱為當前目錄），以後各層的當前目錄就被改為指定的目錄，如該目錄不存在，<code>WORKDIR</code>會幫你建立目錄。<ol start="2">
+<li><code>WORKDIR &lt;工作目錄路徑&gt;</code><br>使用<code>WORKDIR</code>指令用來指定工作目錄（或稱為當前目錄），以後各層的當前目錄就被改為指定的目錄，如該目錄不存在，<code>WORKDIR</code>會幫你建立目錄。</li>
 <li><code>COPY</code>和<code>ADD</code>兩個的功用都一樣，就是將檔案複製進去image<br>差別在於：<br>• <code>COPY</code>只能複製本機端的檔案或目錄<br>• <code>ADD</code>能增加遠端url的檔案到docker image<br>• <code>ADD</code>能順手將本機端複製進去的tar檔解開(遠端的tar不行！)<br>在實例上並不建議使用<code>ADD</code>來抓取網路上的檔案，會使用<code>RUN curl or wget</code>的方式。<br>原因是使用一次<code>ADD</code>指令會增加docker image layers一次，layers越多，docker image size就會越大</li>
-</ol>
-</li>
 <li><code>ENTRYPOINT</code>的部分，待其他章節說明</li>
 </ol>
 </blockquote>
