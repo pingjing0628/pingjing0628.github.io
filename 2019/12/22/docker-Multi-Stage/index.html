@@ -58,7 +58,7 @@
 <meta property="og:site_name" content="About My Things">
 <meta property="og:description" content="Docker Multi-Stage compile Golang Image">
 <meta property="og:locale" content="zh-tw">
-<meta property="og:updated_time" content="2019-12-22T14:07:32.039Z">
+<meta property="og:updated_time" content="2019-12-23T14:09:52.298Z">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="https://pingjing0628.github.io/2019/12/22/docker-Multi-Stage/">
@@ -240,10 +240,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-12-22 15:41:19 / Modified: 22:07:32" itemprop="dateCreated datePublished" datetime="2019-12-22T15:41:19+08:00">2019-12-22</time>
+              <time title="Created: 2019-12-22 15:41:19" itemprop="dateCreated datePublished" datetime="2019-12-22T15:41:19+08:00">2019-12-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-23 22:09:52" itemprop="dateModified" datetime="2019-12-23T22:09:52+08:00">2019-12-23</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -281,9 +287,11 @@
 <blockquote>
 <p>補充說明：</p>
 <ol>
-<li><code>WORKDIR &lt;工作目錄路徑&gt;</code><br>使用<code>WORKDIR</code>指令用來指定工作目錄（或稱為當前目錄），以後各層的當前目錄就被改為指定的目錄，如該目錄不存在，<code>WORKDIR</code>會幫你建立目錄。</li>
+<li><code>WORKDIR &lt;工作目錄路徑&gt;</code><br>使用<code>WORKDIR</code>指令用來指定工作目錄（或稱為當前目錄），以後各層的當前目錄就被改為指定的目錄，如該目錄不存在，<code>WORKDIR</code>會幫你建立目錄。<ol start="2">
 <li><code>COPY</code>和<code>ADD</code>兩個的功用都一樣，就是將檔案複製進去image<br>差別在於：<br>• <code>COPY</code>只能複製本機端的檔案或目錄<br>• <code>ADD</code>能增加遠端url的檔案到docker image<br>• <code>ADD</code>能順手將本機端複製進去的tar檔解開(遠端的tar不行！)<br>在實例上並不建議使用<code>ADD</code>來抓取網路上的檔案，會使用<code>RUN curl or wget</code>的方式。<br>原因是使用一次<code>ADD</code>指令會增加docker image layers一次，layers越多，docker image size就會越大</li>
 <li><code>ENTRYPOINT</code>的部分，待其他章節說明</li>
+</ol>
+</li>
 </ol>
 </blockquote>
 <ol start="3">
