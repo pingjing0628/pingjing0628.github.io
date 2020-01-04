@@ -50,13 +50,13 @@
   };
 </script>
 
-  <meta name="description" content="Python 生成式">
+  <meta name="description" content="Python 生成式 &amp;lt;!--more--&amp;gt;  串列生成式   你可以建立一個從整數1到5的串列，一次建立一個項目 12345678&amp;gt;&amp;gt;&amp;gt; number_list = []&amp;gt;&amp;gt;&amp;gt; number_list.append(1)&amp;gt;&amp;gt;&amp;gt; number_list.append(2)&amp;gt;&amp;gt;&amp;gt; number_list.append">
 <meta name="keywords" content="python,生成式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 生成式">
 <meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2019&#x2F;11&#x2F;17&#x2F;python-%E7%94%9F%E6%88%90%E5%BC%8F&#x2F;">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Python 生成式">
+<meta property="og:description" content="Python 生成式 &amp;lt;!--more--&amp;gt;  串列生成式   你可以建立一個從整數1到5的串列，一次建立一個項目 12345678&amp;gt;&amp;gt;&amp;gt; number_list = []&amp;gt;&amp;gt;&amp;gt; number_list.append(1)&amp;gt;&amp;gt;&amp;gt; number_list.append(2)&amp;gt;&amp;gt;&amp;gt; number_list.append">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2019-11-17T15:46:25.480Z">
 <meta name="twitter:card" content="summary">
@@ -267,48 +267,69 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Python-生成式"><a href="#Python-生成式" class="headerlink" title="Python 生成式"></a>Python 生成式</h2><a id="more"></a>
+        <h2>Python 生成式</h2>
+<p>&lt;!--more--&gt;</p>
 <hr>
-<h3 id="串列生成式"><a href="#串列生成式" class="headerlink" title="串列生成式"></a>串列生成式</h3><ul>
-<li><p>你可以建立一個從整數1到5的串列，一次建立一個項目</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></li>
-<li><p>你也可以使用迭代器與 <code>range()</code>函式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        number_list.append(number)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></li>
-<li><p>你也可以直接將 <code>range()</code>的輸出轉成串列：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = list(range(<span class="number">1</span>, <span class="number">6</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<h3>串列生成式</h3>
+<ul>
+<li>
+<p>你可以建立一個從整數1到5的串列，一次建立一個項目
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>以上所有方法都是有效的Python程式，也都會產生相同的結果，但要建立較符合Python風格的方式，就是使用<strong>串列生成式</strong>，最簡單的串列生成式形式是：</p>
+<li>
+<p>你也可以使用迭代器與 <code>range()</code>函式
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        number_list.append(number)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>你也可以直接將 <code>range()</code>的輸出轉成串列：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = list(range(<span class="number">1</span>, <span class="number">6</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>以上所有方法都是有效的Python程式，也都會產生相同的結果，但要建立較符合Python風格的方式，就是使用<strong>串列生成式</strong>，最簡單的串列生成式形式是：</p>
 </li>
 </ul>
 <blockquote>
 <p>[運算式 for 項目 in 可迭代項目]</p>
 </blockquote>
 <ul>
-<li><p>以下是用串列生成式建構整數串列的方式</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></li>
-<li><p>如上，第一個number變數來產生串列的值，將迴圈的結果放入number_list</p>
+<li>
+<p>以下是用串列生成式建構整數串列的方式
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>第二個 number是 for迴圈的一部份，為了說明第一個number是個運算式，範例如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number<span class="number">-1</span> <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure>
+<li>
+<p>如上，第一個number變數來產生串列的值，將迴圈的結果放入number_list</p>
 </li>
-<li><p>串列生成式可以容納條件運算式</p>
+<li>
+<p>第二個 number是 for迴圈的一部份，為了說明第一個number是個運算式，範例如下：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number<span class="number">-1</span> <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>串列生成式可以容納條件運算式</p>
 </li>
 </ul>
 <blockquote>
 <p>[運算式 for 項目 in 可迭代項目 if 條件式]</p>
 </blockquote>
 <ul>
-<li><p>製作一個新的生成式，用來建立一個裡面只有1到5的奇數的串列</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>) <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></li>
-<li><p>傳統的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            a_list.append(number)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<li>
+<p>製作一個新的生成式，用來建立一個裡面只有1到5的奇數的串列
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>) <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>最後，也可以在對應的生成式中使用二組以上的for子句</p>
+<li>
+<p>傳統的
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            a_list.append(number)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>舊式的嵌套迴圈</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">	    <span class="keyword">for</span> col <span class="keyword">in</span> cols:</span><br><span class="line">	        print(row, col)</span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></li>
-<li><p>再來，使用生成式，並將他指派給變數cells，製作一串(row, col)tuple：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cells = [(row, col) <span class="keyword">for</span> row <span class="keyword">in</span> rows <span class="keyword">for</span> col <span class="keyword">in</span> cols]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> cell <span class="keyword">in</span> cells</span><br><span class="line">        print(cell)</span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></li>
+<li>
+<p>最後，也可以在對應的生成式中使用二組以上的for子句</p>
+</li>
+<li>
+<p>舊式的嵌套迴圈
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">	    <span class="keyword">for</span> col <span class="keyword">in</span> cols:</span><br><span class="line">	        print(row, col)</span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>再來，使用生成式，並將他指派給變數cells，製作一串(row, col)tuple：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cells = [(row, col) <span class="keyword">for</span> row <span class="keyword">in</span> rows <span class="keyword">for</span> col <span class="keyword">in</span> cols]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> cell <span class="keyword">in</span> cells</span><br><span class="line">        print(cell)</span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
+</li>
 </ul>
 
     </div>
@@ -376,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python-生成式"><span class="nav-number">1.</span> <span class="nav-text">Python 生成式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#串列生成式"><span class="nav-number">1.1.</span> <span class="nav-text">串列生成式</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Python 生成式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">串列生成式</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +412,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -437,7 +458,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
