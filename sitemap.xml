@@ -2,6 +2,69 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pingjing0628.github.io/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/</loc>
+    
+    <lastmod>2020-01-07T16:25:29.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/17/python-%E5%87%BD%E5%BC%8F/</loc>
+    
+    <lastmod>2020-01-07T16:25:28.352Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/</loc>
+    
+    <lastmod>2020-01-07T16:25:25.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/17/python-%E7%94%9F%E6%88%90%E5%BC%8F/</loc>
+    
+    <lastmod>2020-01-07T16:25:16.731Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/</loc>
+    
+    <lastmod>2020-01-07T16:25:13.763Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/11/What-is-Kubernetes/</loc>
+    
+    <lastmod>2020-01-07T16:25:06.449Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/</loc>
+    
+    <lastmod>2020-01-07T16:24:57.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</loc>
+    
+    <lastmod>2020-01-07T16:24:26.729Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://pingjing0628.github.io/2019/12/22/docker-Multi-Stage/</loc>
+    
+    <lastmod>2020-01-07T16:24:20.319Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pingjing0628.github.io/2020/01/05/GoLang-gomodule/</loc>
     
     <lastmod>2020-01-07T16:23:25.747Z</lastmod>
@@ -12,20 +75,6 @@
     <loc>https://pingjing0628.github.io/2020/01/04/GoLang-1a2b-game-practice/</loc>
     
     <lastmod>2020-01-04T09:00:52.453Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/12/22/docker-Multi-Stage/</loc>
-    
-    <lastmod>2019-12-23T14:18:34.304Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</loc>
-    
-    <lastmod>2019-12-22T14:25:59.645Z</lastmod>
     
   </url>
   
@@ -184,30 +233,9 @@
   </url>
   
   <url>
-    <loc>https://pingjing0628.github.io/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/</loc>
-    
-    <lastmod>2019-11-21T16:34:43.848Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/</loc>
     
     <lastmod>2019-11-21T16:14:11.610Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/</loc>
-    
-    <lastmod>2019-11-21T16:10:33.769Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/11/17/python-%E5%87%BD%E5%BC%8F/</loc>
-    
-    <lastmod>2019-11-21T15:21:07.411Z</lastmod>
     
   </url>
   
@@ -219,23 +247,9 @@
   </url>
   
   <url>
-    <loc>https://pingjing0628.github.io/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/</loc>
-    
-    <lastmod>2019-11-17T15:56:49.259Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pingjing0628.github.io/2019/11/03/%E5%88%A9%E7%94%A8-PHPUnit-Mockery-%E9%96%8B%E7%99%BC-API/</loc>
     
     <lastmod>2019-11-17T15:46:38.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/11/17/python-%E7%94%9F%E6%88%90%E5%BC%8F/</loc>
-    
-    <lastmod>2019-11-17T15:46:25.480Z</lastmod>
     
   </url>
   
@@ -324,23 +338,9 @@
   </url>
   
   <url>
-    <loc>https://pingjing0628.github.io/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/</loc>
-    
-    <lastmod>2019-11-17T15:45:27.395Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://pingjing0628.github.io/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E5%9B%9B-%E9%9B%86%E5%90%88/</loc>
     
     <lastmod>2019-11-17T15:45:20.845Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://pingjing0628.github.io/2019/11/11/What-is-Kubernetes/</loc>
-    
-    <lastmod>2019-11-17T15:45:13.756Z</lastmod>
     
   </url>
   

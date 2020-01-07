@@ -456,10 +456,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-17 15:08:50 / Modified: 23:45:27" itemprop="dateCreated datePublished" datetime="2019-11-17T15:08:50+08:00">2019-11-17</time>
+              <time title="Created: 2019-11-17 15:08:50" itemprop="dateCreated datePublished" datetime="2019-11-17T15:08:50+08:00">2019-11-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-08 00:24:57" itemprop="dateModified" datetime="2020-01-08T00:24:57+08:00">2020-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -483,143 +489,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 字典</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>字典(Dictionary)</h3>
-<ul>
-<li>字典與串列很像，但他不在乎項目的順序，且不會用0或1等位移值還選擇項目</li>
-<li>必須為每一個值指定一個獨一無二的<strong>鍵</strong></li>
-<li>這個鍵通常是個字串，但其實可以用任何一種不可變的Python類型：布林、整數、浮點數、tuple、字串...</li>
-<li>字典通常是可變的，可以添加、刪除、改變他們的 &quot;鍵/值&quot;元素</li>
-</ul>
-<blockquote>
-<p>其他語言可能會將字典稱為<strong>關聯陣列(associative array)、雜湊(Hash)或 hashmap</strong>，在Python，字典也可稱為dict還減少字母數</p>
-</blockquote>
-<h4>用 <code>{}</code>來建立</h4>
-<ul>
-<li>要建立字典，要用大括號包住以逗號分隔的<strong>鍵</strong>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_dict = &#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_dict</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用<code>dict()</code>來轉換</h4>
-<ul>
-<li>可以使用<code>dict()</code>，將雙值序列轉換到字典裡面，每一個序列的第一個項目都會被當成鍵，第二個項目會被當成值
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lol = [[<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>], [<span class="string">'e'</span>, <span class="string">'f'</span>]]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(lol)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>字典裡的鍵的順序都是任意排列的</p>
-</blockquote>
-<ul>
-<li>可以使用任何存放雙項目序列的序列</li>
-</ul>
-<ol>
-<li>
-<p>一個含有雙項目tuple的串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>lot = [(<span class="string">'a'</span>, <span class="string">'b'</span>), (<span class="string">'c'</span>, <span class="string">'d'</span>), (<span class="string">'e'</span>, <span class="string">'f'</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(lot)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>一個含有雙項目串列的tuple
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tol = ([<span class="string">'a'</span>, <span class="string">'b'</span>], [<span class="string">'c'</span>, <span class="string">'d'</span>], [<span class="string">'e'</span>, <span class="string">'f'</span>])</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(tol)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>一個含有雙字元字串的串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>los = [<span class="string">'ab'</span>, <span class="string">'cd'</span>, <span class="string">'ef'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(los)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>一個含有雙字元字串的tuple
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tos = (<span class="string">'ab'</span>, <span class="string">'cd'</span>, <span class="string">'ef'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict(tos)</span><br><span class="line">&#123;<span class="string">'c'</span>: <span class="string">'d'</span>, <span class="string">'a'</span>: <span class="string">'b'</span>, <span class="string">'e'</span> :<span class="string">'f'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ol>
-<h4>用[鍵]來添加或變更項目</h4>
-<ul>
-<li>
-<p>用項目的鍵來參考並指派值，就可以將一個項目加到字典</p>
-</li>
-<li>
-<p>若字典裡已經有此鍵，則既有的值就會被換成新的值</p>
-</li>
-<li>
-<p>若鍵是新的，則會與值一起被加到字典裡</p>
-</li>
-<li>
-<p>製作一個字典，且姓為鍵，名為值
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons = &#123;</span><br><span class="line">	<span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>,</span><br><span class="line">	<span class="string">'Cleese'</span>: <span class="string">'John'</span>,</span><br><span class="line">	<span class="string">'Idle'</span>: <span class="string">'Eric'</span>,</span><br><span class="line">	<span class="string">'Jones'</span>: <span class="string">'Terry'</span>,</span><br><span class="line">	<span class="string">'Palin'</span>: <span class="string">'Michael'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>少加入一位成員
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons[<span class="string">'Gilliam'</span>] = <span class="string">'Gerry'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Gerry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但是打錯名字了，藉由使用同一個鍵，去修正
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons[<span class="string">'Gilliam'</span>] = <span class="string">'Terry'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Terry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>用 <code>update()</code>來合併字典</h4>
-<ul>
-<li>
-<p>使用 <code>update()</code>將一個字典的鍵與值複製到另一個
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons = &#123;</span><br><span class="line">	<span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>,</span><br><span class="line">	<span class="string">'Cleese'</span>: <span class="string">'John'</span>,</span><br><span class="line">	<span class="string">'Gilliam'</span>: <span class="string">'Terry'</span></span><br><span class="line">	<span class="string">'Idle'</span>: <span class="string">'Eric'</span>,</span><br><span class="line">	<span class="string">'Jones'</span>: <span class="string">'Terry'</span>,</span><br><span class="line">	<span class="string">'Palin'</span>: <span class="string">'Michael'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Terry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>others = &#123;<span class="string">'Marx'</span>: <span class="string">'Groucho'</span>, <span class="string">'Howard'</span>: <span class="string">'Moe'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons.update(others)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Howard'</span>: <span class="string">'Moe'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Terry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Marx'</span>: <span class="string">'Groucho'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若第二個字典與要合併的字典有相同的鍵時，第二個字典的值會勝出
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>first = &#123;<span class="string">'a'</span>: <span class="number">1</span>, <span class="string">'b'</span>: <span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>second = &#123;<span class="string">'b'</span>: <span class="string">'platypus'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>first.update(second)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>first</span><br><span class="line">&#123;<span class="string">'b'</span>: <span class="string">'platpyus'</span>, <span class="string">'a'</span>: <span class="number">1</span>&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>用 <code>del</code>與鍵來刪除項目</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> pythons[<span class="string">'Marx'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Howard'</span>: <span class="string">'Moe'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Terry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> pythons[<span class="string">'Howard'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;<span class="string">'Cleese'</span>: <span class="string">'John'</span>, <span class="string">'Gilliam'</span>: <span class="string">'Terry'</span>, <span class="string">'Jones'</span>: <span class="string">'Terry'</span>, <span class="string">'Palin'</span>: <span class="string">'Michael'</span>, <span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>, <span class="string">'Idle'</span>: <span class="string">'Eric'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>clear()</code>來刪除所有項目</h4>
-<ul>
-<li>可以使用 <code>clear()</code>或重新指派一個空的字典{}
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons.clear()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons = &#123;&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons</span><br><span class="line">&#123;&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>in</code>來測試鍵</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons = &#123;</span><br><span class="line">	<span class="string">'Chapmon'</span>: <span class="string">'Graham'</span>,</span><br><span class="line">	<span class="string">'Cleese'</span>: <span class="string">'John'</span>,</span><br><span class="line">	<span class="string">'Jones'</span>: <span class="string">'Terry'</span>,</span><br><span class="line">	<span class="string">'Palin'</span>: <span class="string">'Michael'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Chapman'</span> <span class="keyword">in</span> pythons</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Palin'</span> <span class="keyword">in</span> pythons</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Gilliam'</span> <span class="keyword">in</span> pythons</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
-<h4>用[鍵]來取得一個項目</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons[<span class="string">'Cleese'</span>]</span><br><span class="line">John</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p>若不存在於字典，則會得到例外
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons[<span class="string">'Marx'</span>]</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">	File <span class="string">"stdin"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">KeyError: <span class="string">'Marx'</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>避免這件事的兩種方式，一是使用 <code>in</code>測試鍵
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Marx'</span> n pythons</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>二是使用特殊的字典函式 <code>get()</code>，要提供字典、鍵、及一個選用的值，若鍵存在，則可以取得他的值
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>python.get(<span class="string">'Cleese'</span>)</span><br><span class="line"><span class="string">'John'</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若不存在，則會取得選用的值(若有指定的話)
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons.get(<span class="string">'Marx'</span>, <span class="string">'Not a python'</span>)</span><br><span class="line"><span class="string">'Not a python'</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>否則會得到None
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons.get(<span class="string">'Marx'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>使用 <code>keys()</code>來取得所有的鍵</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals = &#123;</span><br><span class="line">	<span class="string">'green'</span>: <span class="string">'go'</span>,</span><br><span class="line">	<span class="string">'yellow'</span>: <span class="string">'go faster'</span>,</span><br><span class="line">	<span class="string">'red'</span>: <span class="string">'smile for the camera'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals.keys()</span><br><span class="line">dict_keys([<span class="string">'green'</span>, <span class="string">'red'</span>, <span class="string">'yellow'</span>])</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>在Python 2 <code>keys()</code>會回傳一個串列，Python 3 會回傳 <code>dict_keys()</code>，他是可迭代得鍵資料，適合用在大型的字典，不會浪費時間與記憶體來建立及儲存可能用不到的串列，但通常你其實<strong>想要</strong>一個串列
-在Python 3 ，必須呼叫 <code>list()</code>來將<code>dict_keys()</code>物件轉換成串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(signals.keys())</span><br><span class="line">[<span class="string">'green'</span>, <span class="string">'red'</span>, <span class="string">'yellow'</span>]</span><br></pre></td></tr></table></figure>
-在Python 3 ，也需要使用 <code>list()</code>函式來將 <code>values()</code>與 <code>items()</code>的結果轉成一般的Python串列</p>
-</blockquote>
-<h4>用 <code>values()</code>來取得所有的值</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(signals.values())</span><br><span class="line">[<span class="string">'go'</span>, <span class="string">'go faster'</span>, <span class="string">'smile for the camera'</span>]</span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>items()</code>來取得所有的鍵/值對</h4>
-<ul>
-<li>每一個鍵與值都會以tuple的形式回傳
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(signals.items())</span><br><span class="line">[(<span class="string">'green'</span>, <span class="string">'go'</span>), (<span class="string">'red'</span>, <span class="string">'go faster'</span>), (<span class="string">'yellow'</span>, <span class="string">'smile for the camera'</span>)]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>=</code>來指派，用 <code>copy()</code>來複製</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals = &#123;</span><br><span class="line">	<span class="string">'green'</span>: <span class="string">'go'</span>,</span><br><span class="line">	<span class="string">'yellow'</span>: <span class="string">'go faster'</span>,</span><br><span class="line">	<span class="string">'red'</span>: <span class="string">'smile for the camera'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>save_signals = signals</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals[<span class="string">'blue'</span>] = <span class="string">'confuse everyone'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>save_signals</span><br><span class="line">&#123;<span class="string">'blue'</span>: <span class="string">'confuse everyone'</span>, <span class="string">'green'</span>: <span class="string">'go'</span>, <span class="string">'yellow'</span>: <span class="string">'go faster'</span>, <span class="string">'red'</span>: <span class="string">'smile for the camera'</span>&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>要將某個字典內的鍵與值複製到其他字典來避免這種情形，使用 <code>copy()</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals = &#123;</span><br><span class="line">	<span class="string">'green'</span>: <span class="string">'go'</span>,</span><br><span class="line">	<span class="string">'yellow'</span>: <span class="string">'go faster'</span>,</span><br><span class="line">	<span class="string">'red'</span>: <span class="string">'smile for the camera'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>original_signals = signals.copy()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>signals[<span class="string">'blue'</span>] = <span class="string">'confuse everyone'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>save_signals</span><br><span class="line">&#123;<span class="string">'blue'</span>: <span class="string">'confuse everyone'</span>, <span class="string">'green'</span>: <span class="string">'go'</span>, <span class="string">'yellow'</span>: <span class="string">'go faster'</span>, <span class="string">'red'</span>: <span class="string">'smile for the camera'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>original_signals</span><br><span class="line">&#123;<span class="string">'green'</span>: <span class="string">'go'</span>, <span class="string">'yellow'</span>: <span class="string">'go faster'</span>, <span class="string">'red'</span>: <span class="string">'smile for the camera'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="Python-字典"><a href="#Python-字典" class="headerlink" title="Python 字典"></a>Python 字典</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -794,7 +672,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:56:49" itemprop="dateModified" datetime="2019-11-17T23:56:49+08:00">2019-11-17</time>
+                <time title="Modified: 2020-01-08 00:25:29" itemprop="dateModified" datetime="2020-01-08T00:25:29+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -819,182 +697,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 串列與tuple</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>Python有兩種序列結構：<strong>tuple</strong> 與 <strong>串列(list)</strong></li>
-<li>他們都有零個或多個元素，與字串不同的是，可以用不同類型的元素</li>
-<li>每一個元素都可以是<strong>任何Python</strong>物件，因此可以任意地創造有深度且複雜的結構</li>
-</ul>
-<h4>Tuple vs 串列</h4>
-<ul>
-<li>Tuple是不可變的，當指派一個元素給tuple後，他就再也不能更改了</li>
-<li>串列是可變的，可以盡情地插入與刪除元素</li>
-</ul>
-<hr>
-<h3>串列</h3>
-<ul>
-<li>串列適合用來追蹤東西的順序，特別是順序與內容可能會改變的時候</li>
-<li>在串列中，同一個值可能會出現一次以上</li>
-</ul>
-<h4>用 [] 或 list() 建立</h4>
-<ul>
-<li>串列由0或多個元素組成的，以逗號分隔
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>weekdays = [<span class="string">'Monday'</span>, <span class="string">'Tuesday'</span>, <span class="string">'Wednesday'</span>, <span class="string">'Thursday'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>big_birds = [<span class="string">'emu'</span>, <span class="string">'ostrich'</span>, <span class="string">'cassowary'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>first_names = [<span class="string">'Graham'</span>, <span class="string">'John'</span>, <span class="string">'Terry'</span>, <span class="string">'Michael'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>也可以用 <code>list()</code>函式製作一個空串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>another_empty_list = list()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>another_empty_list</span><br><span class="line">[]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用list()來將其它的資料類型轉換成串列</h4>
-<ul>
-<li>
-<p>example
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(<span class="string">'cat'</span>)</span><br><span class="line">[<span class="string">'c'</span>, <span class="string">'a'</span>, <span class="string">'t'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>範例：將一個 <code>tuple</code>轉換成一個串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_tuple = (<span class="string">'ready'</span>, <span class="string">'fire'</span>, <span class="string">'aim'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list(a_tuple)</span><br><span class="line">[<span class="string">'ready'</span>, <span class="string">'fire'</span>, <span class="string">'aim'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>用 <code>spilt()</code>來分割
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>birthday = <span class="string">'1/6/1952'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>birthday.split(<span class="string">'/'</span>)</span><br><span class="line">[<span class="string">'1'</span>, <span class="string">'6'</span>, <span class="string">'1952'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如上，若有連續兩個以上的分隔字串，則會得到一個空字串的串列項目：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>splitme = <span class="string">'a/b//c/d///e'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>splitme.split(<span class="string">'/'</span>)</span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">''</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">''</span>, <span class="string">''</span>, <span class="string">'e'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若改用雙字元分隔字串 //
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>splitme = <span class="string">'a/b//c/d///e'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>splitme.split(<span class="string">'//'</span>)</span><br><span class="line">&gt;&gt;&gt;</span><br><span class="line">[<span class="string">'a/b'</span>, <span class="string">'c/d'</span>, <span class="string">'/e'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>使用[位移值]來取得一個項目</h4>
-<ul>
-<li>如同字串，可以藉由指定串列內的某個值的位移值來取出
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">0</span>]</span><br><span class="line"><span class="string">'Groucho'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">1</span>]</span><br><span class="line"><span class="string">'Chico'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">2</span>]</span><br><span class="line"><span class="string">'Harpo'</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>使用[位移值]來更改一個項目</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">2</span>] = <span class="string">'Wanda'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Wanda'</span>]</span><br></pre></td></tr></table></figure></p>
-<h4>用一個範圍的位移值來以<code>slice</code> 取出項目</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">0</span>:<span class="number">2</span>]</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>串列的<code>slice</code>仍然是一個串列</li>
-<li>以下有一些範例</li>
-</ul>
-<ol>
-<li>以2的間隔值往右移動
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[::<span class="number">2</span>]</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Harpo'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>以2的間隔值往左移動
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[::<span class="number">-2</span>]</span><br><span class="line">[<span class="string">'Harpo'</span>, <span class="string">'Groucho'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>將串列反過來的技巧
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[::<span class="number">-1</span>]</span><br><span class="line">[<span class="string">'Harpo'</span>, <span class="string">'Chico'</span>, <span class="string">'Groucho'</span>]</span><br></pre></td></tr></table></figure></li>
-</ol>
-<h4>用 <code>append()</code>將項目附加到結尾</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.append(<span class="string">'Zeppo'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>extend()</code>或 += 來結合串列</h4>
-<ul>
-<li>
-<p>使用 <code>extend()</code>將一個串列合併到另一個串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>others = [<span class="string">'Gummo'</span>, <span class="string">'Karl'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.extend(others)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Karl'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>使用 <code>append()</code>，others會被加成一個串列項目，而不是合併裡面的項目
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>others = [<span class="string">'Gummo'</span>, <span class="string">'Karl'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.append(others)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>, [<span class="string">'Gummo'</span>, <span class="string">'Karl'</span>]]</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>用 <code>insert()</code> 與位移值來加入一個項目</h4>
-<ul>
-<li><code>append()</code>只能將項目加到串列的結尾，當欲將一個項目加到串列任何一個位移值之前時，可以使用<code>insert()</code></li>
-<li>超出串列結尾的位移值就會將項目加至結尾
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.insert(<span class="number">3</span>, <span class="string">'Gummo'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.insert(<span class="number">10</span>, <span class="string">'Karl'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>, <span class="string">'Karl'</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>del</code>與位移值來刪除一個項目</h4>
-<ul>
-<li>
-<p>使用串列位置來刪除一筆項目，他後面的項目會往前遞補到被刪除的項目的位置，且串列長度減一
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> marxes[<span class="number">-1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>刪除最後一個marxes串列版本的'Harpo'
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">2</span>]</span><br><span class="line"><span class="string">'Harpo'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">del</span> marxes[<span class="number">2</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes[<span class="number">2</span>]</span><br><span class="line"><span class="string">'Gummo'</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<blockquote>
-<p>del 是 Python 陳述式，不是串列方法，就是不能說 marxes[-2].del()．他是一種賦值(=)的反向動作：他會將Python物件與名稱分離，而且如果那個名稱是最後一個參考物件的名稱，也會釋出物件的記憶體</p>
-</blockquote>
-<h4>用 <code>remove()</code>與值來刪除項目</h4>
-<ul>
-<li>若是不確定或不在乎某個項目在串列中的哪個位置，使用 <code>remove()</code> 與他的值來刪除它
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Gummo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.remove(<span class="string">'Gummo'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>pop()</code>與位移值來取的一個項目，並刪除他</h4>
-<ul>
-<li>如果呼叫 <code>pop()</code>並使用一個位移值，他會回傳該位移值項目，如果未使用引數，他會使用-1</li>
-<li><code>pop(0)</code>會回傳串列的開頭，<code>pop()</code>與 <code>pop(-1)</code>會回傳結尾
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.pop()</span><br><span class="line"><span class="string">'Zeppo'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.pop(<span class="number">1</span>)</span><br><span class="line"><span class="string">'Chico'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes</span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Harpo'</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>index()</code> 與值來尋找某個項目的位移值</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.index(<span class="string">'Chico'</span>)</span><br><span class="line"><span class="number">1</span></span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>in</code>來測試值</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>, <span class="string">'Zeppo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Groucho'</span> <span class="keyword">in</span> marxes</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'Bob'</span> <span class="keyword">in</span> marxes</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>words = [<span class="string">'a'</span>, <span class="string">'deer'</span>, <span class="string">'a'</span>, <span class="string">'female'</span>, <span class="string">'deer'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'deer'</span> <span class="keyword">in</span> words</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>若經常檢查串列中某些值是否存在，且不在乎項目的順序，Python <strong>集合</strong> 更適合用來儲存及查看獨一無二的值</p>
-</blockquote>
-<h4>用 <code>count()</code> 來算出某個值的出現次數</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.count(<span class="string">'Harpo'</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.count(<span class="string">'Bob'</span>)</span><br><span class="line"><span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>snl_skit = [<span class="string">'cheeseburger'</span>, <span class="string">'cheeseburger'</span>, <span class="string">'cheeseburger'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>snl_skit.count(<span class="string">'cheeseburger'</span>)</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>join()</code>來轉換字串</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">', '</span>.join(marxes)</span><br><span class="line"><span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>join()</code>是一種字串方法，不是串列方法，不能使用 <code>marxes.join(, )</code></li>
-<li><code>join()</code>的引數是一個字串，或任何可迭代的字串序列，他輸出是一個字串，如果 <code>join()</code> 只是一個串列方法，你就不能將它用在其他可迭代物件，ex: tuple 或字串</li>
-<li><code>join()</code> 是 <code>split()</code>的相反
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>friends = [<span class="string">'Harry'</span>, <span class="string">'Hermione'</span>, <span class="string">'Ron'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>separator = <span class="string">' * '</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>joined = separator.join(friends)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>joined</span><br><span class="line"><span class="string">'Harry * Hermione * Ron'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>separated = joined.split(separator)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>separated</span><br><span class="line">[<span class="string">'Harry'</span>, <span class="string">'Hermione'</span>, <span class="string">'Ron'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>separated == friends</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 <code>sort()</code>來排序項目</h4>
-<ul>
-<li>
-<p><code>Python</code> 提供兩種函式：</p>
-<ul>
-<li>串列函式 <code>sort()</code> 會<strong>就地</strong>排序串列本身</li>
-<li>通用函式 <code>sorted()</code>會排序串列，之後回傳<strong>複本</strong></li>
-</ul>
-</li>
-<li>
-<p>如果串列項目是數字，在預設情況下，<code>Python</code>會昇冪排列數字，若是字串，<code>Python</code>會按照字母順序來排列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted_marxes = sorted(marxes)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>sorted_marxes</span><br><span class="line">[<span class="string">'Chico'</span>, <span class="string">'Groucho'</span>, <span class="string">'Harpo'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>sorted_marxes</code>是一個複本，建立他並不會改變原本的串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes </span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但對 <code>marxes</code>串列呼叫串列函式 <code>sort()</code>，會改變 <code>marxes</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes.sort()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes </span><br><span class="line">[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers = [<span class="number">2</span>, <span class="number">1</span>, <span class="number">4.0</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers.sort()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers </span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4.0</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers = [<span class="number">2</span>, <span class="number">1</span>, <span class="number">4.0</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers.sort(reverse=<span class="literal">True</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers </span><br><span class="line">[<span class="number">4.0</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>使用 <code>len()</code>來取得長度</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>len(marxes)</span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure></p>
-<h4>用 <code>=</code>來指派，用<code>copy()</code>來複製</h4>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="string">'surprise'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="string">'surprise'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="string">'surprise'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="string">'surprise'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b[<span class="number">0</span>] = <span class="string">'I hate surprises'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="string">'I hate surprises'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a </span><br><span class="line">[<span class="string">'I hate surprises'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>可以使用以下方法，將串列的值<strong>複製</strong>到一個獨立、全新的串列：</li>
-</ul>
-<ol>
-<li>串列的 <code>copy()</code> 函式</li>
-<li><code>list()</code>轉換函式</li>
-<li>串列 <code>slice[:]</code></li>
-</ol>
-<ul>
-<li>原始串列仍然是a，用串列 <code>copy()</code>函式來製作b，用 <code>list()</code>轉換函式來製作c，用串列 <code>slice</code>來製作d
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.copy() </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c = list(a)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d = a[:]</span><br></pre></td></tr></table></figure></li>
-<li>b, c, d都是a的<strong>複本</strong>：他們都是新的物件，擁有自己的值，且與a所參考的原始串列物件[1, 2, 3]沒有關聯，改變 a<strong>不會</strong>影響b, c, d的複本：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a[<span class="number">0</span>] = <span class="string">'integer lists are boring'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a</span><br><span class="line">[<span class="string">'integer lists are boring'</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>c</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>d</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-
+          <h2 id="Python-串列與tuple"><a href="#Python-串列與tuple" class="headerlink" title="Python 串列與tuple"></a>Python 串列與tuple</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1044,7 +755,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:45:13" itemprop="dateModified" datetime="2019-11-17T23:45:13+08:00">2019-11-17</time>
+                <time title="Modified: 2020-01-08 00:25:06" itemprop="dateModified" datetime="2020-01-08T00:25:06+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1075,164 +786,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3>Kubernetes</h3>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>容器的全自動管理/調度平台，誕生自Google Borg</li>
-<li>不限制application類型，只要能容器化都吃</li>
-<li>具有各種抽象化的資源類型
-<ul>
-<li>web/database</li>
-<li>task runner</li>
-<li>auto scaler</li>
-<li>Ingress</li>
-</ul>
-</li>
-</ul>
-<h3>Why is Container</h3>
-<ul>
-<li>一致性的執行環境</li>
-<li>方便的應用部署，有利於CI/CD</li>
-<li>清楚的分離Dev與Ops，有利於分工</li>
-<li>以應用為中心的管理方式</li>
-</ul>
-<h3>Docker</h3>
-<hr>
-<h4>Docker生命週期</h4>
-<ol>
-<li>Code your app</li>
-<li>Write Dockerfile</li>
-<li>Create images. Defined at Dockerfiles</li>
-<li>Define services at writing</li>
-<li>Run containers / Compose app</li>
-<li>Test your app or microservices</li>
-<li>Push or continue developing</li>
-</ol>
-<ul>
-<li>寫好的dockerfile，build 成image後只是存在你build 好的那台機器上面，所以若是要share給別人使用的話，就是要放到第三方的地方，所以image會放在registry的地方
-<img src="https://docs.microsoft.com/zh-tw/dotnet/architecture/microservices/docker-application-development-process/media/image1.png" class="" width="1000" height="400" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h4>Docker Registry</h4>
-<ul>
-<li>維護方式跟 github 機制有87%像，但只是拿來放docker image</li>
-<li>DockerHub ，目前最大的public registry</li>
-<li>private registry
-<ul>
-<li>VMware Harbor</li>
-<li>gitlab registry
-<ul>
-<li>在900之後，有一個內建的registry，gitlab.com上面就有提供一個免費的registry，可以build 自己的code，丟到gitlab registry</li>
-</ul>
-</li>
-<li>Cloud: AWS/GCP/Azure...</li>
-</ul>
-</li>
-</ul>
-<h3>Kubernetes 資源介紹</h3>
-<hr>
-<h4>Kubernetes Nodes</h4>
-<ul>
-<li>Node (就是實體機，分成以下兩個)
-<ol>
-<li>Worker Node
-<ul>
-<li>負責 Resource 的執行</li>
-<li>監控 Resource 的健康狀態</li>
-</ul>
-</li>
-<li>Master Node
-<ul>
-<li>管理與監控 Node</li>
-<li>負責調度所有的 Resource</li>
-<li>儲存整個 Cluster 的運作狀態</li>
-</ul>
-</li>
-</ol>
-</li>
-<li>架設方式
-<ul>
-<li>自架：minikube/kubeadm/Rancher 2.x(不建議自己架，因為會有很多雷)</li>
-<li>直接用 Cloud AWS/GCP/Azure/DigitalOcean</li>
-</ul>
-</li>
-</ul>
-<h4>Kubernetes 抽象資源</h4>
-<ol>
-<li>Namespace</li>
-</ol>
-<ul>
-<li>一組資源的集合</li>
-<li>隔離不同 namespace 之間的資源 (persistant volume除外)</li>
-<li>預設有 kube-system/kube-public/default
-<img src="http://www.mundodocker.com.br/wp-content/uploads/2017/06/namespaces.png" class="" width="600" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="2">
-<li>Pod</li>
-</ol>
-<ul>
-<li>Kubernetes中最小執行單位</li>
-<li>一個完整的 application 部署封裝，可能有一個以上的container</li>
-<li>共享儲存空間/網路
-<img src="http://i0.wp.com/foxutech.com/wp-content/uploads/2018/02/Kubernetes-Pod.jpg" class="" width="800" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="3">
-<li>ReplicaSet</li>
-</ol>
-<ul>
-<li>保證Pod數量跟設定中要求的一樣
-ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，假設今天把一台pod刪掉，那麼他今天就會再幫你生一台新的出來，那如果有多的話，就會把最舊的那台砍掉</li>
-<li>少了就補齊，多了就砍掉，絕對不多不少</li>
-<li>支援動態縮放
-<img src="https://prod-edxapp.edx-cdn.org/assets/courseware/v1/bfc5b38f02fcd9cd9c290750ecbc70a1/asset-v1:LinuxFoundationX+LFS158x+2T2017+type@asset+block/replicaset-1.png" class="" width="500" height="300" title="vi-vim-cheat-sheet"></li>
-</ul>
-<ol start="4">
-<li>Deployment</li>
-</ol>
-<ul>
-<li>
-<p>管理 Pod 與 ReplicaSet</p>
-</li>
-<li>
-<p>聲明式更新</p>
-</li>
-<li>
-<p>支援Rolling Update</p>
-</li>
-<li>
-<p><strong>Rolling Update</strong></p>
-</li>
-<li>
-<p>此image版本為1.0，若此時想換成2.0時
-<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/6a62a850f2be0c9b.png" class="" width="600" height="400" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>此時deployment會去開一個新的replicaSet，這個replicaSet會去開一個新的Pod，而這個Pod會去用2.0的image，此時2.0開了新的一台，而就的那邊就會關掉一台，且不會斷掉，以此類推，最後就會把舊的1.0的都關掉，變成2.0的Pod(先開新的，確定能夠使用，才把1.0關掉)
-<img src="https://codelabs.developers.google.com/codelabs/k8s-kickstart/img/8d107e36763fd5c1.png" class="" width="800" height="400" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<ol start="5">
-<li>Job (與deployment不同的是，deployment是提供一個持續性的服務，不會斷掉)</li>
-</ol>
-<ul>
-<li>啟動Pod並且執行指定次數 (譬如像是migration，就是在上版的那一次要跑而已，run完即結束)</li>
-<li>Pod 如果執行錯誤，會重新開啟直到完成(重新開啟的次數是可以設定的)</li>
-</ul>
-<ol start="6">
-<li>Services</li>
-</ol>
-<ul>
-<li>用來存取Pod的資源(因為Pod 不會讓外面的Cluster直接存取到，所以中間會經過Services)</li>
-<li>可透過 Kubernetes內部的 DNS來對應</li>
-<li>有提供各種的 Service Types：
-<ul>
-<li>ClusterIP</li>
-<li>Node Port</li>
-<li>LoadBalancer</li>
-</ul>
-</li>
-</ul>
-
+          <h3 id="Kubernetes"><a href="#Kubernetes" class="headerlink" title="Kubernetes"></a>Kubernetes</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/11/What-is-Kubernetes/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

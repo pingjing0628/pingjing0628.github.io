@@ -929,10 +929,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-22 00:11:05 / Modified: 00:34:43" itemprop="dateCreated datePublished" datetime="2019-11-22T00:11:05+08:00">2019-11-22</time>
+              <time title="Created: 2019-11-22 00:11:05" itemprop="dateCreated datePublished" datetime="2019-11-22T00:11:05+08:00">2019-11-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-08 00:25:25" itemprop="dateModified" datetime="2020-01-08T00:25:25+08:00">2020-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -956,30 +962,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 命名空間與範圍</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>一個名稱可以參考不同的東西，取決於在哪裡使用它</li>
-<li>Python有各種的<strong>命名空間</strong></li>
-<li>要存取全域變數，而不是函式內的區域變數，必須明確的使用 <code>global</code>關鍵字
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal = <span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">change_and_print_global</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> animal</span><br><span class="line">        animal = <span class="string">'wombat'</span></span><br><span class="line">        print(<span class="string">'Inside change_and_print_global:'</span>, animal)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>change_and_print_global: wombat</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'wombat'</span></span><br></pre></td></tr></table></figure></li>
-<li>若在函式內不使用 <code>global</code>，Python會使用區域的命名空間，會在函式結束時消失</li>
-<li>Python提供兩個函式來存取命名空間的內容：</li>
-</ul>
-<ol>
-<li><code>locals()</code> 會回傳區域命名空間的字典內容</li>
-<li><code>globals()</code> 會回傳全域命名空間的字典內容
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal = <span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">change_local</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> animal</span><br><span class="line">        animal = <span class="string">'wombat'</span> <span class="comment"># local variable</span></span><br><span class="line">        print(<span class="string">'locals:'</span>, locals())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>change_local()</span><br><span class="line">locals: &#123;<span class="string">'animal'</span>: <span class="string">'bat'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'globals:'</span>, globals())  <span class="comment"># reformatted a little for presentation</span></span><br><span class="line">globals: &#123;<span class="string">'animal'</span>: <span class="string">'bat'</span>&#125;...,</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li><code>change_local()</code> 內的區域命名空間只有區域變數，全域命名空間裡有另一個全域變數與一些其他東西</li>
-</ul>
-<h4>在名稱中使用_與__</h4>
-<ul>
-<li>在Python中，名稱開頭與結尾使用兩個底線是被保留的做法，所以不能在自己的變數中使用他們</li>
-</ul>
-
+          <h2 id="Python-命名空間與範圍"><a href="#Python-命名空間與範圍" class="headerlink" title="Python 命名空間與範圍"></a>Python 命名空間與範圍</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1029,7 +1020,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-22 00:10:33" itemprop="dateModified" datetime="2019-11-22T00:10:33+08:00">2019-11-22</time>
+                <time title="Modified: 2020-01-08 00:25:13" itemprop="dateModified" datetime="2020-01-08T00:25:13+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1054,54 +1045,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 裝飾器</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>有時會修改既有的函式，不想更改原始程式碼，常見的例子，就是加入一個除錯的陳述式，來查看有哪些引數被傳入</li>
-<li><strong>裝飾器</strong>decorator 是一種函式，他會接收一個函式，並回傳另一個函式</li>
-</ul>
-<ol>
-<li><code>*args</code> &amp; <code>**kwargs</code></li>
-<li>內部函式</li>
-<li>當成引數的函式</li>
-</ol>
-<ul>
-<li><code>document_it()</code> 函式會定義一個裝飾器，他會做以下的工作：</li>
-</ul>
-<ol>
-<li>印出函式的名稱，與引數的值</li>
-<li>用引數來執行函式</li>
-<li>印出結果</li>
-<li>回傳修改後的函式，以供使用</li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">document_it</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">new_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            print(<span class="string">'Running function:'</span>, func.__name__)</span><br><span class="line">            print(<span class="string">'Positional arguments:'</span>, args)</span><br><span class="line">            print(<span class="string">'Keyword arguments:'</span>, kwargs)</span><br><span class="line">            result = func(*args, **kwargs)</span><br><span class="line">            print(<span class="string">'Result:'</span>, result)</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        <span class="keyword">return</span> new_function</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p>無論將什麼 <code>func</code>傳給 <code>document_it()</code>，都可以得到一個新的函式，裡面有 <code>document_it()</code>加入的陳述式</p>
-</li>
-<li>
-<p>裝飾器不一定要執行任何 <code>func</code>的程式，但 <code>document_it()</code>會在過程中呼叫 <code>func</code>，讓你可以取得 <code>func</code>的結果及所有額外的東西
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cooler_add_ints = document_it(add_ints) <span class="comment">#manual decorator assignment</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cooler_add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Running function: add_ints</span><br><span class="line">Positional arguments: (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>也可以在想要裝飾器的函式前添加 <strong>@decorator_name</strong>，來取代上述的手動指派裝飾器
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@document_it</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Running function add_ints</span><br><span class="line">Positional arguments: (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>同一個函式可以有兩個以上的裝飾器
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">square_it</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">new_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            result = func(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> result * result</span><br><span class="line">        <span class="keyword">return</span> new_function</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最靠近函式的裝飾器，(在def正上方)，會先執行，無論順序為何，最終的結果都一樣的，但過程中有不同的步驟
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@document_it</span><br><span class="line"><span class="meta">    @square_it</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span></span></span><br><span class="line"><span class="function">        <span class="title">return</span> <span class="title">a</span> + <span class="title">b</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; <span class="title">add_ints</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">Running</span> <span class="title">function</span> <span class="title">new_function</span></span></span><br><span class="line"><span class="function"><span class="title">Positional</span> <span class="title">arguments</span>:</span> (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">64</span></span><br><span class="line"><span class="number">64</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>改變裝飾器的順序
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@square_it</span><br><span class="line"><span class="meta">    @document_it    </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span></span></span><br><span class="line"><span class="function">        <span class="title">return</span> <span class="title">a</span> + <span class="title">b</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; <span class="title">add_ints</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">Running</span> <span class="title">function</span> <span class="title">new_function</span></span></span><br><span class="line"><span class="function"><span class="title">Positional</span> <span class="title">arguments</span>:</span> (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">64</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Python-裝飾器"><a href="#Python-裝飾器" class="headerlink" title="Python 裝飾器"></a>Python 裝飾器</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1250,7 +1202,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-21 23:21:07" itemprop="dateModified" datetime="2019-11-21T23:21:07+08:00">2019-11-21</time>
+                <time title="Modified: 2020-01-08 00:25:28" itemprop="dateModified" datetime="2020-01-08T00:25:28+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1275,171 +1227,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 函式</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>函式</h3>
-<ul>
-<li>要重複使用程式，第一個步驟是<strong>函式</strong>，他是一種有名稱且獨立的程式片段</li>
-<li>函式可以取用任何數量與類型的輸入參數，並回傳任何數量與類型的輸出結果</li>
-<li>可以對函式做兩件事：</li>
-</ul>
-<ol>
-<li><strong>定義</strong>它</li>
-<li><strong>呼叫</strong>它</li>
-</ol>
-<ul>
-<li>
-<p>要定義Python函式，要輸入 <code>def</code>，函式名稱、用括號來框住函式的輸入參數，最後加上一個冒號(：)</p>
-</li>
-<li>
-<p>函式名稱的命名規則與變數名稱一樣(他們必須以字母或_開頭，裡面只能使用字母、數字、或_)
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">do_nothing</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>要呼叫函式，只要輸入他的名稱與括號即可
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>do_nothing()</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>定義並呼叫一個沒有參數，但會印出一個單字的函式
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">make_a_sound</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="string">'quack'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>make_a_sound()</span><br><span class="line">quack</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>定義函式 <code>echo()</code>函式
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">echo</span><span class="params">(anything)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> anything <span class="string">''</span> anything</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>echo(<span class="string">'Rumplestiltskin'</span>)</span><br><span class="line"><span class="string">'Rumplestiltskin Rumplestiltskin'</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>呼叫函式時，傳給他的值稱為 <strong>引數</strong>，若在呼叫時有使用引數，則這些引數的值都會被複製到函式裡面的對應<strong>參數</strong></p>
-</li>
-</ul>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">commentary</span><span class="params">(color)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> color == <span class="string">'red'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"It's a tomato."</span></span><br><span class="line">        <span class="keyword">elif</span> color == <span class="string">'green'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"It's a green pepper."</span></span><br><span class="line">        <span class="keyword">elif</span> color == <span class="string">'bee purple'</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"I don't know what it is, but only bees can see it."</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"I've never heard of the color"</span> color <span class="string">"."</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>comment = commentary(<span class="string">'blue'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(comment)</span><br><span class="line">I<span class="string">'ve never heard of the color blue.</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>函式可以取用任何數量、任何類型的輸入引數(包括零)</li>
-<li>他可以回傳任何數量、任何類型的輸出結果(也包括零)</li>
-<li>如果函式沒有明確的呼叫 <code>return</code>，呼叫方會得到 <code>None</code>這個結果
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(do_nothing())</span><br><span class="line"><span class="literal">None</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>None 很好用</h4>
-<ul>
-<li>
-<p><code>None</code> 是一個特殊的Python值，他會在沒有東西可說時，保留一個位置</p>
-</li>
-<li>
-<p>他與boolean值 <code>False</code>不一樣，雖然將他當成布林值計算時，它會被視為<code>false</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>thing = <span class="literal">None</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> thing:</span><br><span class="line">        print(<span class="string">"It's something"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"It's nothing"</span>)</span><br><span class="line">It<span class="string">'s nothing</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>要區分 <code>None</code> 與 布林值<code>False</code>，可以使用Python <code>is</code>運算子：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">if</span> thing <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(<span class="string">"It's nothing"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"It's something"</span>)</span><br><span class="line">It<span class="string">'s nothing</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>看起來差異不大，但在Python中非常重要，需要用 <code>None</code> 來區分 &quot;遺漏值(missing value)&quot;與 &quot;空值(empty value)&quot;</p>
-</li>
-<li>
-<p>零值的整數或浮點數、空字串('')、串列([])、tuple((,))、字典({})與集合(set())都是<code>false</code>，但他們不等於 <code>None</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">is_none</span><span class="params">(thing)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> thing <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            print(<span class="string">"It's None"</span>)</span><br><span class="line">        <span class="keyword">elif</span> thing:</span><br><span class="line">            print(<span class="string">"It's True"</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"It's False"</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_none(<span class="literal">None</span>)</span><br><span class="line">It<span class="string">'s None</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; is_none(True)</span></span><br><span class="line"><span class="string">It'</span>s <span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_none(<span class="literal">False</span>)</span><br><span class="line">It<span class="string">'s False</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; is_none(0)</span></span><br><span class="line"><span class="string">It'</span>s <span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_none(<span class="number">0.0</span>)</span><br><span class="line">It<span class="string">'s False</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; is_none(())</span></span><br><span class="line"><span class="string">It'</span>s <span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_none([])</span><br><span class="line">It<span class="string">'s False</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; is_none(&#123;&#125;)</span></span><br><span class="line"><span class="string">It'</span>s <span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>is_none(set())</span><br><span class="line">It<span class="string">'s False</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>位置引數</h4>
-<ul>
-<li>他們的值會被依序複製到對應的參數</li>
-<li>以下範例會用他的位置引數建立一個字典並將他回傳
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">menu</span><span class="params">(wine, entree, dessert)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> &#123;<span class="string">'wine'</span>: wine, <span class="string">'entree'</span>: entree, <span class="string">'dessert'</span>: dessert&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>menu(<span class="string">'chardonnay'</span>, <span class="string">'chicken'</span>, <span class="string">'cake'</span>)</span><br><span class="line">&#123;<span class="string">'dessert'</span>: <span class="string">'cake'</span>, <span class="string">'wine'</span>: <span class="string">'chardonnay'</span>, <span class="string">'entree'</span>: <span class="string">'chicken'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-<li>位置引數的缺點是必須記得每一個位置的意思</li>
-</ul>
-<h4>關鍵字引數</h4>
-<ul>
-<li>為了避免發生搞不清楚引數的問題，可以用引數的對應參數名稱還指定引數，即使與函式定義中的順序不一樣也不會產生問題
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> menu(wine=<span class="string">'bordeaux'</span>, entree=<span class="string">'beef, dessert='</span>bagel<span class="string">')</span></span><br><span class="line"><span class="string">&#123;wine='</span>bordeaux<span class="string">', entree='</span>beef, dessert=<span class="string">'bagel'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-<li>可以混合使用位置與關鍵字引數</li>
-<li>若是在呼叫函式時要同時使用位置與關鍵字引數，位置引數必須放在前面
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span> menu(<span class="string">'frontenac'</span>, entree=<span class="string">'fish, dessert='</span>flan<span class="string">')</span></span><br><span class="line"><span class="string">&#123;wine='</span>frontenac<span class="string">', entree='</span>fish, dessert=<span class="string">'flan'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>指定預測參數值</h4>
-<ul>
-<li>在呼叫方沒有提供對應的引數時使用
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">menu</span><span class="params">(wine, entree, dessert=<span class="string">'pudding'</span>)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (<span class="string">'wine'</span>: wine, <span class="string">'entree'</span>: entree, <span class="string">'dessert'</span>: dessert)</span><br></pre></td></tr></table></figure></li>
-<li>這次在呼叫 <code>menu()</code>時不使用 <code>dessert</code>引數：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>menu(<span class="string">'chardonnay'</span>, <span class="string">'chicken'</span>)</span><br><span class="line">&#123;<span class="string">'dessert'</span>: <span class="string">'pudding'</span>, <span class="string">'wine'</span>: <span class="string">'chardonnay'</span>, <span class="string">'entree'</span>: <span class="string">'chicken'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-<li>若提供引數的話，韓式就會使用它，而不是預設值：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>menu(<span class="string">'dunkelfelder'</span>, <span class="string">'duck'</span>, <span class="string">'doughnut'</span>)</span><br><span class="line">&#123;<span class="string">'dessert'</span>: <span class="string">'doughnut'</span>, <span class="string">'wine'</span>: <span class="string">'dunkelfelder'</span>, <span class="string">'entree'</span>: <span class="string">'duck'</span>&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line">&gt; 預設的引數值會在函式**被定義**的時候計算，而不是在執行的時候</span><br><span class="line">新手常出現的錯誤，就是使用可變的資料類型，例如：串列或字典，來做為預設引數</span><br><span class="line"></span><br><span class="line">* 預期 `buggy()`函式在每次執行時，都會使用一個全新的空字串 `result`，並對他加入 `arg`引數，在印出一個單一項目的串列，但這裡有一個bug：這個串列只有在第一次呼叫函式時是空的，第二次呼叫時， `result`仍然存有之前呼叫時留下來的項目：</span><br><span class="line">```python=</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">buggy</span><span class="params">(arg, result=[])</span>:</span></span><br><span class="line">        result.append(arg)</span><br><span class="line">        print(result)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>buggy(<span class="string">'a'</span>)</span><br><span class="line">[<span class="string">'a'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>buggy(<span class="string">'b'</span>) <span class="comment">#應該是['b']</span></span><br><span class="line">[<span class="string">'a'</span>, <span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>如果將它寫成如下，就可以正常運作
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">works</span><span class="params">(arg)</span>:</span></span><br><span class="line">        result = []</span><br><span class="line">        result.append(arg)</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>works(<span class="string">'a'</span>)</span><br><span class="line">[<span class="string">'a'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>works(<span class="string">'b'</span>)</span><br><span class="line">[<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></li>
-<li>以下的修正方式，是傳入其他的東西來說明函式是否第一次被呼叫：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">nonbuggy</span><span class="params">(arg, result=None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> result <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        result = []</span><br><span class="line">    result.append(arg)</span><br><span class="line">    print(result)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>nonbuggy(<span class="string">'a'</span>)</span><br><span class="line">[<span class="string">'a'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>nonbuggy(<span class="string">'b'</span>)</span><br><span class="line">[<span class="string">'b'</span>]</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h4>用 * 來收集位置引數</h4>
-<ul>
-<li>當在函式的參數使用星號，星號會將可變數量的潛在引數群組化，變成一個參數值的tuple</li>
-<li><code>args</code> 是個參數tuple，他是被傳入 <code>print_args()</code>函式的引數所產生的：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_args</span><span class="params">(*args)</span>:</span></span><br><span class="line">        print(<span class="string">'Positional argument tuple:'</span>, args)</span><br></pre></td></tr></table></figure></li>
-<li>當在呼叫時不傳入引數，* args裡面就不會有任何東西
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print_args()</span><br><span class="line">Positional argument tuple:()</span><br></pre></td></tr></table></figure></li>
-<li>若提供引數，他會被印成 <code>args tuple</code>：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print_args(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="string">'wait!'</span>, <span class="string">'uh...'</span>)</span><br><span class="line">Positional argument tuple:(<span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="string">'wait!'</span>, <span class="string">'uh...'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>當在編寫 <code>print()</code>這類會接收任意數量的引數函式時，若你的函式也需要用到位置引數，就把 <code>*args</code>放在最後，抓取剩下的引數：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_more</span><span class="params">(required1, required2, *args)</span>:</span></span><br><span class="line">    print(<span class="string">'Need this one:'</span>, required1)</span><br><span class="line">    print(<span class="string">'Need this one too:'</span>, required2)</span><br><span class="line">    print(<span class="string">'All the rest:'</span>, args)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print_more(<span class="string">'cap'</span>, <span class="string">'gloves'</span>, <span class="string">'scarf'</span>, <span class="string">'monocle'</span>, <span class="string">'mustache wax'</span>)</span><br><span class="line">Need this one: cap</span><br><span class="line">Need this one too: gloves</span><br><span class="line">All the rest:(<span class="string">'scarf'</span>, <span class="string">'monocle'</span>, <span class="string">'mustache wax'</span>)</span><br></pre></td></tr></table></figure></li>
-<li>使用* 時，並不需要呼叫tuple參數args，這種作法只是python的慣例</li>
-</ul>
-<h4>用 ** 來收集關鍵字引數</h4>
-<ul>
-<li>使用兩個星號(** )將關鍵字引數群組化，變成一個字典</li>
-<li>其中引數名稱是鍵，他們的值是對應的字典值
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">print_kwargs</span><span class="params">(**kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">'Keyword arguments:'</span>, kwargs)</span><br></pre></td></tr></table></figure></li>
-<li>呼叫他時，使用一些關鍵引數
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print_kwargs(wine=<span class="string">'merlot'</span>, entree=<span class="string">'mutton'</span>, dessert=<span class="string">'macaroon'</span>)</span><br><span class="line">Keyword arguments: &#123;<span class="string">'dessert'</span>: <span class="string">'macaroon'</span>, <span class="string">'wine'</span>: <span class="string">'merlot'</span>, <span class="string">'entree'</span>: <span class="string">'mutton'</span>&#125;</span><br></pre></td></tr></table></figure></li>
-<li>在函式內，kwargs是個字典</li>
-<li>混合使用位置參數與* args &amp; ** kwargs，就必須按照這個順序來排列他們，如同args，其實不需要呼叫關鍵字參數kwargs，這只是一種慣例</li>
-</ul>
-<h4>函式是第一級公民</h4>
-<ul>
-<li>Python的魔咒：<strong>所有東西都是物件</strong>，包括數字、字串、tuple、串列、字典</li>
-<li>函式也是，可以將他們指派給變數，把他們當引數傳給其他函式，以及在函式中將他們回傳
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">answer</span><span class="params">()</span>:</span></span><br><span class="line">        print(<span class="number">42</span>)</span><br><span class="line">// 執行時</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>answer()</span><br><span class="line"><span class="number">42</span></span><br><span class="line">// 定義另一函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">run_something</span><span class="params">(func)</span>:</span></span><br><span class="line">        func()</span><br><span class="line">// 將answer放入</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>run_something(answer)</span><br><span class="line"><span class="number">42</span></span><br></pre></td></tr></table></figure></li>
-<li>傳入的是<strong>answer</strong> 不是<strong>answer()</strong></li>
-<li>在Python中，這些括號代表<strong>呼叫這些函式</strong></li>
-<li>不使用括號的話，Python會將函式視為其他物件
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(run_something)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">function</span>'&gt;</span></span><br></pre></td></tr></table></figure></li>
-<li>可以將函式當成串列、tuple、集合及字典元素使用，函式是不可變的，所以也可以當成字典鍵使用</li>
-</ul>
-<h4>內部函式</h4>
-<ul>
-<li>
-<p>可以在其他函式裡面定義函式
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">outer</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(c, d)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> c + d</span><br><span class="line">        <span class="keyword">return</span> inner(a, b)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>outer(<span class="number">4</span>, <span class="number">7</span>)</span><br><span class="line"><span class="number">11</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若想要在某個函式裡執行多次複雜的工作，內部函式非常實用，可以避免編寫重複的迴圈或程式碼
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">knights</span><span class="params">(saying)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner</span><span class="params">(quote)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"We are the knights who says: '%s'"</span> % quote</span><br><span class="line">        <span class="keyword">return</span> inner(saying)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>knights(<span class="string">'Ni!'</span>)</span><br><span class="line"><span class="string">"We are the knights who says: 'Ni!'"</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h4>Closure</h4>
-<ul>
-<li>
-<p>內部函式可以扮演closure的角色</p>
-</li>
-<li>
-<p>這是一種由其他韓式動態生成的函式，可以更改或記得函式之外的程式所以建立的變數的值</p>
-</li>
-<li>
-<p>將 <code>inner()</code>轉換成一個叫 <code>inner2()</code>的closure
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">knights2</span><span class="params">(saying)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">inner2</span><span class="params">()</span>:</span></span><br><span class="line">            <span class="keyword">return</span> <span class="string">"We are the knights who says: '%s'"</span> % saying</span><br><span class="line">        <span class="keyword">return</span> inner2</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>inner2()</code>函式知道被傳入的 <code>saying</code>得值，並會記得他</p>
-</li>
-<li>
-<p>return inner2此行會回傳一個專用的inner2函式複本(而不會呼叫他)</p>
-</li>
-<li>
-<p>這是一個closure：一個被動態建立出來，會記得自己來自哪裡的函式</p>
-</li>
-<li>
-<p>來呼叫
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = knights2(<span class="string">'Duck'</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = knights2(<span class="string">'Hasenpfeffer'</span>)</span><br><span class="line"></span><br><span class="line">// a &amp; b 分別是什麼</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(a)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> '<span class="title">function</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(b)</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">class</span> '<span class="title">function</span>'&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">//它們是函式，也是<span class="title">closure</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">a</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">function</span> <span class="title">knights2</span>.&lt;<span class="title">locals</span>&gt;.<span class="title">inner2</span> <span class="title">at</span> 0<span class="title">x10193e158</span>&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">b</span></span></span><br><span class="line"><span class="class">&lt;<span class="title">function</span> <span class="title">knights2</span>.&lt;<span class="title">locals</span>&gt;.<span class="title">inner2</span> <span class="title">at</span> 0<span class="title">x10193e158</span>&gt;</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class">// 若呼叫他們，他們會記得當自己被建立時所使用的<span class="title">saying</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">a</span><span class="params">()</span></span></span><br><span class="line"><span class="class">"<span class="title">We</span> <span class="title">are</span> <span class="title">the</span> <span class="title">knights</span> <span class="title">who</span> <span class="title">says</span>:</span> <span class="string">'Duck'</span><span class="string">"</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; b()</span></span><br><span class="line"><span class="string">"</span>We are the knights who says: <span class="string">'Hasenpfeffer'</span><span class="string">"</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Python-函式"><a href="#Python-函式" class="headerlink" title="Python 函式"></a>Python 函式</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/17/python-%E5%87%BD%E5%BC%8F/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1481,10 +1277,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2019-11-17 23:15:34 / Modified: 23:46:25" itemprop="dateCreated datePublished" datetime="2019-11-17T23:15:34+08:00">2019-11-17</time>
+              <time title="Created: 2019-11-17 23:15:34" itemprop="dateCreated datePublished" datetime="2019-11-17T23:15:34+08:00">2019-11-17</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-01-08 00:25:16" itemprop="dateModified" datetime="2020-01-08T00:25:16+08:00">2020-01-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -1508,71 +1310,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 生成式</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>串列生成式</h3>
-<ul>
-<li>
-<p>你可以建立一個從整數1到5的串列，一次建立一個項目
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">1</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">2</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list.append(<span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>你也可以使用迭代器與 <code>range()</code>函式
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        number_list.append(number)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>你也可以直接將 <code>range()</code>的輸出轉成串列：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = list(range(<span class="number">1</span>, <span class="number">6</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>以上所有方法都是有效的Python程式，也都會產生相同的結果，但要建立較符合Python風格的方式，就是使用<strong>串列生成式</strong>，最簡單的串列生成式形式是：</p>
-</li>
-</ul>
-<blockquote>
-<p>[運算式 for 項目 in 可迭代項目]</p>
-</blockquote>
-<ul>
-<li>
-<p>以下是用串列生成式建構整數串列的方式
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如上，第一個number變數來產生串列的值，將迴圈的結果放入number_list</p>
-</li>
-<li>
-<p>第二個 number是 for迴圈的一部份，為了說明第一個number是個運算式，範例如下：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list = [number<span class="number">-1</span> <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>)]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>number_list</span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>串列生成式可以容納條件運算式</p>
-</li>
-</ul>
-<blockquote>
-<p>[運算式 for 項目 in 可迭代項目 if 條件式]</p>
-</blockquote>
-<ul>
-<li>
-<p>製作一個新的生成式，用來建立一個裡面只有1到5的奇數的串列
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = [number <span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>) <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>傳統的
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> number <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">6</span>):</span><br><span class="line">        <span class="keyword">if</span> number % <span class="number">2</span> == <span class="number">1</span>:</span><br><span class="line">            a_list.append(number)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a_list</span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最後，也可以在對應的生成式中使用二組以上的for子句</p>
-</li>
-<li>
-<p>舊式的嵌套迴圈
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> row <span class="keyword">in</span> rows:</span><br><span class="line">	    <span class="keyword">for</span> col <span class="keyword">in</span> cols:</span><br><span class="line">	        print(row, col)</span><br><span class="line"><span class="number">1</span> <span class="number">1</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span></span><br><span class="line"><span class="number">2</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">3</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>再來，使用生成式，並將他指派給變數cells，製作一串(row, col)tuple：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>rows = range(<span class="number">1</span>,<span class="number">4</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cols = range(<span class="number">1</span>,<span class="number">3</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cells = [(row, col) <span class="keyword">for</span> row <span class="keyword">in</span> rows <span class="keyword">for</span> col <span class="keyword">in</span> cols]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> cell <span class="keyword">in</span> cells</span><br><span class="line">        print(cell)</span><br><span class="line">(<span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">1</span>)</span><br><span class="line">(<span class="number">3</span>, <span class="number">2</span>)</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Python-生成式"><a href="#Python-生成式" class="headerlink" title="Python 生成式"></a>Python 生成式</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/17/python-%E7%94%9F%E6%88%90%E5%BC%8F/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
