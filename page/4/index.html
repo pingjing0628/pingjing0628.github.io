@@ -214,6 +214,225 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E5%9B%9B-%E9%9B%86%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E5%9B%9B-%E9%9B%86%E5%90%88/" class="post-title-link" itemprop="url">python 串列、Tuple、字典與集合(四)-集合</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-11-17 16:32:16 / Modified: 23:45:20" itemprop="dateCreated datePublished" datetime="2019-11-17T16:32:16+08:00">2019-11-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2>Python 集合</h2>
+<p>&lt;!--more--&gt;</p>
+<hr>
+<h3>集合(Set)</h3>
+<ul>
+<li>集合就像是被移除值，只留下鍵的字典，與字典一樣，每個鍵都是獨一無二的</li>
+<li>當只想要知道某個東西是否存在，其他都無所謂時，就是使用集合的時機</li>
+<li>若是想要將某些資訊指派給鍵作為它的值，就使用字典</li>
+</ul>
+<h4>以<code>set()</code>來建立</h4>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_set = set()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>empty_set</span><br><span class="line">set()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>even_numbers = &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>even_numbers</span><br><span class="line">&#123;<span class="number">0</span>, <span class="number">8</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>odd_numbers = &#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>odd_numbers</span><br><span class="line">&#123;<span class="number">9</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">7</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>與字典一樣，集合是無序的</li>
+</ul>
+<blockquote>
+<p>因為[]建立一個空串列，或許認為{}也會建立一個空集合
+其實，{}會建立一個空字典，這就是解譯器將空集合印成set()，而不是{}的原因
+因為在Python中，字典可優先取用大括號</p>
+</blockquote>
+<h4>用 <code>set()</code>轉換成其他類型</h4>
+<ul>
+<li>
+<p>你可能會用串列、字串、tuple或字典來建立集合，並丟棄任何重複的值</p>
+</li>
+<li>
+<p>一個字串裡面可能有重複的字母：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>set(<span class="string">'letters'</span>)</span><br><span class="line">&#123;<span class="string">'l'</span>, <span class="string">'e'</span>, <span class="string">'t'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>這個集合裡面只有一個'e'和't'</p>
+</li>
+<li>
+<p>接著將串列變成集合
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>set([<span class="string">'Dasher'</span>, <span class="string">'Dancer'</span>, <span class="string">'Prancer'</span>, <span class="string">'Mason-Dixon'</span>])</span><br><span class="line">&#123;<span class="string">'Dancer'</span>, <span class="string">'Dasher'</span>, <span class="string">'Prancer'</span>, <span class="string">'Mason-Dixon'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>tuple 變集合
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>set((<span class="string">'Ummagumma'</span>, <span class="string">'Echoes'</span>, <span class="string">'Atom Heart Mother'</span>))</span><br><span class="line">&#123;<span class="string">'Ummagumma'</span>, <span class="string">'Atom Heart Mother'</span>, <span class="string">'Echoes'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>字典丟給 <code>set()</code>，他只會用到鍵
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>set(&#123;<span class="string">'apple'</span>: <span class="string">'red'</span>, <span class="string">'orange'</span>: <span class="string">'orange'</span>, <span class="string">'cherry'</span>: <span class="string">'red'</span>&#125;)</span><br><span class="line">&#123;<span class="string">'apple'</span>, <span class="string">'cherry, '</span>orange<span class="string">'&#125;</span></span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h4>使用 <code>in</code>來測試值</h4>
+<ul>
+<li>這是集合最常用到的地方，先建立一個稱為drinks 的字典，其中，每一個鍵都是一種混合飲料的名稱，他對應的值是他的材料集合：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>drinks = &#123;</span><br><span class="line">	<span class="string">'martini'</span>: &#123;<span class="string">'vodka'</span>, <span class="string">'vermouth'</span>&#125;, </span><br><span class="line">	<span class="string">'black russian'</span>: &#123;<span class="string">'vodka'</span>, <span class="string">'kahlua'</span>&#125;,</span><br><span class="line">	<span class="string">'white russian'</span>: &#123;<span class="string">'cream'</span>, <span class="string">'kahlua'</span>, <span class="string">'vodka'</span>&#125;,</span><br><span class="line">	<span class="string">'manhattan'</span>: &#123;<span class="string">'rye'</span>, <span class="string">'vermouth'</span>, <span class="string">'bitters'</span>&#125;,</span><br><span class="line">	<span class="string">'screwdriver'</span>: &#123;<span class="string">'orange juice'</span>, <span class="string">'vodka'</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>集合都是用大括號包起來的，但他們只是一系列的值，字典是一或多個<strong>鍵：值</strong>對</li>
+<li>哪些飲料有vodka？
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> name, contents <span class="keyword">in</span> drinks.items():</span><br><span class="line">		<span class="keyword">if</span> <span class="string">'vodka'</span> <span class="keyword">in</span> contents:</span><br><span class="line">			print(name)</span><br><span class="line"></span><br><span class="line">screwdriver</span><br><span class="line">martini</span><br><span class="line">black russian</span><br><span class="line">white russian</span><br></pre></td></tr></table></figure></li>
+<li>想喝有vodka的飲料，但有乳糖不耐症，且覺得vermouth喝起來像煤油：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> name, contents <span class="keyword">in</span> drinks.items():</span><br><span class="line">		<span class="keyword">if</span> <span class="string">'vodka'</span> <span class="keyword">in</span> contents <span class="keyword">and</span> <span class="keyword">not</span> (<span class="string">'vermouth'</span> <span class="keyword">in</span> contents <span class="keyword">or</span> <span class="string">'cream'</span> <span class="keyword">in</span> contents):</span><br><span class="line">			print(name)</span><br><span class="line"></span><br><span class="line">screwdriver</span><br><span class="line">black russian</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4>結合與運算子</h4>
+<ul>
+<li>
+<p>使用<strong>集合交集運算子</strong>，也就是 &amp; 符號
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> name, contents <span class="keyword">in</span> drinks.items():</span><br><span class="line">		<span class="keyword">if</span> contents &amp; &#123;<span class="string">'vermouth'</span>, <span class="string">'orange juice'</span>&#125;:</span><br><span class="line">			print(name)</span><br><span class="line"></span><br><span class="line">screwdriver</span><br><span class="line">martini</span><br><span class="line">manhattan</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>&amp; 運算子會產生一個集合，裡面存有你所比較的兩個串列內都有的項目，如果contents裡面沒有任何那些材料，&amp;會回傳一個空集合，他會被視為false</p>
+</li>
+<li>
+<p>接著來改寫上面的範例
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> name, contents <span class="keyword">in</span> drinks.items():</span><br><span class="line">		<span class="keyword">if</span> <span class="string">'vodka'</span> <span class="keyword">in</span> contents <span class="keyword">and</span> <span class="keyword">not</span> contents &amp; &#123;<span class="string">'vermouth'</span>, <span class="string">'cream'</span>&#125;:</span><br><span class="line">			print(name)</span><br><span class="line"></span><br><span class="line">screwdriver</span><br><span class="line">black russian</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>將這兩個飲料的材料集合存在變數內，節省之後範例的打字次數
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss = drinks[<span class="string">'black russian'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wruss = drinks[<span class="string">'white russian'</span>]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>以下是使用集合運算子的範例
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>b = &#123;<span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>用&amp;符號或集合的 <code>intersection()</code>來取得<strong>交集</strong>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &amp; b</span><br><span class="line">&#123;<span class="number">2</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.intersection(b)</span><br><span class="line">&#123;<span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss &amp; wruss</span><br><span class="line">&#123;<span class="string">'kahlua'</span>, <span class="string">'vodka'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>使用 | 或 <code>union()</code>集合函式來取得<strong>聯集</strong>(兩組集合的成員)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a | b</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.union(b)</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss | wruss</span><br><span class="line">&#123;<span class="string">'cream'</span>, <span class="string">'kahlua'</span>, <span class="string">'vodka'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>差集(屬於第一個集合，但不屬於第二個集合的成員)的取得方式，是使用 <code>-</code>字元，或 <code>difference()</code>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a - b</span><br><span class="line">&#123;<span class="number">1</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.difference(b)</span><br><span class="line">&#123;<span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss - wruss</span><br><span class="line">set()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wruss - bruss</span><br><span class="line">&#123;<span class="string">'cream'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p><strong>互斥或</strong>(只屬於其中一個集合的項目)使用 ^ 或 <code>symmetric_difference()</code>：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a ^ b</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">3</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.symmetric_difference(b)</span><br><span class="line">&#123;<span class="number">1</span>, <span class="number">3</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss ^ wruss</span><br><span class="line">&#123;<span class="string">'cream'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p><code>&lt;=</code>或 <code>issubset()</code>檢查某個集合是否為另一個集合的<strong>子集合</strong>(第一個集合的所有成員都屬於第二個集合)：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt;= b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.issubset(b)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss &lt;= wruss</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt;= a</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.issubset(a)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>要讓**真子集(proper subset)**成立，第二個集合必須擁有第一個集合的所有成員，此外還要有其他的成員
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt; b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &lt; a</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bruss &lt; wruss</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>**超集合(superset)**是子集合的相反(第二個集合的所有成員都是第一個集合的成員)
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt;= b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.issuperset(b)</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wruss &gt;= bruss</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>所有集合都是自己的集合
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt;= a</span><br><span class="line"><span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.issuperset(a)</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>使用 <code>&gt;</code> 來找出<strong>真超集合(proper superset)</strong>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt; b</span><br><span class="line"><span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>wruss &gt; bruss</span><br><span class="line"><span class="literal">True</span></span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>集合無法成為自己的真超集合：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a &gt; a</span><br><span class="line"><span class="literal">False</span></span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+<h4>比較資料結構</h4>
+<ul>
+<li>使用方括號[]製作串列</li>
+<li>用逗號製作tuple</li>
+<li>用大括號製作字典{}
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_list = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_tuple = <span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_dict = &#123;<span class="string">'Groucho'</span>: <span class="string">'banjo'</span>, <span class="string">'Chico'</span>: <span class="string">'piano'</span>, <span class="string">'Harpo'</span>: <span class="string">'harp'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_list[<span class="number">2</span>]</span><br><span class="line"><span class="string">'Harpo'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_tuple[<span class="number">2</span>]</span><br><span class="line"><span class="string">'Harpo'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>marx_dict[<span class="string">'Harpo'</span>]</span><br><span class="line"><span class="string">'harp'</span></span><br></pre></td></tr></table></figure></li>
+<li>對串列與tuple，方括號內的值是整數位移值</li>
+<li>對字典而言，它是鍵</li>
+</ul>
+<h4>製作更大的資料結構</h4>
+<ul>
+<li>
+<p>從三個不同的串列開始：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>marxes = [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pythons = [<span class="string">'Chapman'</span>, <span class="string">'Cleese'</span>, <span class="string">'Gilliam'</span>, <span class="string">'Jones'</span>, <span class="string">'Palin'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>stooges = [<span class="string">'Moe'</span>, <span class="string">'Curly'</span>, <span class="string">'Larry'</span>]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>製作一個tuple，將每個串列當成元素：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>tuple_of_lists = marxes, pythons, stooges</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>tuple_of_lists</span><br><span class="line">([<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>], [<span class="string">'Chapman'</span>, <span class="string">'Cleese'</span>, <span class="string">'Gilliam'</span>, <span class="string">'Jones'</span>, <span class="string">'Palin'</span>], [<span class="string">'Moe'</span>, <span class="string">'Curly'</span>, <span class="string">'Larry'</span>])</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>也可製作一個含有這三個串列的串列：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>list_of_lists = [marxes, pythons, stooges]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>list_of_lists</span><br><span class="line">[[<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>], [<span class="string">'Chapman'</span>, <span class="string">'Cleese'</span>, <span class="string">'Gilliam'</span>, <span class="string">'Jones'</span>, <span class="string">'Palin'</span>], [<span class="string">'Moe'</span>, <span class="string">'Curly'</span>, <span class="string">'Larry'</span>]]</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>製作字典
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict_of_lists = &#123;<span class="string">'Marxes'</span>: marxes, <span class="string">'Pythons'</span>: pythons, <span class="string">'Stooges'</span>: stooges&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dict_of_lists</span><br><span class="line">&#123;<span class="string">'Stooges'</span>: [<span class="string">'Moe'</span>, <span class="string">'Curly'</span>, <span class="string">'Larry'</span>], <span class="string">'Marxes'</span>: [<span class="string">'Groucho'</span>, <span class="string">'Chico'</span>, <span class="string">'Harpo'</span>], <span class="string">'Pythons'</span>: [<span class="string">'Chapman'</span>, <span class="string">'Cleese'</span>, <span class="string">'Gilliam'</span>, <span class="string">'Jones'</span>, <span class="string">'Palin'</span>]&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+<li>
+<p>唯一的限制就是這些資料類型本身，如：字典鍵是不可變的，所以不能將串列、字典或集合當成其他字典的鍵，但是tuple可以，例如：可以用GPS座標來指引位置：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>houses = &#123;(<span class="number">44.79</span>, <span class="number">-93.14</span>, <span class="number">285</span>): <span class="string">'My House'</span>, (<span class="number">38.89</span>, <span class="number">-77.03</span>, <span class="number">13</span>): <span class="string">'The White House'</span>&#125;</span><br></pre></td></tr></table></figure></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1603,112 +1822,6 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E5%90%8D%E7%A8%B1%E7%A9%BA%E9%96%93-%E4%BB%8B%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E5%90%8D%E7%A8%B1%E7%A9%BA%E9%96%93-%E4%BB%8B%E9%9D%A2/" class="post-title-link" itemprop="url">PHP 特點- 名稱空間&介面</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-03 15:16:41" itemprop="dateCreated datePublished" datetime="2019-11-03T15:16:41+08:00">2019-11-03</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-17 23:45:44" itemprop="dateModified" datetime="2019-11-17T23:45:44+08:00">2019-11-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2>名稱空間 Namespaces</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>現代PHP特點之一</li>
-<li>創造出程式碼並獨立運作於其他開發者的程式</li>
-<li>缺乏Namespace，若發生名稱的重複會導致PHP運作失敗</li>
-</ul>
-<h2>程式碼作為介面</h2>
-<ul>
-<li>介面是一個介於兩個PHP物件之間的合約，讓一個物件了解另一個物件<strong>可以做什麼</strong>，而非另一個物件<strong>是什麼</strong></li>
-<li>Example:
-一個PHP類別為 <code>DocumentStore</code> ，他用來搜集來自不同來源的文字
-<strong>DocumentStore類別定義</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DocumentStore</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $data = [];</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">addDocument</span><span class="params">(Documentable $document)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		$key = $document-&gt;getId();</span><br><span class="line">		$value = $document-&gt;getContent();</span><br><span class="line">		<span class="keyword">$this</span>-&gt;data[$key] = $value;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getDocuments</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;data;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-如果addDocument()方法只接受 <code>Documentable</code> 類別的實例，那這段程式碼要如何運作？但 <code>Documentable</code> 並不是一個類別而是一個介面，如下：
-<strong>Documentable介面定義</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-這個介面定義說明了任何實作 <code>Documentable</code> 介面的物件都必須提供一個公開(public)的 <code>getId()</code> 方法和一個公開(public)的 <code>getContent()</code> 方法</li>
-</ul>
-<ol>
-<li>以下示範一個<strong>從遠端URL用curl擷取HTML的實作方式</strong>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTMLDocument</span> <span class="keyword">implements</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $url;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($url)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;url = $url;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;url;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		$ch = curl_init();</span><br><span class="line">		curl_setopt($ch, CURLOPT_URL, <span class="keyword">$this</span>-&gt;url);</span><br><span class="line">		curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, <span class="number">3</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, <span class="number">1</span>);</span><br><span class="line">		curl_setopt($ch, CURLOPT_MAXREDIRS, <span class="number">3</span>);</span><br><span class="line">		$html = curl_exec($ch);</span><br><span class="line">		curl_close($ch);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> $html;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>擷取終端機指令的結果
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandOutputDocument</span> <span class="keyword">implements</span> <span class="title">Documentable</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> $command;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($command)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">$this</span>-&gt;command = $command;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getId</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">$this</span>-&gt;command;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getContent</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> shell_exec(<span class="keyword">$this</span>-&gt;command);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以下示範如何用 <code>DocumentStore</code> 類別配合上述文件收集實作方式
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$documentStore = <span class="keyword">new</span> DocumentStore;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入HTML文件</span></span><br><span class="line">$htmlDoc = <span class="keyword">new</span> HTMLDocument(<span class="string">'http://php.net'</span>);</span><br><span class="line">$documentStore-&gt;addDocument($htmlDoc);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入終端機指令文件</span></span><br><span class="line">$cmdDoc = <span class="keyword">new</span> CommandOutputDocument(<span class="string">'cat /etc/hosts'</span>);</span><br><span class="line">$documentStore-&gt;addDocument($cmdDoc);</span><br><span class="line"></span><br><span class="line">print_r($documentStore-&gt;getDocuments());</span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li>介面創造了更多彈性的程式碼，讓其他人可以專注在實作的細節考量上．</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1758,7 +1871,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1771,7 +1884,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">53</span>
+        <span class="site-state-item-count">55</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
