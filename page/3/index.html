@@ -355,7 +355,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-12-01 22:05:27" itemprop="dateModified" datetime="2019-12-01T22:05:27+08:00">2019-12-01</time>
+                <time title="Modified: 2020-01-08 00:28:54" itemprop="dateModified" datetime="2020-01-08T00:28:54+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -380,123 +380,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Constants</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<h3>Go 的常數類型</h3>
-<ul>
-<li>boolean constants ，布林常數。</li>
-<li>rune constants ，表示字元的常數。</li>
-<li>integer constants ，整數常數</li>
-<li>floating-point constants ，浮點數常數</li>
-<li>complex constants ，複數常數</li>
-<li>string constants ，字串常數</li>
-</ul>
-<p>這些常數都可以用實字（literal）表示，實字又分成下面幾種：</p>
-<ul>
-<li>
-<p>rune literal ， Rune 實字</p>
-</li>
-<li>
-<p>integer literal ，整數實字</p>
-</li>
-<li>
-<p>floating-point literal ，浮點數實字</p>
-</li>
-<li>
-<p>imaginary literal ，虛數實字</p>
-</li>
-<li>
-<p>string literal ，字串實字</p>
-</li>
-<li>
-<p>常數有可能是已定義型態（typed）或是未定型態（untyped），實字常數、 <code>true</code> 、 <code>false</code> 、 <code>iota</code> 都屬於未定型態。</p>
-</li>
-<li>
-<p>常數運算式裡的運算元都是未定型態時，運算完的結果也會是未定型態。example：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10        // 10, Untyped integer constant.</span><br><span class="line">10 + 20   // 30, Untyped integer constant.</span><br><span class="line">10 / 20   // 0,  Untyped integer constant.</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但如果有一個型態是確定的，那運算完的結果也會是確定的，如：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int32(10)           // 10,  type int32</span><br><span class="line">int32(10) + 20      // 30,  type int32</span><br><span class="line">float64(10) / 20    // 0.5, type float64</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>Boolean constants</h3>
-<ul>
-<li>布林常數是內建的常數，就只有兩個： <code>true</code> 和 <code>false</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// true and false are the two untyped boolean values.</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	<span class="literal">true</span>  = <span class="number">0</span> == <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">	<span class="literal">false</span> = <span class="number">0</span> != <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Rune constants</h3>
-<ul>
-<li>Rune 常數使用 Rune 實字（rune literal）來表示，它其實是代表一個 Unicode 的整數。可以使用單引號 <code>'</code> 括住 Unicode 字元，或是 byte 值來表示，如下面的範例是輸出 <code>a</code> 的三種方法，與輸出 <code>中</code> 的三種方法：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'a'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\141'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\x61'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'中'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\u4e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\U00004e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\n'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>string() 函式為強制轉型字串</p>
-</blockquote>
-<ul>
-<li>
-<p>Byte 值的表示方法：</p>
-<ul>
-<li>直接給字元 <code>a</code></li>
-<li><code>\</code> 開頭為八進制，後面必須是 3 個八進位的字元（<code>[0-9]{3}</code>）</li>
-<li><code>\x</code> 開頭為十六進制表示，後面必須是 2 個十六進位的字元（<code>[0-9a-f]{2}</code>）</li>
-</ul>
-</li>
-<li>
-<p>Unicode 表示方法：</p>
-<ul>
-<li>直接給字元 <code>中</code></li>
-<li><code>\u</code> 開頭，後面必須是 4 個十六進位的字元（<code>[0-9a-f]{4}</code>）</li>
-<li><code>\U</code> 開頭，後面必須是 8 個十六進位的字元（<code>[0-9a-f]{8}</code>）</li>
-<li>跳脫字元： <code>\</code> 後面接 <code>a</code> <code>b</code> <code>f</code> <code>n</code> <code>r</code> <code>t</code> <code>v</code> <code>\</code> <code>'</code> <code>&quot;</code> 。</li>
-</ul>
-</li>
-</ul>
-<h3>Integer constants</h3>
-<ul>
-<li>數字常數使用數字實字（integer literal）表示。數字實字有三種表示法：
-<ul>
-<li>十進位，跟大部分的程式碼一樣，為非 <code>0</code> 開頭的連續數字（<code>[1-9][0-9]+</code>）</li>
-<li>八進位， <code>0</code> 開頭，後面接八進位數字（<code>0[0-9]+</code>）</li>
-<li>十六進位， <code>0</code> 開頭，後面接八進位數字（<code>0[x|X][0-9a-fA-F]+</code>）</li>
-</ul>
-</li>
-</ul>
-<h3>Floating-point constants</h3>
-<ul>
-<li>浮點數常數使用浮點數實字（floating-point literal）表示，浮點數使用的兩種表示法：小數點與科學符號：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 10.0</span></span><br><span class="line">	fmt.Println(<span class="number">10.</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">010.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 0.1</span></span><br><span class="line">	fmt.Println(<span class="number">.1e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1E0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 10.1</span></span><br><span class="line">	fmt.Println(<span class="number">10.1</span>)</span><br><span class="line">	fmt.Println(<span class="number">1.01E1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Complex constants</h3>
-<ul>
-<li>複數常數為數字實字加虛數實字（imaginary literal）組合而成。</li>
-<li>虛數實字的表示法為：
-<ul>
-<li>十進位 + 小寫 <code>i</code> ，如 <code>10i</code></li>
-<li>浮點數 + 小寫 <code>i</code> ，如 <code>1E1i</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="number">10</span> + <span class="number">10i</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span> + <span class="number">1E1i</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h3>String constants</h3>
-<ul>
-<li>
-<p>字串常數使用字串實字（string literal）表示。如果是純字串，可以使用 ` 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">`\n`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>\n</code> 兩個字元</p>
-</li>
-<li>
-<p>如果需要轉譯 rune 常數為字元的話，可以用雙引號 <code>&quot;</code> 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"這是\u4e2d\u6587"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>這是中文</code></p>
-</li>
-</ul>
-
+          <h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Constants/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1103,7 +995,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2019-11-22 00:14:11" itemprop="dateModified" datetime="2019-11-22T00:14:11+08:00">2019-11-22</time>
+                <time title="Modified: 2020-01-08 00:30:37" itemprop="dateModified" datetime="2020-01-08T00:30:37+08:00">2020-01-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1128,31 +1020,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 產生器</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>
-<p>產生器generator是一種Python序列建立物件</p>
-</li>
-<li>
-<p>可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列</p>
-</li>
-<li>
-<p>ex: <code>range()</code></p>
-</li>
-<li>
-<p>每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值</p>
-</li>
-<li>
-<p>一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始</p>
-</li>
-<li>
-<p>若想建立一個可能會很大的序列，且程式很大，無法使用產生器生成式，可以編寫<strong>產生器函式</strong>，他是一種一般的函式，但會用 <code>yield</code>陳述式來回傳值，而不是 <code>return</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_range</span><span class="params">(first=<span class="number">0</span>, last=<span class="number">10</span>, step=<span class="number">1</span>)</span>:</span></span><br><span class="line">        number = first</span><br><span class="line">        <span class="keyword">while</span> number &lt; last:</span><br><span class="line">        <span class="keyword">yield</span> number</span><br><span class="line">        number += step</span><br><span class="line">// 是一個普通的函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_range</span><br><span class="line">&lt;function my_range at <span class="number">0x10193e268</span>&gt;</span><br><span class="line"></span><br><span class="line">// 回傳一個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger = my_range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger</span><br><span class="line">&lt;generator object my_range at <span class="number">0x10193e168</span>&gt;</span><br><span class="line"></span><br><span class="line">// 迭代這個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> ranger:</span><br><span class="line">        print(x)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
+          <h2 id="Python-產生器"><a href="#Python-產生器" class="headerlink" title="Python 產生器"></a>Python 產生器</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
