@@ -50,13 +50,13 @@
   };
 </script>
 
-  <meta name="description" content="Data Structures &amp;lt;!-- more --&amp;gt;  用struct 定義一個Page 其擁有兩個欄位，title 和 body 1234type Page struct &amp;#123;    Title string    Body  []byte&amp;#125; []byte means &amp;quot;a byte slice&amp;quot; 建立save 方法 1234func (p">
+  <meta name="description" content="Data Structures">
 <meta name="keywords" content="GoLang,pointer,error">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GoLang-web application-Creating a data structure with methods">
 <meta property="og:url" content="https:&#x2F;&#x2F;pingjing0628.github.io&#x2F;2020&#x2F;01&#x2F;08&#x2F;GoLang-web-application-Creating-a-data-structure-with-methods&#x2F;">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Data Structures &amp;lt;!-- more --&amp;gt;  用struct 定義一個Page 其擁有兩個欄位，title 和 body 1234type Page struct &amp;#123;    Title string    Body  []byte&amp;#125; []byte means &amp;quot;a byte slice&amp;quot; 建立save 方法 1234func (p">
+<meta property="og:description" content="Data Structures">
 <meta property="og:locale" content="zh-tw">
 <meta property="og:updated_time" content="2020-01-08T15:36:46.011Z">
 <meta name="twitter:card" content="summary">
@@ -268,25 +268,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2>Data Structures</h2>
-<p>&lt;!-- more --&gt;</p>
+        <h2 id="Data-Structures"><a href="#Data-Structures" class="headerlink" title="Data Structures"></a>Data Structures</h2><a id="more"></a> 
 <hr>
-<h3>用struct 定義一個Page 其擁有兩個欄位，title 和 body</h3>
-<p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Page <span class="keyword">struct</span> &#123;</span><br><span class="line">    Title <span class="keyword">string</span></span><br><span class="line">    Body  []<span class="keyword">byte</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<code>[]byte</code> means &quot;a byte slice&quot;</p>
-<h3>建立save 方法</h3>
-<p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Page)</span> <span class="title">save</span><span class="params">()</span> <span class="title">error</span></span> &#123;</span><br><span class="line">    filename := p.Title + <span class="string">".txt"</span></span><br><span class="line">    <span class="keyword">return</span> ioutil.WriteFile(filename, p.Body, <span class="number">0600</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-Takes as its receiver p, a pointer to Page.
-It takes no parameters, and returns a value of type error.</p>
+<h3 id="用struct-定義一個Page-其擁有兩個欄位，title-和-body"><a href="#用struct-定義一個Page-其擁有兩個欄位，title-和-body" class="headerlink" title="用struct 定義一個Page 其擁有兩個欄位，title 和 body"></a>用struct 定義一個Page 其擁有兩個欄位，title 和 body</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Page <span class="keyword">struct</span> &#123;</span><br><span class="line">    Title <span class="keyword">string</span></span><br><span class="line">    Body  []<span class="keyword">byte</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>[]byte</code> means “a byte slice”</p>
+<h3 id="建立save-方法"><a href="#建立save-方法" class="headerlink" title="建立save 方法"></a>建立save 方法</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *Page)</span> <span class="title">save</span><span class="params">()</span> <span class="title">error</span></span> &#123;</span><br><span class="line">    filename := p.Title + <span class="string">".txt"</span></span><br><span class="line">    <span class="keyword">return</span> ioutil.WriteFile(filename, p.Body, <span class="number">0600</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Takes as its receiver p, a pointer to Page.<br>It takes no parameters, and returns a value of type error.</p>
 <p>0600, 傳送第三參數給 WriteFile, 指出這個檔案只應被建立於目前使用者可讀可寫的權限</p>
-<h3>建立loadPage 方法</h3>
-<p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">loadPage</span><span class="params">(title <span class="keyword">string</span>)</span> <span class="params">(*Page, error)</span></span> &#123;</span><br><span class="line">    filename := title + <span class="string">".txt"</span></span><br><span class="line">    body, err := ioutil.ReadFile(filename)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &amp;Page&#123;Title: title, Body: body&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3>建立main 方法</h3>
-<p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := &amp;Page&#123;Title: <span class="string">"TestPage"</span>, Body: []<span class="keyword">byte</span>(<span class="string">"This is a sample Page."</span>)&#125;</span><br><span class="line">    p1.save()</span><br><span class="line">    p2, _ := loadPage(<span class="string">"TestPage"</span>)</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(p2.Body))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>go build wiki.go</code>
-<code>./wiki</code></p>
-<h3>REFERENCES</h3>
-<ul>
+<h3 id="建立loadPage-方法"><a href="#建立loadPage-方法" class="headerlink" title="建立loadPage 方法"></a>建立loadPage 方法</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">loadPage</span><span class="params">(title <span class="keyword">string</span>)</span> <span class="params">(*Page, error)</span></span> &#123;</span><br><span class="line">    filename := title + <span class="string">".txt"</span></span><br><span class="line">    body, err := ioutil.ReadFile(filename)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>, err</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &amp;Page&#123;Title: title, Body: body&#125;, <span class="literal">nil</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="建立main-方法"><a href="#建立main-方法" class="headerlink" title="建立main 方法"></a>建立main 方法</h3><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    p1 := &amp;Page&#123;Title: <span class="string">"TestPage"</span>, Body: []<span class="keyword">byte</span>(<span class="string">"This is a sample Page."</span>)&#125;</span><br><span class="line">    p1.save()</span><br><span class="line">    p2, _ := loadPage(<span class="string">"TestPage"</span>)</span><br><span class="line">    fmt.Println(<span class="keyword">string</span>(p2.Body))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>go build wiki.go</code><br><code>./wiki</code></p>
+<h3 id="REFERENCES"><a href="#REFERENCES" class="headerlink" title="REFERENCES"></a>REFERENCES</h3><ul>
 <li><a href="https://golang.org/doc/articles/wiki/#tmp_13" target="_blank" rel="noopener">Writing Web Applications</a></li>
 </ul>
 
@@ -356,7 +350,7 @@ It takes no parameters, and returns a value of type error.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#null"><span class="nav-number">1.</span> <span class="nav-text">Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.1.</span> <span class="nav-text">用struct 定義一個Page 其擁有兩個欄位，title 和 body</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.2.</span> <span class="nav-text">建立save 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.3.</span> <span class="nav-text">建立loadPage 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.4.</span> <span class="nav-text">建立main 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null"><span class="nav-number">1.5.</span> <span class="nav-text">REFERENCES</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Structures"><span class="nav-number">1.</span> <span class="nav-text">Data Structures</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用struct-定義一個Page-其擁有兩個欄位，title-和-body"><span class="nav-number">1.1.</span> <span class="nav-text">用struct 定義一個Page 其擁有兩個欄位，title 和 body</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立save-方法"><span class="nav-number">1.2.</span> <span class="nav-text">建立save 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立loadPage-方法"><span class="nav-number">1.3.</span> <span class="nav-text">建立loadPage 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立main-方法"><span class="nav-number">1.4.</span> <span class="nav-text">建立main 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#REFERENCES"><span class="nav-number">1.5.</span> <span class="nav-text">REFERENCES</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,7 +365,7 @@ It takes no parameters, and returns a value of type error.</p>
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -384,7 +378,7 @@ It takes no parameters, and returns a value of type error.</p>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>

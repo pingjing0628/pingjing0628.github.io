@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://pingjing0628.github.io/2020/02/27/GoLang-Database-model-design-using-gorm/</loc>
+    
+    <lastmod>2020-02-27T01:52:17.538Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://pingjing0628.github.io/2020/01/05/GoLang-gomodule/</loc>
     
     <lastmod>2020-01-13T15:06:38.309Z</lastmod>

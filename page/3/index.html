@@ -215,6 +215,89 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
+    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/01/GoLang-Array-Type/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="PingJing Wang">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="About My Things">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/01/GoLang-Array-Type/" class="post-title-link" itemprop="url">GoLang-Array Type</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-12-01 22:58:16" itemprop="dateCreated datePublished" datetime="2019-12-01T22:58:16+08:00">2019-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-08 01:14:12" itemprop="dateModified" datetime="2019-12-08T01:14:12+08:00">2019-12-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GoLang/" itemprop="url" rel="index">
+                    <span itemprop="name">GoLang</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="Array-Type"><a href="#Array-Type" class="headerlink" title="Array Type"></a>Array Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/GoLang-Array-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
     <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/12/01/GoLang-Predeclared-Type/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -271,56 +354,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Predeclared Type</h2>
-<h2>&lt;!--more--&gt;</h2>
-<ul>
-<li>Go 的資料型別有 11 種，其中 Predeclared Type，他們是「有名稱的型態（Named Type）」。</li>
-</ul>
-<h3>Boolean types</h3>
-<ul>
-<li>最簡單的型別 <code>bool</code> ，只有兩個預定義的常數 <code>true</code> 和 <code>false</code> 。</li>
-</ul>
-<h3>Numeric types</h3>
-<ul>
-<li>
-<p>numeric 型態包含了 <code>integer</code> （整數）、 <code>float</code>（浮點數）、 <code>complex</code>（複數）三種。</p>
-</li>
-<li>
-<p>整數又分帶號 <code>int</code> 與不帶號 <code>uint</code> 兩類，也可以直接指定大小 <code>int8</code> 、 <code>int16</code> 、 <code>int32</code> 、 <code>int64</code> 或是不帶號的 <code>uint8</code> 、 <code>uint16</code> 、 <code>uint32</code> 、 <code>uint64</code> ，這些相信一看就知道佔了多少容量（bit</p>
-</li>
-<li>
-<p>至於 <code>int</code> 和 <code>uint</code> 會使用哪一個要看平台實作決定，有可能是 32 bit 也有可能是 64 bit。</p>
-</li>
-<li>
-<p>而另外還有兩個整數型態： <code>rune</code> 是 <code>int32</code> 的別名， <code>byte</code> 是 <code>int8</code> 的別名。</p>
-</li>
-<li>
-<p><code>float</code> 有 <code>float32</code> 與 <code>float64</code> 兩種，但沒有 <code>float</code> 。</p>
-</li>
-<li>
-<p>complex 則表示複數，以 RE + IMi 的方法表示，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">10</span>+<span class="number">5i</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>大小則有分 <code>complex64</code> 與 <code>complex128</code> 兩種。</p>
-</li>
-<li>
-<p>Go 內建的 <code>math</code> 套件提供常數取得各型態的最大值和最小值，除了解整數範圍外，也有助於實作上的判斷。
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">"math"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(math.MinInt8)</span><br><span class="line">	fmt.Println(math.MaxInt8)</span><br><span class="line">	fmt.Println(math.MinInt16)</span><br><span class="line">	fmt.Println(math.MaxInt16)</span><br><span class="line">	fmt.Println(math.MinInt32)</span><br><span class="line">	fmt.Println(math.MaxInt32)</span><br><span class="line">	fmt.Println(math.MinInt64)</span><br><span class="line">	fmt.Println(math.MaxInt64)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Uint 最小值是 0</span></span><br><span class="line">	fmt.Println(math.MaxUint8)</span><br><span class="line">	fmt.Println(math.MaxUint16)</span><br><span class="line">	fmt.Println(math.MaxUint32)</span><br><span class="line">	fmt.Println(math.MaxUint64)</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// Float 的表示是最小非 0 浮點數</span></span><br><span class="line">	fmt.Println(math.SmallestNonzeroFloat32)</span><br><span class="line">	fmt.Println(math.MaxFloat32)</span><br><span class="line">	fmt.Println(math.SmallestNonzeroFloat64)</span><br><span class="line">	fmt.Println(math.MaxFloat64)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>注意，不同的數字型態，是不能直接摻在一起操作的。如 <code>int8</code> 不能跟 <code>uint8</code> 相加。</p>
-</li>
-<li>
-<p><code>int</code> 有可能是 32 位元，但 <code>int</code> 也不能跟 int32 相加。</p>
-</li>
-</ul>
-<h3>String types</h3>
-<ul>
-<li>Go 語言字串都是 UTF-8 字元集編碼，它可以正常的處理多國語言。字串可以使用雙引號 &quot; 或反引號 ` 定義，也可以相加</li>
-</ul>
-<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello 雙引號"</span>)</span><br><span class="line">	fmt.Println(<span class="string">`Hello 反引號`</span>)</span><br><span class="line">	fmt.Println(<span class="string">"雙引號"</span> + <span class="string">`反引號`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+          <h2 id="Predeclared-Type"><a href="#Predeclared-Type" class="headerlink" title="Predeclared Type"></a>Predeclared Type</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/GoLang-Predeclared-Type/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -395,82 +437,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>變數與常數的宣告</h2>
-<h2>&lt;!--more--&gt;</h2>
-<h3>變數宣告</h3>
-<ul>
-<li>
-<p>宣告變數使用 <code>var</code>，以下宣告num 變數為int 型態，給予初始值 <code>10</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>int</code>可以省略
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>若不給初始值，預定義變數都會有預設值，Go語言稱之為零值(The zero value)， <code>int</code>的零值是0，所以下面兩行宣告是等價的
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span> = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> num <span class="keyword">int</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>Go可以一次宣告多個變數，下面的型態分別會推斷為 <code>string</code>、<code>int</code>、<code>float64</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name, age, height = <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>也可分多行宣告
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name = <span class="string">"Miles"</span></span><br><span class="line">	age = <span class="number">18</span></span><br><span class="line">	height = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告並指定型態與指定初始值
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name <span class="keyword">string</span> = <span class="string">"Miles"</span></span><br><span class="line">	age <span class="keyword">uint</span> = <span class="number">18</span></span><br><span class="line">	height <span class="keyword">float32</span> = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告定指定型態不指定初始值
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> (</span><br><span class="line">	name <span class="keyword">string</span></span><br><span class="line">	age <span class="keyword">uint</span></span><br><span class="line">	height <span class="keyword">float32</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>短變數宣告</h3>
-<ul>
-<li>在func裡，若要宣告變數同時指定初值，可以使用<strong>短變數宣告</strong>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name := <span class="string">"Miles"</span></span><br><span class="line">age := <span class="number">18</span></span><br><span class="line">height := <span class="number">169.9</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>就如同 PHP 的 $name = 'Miles' 一樣，宣告變數同時給值</p>
-</blockquote>
-<ul>
-<li>一樣可以寫成一行
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name, age, height := <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>常數宣告</h3>
-<ul>
-<li>
-<p>宣告變數使用 const 關鍵字，下面宣告了 num 變數為 int 型態，並給值為 10：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>num 會是不可變的常數，試圖指定新值會在編譯時報錯
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> num <span class="keyword">int</span> = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Error</span></span><br><span class="line">num = <span class="number">20</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>除了常數一定要給值，其他宣告的方法都跟變數一樣，如一次宣告多個常數
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name, age, height = <span class="string">"Miles"</span>, <span class="number">18</span>, <span class="number">169.9</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	name = <span class="string">"Miles"</span></span><br><span class="line">	age = <span class="number">18</span></span><br><span class="line">	height = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>多行宣告並指定型態
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	name <span class="keyword">string</span> = <span class="string">"Miles"</span></span><br><span class="line">	age <span class="keyword">uint</span> = <span class="number">18</span></span><br><span class="line">	height <span class="keyword">float32</span> = <span class="number">169.9</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>如果宣告了一個 num 變數沒使用， Go 會在編譯時期出錯：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./hello.<span class="keyword">go</span>:<span class="number">8</span>:<span class="number">6</span>: num declared and not used</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>常數則可以宣告但不使用。</p>
-</li>
-</ul>
-
+          <h2 id="變數與常數的宣告"><a href="#變數與常數的宣告" class="headerlink" title="變數與常數的宣告"></a>變數與常數的宣告</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/Golang-Variables-Constants-declarations/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -539,48 +514,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Introduction</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<h3>語言本身的特性</h3>
-<ul>
-<li><strong>Go是為軟體工程服務而設計的語言</strong></li>
-<li>現代程式語言最大特徵之一是混合了多種典範</li>
-<li>在Go中，可以看到C的struct，Java的interface，函數式的典型特徵一級函式等特徵。</li>
-<li>實際上，Go不是物件導向語言，沒有物件，沒有繼承，然而在精神的實現上，使用了struct作為資料與邏輯的聯結（就實現方式上，感覺又有點像Python了），以組合、has-a的關係來消弭程式碼重複的問題，就操作上，又滿像是物件導向語言了。</li>
-<li>因應多核處理器普及，並行（Concurrency）程式設計的支援是現代語言的目標，Go就直接在語法上支援並行程式設計，只要在函式前放一個go關鍵字，就可以建立可與其他函式並行運作的goroutine，之間的通訊，則透過channel來實現。</li>
-</ul>
-<h3>慣例方面的特性</h3>
-<ul>
-<li>Workspaces開頭就提到，go工具一開始就是為了公開檔案庫（repositories）中的開放原始碼而設計，不管你是否發布程式碼，都得遵守它既定的環境設置規範，無從選擇。</li>
-<li>原始碼必須放在 <code>src</code>目錄（依<code>package</code>放在各自子目錄），編譯出來的套件會放在<code>pkg</code>目錄，執行檔就放在<code>bin</code>中（也可以自定義<code>GOBIN</code>環境變數），對於相依套件，也可以透過<code>GOPATH</code>來管理。</li>
-</ul>
-<h3>工具與文件上的特性</h3>
-<ul>
-<li>
-<p>談到工具，現代程式語言在工具的完備性上也有所重視，比方說最常見的是程式庫、套件等的管理，</p>
-<ul>
-<li>Ruby從1.9開始內建了RubyGems，</li>
-<li>Python 3.4之後預設就有pip可以使用，</li>
-<li>JavaScript，使用的是著名的npm套件管理器，</li>
-<li>Go可以透過內建的go get指令，來下載套件，go get可以支援svn、hg、git、bzr等檔案庫的安裝，只要有安裝相對應的版本控制程式。</li>
-</ul>
-</li>
-<li>
-<p>多環境的版本控制</p>
-<ul>
-<li>Python中的virtualenv，從Python 3.4開始也開始內建，</li>
-<li>GOPATH的存在，在Go也可達到這類目的，或者是安裝第三方的gvp與搭配gpm（類似Python的pip），至於Go語言本身多版本的並存需求，則可透過gvm（類似Ruby的rvm）。</li>
-</ul>
-</li>
-<li>
-<p>Go內建了測試機制，執行go test的話，會自動讀取套件目錄中的 <code>*_test.go</code>來編譯、運行測試；</p>
-</li>
-<li>
-<p>在文件的支援上，有著godoc（或go doc）這樣的工具，可以直接查閱套件、函式等的文件說明，實際上，它們讀取了原始碼中的註解內容，概念上類似於Python的Docstring或者是Java的Javadoc，不過更為簡單，沒有特定的語言結構與標記，如同〈Godoc: documenting Go code〉談到的，目的是希望<strong>註解本身就是文件</strong>，即便在沒有godoc的情况下，也希望能從程式碼註解中直接獲得文件說明。</p>
-</li>
-</ul>
-
+          <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/12/01/About-GoLang/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -655,123 +597,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Constants</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<h3>Go 的常數類型</h3>
-<ul>
-<li>boolean constants ，布林常數。</li>
-<li>rune constants ，表示字元的常數。</li>
-<li>integer constants ，整數常數</li>
-<li>floating-point constants ，浮點數常數</li>
-<li>complex constants ，複數常數</li>
-<li>string constants ，字串常數</li>
-</ul>
-<p>這些常數都可以用實字（literal）表示，實字又分成下面幾種：</p>
-<ul>
-<li>
-<p>rune literal ， Rune 實字</p>
-</li>
-<li>
-<p>integer literal ，整數實字</p>
-</li>
-<li>
-<p>floating-point literal ，浮點數實字</p>
-</li>
-<li>
-<p>imaginary literal ，虛數實字</p>
-</li>
-<li>
-<p>string literal ，字串實字</p>
-</li>
-<li>
-<p>常數有可能是已定義型態（typed）或是未定型態（untyped），實字常數、 <code>true</code> 、 <code>false</code> 、 <code>iota</code> 都屬於未定型態。</p>
-</li>
-<li>
-<p>常數運算式裡的運算元都是未定型態時，運算完的結果也會是未定型態。example：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10        // 10, Untyped integer constant.</span><br><span class="line">10 + 20   // 30, Untyped integer constant.</span><br><span class="line">10 / 20   // 0,  Untyped integer constant.</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>但如果有一個型態是確定的，那運算完的結果也會是確定的，如：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int32(10)           // 10,  type int32</span><br><span class="line">int32(10) + 20      // 30,  type int32</span><br><span class="line">float64(10) / 20    // 0.5, type float64</span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-<h3>Boolean constants</h3>
-<ul>
-<li>布林常數是內建的常數，就只有兩個： <code>true</code> 和 <code>false</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// true and false are the two untyped boolean values.</span></span><br><span class="line"><span class="keyword">const</span> (</span><br><span class="line">	<span class="literal">true</span>  = <span class="number">0</span> == <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">	<span class="literal">false</span> = <span class="number">0</span> != <span class="number">0</span> <span class="comment">// Untyped bool.</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Rune constants</h3>
-<ul>
-<li>Rune 常數使用 Rune 實字（rune literal）來表示，它其實是代表一個 Unicode 的整數。可以使用單引號 <code>'</code> 括住 Unicode 字元，或是 byte 值來表示，如下面的範例是輸出 <code>a</code> 的三種方法，與輸出 <code>中</code> 的三種方法：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'a'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\141'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\x61'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'中'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\u4e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\U00004e2d'</span>))</span><br><span class="line">	fmt.Println(<span class="keyword">string</span>(<span class="string">'\n'</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>string() 函式為強制轉型字串</p>
-</blockquote>
-<ul>
-<li>
-<p>Byte 值的表示方法：</p>
-<ul>
-<li>直接給字元 <code>a</code></li>
-<li><code>\</code> 開頭為八進制，後面必須是 3 個八進位的字元（<code>[0-9]{3}</code>）</li>
-<li><code>\x</code> 開頭為十六進制表示，後面必須是 2 個十六進位的字元（<code>[0-9a-f]{2}</code>）</li>
-</ul>
-</li>
-<li>
-<p>Unicode 表示方法：</p>
-<ul>
-<li>直接給字元 <code>中</code></li>
-<li><code>\u</code> 開頭，後面必須是 4 個十六進位的字元（<code>[0-9a-f]{4}</code>）</li>
-<li><code>\U</code> 開頭，後面必須是 8 個十六進位的字元（<code>[0-9a-f]{8}</code>）</li>
-<li>跳脫字元： <code>\</code> 後面接 <code>a</code> <code>b</code> <code>f</code> <code>n</code> <code>r</code> <code>t</code> <code>v</code> <code>\</code> <code>'</code> <code>&quot;</code> 。</li>
-</ul>
-</li>
-</ul>
-<h3>Integer constants</h3>
-<ul>
-<li>數字常數使用數字實字（integer literal）表示。數字實字有三種表示法：
-<ul>
-<li>十進位，跟大部分的程式碼一樣，為非 <code>0</code> 開頭的連續數字（<code>[1-9][0-9]+</code>）</li>
-<li>八進位， <code>0</code> 開頭，後面接八進位數字（<code>0[0-9]+</code>）</li>
-<li>十六進位， <code>0</code> 開頭，後面接八進位數字（<code>0[x|X][0-9a-fA-F]+</code>）</li>
-</ul>
-</li>
-</ul>
-<h3>Floating-point constants</h3>
-<ul>
-<li>浮點數常數使用浮點數實字（floating-point literal）表示，浮點數使用的兩種表示法：小數點與科學符號：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">// 10.0</span></span><br><span class="line">	fmt.Println(<span class="number">10.</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">010.0</span>)</span><br><span class="line">	fmt.Println(<span class="number">10.e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 0.1</span></span><br><span class="line">	fmt.Println(<span class="number">.1e+0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1E0</span>)</span><br><span class="line">	fmt.Println(<span class="number">.1</span>)</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 10.1</span></span><br><span class="line">	fmt.Println(<span class="number">10.1</span>)</span><br><span class="line">	fmt.Println(<span class="number">1.01E1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>Complex constants</h3>
-<ul>
-<li>複數常數為數字實字加虛數實字（imaginary literal）組合而成。</li>
-<li>虛數實字的表示法為：
-<ul>
-<li>十進位 + 小寫 <code>i</code> ，如 <code>10i</code></li>
-<li>浮點數 + 小寫 <code>i</code> ，如 <code>1E1i</code>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="number">10</span> + <span class="number">10i</span>)</span><br><span class="line">	fmt.Println(<span class="number">1E1</span> + <span class="number">1E1i</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-</ul>
-<h3>String constants</h3>
-<ul>
-<li>
-<p>字串常數使用字串實字（string literal）表示。如果是純字串，可以使用 ` 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">`\n`</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>\n</code> 兩個字元</p>
-</li>
-<li>
-<p>如果需要轉譯 rune 常數為字元的話，可以用雙引號 <code>&quot;</code> 括要表示的字串，如：
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"這是\u4e2d\u6587"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>這樣就會輸出 <code>這是中文</code></p>
-</li>
-</ul>
-
+          <h2 id="Constants"><a href="#Constants" class="headerlink" title="Constants"></a>Constants</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Constants/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -840,118 +674,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>安裝主程式</h2>
-<p>&lt;!-- more --&gt;</p>
-<hr>
-<ul>
-<li>主程式是指 go 指令，它能處理編譯、直譯、建置、格式化程式碼、測試、下載依賴等多種工具的組合。</li>
-</ul>
-<h3>MacOS</h3>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ brew install go</span><br><span class="line">$ go version</span><br><span class="line">go version go1.9.2 darwin/amd64</span><br></pre></td></tr></table></figure></p>
-<h3>環境變數設定</h3>
-<ul>
-<li>可下 <code>go env</code> 取得環境變數：</li>
-</ul>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">$ go env</span><br><span class="line">GO111MODULE=&quot;&quot;</span><br><span class="line">GOARCH=&quot;amd64&quot;</span><br><span class="line">GOBIN=&quot;&quot;</span><br><span class="line">GOCACHE=&quot;/Users/pingjing/Library/Caches/go-build&quot;</span><br><span class="line">GOENV=&quot;/Users/pingjing/Library/Application Support/go/env&quot;</span><br><span class="line">GOEXE=&quot;&quot;</span><br><span class="line">GOFLAGS=&quot;&quot;</span><br><span class="line">GOHOSTARCH=&quot;amd64&quot;</span><br><span class="line">GOHOSTOS=&quot;darwin&quot;</span><br><span class="line">GONOPROXY=&quot;&quot;</span><br><span class="line">GONOSUMDB=&quot;&quot;</span><br><span class="line">GOOS=&quot;darwin&quot;</span><br><span class="line">GOPATH=&quot;/Users/pingjing/go&quot;</span><br><span class="line">GOPRIVATE=&quot;&quot;</span><br><span class="line">GOPROXY=&quot;https://proxy.golang.org,direct&quot;</span><br><span class="line">GOROOT=&quot;/usr/local/Cellar/go/1.13.4/libexec&quot;</span><br><span class="line">GOSUMDB=&quot;sum.golang.org&quot;</span><br><span class="line">GOTMPDIR=&quot;&quot;</span><br><span class="line">GOTOOLDIR=&quot;/usr/local/Cellar/go/1.13.4/libexec/pkg/tool/darwin_amd64&quot;</span><br><span class="line">GCCGO=&quot;gccgo&quot;</span><br><span class="line">AR=&quot;ar&quot;</span><br><span class="line">CC=&quot;clang&quot;</span><br><span class="line">CXX=&quot;clang++&quot;</span><br><span class="line">CGO_ENABLED=&quot;1&quot;</span><br><span class="line">GOMOD=&quot;&quot;</span><br><span class="line">CGO_CFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_CPPFLAGS=&quot;&quot;</span><br><span class="line">CGO_CXXFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_FFLAGS=&quot;-g -O2&quot;</span><br><span class="line">CGO_LDFLAGS=&quot;-g -O2&quot;</span><br><span class="line">PKG_CONFIG=&quot;pkg-config&quot;</span><br><span class="line">GOGCCFLAGS=&quot;-fPIC -m64 -pthread -fno-caret-diagnostics -Qunused-arguments -fmessage-length=0 -fdebug-prefix-map=/var/folders/2l/n_g57dsd76n0xvwjmnx5xf6h0000gn/T/go-build181465848=/tmp/go-build -gno-record-gcc-switches -fno-common&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p>其中 <code>GOPATH</code> ，是需要設定的環境變數。</p>
-</li>
-<li>
-<p>它代表著 go 程式的工作空間（workspace）， Windows 預設會設定在 <code>~\Go</code> ， Unix-like 則沒有預設，官方建議設定在 <code>~/go</code> 。</p>
-</li>
-<li>
-<p><code>Workspace</code> 裡，劃分成三個主要目錄：</p>
-<ul>
-<li>src - 原始碼</li>
-<li>pkg - go package</li>
-<li>bin - 編譯好的執行檔，有需要也可以加入 PATH 環境變數</li>
-</ul>
-</li>
-<li>
-<p>接著使用 go 的第一個指令 <code>go get</code> ，它會把目標下載回來放在 <code>src</code> 裡，如：
-<code>go get github.com/MilesChou/book-start-golang-30-days</code></p>
-</li>
-<li>
-<p>這樣會把上面這個 repo ，使用 HTTPS 協定 clone 到硬碟裡。</p>
-</li>
-<li>
-<p>當編譯需要第三方的原始碼時，即可使用 go get 下載，同時這也可以用來下載自己或是第三方的原始碼。把所有原始碼集中成一個大大的 workspace ，這就是 go 管理原始碼的概念。</p>
-</li>
-</ul>
-<h3>Hello World</h3>
-<p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(<span class="string">"Hello, 世界"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>讓程式在建好的環境執行，先建個目錄，檔案名叫 <code>main.go</code>，切換到目錄後，將以上的內容輸入到檔案內，接著 <code>go run main.go</code>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p /path/to/helloworld</span><br><span class="line">$ cd /path/to/helloworld</span><br><span class="line"># 輸入程式碼</span><br><span class="line">$ vim main.go</span><br><span class="line"># 執行程式碼</span><br><span class="line">$ go run main.go</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3>解釋</h3>
-<p><strong>go run</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">Hello, 世界</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>go run</code> 所做的事正是直譯，也就是直接拿原始碼編譯，同時執行。</li>
-</ul>
-<p><strong>package</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">package main</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p><code>package</code> 指的是定義套件名稱。</p>
-</li>
-<li>
-<p>每個 <code>.go</code> 原始碼開頭都必須要宣告 <code>package</code> 。</p>
-</li>
-<li>
-<p><code>main</code> 套件是有特殊意義的套件名，它是程式的起始點。執行程式的時候，將會從 <code>main</code> 套件開始。</p>
-</li>
-<li>
-<p>若把 <code>main</code> 名字換成其他名字，再執行一次，將會出現錯誤訊息：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ go run main.go</span><br><span class="line">go run: cannot run non-main package</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>不能跑非 <code>main</code> 的套件。這個概念與大多數 PHP 框架的 <code>index.php</code> 類似，是所有 <code>request</code> 的起始點。</p>
-</li>
-</ul>
-<p><strong>import</strong>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &quot;fmt&quot;</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><code>import</code> 表示要引用套件，而 <code>fmt</code> 套件是 <code>Go</code> 內建的處理格式化輸入輸出函式庫。</li>
-<li><code>Hello World</code> 的目的是要輸出文字，所以需要這個函式庫。</li>
-</ul>
-<p><strong>func</strong></p>
-<ul>
-<li>
-<p>這是定義函式，也就是要寫流程了。
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	fmt.Println(&quot;Hello, 世界&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p><code>func</code> 定義了程式流程，供其他函式呼叫使用。</p>
-</li>
-<li>
-<p>程式碼可以看到兩個函式，一個是現正定義的 <code>main</code> ，另一個則是 <code>fmt</code> 套件所提供的 <code>Println</code>函式，把後面帶入的文字印出來，然後再另外加一個換行。</p>
-</li>
-<li>
-<p>Go 語言有套件庫的概念，同時的函式也有能見度的規範。</p>
-</li>
-<li>
-<p>Go 採用比較特別的方法：開頭<strong>大寫</strong>的函式是 <code>public</code> ，不同的套件庫可以呼叫 <code>public func</code> ；開頭<strong>小寫</strong>的則是 <code>private</code> ，只限套件庫內部使用。</p>
-</li>
-<li>
-<p><code>Println</code> 是屬於 <code>fmt</code> 套件的 <code>public func</code> ，因此雖然套件庫不同（main 與 fmt），仍然可以正常呼叫。</p>
-</li>
-<li>
-<p><code>func main</code> 比較特別，它會搭配 <code>package main</code> 一起使用。</p>
-</li>
-<li>
-<p><code>package main</code> 是所有程式的進入點</p>
-</li>
-<li>
-<p><code>go run</code> 會把 <code>package main</code> 的 <code>func main</code> 拿出來呼叫。</p>
-</li>
-<li>
-<p><code>go run main.go</code> 實際上就是執行 <code>fmt.Println(&quot;Hello, 世界&quot;)</code></p>
-</li>
-</ul>
-
+          <h2 id="安裝主程式"><a href="#安裝主程式" class="headerlink" title="安裝主程式"></a>安裝主程式</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/30/GoLang-Environment/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1020,92 +751,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Database 實體關聯模型(E-R model)</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<h3>實體 (Entity)</h3>
-<ul>
-<li>將真實世界的人、事、物等實體，以一個方框圖來表示，如果實體必須依附其他實體而存在，則為弱實體，使用雙方v框圖表示。</li>
-<li>例如選課系統中的學生與課程兩個實體:
-<ul>
-<li>學生的緊急聯絡人則為弱實體</li>
-<li>因為學生轉學，則該學生的緊急連絡人資料便不需要被紀錄</li>
-</ul>
-</li>
-<li>下圖是學生選課系統中的實體：
-<img src="http://database.klab.tw/teach/img/t4_2_01.png" class="" width="300" height="150" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>屬性 (Attribute)</h3>
-<ul>
-<li>
-<p>實體擁有的特性稱為屬性(Attribute)，以橢圓形來表示屬性，</p>
-</li>
-<li>
-<p>當屬性具有多重值時，則以雙橢圓形來表示，</p>
-</li>
-<li>
-<p>屬性為主鍵，則屬性名稱底下畫一條底線區別，</p>
-</li>
-<li>
-<p>複合屬性(Composite attribute)則為屬性再分割，</p>
-</li>
-<li>
-<p>衍生屬性(Derived attribute)則以虛橢圓形來表示，</p>
-</li>
-<li>
-<p>例如選課系統中的學生實體擁有學號、姓名、性別、地址、年齡和電話等屬性，可以如下所示：
-<img src="http://database.klab.tw/teach/img/t4_2_02.png" class="" width="400" height="350" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>課程實體其屬性如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_03.png" class="" width="200" height="150" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>緊急聯絡人是弱實體，必須依附著學生實體，其主鍵若設定為學生學號，則此處不必繪出，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_04.png" class="" width="150" height="100" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>實體關係 (Relationship)</h3>
-<ul>
-<li>
-<p>說明各實體之間相互關聯(relationship)的限制(constraints)，是指實體與實體之間如果有關聯，則將此關聯以菱形連結兩實體，並寫出對應的基數。</p>
-</li>
-<li>
-<p>例如：每一個學生可以選修許多課程，一門課程可以被許多學生所選；每位學生皆有一位緊急聯絡人，每位聯絡人也只對應到一位學生。
-<img src="http://database.klab.tw/teach/img/t4_2_05.png" class="" width="300" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>當實體間的關聯為多對多時，並需將此關聯改為一個實體，如下圖所示：
-<img src="http://database.klab.tw/teach/img/t4_2_06.png" class="" width="400" height="200" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-<h3>E-R關聯圖 (E-R Diagram)</h3>
-<ul>
-<li>第4步驟則畫出完整之E-R關聯圖(E-R Diagram)。例如學生選課的ER model如下：
-<img src="http://database.klab.tw/teach/img/t4_2_07.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></li>
-</ul>
-<h3>外來鍵參考圖 (relational model schema)</h3>
-<ol>
-<li>實體轉成一個資料表</li>
-<li>多值屬性轉成一個資料表</li>
-<li>複合屬性可以轉成一個資料表，也可以只記錄複合不分拆成不同欄位。</li>
-<li>衍生屬性記錄為計算值，並增加適當的欄位</li>
-<li>一般屬性轉成資料表的欄位</li>
-<li>多對多關聯轉成一個資料表</li>
-<li>1對多關聯必須多一個外來鍵置於多的那一個資料表，已便關聯到另一個資料表的主鍵。</li>
-<li>1對1關聯時，如果其中一個實體只有單一屬性，則可併入另一個資料表中，否則獨立為一個資料表，則仍須多一個外來鍵置已便關聯到另一個資料表的主鍵。</li>
-</ol>
-<ul>
-<li>
-<p>例如學生選課資料表之ER model轉成綱要如下：
-<img src="http://database.klab.tw/teach/img/t4_2_08.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-<li>
-<p>外來鍵參考圖(relational model schema)如下：
-<img src="http://database.klab.tw/teach/img/t4_2_09.png" class="" width="500" height="450" title="vi-vim-cheat-sheet"></p>
-</li>
-</ul>
-
+          <h2 id="Database-實體關聯模型-E-R-model"><a href="#Database-實體關聯模型-E-R-model" class="headerlink" title="Database 實體關聯模型(E-R model)"></a>Database 實體關聯模型(E-R model)</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/26/Database-ERModel/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1237,30 +891,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 命名空間與範圍</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>一個名稱可以參考不同的東西，取決於在哪裡使用它</li>
-<li>Python有各種的<strong>命名空間</strong></li>
-<li>要存取全域變數，而不是函式內的區域變數，必須明確的使用 <code>global</code>關鍵字
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal = <span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">change_and_print_global</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> animal</span><br><span class="line">        animal = <span class="string">'wombat'</span></span><br><span class="line">        print(<span class="string">'Inside change_and_print_global:'</span>, animal)</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>change_and_print_global: wombat</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'wombat'</span></span><br></pre></td></tr></table></figure></li>
-<li>若在函式內不使用 <code>global</code>，Python會使用區域的命名空間，會在函式結束時消失</li>
-<li>Python提供兩個函式來存取命名空間的內容：</li>
-</ul>
-<ol>
-<li><code>locals()</code> 會回傳區域命名空間的字典內容</li>
-<li><code>globals()</code> 會回傳全域命名空間的字典內容
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal = <span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">change_local</span><span class="params">()</span>:</span></span><br><span class="line">        <span class="keyword">global</span> animal</span><br><span class="line">        animal = <span class="string">'wombat'</span> <span class="comment"># local variable</span></span><br><span class="line">        print(<span class="string">'locals:'</span>, locals())</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>change_local()</span><br><span class="line">locals: &#123;<span class="string">'animal'</span>: <span class="string">'bat'</span>&#125;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'globals:'</span>, globals())  <span class="comment"># reformatted a little for presentation</span></span><br><span class="line">globals: &#123;<span class="string">'animal'</span>: <span class="string">'bat'</span>&#125;...,</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>animal</span><br><span class="line"><span class="string">'bat'</span></span><br></pre></td></tr></table></figure></li>
-</ol>
-<ul>
-<li><code>change_local()</code> 內的區域命名空間只有區域變數，全域命名空間裡有另一個全域變數與一些其他東西</li>
-</ul>
-<h4>在名稱中使用_與__</h4>
-<ul>
-<li>在Python中，名稱開頭與結尾使用兩個底線是被保留的做法，所以不能在自己的變數中使用他們</li>
-</ul>
-
+          <h2 id="Python-命名空間與範圍"><a href="#Python-命名空間與範圍" class="headerlink" title="Python 命名空間與範圍"></a>Python 命名空間與範圍</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1335,153 +974,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2>Python 裝飾器</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>有時會修改既有的函式，不想更改原始程式碼，常見的例子，就是加入一個除錯的陳述式，來查看有哪些引數被傳入</li>
-<li><strong>裝飾器</strong>decorator 是一種函式，他會接收一個函式，並回傳另一個函式</li>
-</ul>
-<ol>
-<li><code>*args</code> &amp; <code>**kwargs</code></li>
-<li>內部函式</li>
-<li>當成引數的函式</li>
-</ol>
-<ul>
-<li><code>document_it()</code> 函式會定義一個裝飾器，他會做以下的工作：</li>
-</ul>
-<ol>
-<li>印出函式的名稱，與引數的值</li>
-<li>用引數來執行函式</li>
-<li>印出結果</li>
-<li>回傳修改後的函式，以供使用</li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">document_it</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">new_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            print(<span class="string">'Running function:'</span>, func.__name__)</span><br><span class="line">            print(<span class="string">'Positional arguments:'</span>, args)</span><br><span class="line">            print(<span class="string">'Keyword arguments:'</span>, kwargs)</span><br><span class="line">            result = func(*args, **kwargs)</span><br><span class="line">            print(<span class="string">'Result:'</span>, result)</span><br><span class="line">            <span class="keyword">return</span> result</span><br><span class="line">        <span class="keyword">return</span> new_function</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li>
-<p>無論將什麼 <code>func</code>傳給 <code>document_it()</code>，都可以得到一個新的函式，裡面有 <code>document_it()</code>加入的陳述式</p>
-</li>
-<li>
-<p>裝飾器不一定要執行任何 <code>func</code>的程式，但 <code>document_it()</code>會在過程中呼叫 <code>func</code>，讓你可以取得 <code>func</code>的結果及所有額外的東西
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line"><span class="number">8</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cooler_add_ints = document_it(add_ints) <span class="comment">#manual decorator assignment</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>cooler_add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Running function: add_ints</span><br><span class="line">Positional arguments: (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>也可以在想要裝飾器的函式前添加 <strong>@decorator_name</strong>，來取代上述的手動指派裝飾器
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@document_it</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>add_ints(<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Running function add_ints</span><br><span class="line">Positional arguments: (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">8</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>同一個函式可以有兩個以上的裝飾器
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">square_it</span><span class="params">(func)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">new_function</span><span class="params">(*args, **kwargs)</span>:</span></span><br><span class="line">            result = func(*args, **kwargs)</span><br><span class="line">            <span class="keyword">return</span> result * result</span><br><span class="line">        <span class="keyword">return</span> new_function</span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>最靠近函式的裝飾器，(在def正上方)，會先執行，無論順序為何，最終的結果都一樣的，但過程中有不同的步驟
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@document_it</span><br><span class="line"><span class="meta">    @square_it</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span></span></span><br><span class="line"><span class="function">        <span class="title">return</span> <span class="title">a</span> + <span class="title">b</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; <span class="title">add_ints</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">Running</span> <span class="title">function</span> <span class="title">new_function</span></span></span><br><span class="line"><span class="function"><span class="title">Positional</span> <span class="title">arguments</span>:</span> (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">64</span></span><br><span class="line"><span class="number">64</span></span><br></pre></td></tr></table></figure></p>
-</li>
-<li>
-<p>改變裝飾器的順序
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>@square_it</span><br><span class="line"><span class="meta">    @document_it    </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_ints</span><span class="params">(a, b)</span></span></span><br><span class="line"><span class="function">        <span class="title">return</span> <span class="title">a</span> + <span class="title">b</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">&gt;&gt;&gt; <span class="title">add_ints</span><span class="params">(<span class="number">3</span>, <span class="number">5</span>)</span></span></span><br><span class="line"><span class="function"><span class="title">Running</span> <span class="title">function</span> <span class="title">new_function</span></span></span><br><span class="line"><span class="function"><span class="title">Positional</span> <span class="title">arguments</span>:</span> (<span class="number">3</span>, <span class="number">5</span>)</span><br><span class="line">Keyword arguments: &#123;&#125;</span><br><span class="line">Result: <span class="number">8</span></span><br><span class="line"><span class="number">64</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
+          <h2 id="Python-裝飾器"><a href="#Python-裝飾器" class="headerlink" title="Python 裝飾器"></a>Python 裝飾器</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-tw">
-    <link itemprop="mainEntityOfPage" href="https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="PingJing Wang">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="About My Things">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/" class="post-title-link" itemprop="url">python 產生器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2019-11-21 23:21:25" itemprop="dateCreated datePublished" datetime="2019-11-21T23:21:25+08:00">2019-11-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-01-08 00:30:37" itemprop="dateModified" datetime="2020-01-08T00:30:37+08:00">2020-01-08</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2>Python 產生器</h2>
-<p>&lt;!--more--&gt;</p>
-<hr>
-<ul>
-<li>
-<p>產生器generator是一種Python序列建立物件</p>
-</li>
-<li>
-<p>可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列</p>
-</li>
-<li>
-<p>ex: <code>range()</code></p>
-</li>
-<li>
-<p>每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值</p>
-</li>
-<li>
-<p>一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始</p>
-</li>
-<li>
-<p>若想建立一個可能會很大的序列，且程式很大，無法使用產生器生成式，可以編寫<strong>產生器函式</strong>，他是一種一般的函式，但會用 <code>yield</code>陳述式來回傳值，而不是 <code>return</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_range</span><span class="params">(first=<span class="number">0</span>, last=<span class="number">10</span>, step=<span class="number">1</span>)</span>:</span></span><br><span class="line">        number = first</span><br><span class="line">        <span class="keyword">while</span> number &lt; last:</span><br><span class="line">        <span class="keyword">yield</span> number</span><br><span class="line">        number += step</span><br><span class="line">// 是一個普通的函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_range</span><br><span class="line">&lt;function my_range at <span class="number">0x10193e268</span>&gt;</span><br><span class="line"></span><br><span class="line">// 回傳一個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger = my_range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger</span><br><span class="line">&lt;generator object my_range at <span class="number">0x10193e168</span>&gt;</span><br><span class="line"></span><br><span class="line">// 迭代這個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> ranger:</span><br><span class="line">        print(x)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
-</li>
-</ul>
-
       
     </div>
 
@@ -1545,7 +1046,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">55</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -1558,7 +1059,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">59</span>
+        <span class="site-state-item-count">61</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
