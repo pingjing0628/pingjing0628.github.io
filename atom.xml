@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://pingjing0628.github.io/"/>
-  <updated>2020-05-31T11:40:52.356Z</updated>
+  <updated>2020-06-01T16:25:59.628Z</updated>
   <id>https://pingjing0628.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GoLang-Protocol Buffer</title>
+    <link href="https://pingjing0628.github.io/2020/06/01/GoLang-Protocol-Buffer/"/>
+    <id>https://pingjing0628.github.io/2020/06/01/GoLang-Protocol-Buffer/</id>
+    <published>2020-06-01T14:10:37.000Z</published>
+    <updated>2020-06-01T16:25:59.628Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h2><p><b>Protocol Buffer</b> is like json、xml, but smaller, faster, simplifier.<br>Only have to define data structure once, and it will generate the file which is match to your programming language automatically, let you use directly.</p><h3 id="Structure-is-Document"><a href="#Structure-is-Document" class="headerlink" title="Structure is Document"></a>Structure is Document</h3><h4 id="Define-data-structure"><a href="#Define-data-structure" class="headerlink" title="Define data structure."></a>Define data structure.</h4><p>File should be <code>.proto</code> as suffix.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// Format is Proto v3</span><br><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">// User</span><br><span class="line">message User &#123;</span><br><span class="line">    string username = 2;</span><br><span class="line">    string password = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Post</span><br><span class="line">message Post &#123;</span><br><span class="line">    int64 id       = 1;</span><br><span class="line">    string content = 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="What-is-the-number-after-every-field"><a href="#What-is-the-number-after-every-field" class="headerlink" title="What is the number after every field?"></a>What is the number after every field?</h4><p>In fact, these are protocol buffer’s id when using decode and encode.<br>These will make you remove one of the field without messing up entire data structure encoding or decoding.</p><h3 id="Pros-and-Cons-with-Json"><a href="#Pros-and-Cons-with-Json" class="headerlink" title="Pros and Cons with Json"></a>Pros and Cons with Json</h3><ul><li>More lightweight</li><li>Confusion: being encoded</li><li>Performance high</li><li>Much more convenient: structure is your data model, don’t have to create object to mapping these data</li><li>Clear, no need document: <code>.proto</code> is your document</li></ul><h3 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h3><ol><li>Install protocol buffer generator</li></ol><ul><li>First, install <code>protoc</code>, which is the tool for transforming <code>.proto</code> to program.</li><li><a href="https://github.com/protocolbuffers/protobuf/releases" target="_blank" rel="noopener">https://github.com/protocolbuffers/protobuf/releases</a> install the protocol compiler</li><li>After unzip, put the <code>bin/protoc</code> file to <code>$PATH</code>, this make us to use in terminal.</li></ul><ol start="2"><li>Install Golang plugin</li></ol><ul><li><code>go get -u github.com/golang/protobuf/{proto,protoc-gen-go}</code></li><li>Do <code>touch .bash_profile</code>, and <code>export PATH=$PATH:/Users/pingjing/go/bin</code> to execute in terminal.</li></ul><ol start="3"><li>Transform proto document</li></ol><ul><li><p>Create a <code>example.proto</code> file</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Format is Proto v3</span><br><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">// 生成的程式在 Golang 中將會是屬於 protobuf 套件</span><br><span class="line">package protobuf;</span><br><span class="line"></span><br><span class="line">// User</span><br><span class="line">message User &#123;</span><br><span class="line">    int64 id        = 1;</span><br><span class="line">    string username = 2;</span><br><span class="line">    string password = 3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>protoc --go_out=. *.proto</code> transform to golang</p></li><li><p>And we will get a file <code>example.pb.go</code> which is belongs to <code>protobuf</code> plugin.</p></li><li><p>Then we can use this structure in golang.</p></li></ul><ol start="4"><li>Decode and Encode</li></ol><ul><li><p>Create a folder <code>/protobuf</code>, and put <code>example.pb.go</code> in it.</p></li><li><p>Create <code>main.go</code></p><figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line"><span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="string">"./protobuf"</span></span><br><span class="line"><span class="string">"github.com/golang/protobuf/proto"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"><span class="comment">// Create a User format, and put data into it.</span></span><br><span class="line">data := protobuf.User&#123;</span><br><span class="line">Id:       <span class="number">12345</span>,</span><br><span class="line">Username: <span class="string">"Yu Wang"</span>,</span><br><span class="line">Password: <span class="string">"Hello"</span>,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make data encode to Protocol buffer format (Be aware of using Pointer)</span></span><br><span class="line">dataBuffer, _ := proto.Marshal(&amp;data)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Make the data which is already encoded, decode to protobuf.User format</span></span><br><span class="line"><span class="keyword">var</span> user protobuf.User</span><br><span class="line">proto.Unmarshal(dataBuffer, &amp;user)</span><br><span class="line"></span><br><span class="line"><span class="comment">// Output the result</span></span><br><span class="line">fmt.Println(user.Id, <span class="string">" "</span>, user.Username, <span class="string">" "</span>, user.Password)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p><code>go run main.go</code></p></li><li><p>Output <code>12345   Yu Wang   Hello</code></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Protocol-Buffer&quot;&gt;&lt;a href=&quot;#Protocol-Buffer&quot; class=&quot;headerlink&quot; title=&quot;Protocol Buffer&quot;&gt;&lt;/a&gt;Protocol Buffer&lt;/h2&gt;&lt;p&gt;&lt;b&gt;Protocol Buffer
+      
+    
+    </summary>
+    
+    
+      <category term="GoLang" scheme="https://pingjing0628.github.io/categories/GoLang/"/>
+    
+    
+      <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
+    
+      <category term="Protocol Buffer" scheme="https://pingjing0628.github.io/tags/Protocol-Buffer/"/>
+    
+  </entry>
   
   <entry>
     <title>GoLang-Token &amp; Middleware</title>
@@ -62,9 +90,9 @@
       <category term="GoLang" scheme="https://pingjing0628.github.io/categories/GoLang/"/>
     
     
-      <category term="Database" scheme="https://pingjing0628.github.io/tags/Database/"/>
-    
       <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
+    
+      <category term="Database" scheme="https://pingjing0628.github.io/tags/Database/"/>
     
       <category term="SQL" scheme="https://pingjing0628.github.io/tags/SQL/"/>
     
@@ -91,9 +119,9 @@
       <category term="GoLang" scheme="https://pingjing0628.github.io/categories/GoLang/"/>
     
     
-      <category term="Database" scheme="https://pingjing0628.github.io/tags/Database/"/>
-    
       <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
+    
+      <category term="Database" scheme="https://pingjing0628.github.io/tags/Database/"/>
     
       <category term="Gorm" scheme="https://pingjing0628.github.io/tags/Gorm/"/>
     
@@ -477,9 +505,9 @@
     
       <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
     
-      <category term="指標" scheme="https://pingjing0628.github.io/tags/%E6%8C%87%E6%A8%99/"/>
-    
       <category term="type" scheme="https://pingjing0628.github.io/tags/type/"/>
+    
+      <category term="指標" scheme="https://pingjing0628.github.io/tags/%E6%8C%87%E6%A8%99/"/>
     
       <category term="new" scheme="https://pingjing0628.github.io/tags/new/"/>
     
@@ -534,31 +562,6 @@
       <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
     
       <category term="type" scheme="https://pingjing0628.github.io/tags/type/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GoLang-Function declarations</title>
-    <link href="https://pingjing0628.github.io/2019/12/02/GoLang-Function-declarations/"/>
-    <id>https://pingjing0628.github.io/2019/12/02/GoLang-Function-declarations/</id>
-    <published>2019-12-02T15:57:34.000Z</published>
-    <updated>2019-12-03T14:50:50.583Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Function-declarations"><a href="#Function-declarations" class="headerlink" title="Function declarations"></a>Function declarations</h2><a id="more"></a><hr><h3 id="定義函式"><a href="#定義函式" class="headerlink" title="定義函式"></a>定義函式</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> &lt;<span class="title">funcName</span>&gt;<span class="params">([param1 type1[, param2 type2 ...]])</span> <span class="params">([return1 type1[, return2 type2 ...]])</span></span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Do something</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [value1[, value2 ...]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><p><code>funcName</code> 為 <code>function</code> 名稱，首字大寫為 <code>public</code> 是外部套件可以共用的，小寫為 <code>private</code> 只有套件內部可以看得到。</p></li><li><p><code>param</code> 為傳入值。</p></li><li><p><code>return</code> 為回傳值。 Go 可以定義多個回傳值，而且還能定義它的名稱。定義名稱時，回傳的用法會有點特別。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(<span class="keyword">int</span>, <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line"><span class="keyword">return</span> a + b, <span class="literal">true</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// add is a private function name</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">sum, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(sum)    <span class="comment">// 3</span></span><br><span class="line">fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>有點類似 <code>Map</code> 取值的用法</p></li><li><p>若有定義名稱的話， <code>return</code> 會把當下兩個變數的內容回傳出去。</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>, ok <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">sum = a + b</span><br><span class="line">ok = <span class="literal">true</span> </span><br><span class="line"><span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">sum, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(sum)    <span class="comment">// 3</span></span><br><span class="line">fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>許多程式在一開始就定義 result ，在 return 的時候回傳出去。 Go 則是在規格上直接實作出來</p></li><li><p>傳回多個值時，必須照順序接值；若不需要回傳值，可以用 <code>_</code> 略過：</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(a, b <span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>, ok <span class="keyword">bool</span>)</span></span> &#123;</span><br><span class="line">sum = a + b</span><br><span class="line">ok = <span class="literal">true</span> </span><br><span class="line"><span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">_, ok := add(<span class="number">1</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(ok)     <span class="comment">// true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>傳回多值通常會用在錯誤處理，若使用不恰當的話，容易違反<strong>單一職責原則</strong>。</p></li><li><p>若傳入值是不定的，可以用 <code>...</code> 來表示</p><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">add</span><span class="params">(numbers ...<span class="keyword">int</span>)</span> <span class="params">(sum <span class="keyword">int</span>)</span></span> &#123;</span><br><span class="line">sum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> _, num := <span class="keyword">range</span> numbers &#123;</span><br><span class="line">sum += num</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// _為忽略index</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">sum := add(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">fmt.Println(sum)     <span class="comment">// 15</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>裡面的 <code>numbers</code> 型態會是 Slice <code>[]int</code> ，所以可以用 <code>for range</code> 迭代。</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Function-declarations&quot;&gt;&lt;a href=&quot;#Function-declarations&quot; class=&quot;headerlink&quot; title=&quot;Function declarations&quot;&gt;&lt;/a&gt;Function declarations&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="GoLang" scheme="https://pingjing0628.github.io/categories/GoLang/"/>
-    
-    
-      <category term="GoLang" scheme="https://pingjing0628.github.io/tags/GoLang/"/>
-    
-      <category term="單一職責原則" scheme="https://pingjing0628.github.io/tags/%E5%96%AE%E4%B8%80%E8%81%B7%E8%B2%AC%E5%8E%9F%E5%89%87/"/>
     
   </entry>
   
