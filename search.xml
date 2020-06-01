@@ -3,7 +3,9 @@
   <entry>
     <title>GoLang-Protocol Buffer</title>
     <url>/2020/06/01/GoLang-Protocol-Buffer/</url>
-    <content><![CDATA[<h2 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h2><p><b>Protocol Buffer</b> is like json、xml, but smaller, faster, simplifier.<br>Only have to define data structure once, and it will generate the file which is match to your programming language automatically, let you use directly.</p>
+    <content><![CDATA[<h2 id="Protocol-Buffer"><a href="#Protocol-Buffer" class="headerlink" title="Protocol Buffer"></a>Protocol Buffer</h2><a id="more"></a>
+
+<p><b>Protocol Buffer</b> is like json、xml, but smaller, faster, simplifier.<br>Only have to define data structure once, and it will generate the file which is match to your programming language automatically, let you use directly.</p>
 <h3 id="Structure-is-Document"><a href="#Structure-is-Document" class="headerlink" title="Structure is Document"></a>Structure is Document</h3><h4 id="Define-data-structure"><a href="#Define-data-structure" class="headerlink" title="Define data structure."></a>Define data structure.</h4><p>File should be <code>.proto</code> as suffix.</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// Format is Proto v3</span><br><span class="line">syntax = &quot;proto3&quot;;</span><br><span class="line"></span><br><span class="line">// User</span><br><span class="line">message User &#123;</span><br><span class="line">    string username = 2;</span><br><span class="line">    string password = 3;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Post</span><br><span class="line">message Post &#123;</span><br><span class="line">    int64 id       = 1;</span><br><span class="line">    string content = 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
