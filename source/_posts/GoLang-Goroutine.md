@@ -4,6 +4,9 @@ date: 2020-09-07 11:55:53
 tags: 
   - GoLang
   - Goroutine
+  - Thread
+  - Channel
+  - WaitGroup
 categories: 
   - GoLang
 ---
@@ -135,23 +138,31 @@ Put `WaitGroup` to goroutine, using `wg.Done()` to  minus 1 when execution finis
 
 #### Channel
 ```golang=
-func main() {
-    ch := make(chan string)
+func main()  {
+	// Build a channel
+	ch := make(chan string)
 
-    go reply("Ni", ch)
-    go reply("How", ch)
+	go reply("Ni", ch)
+	go reply("How", ch)
 
-    <-ch
+	// Read channel out
+	<-ch
     <-ch
 }
 
-func reply(s string, c chan string) {
-    for i := 0; i < 5; i++ {
-        time.Sleep(100 * time.Millisecond)
-        fmt.Println(s)
-    }
-    
-    c <- "End"
+func reply(s string,c chan string) {
+	for i := 0; i < 5; i++ {
+		time.Sleep(100 * time.Millisecond)
+		fmt.Println(s)
+	}
+
+	// put END into c
+	c <- "END"
 }
 ```
 With 2 goroutine, need to wait 2 `End` push into channel to end main goroutine.
+
+![](channel.png)
+
+### REFERENCES
+* [Source](https://peterhpchen.github.io/2020/03/08/goroutine-and-channel.html)
