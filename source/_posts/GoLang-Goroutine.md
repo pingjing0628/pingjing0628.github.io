@@ -160,6 +160,19 @@ func reply(s string,c chan string) {
 	c <- "END"
 }
 ```
+```
+How
+Ni
+Ni
+How
+Ni
+How
+How
+Ni
+Ni
+How
+```
+
 With 2 goroutine, need to wait 2 `End` push into channel to end main goroutine.
 
 ![](channel.png)
