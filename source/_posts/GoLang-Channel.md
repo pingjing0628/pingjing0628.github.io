@@ -57,13 +57,17 @@ func main() {
 
 ```
 Starts calculating            
-Ends calculating              // use time.Sleep to force main slower than calculate
-// put END into channel
-// but main haven't pull out data in Channel, so calculate will be forced to wait, so" main goroutine finished " isn't show immediately
+Ends calculating
 calculate goroutine finished  
-END                           // main pull out data in Channel
-main goroutine finished       // main finished
+END                           
+main goroutine finished      
 ```
+
+* Use time.Sleep to force main slower than calculate
+* Put END into channel
+* But main haven't pull out data in Channel, so calculate will be forced to wait, so" main goroutine finished " isn't show immediately
+* Main pull out data in Channel
+* Main finished
 
 ### The waiting case of Goroutine pull out from channel
 ```golang=
@@ -87,16 +91,19 @@ func main()  {
 ```
 
 ```
-// calculate haven't pushed into Channel when main pulled out, it will forced main to wait.
-// the last line of main isn't show up immediately
 main goroutine is waiting for channel to receive value 
 Starts calculating
 Ends calculating
-// put END into channel
 calculate goroutine finished
-ENDS                                                    // main pull out data in Channel
-main goroutine finished                                 // main finished
+ENDS                                                    
+main goroutine finished
 ```
+
+* Calculate haven't pushed into Channel when main pulled out, it will forced main to wait.
+* The last line of main isn't show up immediately
+* Put END into channel
+* Main pull out data in Channel
+* main finished
 
 ## Unbuffered Channel
 * Push a data will cause push side waiting

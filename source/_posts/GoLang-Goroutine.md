@@ -50,7 +50,7 @@ How
 How
 How
 ```
-![](single_thread.JPG =100x)
+![](single_thread.JPG)
 
 ## Multiple Thread
 Execute goroutine which is the number of CPU in the same time at most.
@@ -73,7 +73,7 @@ Ni
 How
 Ni
 ```
-![](multiple_thread.JPG =100x)
+![](multiple_thread.JPG)
 
 ## Wait
 Here comes the problem which needs waiting.
@@ -104,7 +104,7 @@ It contains 3 goroutine:
         time.Sleep(10 * time.Second)
     }
 ```
-![](timeSleep.JPG =100x)
+![](timeSleep.JPG)
 
 <b>cons:</b> It doesn't know the goroutine execution time is greater or less than sleep time.
 
@@ -134,7 +134,7 @@ Create `WaitGroup` Counter which numbers is same as the goroutine that want to w
 Put `WaitGroup` to goroutine, using `wg.Done()` to  minus 1 when execution finished.
 `wg.Wait()` will wait until counter to 0.
 
-![](sync_waitgroup.JPG =100x)
+![](sync_waitgroup.JPG)
 
 ### Channel
 ```golang=
@@ -175,7 +175,7 @@ How
 
 With 2 goroutine, need to wait 2 `End` push into channel to end main goroutine.
 
-![](channel.png =100x)
+![](channel.png)
 
 
 ## Race Condition
@@ -197,7 +197,7 @@ func main()  {
 }
 ```
 
-![](mutipleThread_sharedVar.JPG =100x)
+![](mutipleThread_sharedVar.JPG)
 
 Ex: Current in 60, while in multi-thread
 1. `goroutine1` get 60 to add
@@ -241,7 +241,7 @@ func main()  {
 1000
 ```
 
-![](sync_mutex.JPG =100x)
+![](sync_mutex.JPG)
 
 ### Via Channel - security of variable
 
@@ -267,7 +267,7 @@ func main()  {
 1000
 ```
 
-![](channel_var.JPG =100x)
+![](channel_var.JPG)
 
 1. When `goroutine1` pull out, and there is nothing in Channel
 2. Because there is nothing in Channel, cause `goroutine2` waiting
