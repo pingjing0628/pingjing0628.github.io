@@ -11,7 +11,7 @@ categories:
   - GoLang
 ---
 
-## Goroutine
+# Goroutine
 
 <!--more-->
 ---
@@ -22,7 +22,7 @@ Only calls goroutine in main function when program started, which names <b>main<
 Function begin with go can make `a` run in another goroutine.
 Main goroutine end, other goroutine will be force to close.
 
-### Single Thread
+## Single Thread
 Each lines of program is executed by sequence
 
 ```golang=
@@ -50,9 +50,9 @@ How
 How
 How
 ```
-![](single_thread.JPG)
+![](single_thread.JPG =100x)
 
-### Multiple Thread
+## Multiple Thread
 Execute goroutine which is the number of CPU in the same time at most.
 
 ```golang=
@@ -73,9 +73,9 @@ Ni
 How
 Ni
 ```
-![](multiple_thread.JPG)
+![](multiple_thread.JPG =100x)
 
-### Wait
+## Wait
 Here comes the problem which needs waiting.
 When `main` goroutine closed, others two goroutine will be force to close and lead to error.
 Sol: Wait other goroutine end and close main goroutine.
@@ -95,7 +95,7 @@ It contains 3 goroutine:
 2. `sync.WaitGroup`: Wait until specific numbers of `Done()` use
 3. Channel block: use <b>wait when received</b> this characteristic to avoid thread keep executing
 
-#### time.Sleep
+### time.Sleep
 ```golang=
     func main() {
         go reply("Ni")
@@ -104,11 +104,11 @@ It contains 3 goroutine:
         time.Sleep(10 * time.Second)
     }
 ```
-![](timeSleep.JPG)
+![](timeSleep.JPG =100x)
 
 <b>cons:</b> It doesn't know the goroutine execution time is greater or less than sleep time.
 
-#### sync.WaitGroup
+### sync.WaitGroup
 ```golang=
 func main() {
     wg := new(sync.WaitGroup)
@@ -134,9 +134,9 @@ Create `WaitGroup` Counter which numbers is same as the goroutine that want to w
 Put `WaitGroup` to goroutine, using `wg.Done()` to  minus 1 when execution finished.
 `wg.Wait()` will wait until counter to 0.
 
-![](sync_waitgroup.JPG)
+![](sync_waitgroup.JPG =100x)
 
-#### Channel
+### Channel
 ```golang=
 func main()  {
 	// Build a channel
@@ -175,7 +175,104 @@ How
 
 With 2 goroutine, need to wait 2 `End` push into channel to end main goroutine.
 
-![](channel.png)
+![](channel.png =100x)
+
+
+## Race Condition
+### Multi-Thread Shared Variables
+
+```golang=
+func main()  {
+	total := 0
+
+	for i := 0; i < 1000; i++ {
+		go func() {
+			total++
+		}()
+	}
+
+	time.Sleep(time.Second)
+
+	fmt.Println(total)
+}
+```
+
+![](mutipleThread_sharedVar.JPG =100x)
+
+Ex: Current in 60, while in multi-thread
+1. `goroutine1` get 60 to add
+2. `goroutine2` probably got `total` value before `goroutine1` do `total++`
+3. In this condition, the result will be 61, not 62
+
+Doing the addition in the same `total` variable in multiple goroutine will lead to operation error because it cannot make sure the secure of value when assign it. => <b>Race Condition</b>
+
+There are 2 solutions:
+1. Sync.Mutex
+2. Channel
+
+### Sync.Mutex (互斥鎖)
+
+```golang=
+type SafeNumber struct {
+	v int
+	mux sync.Mutex
+}
+
+func main()  {
+	total := SafeNumber{v: 0}
+
+	for i := 0; i < 1000; i++ {
+		go func() {
+			total.mux.Lock()
+			total.v++
+			total.mux.Unlock()
+		}()
+	}
+
+	time.Sleep(time.Second)
+	total.mux.Lock()
+	fmt.Println(total.v)
+	total.mux.Unlock()
+}
+
+```
+
+```
+1000
+```
+
+![](sync_mutex.JPG =100x)
+
+### Via Channel - security of variable
+
+```golang=
+func main()  {
+	total := 0
+	ch := make(chan int, 1)
+
+	ch <- total
+
+	for i := 0; i < 1000; i++ {
+		go func() {
+			ch <- <-ch + 1
+		}()
+	}
+
+	time.Sleep(time.Second)
+	fmt.Println(<-ch)
+}
+```
+
+```
+1000
+```
+
+![](channel_var.JPG =100x)
+
+1. When `goroutine1` pull out, and there is nothing in Channel
+2. Because there is nothing in Channel, cause `goroutine2` waiting
+3. When `goroutine1` finished, `total` pushed to Channel
+4. When `goroutine2` find out there is something in Channel, pull out and wait to operate.
 
 ### REFERENCES
 * [Source](https://peterhpchen.github.io/2020/03/08/goroutine-and-channel.html)
