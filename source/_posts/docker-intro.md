@@ -39,7 +39,7 @@ VM vs Container
 在 OS 上虛擬化，透過 container Manager 將一個 application 所需的程式碼、函式庫打包，建立資源控管機制隔離各 container，並分配 Host OS 上的系統資源
 透過容器，application 不需再另外安裝 OS 也可以執行
 
-![](container.JPG)
+![](container.png)
 
 ### Docker 3 元素
 
