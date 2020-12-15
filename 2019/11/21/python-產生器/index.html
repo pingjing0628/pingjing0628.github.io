@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Python 產生器 &lt;!--more--&gt;    產生器generator是一種Python序列建立物件   可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列   ex: range()   每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值   一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始   若想建立一個可能會很大的序列，且程式">
+    <meta name="description" content="Python 產生器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python 產生器">
 <meta property="og:url" content="https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Python 產生器 &lt;!--more--&gt;    產生器generator是一種Python序列建立物件   可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列   ex: range()   每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值   一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始   若想建立一個可能會很大的序列，且程式">
+<meta property="og:description" content="Python 產生器">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2019-11-21T15:21:25.000Z">
-<meta property="article:modified_time" content="2020-12-14T15:20:06.025Z">
+<meta property="article:modified_time" content="2020-12-15T15:15:38.138Z">
 <meta property="article:author" content="PingJing Wang">
 <meta property="article:tag" content="python">
 <meta property="article:tag" content="產生器">
@@ -109,12 +109,12 @@
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&name=python 產生器&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&name=python 產生器&description=&lt;h2 id=&#34;Python-產生器&#34;&gt;&lt;a href=&#34;#Python-產生器&#34; class=&#34;headerlink&#34; title=&#34;Python 產生器&#34;&gt;&lt;/a&gt;Python 產生器&lt;/h2&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Python 產生器</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-產生器"><span class="toc-number">1.</span> <span class="toc-text">Python 產生器</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -163,29 +163,21 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2>Python 產生器</h2>
-<p>&lt;!--more--&gt;</p>
+    <h2 id="Python-產生器"><a href="#Python-產生器" class="headerlink" title="Python 產生器"></a>Python 產生器</h2><a id="more"></a>
 <hr>
 <ul>
-<li>
-<p>產生器generator是一種Python序列建立物件</p>
+<li><p>產生器generator是一種Python序列建立物件</p>
 </li>
-<li>
-<p>可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列</p>
+<li><p>可以迭代很大的序列，而不需要在記憶體中一次建立或儲存整個序列</p>
 </li>
-<li>
-<p>ex: <code>range()</code></p>
+<li><p>ex: <code>range()</code></p>
 </li>
-<li>
-<p>每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值</p>
+<li><p>每次迭代產生器時，都會記得上一次被呼叫時的所在的位置，並回傳下一個值</p>
 </li>
-<li>
-<p>一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始</p>
+<li><p>一般函式不會記得之前的呼叫，且永遠會從他的第一行，以相同的狀態開始</p>
 </li>
-<li>
-<p>若想建立一個可能會很大的序列，且程式很大，無法使用產生器生成式，可以編寫<strong>產生器函式</strong>，他是一種一般的函式，但會用 <code>yield</code>陳述式來回傳值，而不是 <code>return</code>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_range</span><span class="params">(first=<span class="number">0</span>, last=<span class="number">10</span>, step=<span class="number">1</span>)</span>:</span></span><br><span class="line">        number = first</span><br><span class="line">        <span class="keyword">while</span> number &lt; last:</span><br><span class="line">        <span class="keyword">yield</span> number</span><br><span class="line">        number += step</span><br><span class="line">// 是一個普通的函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_range</span><br><span class="line">&lt;function my_range at <span class="number">0x10193e268</span>&gt;</span><br><span class="line"></span><br><span class="line">// 回傳一個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger = my_range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger</span><br><span class="line">&lt;generator object my_range at <span class="number">0x10193e168</span>&gt;</span><br><span class="line"></span><br><span class="line">// 迭代這個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> ranger:</span><br><span class="line">        print(x)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></p>
-</li>
+<li><p>若想建立一個可能會很大的序列，且程式很大，無法使用產生器生成式，可以編寫<strong>產生器函式</strong>，他是一種一般的函式，但會用 <code>yield</code>陳述式來回傳值，而不是 <code>return</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">my_range</span><span class="params">(first=<span class="number">0</span>, last=<span class="number">10</span>, step=<span class="number">1</span>)</span>:</span></span><br><span class="line">        number = first</span><br><span class="line">        <span class="keyword">while</span> number &lt; last:</span><br><span class="line">        <span class="keyword">yield</span> number</span><br><span class="line">        number += step</span><br><span class="line">// 是一個普通的函式</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>my_range</span><br><span class="line">&lt;function my_range at <span class="number">0x10193e268</span>&gt;</span><br><span class="line"></span><br><span class="line">// 回傳一個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger = my_range(<span class="number">1</span>, <span class="number">5</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>ranger</span><br><span class="line">&lt;generator object my_range at <span class="number">0x10193e168</span>&gt;</span><br><span class="line"></span><br><span class="line">// 迭代這個產生器物件</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> x <span class="keyword">in</span> ranger:</span><br><span class="line">        print(x)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br></pre></td></tr></table></figure></li>
 </ul>
 
   </div>
@@ -216,7 +208,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Python 產生器</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Python-產生器"><span class="toc-number">1.</span> <span class="toc-text">Python 產生器</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -230,7 +222,7 @@
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&title=python 產生器" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&name=python 產生器&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/&name=python 產生器&description=&lt;h2 id=&#34;Python-產生器&#34;&gt;&lt;a href=&#34;#Python-產生器&#34; class=&#34;headerlink&#34; title=&#34;Python 產生器&#34;&gt;&lt;/a&gt;Python 產生器&lt;/h2&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

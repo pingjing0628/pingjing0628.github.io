@@ -6,16 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Docker Introduction &lt;!--more--&gt; The Existence of docker Before: 傳統 VM 因為需額外安裝 OS，導致啟動慢，佔較大記憶體問題 Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化技術 What is virtualization? 虛擬化是模擬出一個環境，讓程式可在不同硬體上執行都以為是在同一個環境中">
+    <meta name="description" content="Docker Introduction">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker-intro">
 <meta property="og:url" content="https://pingjing0628.github.io/2020/09/20/docker-intro/">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Docker Introduction &lt;!--more--&gt; The Existence of docker Before: 傳統 VM 因為需額外安裝 OS，導致啟動慢，佔較大記憶體問題 Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化技術 What is virtualization? 虛擬化是模擬出一個環境，讓程式可在不同硬體上執行都以為是在同一個環境中">
+<meta property="og:description" content="Docker Introduction">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://pingjing0628.github.io/2020/09/20/docker-intro/container.png">
 <meta property="article:published_time" content="2020-09-20T09:00:59.000Z">
-<meta property="article:modified_time" content="2020-12-14T15:20:06.016Z">
+<meta property="article:modified_time" content="2020-12-15T15:15:38.135Z">
 <meta property="article:author" content="PingJing Wang">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="virtualization">
@@ -111,12 +111,12 @@
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&name=docker-intro&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&name=docker-intro&description=&lt;h1 id=&#34;Docker-Introduction&#34;&gt;&lt;a href=&#34;#Docker-Introduction&#34; class=&#34;headerlink&#34; title=&#34;Docker Introduction&#34;&gt;&lt;/a&gt;Docker Introduction&lt;/h1&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Docker Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">&lt;!--more--&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text">The Existence of docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.3.</span> <span class="toc-text">What is virtualization?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.1.</span> <span class="toc-text">虛擬化技術有兩種</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.2.</span> <span class="toc-text">Docker 3 元素</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Introduction"><span class="toc-number">1.</span> <span class="toc-text">Docker Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Existence-of-docker"><span class="toc-number">1.1.</span> <span class="toc-text">The Existence of docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-virtualization"><span class="toc-number">1.2.</span> <span class="toc-text">What is virtualization?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虛擬化技術有兩種"><span class="toc-number">1.2.1.</span> <span class="toc-text">虛擬化技術有兩種</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-3-元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">Docker 3 元素</span></a></li></ol></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -165,16 +165,12 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h1>Docker Introduction</h1>
-<h2>&lt;!--more--&gt;</h2>
-<h2>The Existence of docker</h2>
-<p>Before: 傳統 VM 因為需額外安裝 OS，導致啟動慢，佔較大記憶體問題
-Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化技術</p>
-<h2>What is virtualization?</h2>
-<p>虛擬化是模擬出一個環境，讓程式可在不同硬體上執行都以為是在同一個環境中執行</p>
+    <h1 id="Docker-Introduction"><a href="#Docker-Introduction" class="headerlink" title="Docker Introduction"></a>Docker Introduction</h1><a id="more"></a>
+<p>–</p>
+<h2 id="The-Existence-of-docker"><a href="#The-Existence-of-docker" class="headerlink" title="The Existence of docker"></a>The Existence of docker</h2><p>Before: 傳統 VM 因為需額外安裝 OS，導致啟動慢，佔較大記憶體問題<br>Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化技術</p>
+<h2 id="What-is-virtualization"><a href="#What-is-virtualization" class="headerlink" title="What is virtualization?"></a>What is virtualization?</h2><p>虛擬化是模擬出一個環境，讓程式可在不同硬體上執行都以為是在同一個環境中執行</p>
 <p>Sol: <code>避免在電腦上可運行的程式，移至其他電腦環境卻無法運行</code></p>
-<h3>虛擬化技術有兩種</h3>
-<ol>
+<h3 id="虛擬化技術有兩種"><a href="#虛擬化技術有兩種" class="headerlink" title="虛擬化技術有兩種"></a>虛擬化技術有兩種</h3><ol>
 <li>系統層級的虛擬化技術 ex: VM (Virtual box)</li>
 <li>作業層級的虛擬化技術 ex: Container (Docker)</li>
 </ol>
@@ -186,8 +182,7 @@ Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化
 <th>Container</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>以 OS 為中心</td>
 <td>以應用程式為中心</td>
 </tr>
@@ -195,25 +190,15 @@ Solution: 以應用程式為核心虛擬化，取代傳統需要 OS 的虛擬化
 <td>目標： 建立一個獨立的環境，方便在不同硬體中移動</td>
 <td>目標： 改善 VM 因為需要裝 Guest OS 導致啟動慢，佔大記憶體問題</td>
 </tr>
-</tbody>
-</table>
-<p>在 OS 上虛擬化，透過 container Manager 將一個 application 所需的程式碼、函式庫打包，建立資源控管機制隔離各 container，並分配 Host OS 上的系統資源
-透過容器，application 不需再另外安裝 OS 也可以執行</p>
+</tbody></table>
+<p>在 OS 上虛擬化，透過 container Manager 將一個 application 所需的程式碼、函式庫打包，建立資源控管機制隔離各 container，並分配 Host OS 上的系統資源<br>透過容器，application 不需再另外安裝 OS 也可以執行</p>
 <p><img src="container.png" alt=""></p>
-<h3>Docker 3 元素</h3>
-<ol>
-<li>
-<p>Image:
-像模板，重複產生容器實體，透過 image，可以快速的產生執行 app 的 container
-image 可由 dockerfile 建立</p>
+<h3 id="Docker-3-元素"><a href="#Docker-3-元素" class="headerlink" title="Docker 3 元素"></a>Docker 3 元素</h3><ol>
+<li><p>Image:<br>像模板，重複產生容器實體，透過 image，可以快速的產生執行 app 的 container<br>image 可由 dockerfile 建立</p>
 </li>
-<li>
-<p>Container:
-容器是 image 建立出來的執行實例，每個 container 都是分開、隔離的</p>
+<li><p>Container:<br>容器是 image 建立出來的執行實例，每個 container 都是分開、隔離的</p>
 </li>
-<li>
-<p>Repository:
-集中存放 image 的地方</p>
+<li><p>Repository:<br>集中存放 image 的地方</p>
 </li>
 </ol>
 
@@ -245,7 +230,7 @@ image 可由 dockerfile 建立</p>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Docker Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">&lt;!--more--&gt;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.2.</span> <span class="toc-text">The Existence of docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.3.</span> <span class="toc-text">What is virtualization?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.1.</span> <span class="toc-text">虛擬化技術有兩種</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.3.2.</span> <span class="toc-text">Docker 3 元素</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker-Introduction"><span class="toc-number">1.</span> <span class="toc-text">Docker Introduction</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Existence-of-docker"><span class="toc-number">1.1.</span> <span class="toc-text">The Existence of docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What-is-virtualization"><span class="toc-number">1.2.</span> <span class="toc-text">What is virtualization?</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#虛擬化技術有兩種"><span class="toc-number">1.2.1.</span> <span class="toc-text">虛擬化技術有兩種</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Docker-3-元素"><span class="toc-number">1.2.2.</span> <span class="toc-text">Docker 3 元素</span></a></li></ol></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -259,7 +244,7 @@ image 可由 dockerfile 建立</p>
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&title=docker-intro" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&name=docker-intro&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2020/09/20/docker-intro/&name=docker-intro&description=&lt;h1 id=&#34;Docker-Introduction&#34;&gt;&lt;a href=&#34;#Docker-Introduction&#34; class=&#34;headerlink&#34; title=&#34;Docker Introduction&#34;&gt;&lt;/a&gt;Docker Introduction&lt;/h1&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

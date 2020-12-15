@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Setter and Getter &lt;!--more--&gt;  123456789101112131415161718192021Class T &amp;#123;public $A;protected $B;private $C;public function setA()&amp;#123;    $this-&gt;A &#x3D; A;&amp;#125;protected function setB()&amp;#1">
+    <meta name="description" content="Setter and Getter">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP Setter and Getter">
 <meta property="og:url" content="https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/">
 <meta property="og:site_name" content="About My Things">
-<meta property="og:description" content="Setter and Getter &lt;!--more--&gt;  123456789101112131415161718192021Class T &amp;#123;public $A;protected $B;private $C;public function setA()&amp;#123;    $this-&gt;A &#x3D; A;&amp;#125;protected function setB()&amp;#1">
+<meta property="og:description" content="Setter and Getter">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2019-10-27T07:51:42.000Z">
-<meta property="article:modified_time" content="2020-12-14T15:20:06.011Z">
+<meta property="article:modified_time" content="2020-12-15T15:15:38.132Z">
 <meta property="article:author" content="PingJing Wang">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
@@ -108,12 +108,12 @@
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&name=PHP Setter and Getter&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&name=PHP Setter and Getter&description=&lt;h2 id=&#34;Setter-and-Getter&#34;&gt;&lt;a href=&#34;#Setter-and-Getter&#34; class=&#34;headerlink&#34; title=&#34;Setter and Getter&#34;&gt;&lt;/a&gt;Setter and Getter&lt;/h2&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Setter and Getter</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Setter-and-Getter"><span class="toc-number">1.</span> <span class="toc-text">Setter and Getter</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -162,40 +162,13 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2>Setter and Getter</h2>
-<p>&lt;!--more--&gt;</p>
+    <h2 id="Setter-and-Getter"><a href="#Setter-and-Getter" class="headerlink" title="Setter and Getter"></a>Setter and Getter</h2><a id="more"></a>
 <hr>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $A;</span><br><span class="line"><span class="keyword">protected</span> $B;</span><br><span class="line"><span class="keyword">private</span> $C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">T</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> $A;</span><br><span class="line"><span class="keyword">protected</span> $B;</span><br><span class="line"><span class="keyword">private</span> $C;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">setA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">setB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">$this</span>-&gt;A = A;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>應用在讓程式可視性更高，不直接在變數定義，而是在setter去定義，再透過getter去拿取</li>
 </ul>
-<p>function的部分</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>外部</th>
-<th>繼承</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>public</td>
-<td>Yes</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>protected</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>private</td>
-<td>No</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
+<p>function的部分<br>|      | 外部 | 繼承 |<br>| —- | —- | —- |<br>| public | Yes  | Yes  |<br>| protected | No  | Yes  |<br>| private |No | No  |</p>
 
   </div>
 </article>
@@ -225,7 +198,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.</span> <span class="toc-text">Setter and Getter</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Setter-and-Getter"><span class="toc-number">1.</span> <span class="toc-text">Setter and Getter</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -239,7 +212,7 @@
   <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
   <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&title=PHP Setter and Getter" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&name=PHP Setter and Getter&description=" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2019/10/27/PHP-Setter-and-Getter/&name=PHP Setter and Getter&description=&lt;h2 id=&#34;Setter-and-Getter&#34;&gt;&lt;a href=&#34;#Setter-and-Getter&#34; class=&#34;headerlink&#34; title=&#34;Setter and Getter&#34;&gt;&lt;/a&gt;Setter and Getter&lt;/h2&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
