@@ -45,7 +45,15 @@
 <td align="right"></td>
 </tr>
 </tbody></table>
-<h2 id="電腦架構"><a href="#電腦架構" class="headerlink" title="電腦架構"></a>電腦架構</h2><p>常見：范紐曼架構 Von-Neumann<br>特色：<br>    1. 採用<strong>內儲程式 Stored Programming</strong>概念：<br>      指欲執行的程式(Program)跟資料(data)必須先載入記憶體(Mem.)中，再由 CPU 從 memory 中抓取資料處理之<br>        * 程式：<br>            Def: 由指令組合之集合，永已達到某一特定任務<br>        * 指令：<br>            Instruction: 電腦最基本的執行單位，過程不可分割<br>            ex: 3+5 =&gt; <code>+</code> 是指令<br>    2. <strong>循序執行 Sequential Execution</strong>:<br>        指令會依序一一執行</p>
+<h2 id="電腦架構"><a href="#電腦架構" class="headerlink" title="電腦架構"></a>電腦架構</h2><p>常見：范紐曼架構 Von-Neumann<br>特色：</p>
+<ol>
+<li>採用<strong>內儲程式 Stored Programming</strong>概念：<br> 指欲執行的程式(Program)跟資料(data)必須先載入記憶體(Mem.)中，再由 CPU 從 memory 中抓取資料處理之<ul>
+<li>程式：<br>  Def: 由指令組合之集合，永已達到某一特定任務</li>
+<li>指令：<br>  Instruction: 電腦最基本的執行單位，過程不可分割<br>  ex: 3+5 =&gt; <code>+</code> 是指令</li>
+</ul>
+</li>
+<li><strong>循序執行 Sequential Execution</strong>:<br> 指令會依序一一執行</li>
+</ol>
 <h2 id="五大單元結構"><a href="#五大單元結構" class="headerlink" title="五大單元結構"></a>五大單元結構</h2><h2 id="機器指令週期-Machine-Cycle"><a href="#機器指令週期-Machine-Cycle" class="headerlink" title="機器指令週期 (Machine Cycle)"></a>機器指令週期 (Machine Cycle)</h2><p>Def: 為 CPU 執行一個指令所需的時間<br>5個步驟：</p>
 <ol>
 <li>Instruction Fetch (IF) 指令擷取： 從記憶體中擷取指令</li>
