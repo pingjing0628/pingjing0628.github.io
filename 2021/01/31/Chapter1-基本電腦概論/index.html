@@ -14,13 +14,15 @@
 <meta property="og:description" content="電腦系統介紹">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/%E5%BE%AA%E5%BA%8F%E5%9F%B7%E8%A1%8C.png">
+<meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/5_units.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/Von_Neumann_bottleneck.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/maching_cycle.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/%E5%82%B3%E7%B5%B1%E6%8C%87%E4%BB%A4.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/In_Pipeline.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/Ex1.png">
+<meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/Control_bus.png">
 <meta property="article:published_time" content="2021-01-31T11:57:21.000Z">
-<meta property="article:modified_time" content="2021-01-31T15:28:06.301Z">
+<meta property="article:modified_time" content="2021-01-31T15:48:07.152Z">
 <meta property="article:author" content="PinJing Wang">
 <meta property="article:tag" content="電腦架構">
 <meta property="article:tag" content="匯流排">
@@ -121,7 +123,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#補充：Von-Neumann-瓶頸"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">補充：Von Neumann 瓶頸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#補充：Von-Neumann-瓶頸"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">補充：Von Neumann 瓶頸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例：-1"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -224,7 +226,7 @@
 </ul>
 </li>
 </ol>
-<h2 id="五大單元結構"><a href="#五大單元結構" class="headerlink" title="五大單元結構"></a>五大單元結構</h2><p>![](5 units.png)</p>
+<h2 id="五大單元結構"><a href="#五大單元結構" class="headerlink" title="五大單元結構"></a>五大單元結構</h2><p><img src="5_units.png" alt=""></p>
 <h4 id="補充：Von-Neumann-瓶頸"><a href="#補充：Von-Neumann-瓶頸" class="headerlink" title="補充：Von Neumann 瓶頸"></a>補充：Von Neumann 瓶頸</h4><p>說明：<br>在 CPU 和 Mem. 處理速度不斷上升之下，資料的傳輸速度將成為瓶頸<br><img src="Von_Neumann_bottleneck.png" alt=""></p>
 <h2 id="機器指令週期-Machine-Cycle"><a href="#機器指令週期-Machine-Cycle" class="headerlink" title="機器指令週期 (Machine Cycle)"></a>機器指令週期 (Machine Cycle)</h2><p>Def: 為 CPU 執行一個指令所需的時間<br>5個步驟：</p>
 <ol>
@@ -254,17 +256,17 @@
 </thead>
 <tbody><tr>
 <td>正確</td>
-<td>2^40^</td>
-<td>2^30^</td>
-<td>2^20^</td>
-<td>2^10^</td>
+<td>2^40</td>
+<td>2^30</td>
+<td>2^20</td>
+<td>2^10</td>
 </tr>
 <tr>
 <td>近似</td>
-<td>10^12^</td>
-<td>10^9^</td>
-<td>10^6^</td>
-<td>10^3^</td>
+<td>10^12</td>
+<td>10^9</td>
+<td>10^6</td>
+<td>10^3</td>
 </tr>
 </tbody></table>
 </li>
@@ -283,8 +285,20 @@
 <li>N 位元 CPU 亦就是此 CPU 有 N 條資料線 64 bits = 8 bytes word</li>
 </ul>
 </li>
+<li>控制匯流排(Control Bus)<ul>
+<li>負責傳送 CPU 所發出的控制訊號</li>
+<li>Ex: 計算 =&gt; address line + data line<br><img src="Control_bus.png" alt=""></li>
+</ul>
+</li>
 </ol>
-<h2 id="常見的時間單位"><a href="#常見的時間單位" class="headerlink" title="常見的時間單位"></a>常見的時間單位</h2><h2 id="硬體介紹"><a href="#硬體介紹" class="headerlink" title="硬體介紹"></a>硬體介紹</h2><h2 id="CPU-的種類"><a href="#CPU-的種類" class="headerlink" title="CPU 的種類"></a>CPU 的種類</h2><h2 id="記憶體階層"><a href="#記憶體階層" class="headerlink" title="記憶體階層"></a>記憶體階層</h2><h2 id="記憶體的種類"><a href="#記憶體的種類" class="headerlink" title="記憶體的種類"></a>記憶體的種類</h2><h2 id="ROM-vs-RAM"><a href="#ROM-vs-RAM" class="headerlink" title="ROM vs RAM"></a>ROM vs RAM</h2><h2 id="DRAM-vs-SRAM"><a href="#DRAM-vs-SRAM" class="headerlink" title="DRAM vs SRAM"></a>DRAM vs SRAM</h2><h2 id="I-O的定址方式"><a href="#I-O的定址方式" class="headerlink" title="I/O的定址方式"></a>I/O的定址方式</h2><h2 id="圖形表示法"><a href="#圖形表示法" class="headerlink" title="圖形表示法"></a>圖形表示法</h2>
+<h4 id="例：-1"><a href="#例：-1" class="headerlink" title="例："></a>例：</h4><blockquote>
+<p>Q1: 電腦 Mem size = 4GB, 有 30 條 address line(決定格數), 問 CPU word size(data line =&gt; 決定格子大小)?<br>Sol:<br>格數 *  格子大小 = 總 Mem.<br>2^30 * X = 4GB<br>X = 4 bytes = 32 bits</p>
+</blockquote>
+<blockquote>
+<p>Q2: Mem size = 4GB, 又 data line 有 32 條(32 bits = 4 bytes), 問 address line 至少有幾條？<br>Sol:<br>X * 4 bytes = 4GB<br>x = 1G = 2^30 格子 =&gt; 30 條</p>
+</blockquote>
+<h2 id="常見的時間單位"><a href="#常見的時間單位" class="headerlink" title="常見的時間單位"></a>常見的時間單位</h2><p>|毫(sec)|微(sec)|奈(sec)|皮(sec)|<br>|–|–|–|–|–|<br>1 ms|1 us|1 ns|1 ps<br>10^-3 sec|10^-6 sec|10^-9 sec|10^-12 sec<br>1 秒 = 10^3 ms = 10^6 us = 10^9 ns = 10^12 ps</p>
+<h2 id="硬體介紹"><a href="#硬體介紹" class="headerlink" title="硬體介紹"></a>硬體介紹</h2><h2 id="CPU-的種類"><a href="#CPU-的種類" class="headerlink" title="CPU 的種類"></a>CPU 的種類</h2><h2 id="記憶體階層"><a href="#記憶體階層" class="headerlink" title="記憶體階層"></a>記憶體階層</h2><h2 id="記憶體的種類"><a href="#記憶體的種類" class="headerlink" title="記憶體的種類"></a>記憶體的種類</h2><h2 id="ROM-vs-RAM"><a href="#ROM-vs-RAM" class="headerlink" title="ROM vs RAM"></a>ROM vs RAM</h2><h2 id="DRAM-vs-SRAM"><a href="#DRAM-vs-SRAM" class="headerlink" title="DRAM vs SRAM"></a>DRAM vs SRAM</h2><h2 id="I-O的定址方式"><a href="#I-O的定址方式" class="headerlink" title="I/O的定址方式"></a>I/O的定址方式</h2><h2 id="圖形表示法"><a href="#圖形表示法" class="headerlink" title="圖形表示法"></a>圖形表示法</h2>
   </div>
 </article>
 
@@ -313,7 +327,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#補充：Von-Neumann-瓶頸"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">補充：Von Neumann 瓶頸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#補充：Von-Neumann-瓶頸"><span class="toc-number">1.3.0.1.</span> <span class="toc-text">補充：Von Neumann 瓶頸</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例：-1"><span class="toc-number">1.7.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
