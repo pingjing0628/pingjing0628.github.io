@@ -71,7 +71,7 @@
 <p>In Pipeline:<br><img src="In_pipeline.png" alt=""><br><strong>CPU 速度沒變快，只是效能提高</strong></p>
 <h4 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h4><p>Q: IF=3, DE=5, FO=2, EX=3, WM=2,問採 Pipeline 下, 100條指令, 所需花的總時間？</p>
 <p>Sol:<br><img src="Ex1.png" alt=""><br><code>Max(IF, DE, FO, EX, WM) = 5</code></p>
-<p>(N 條指令)<br>公式1: <code>第一條指令總時間 + (N-1) * Max(各週期值) = 510</code><br>        (3+5+2+3+2) + 99 * 5<br>(常用)<br>公式2: <code>以最大週期數算所有週期 = 520</code></p>
+<p>(N 條指令)<br>公式1: $第一條指令總時間 + (N-1) * Max(各週期值) = 510$<br>    $(3+5+2+3+2) + 99 * 5$<br>(常用)<br>公式2: $以最大週期數算所有週期 = 520$</p>
 <h2 id="儲存單位"><a href="#儲存單位" class="headerlink" title="儲存單位"></a>儲存單位</h2><ol>
 <li>bit (位元) =&gt; 0 &amp; 1 =&gt; 為最基本單位</li>
 <li>byte (位元組)  byte = 8 bits</li>
@@ -87,17 +87,17 @@
 </thead>
 <tbody><tr>
 <td>正確</td>
-<td>2^40</td>
-<td>2^30</td>
-<td>2^20</td>
-<td>2^10</td>
+<td>$2^40$</td>
+<td>$2^30$</td>
+<td>$2^20$</td>
+<td>$2^10$</td>
 </tr>
 <tr>
 <td>近似</td>
-<td>10^12</td>
-<td>10^9</td>
-<td>10^6</td>
-<td>10^3</td>
+<td>$10^12$</td>
+<td>$10^9$</td>
+<td>$10^6$</td>
+<td>$10^3$</td>
 </tr>
 </tbody></table>
 </li>
@@ -123,12 +123,12 @@
 </li>
 </ol>
 <h4 id="例：-1"><a href="#例：-1" class="headerlink" title="例："></a>例：</h4><blockquote>
-<p>Q1: 電腦 Mem size = 4GB, 有 30 條 address line(決定格數), 問 CPU word size(data line =&gt; 決定格子大小)?<br>Sol:<br>格數 *  格子大小 = 總 Mem.<br>2^30 * X = 4GB<br>X = 4 bytes = 32 bits</p>
+<p>Q1: 電腦 Mem size = 4GB, 有 30 條 address line(決定格數), 問 CPU word size(data line =&gt; 決定格子大小)?<br>Sol:<br>格數 *  格子大小 = 總 Mem.<br>$$2^30$ * X = 4GB$<br>$X = 4 bytes = 32 bits$</p>
 </blockquote>
 <blockquote>
-<p>Q2: Mem size = 4GB, 又 data line 有 32 條(32 bits = 4 bytes), 問 address line 至少有幾條？<br>Sol:<br>X * 4 bytes = 4GB<br>x = 1G = 2^30 格子 =&gt; 30 條</p>
+<p>Q2: Mem size = 4GB, 又 data line 有 32 條(32 bits = 4 bytes), 問 address line 至少有幾條？<br>Sol:<br>$X * 4 bytes = 4GB$<br>x = 1G = 2^30 格子 =&gt; 30 條</p>
 </blockquote>
-<h2 id="常見的時間單位"><a href="#常見的時間單位" class="headerlink" title="常見的時間單位"></a>常見的時間單位</h2><p>|毫(sec)|微(sec)|奈(sec)|皮(sec)|<br>|–|–|–|–|–|<br>1 ms|1 us|1 ns|1 ps<br>10^-3 sec|10^-6 sec|10^-9 sec|10^-12 sec<br>1 秒 = 10^3 ms = 10^6 us = 10^9 ns = 10^12 ps</p>
+<h2 id="常見的時間單位"><a href="#常見的時間單位" class="headerlink" title="常見的時間單位"></a>常見的時間單位</h2><p>|毫(sec)|微(sec)|奈(sec)|皮(sec)|<br>|–|–|–|–|–|<br>1 ms|1 us|1 ns|1 ps<br>$10^-3$ sec|$10^-6$ sec|$10^-9$ sec|$10^-12$ sec<br>1 秒 = $10^3$ ms = $10^6$ us = $10^9$ ns = $10^12$ ps</p>
 <h2 id="硬體介紹"><a href="#硬體介紹" class="headerlink" title="硬體介紹"></a>硬體介紹</h2><h2 id="CPU-的種類"><a href="#CPU-的種類" class="headerlink" title="CPU 的種類"></a>CPU 的種類</h2><h2 id="記憶體階層"><a href="#記憶體階層" class="headerlink" title="記憶體階層"></a>記憶體階層</h2><h2 id="記憶體的種類"><a href="#記憶體的種類" class="headerlink" title="記憶體的種類"></a>記憶體的種類</h2><h2 id="ROM-vs-RAM"><a href="#ROM-vs-RAM" class="headerlink" title="ROM vs RAM"></a>ROM vs RAM</h2><h2 id="DRAM-vs-SRAM"><a href="#DRAM-vs-SRAM" class="headerlink" title="DRAM vs SRAM"></a>DRAM vs SRAM</h2><h2 id="I-O的定址方式"><a href="#I-O的定址方式" class="headerlink" title="I/O的定址方式"></a>I/O的定址方式</h2><h2 id="圖形表示法"><a href="#圖形表示法" class="headerlink" title="圖形表示法"></a>圖形表示法</h2>]]></content>
       <categories>
         <category>計算機概論</category>
