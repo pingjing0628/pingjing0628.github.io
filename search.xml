@@ -17,20 +17,20 @@
 <tbody><tr>
 <td align="left">1G 第一代電腦</td>
 <td align="center">由真空管</td>
-<td align="center">溫度高，速度慢</td>
-<td align="right"></td>
+<td align="center">大</td>
+<td align="right">溫度高，速度慢</td>
 </tr>
 <tr>
 <td align="left">2G 第二代電腦</td>
 <td align="center">由電晶體</td>
-<td align="center">速度快，成本低，耗電低</td>
-<td align="right"></td>
+<td align="center">小</td>
+<td align="right">速度快，成本低，耗電低</td>
 </tr>
 <tr>
 <td align="left">3G 第三代電腦</td>
 <td align="center">由積體電路</td>
-<td align="center">速度更快，成本更低，耗電更低</td>
-<td align="right"></td>
+<td align="center">更小</td>
+<td align="right">速度更快，成本更低，耗電更低</td>
 </tr>
 <tr>
 <td align="left">4G 第四代電腦</td>
