@@ -8,7 +8,7 @@
       <link href="2021/01/31/Hexo-command/"/>
       <url>2021/01/31/Hexo-command/</url>
       
-        <content type="html"><![CDATA[<h1 id="Hexo-Command"><a href="#Hexo-Command" class="headerlink" title="Hexo Command"></a>Hexo Command</h1><a id="more"></a><p>–</p><ul><li><code>hexo new post &quot;my blog&quot;</code></li><li><code>hexo g</code> generate</li><li><code>hexo g -d</code> deploy</li><li><code>hexo new page search</code> =&gt; 增加一個新的資料夾， url也會增加一層 <code>/search</code></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="Hexo-Command"><a href="#Hexo-Command" class="headerlink" title="Hexo Command"></a>Hexo Command</h1><a id="more"></a><p>–</p><h3 id="Command"><a href="#Command" class="headerlink" title="Command"></a>Command</h3><ul><li><code>hexo new post &quot;my blog&quot;</code></li><li><code>hexo g</code> generate</li><li><code>hexo g -d</code> deploy</li><li><code>hexo new page search</code> =&gt; 增加一個新的資料夾， url也會增加一層 <code>/search</code></li></ul>]]></content>
       
       
       <categories>
