@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="電腦系統介紹">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter1-基本電腦概論">
+<meta property="og:url" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/">
+<meta property="og:site_name" content="PinJing&#39;s Blog">
+<meta property="og:description" content="電腦系統介紹">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2021-01-31T11:57:21.000Z">
+<meta property="article:modified_time" content="2021-01-31T12:23:22.131Z">
+<meta property="article:author" content="PinJing Wang">
+<meta property="article:tag" content="電腦架構">
+<meta property="article:tag" content="匯流排">
+<meta property="article:tag" content="CPU">
+<meta property="article:tag" content="記憶體">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Chapter1-基本電腦概論</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/atom.xml" title="PinJing's Blog" type="application/atom+xml">
+</head>
+
+<div id="particles-js"></div>
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories">Categories</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2021/01/31/Hexo-command/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/" target="_blank" rel="noopener"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&text=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&is_video=false&description=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Chapter1-基本電腦概論&body=Check out this article: https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&name=Chapter1-基本電腦概論&description=&lt;h1 id=&#34;電腦系統介紹&#34;&gt;&lt;a href=&#34;#電腦系統介紹&#34; class=&#34;headerlink&#34; title=&#34;電腦系統介紹&#34;&gt;&lt;/a&gt;電腦系統介紹&lt;/h1&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Chapter1-基本電腦概論
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">PinJing's Blog</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-01-31T11:57:21.000Z" itemprop="datePublished">2021-01-31</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E8%A8%88%E7%AE%97%E6%A9%9F%E6%A6%82%E8%AB%96/">計算機概論</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/CPU/" rel="tag">CPU</a>, <a class="tag-link" href="/tags/%E5%8C%AF%E6%B5%81%E6%8E%92/" rel="tag">匯流排</a>, <a class="tag-link" href="/tags/%E8%A8%98%E6%86%B6%E9%AB%94/" rel="tag">記憶體</a>, <a class="tag-link" href="/tags/%E9%9B%BB%E8%85%A6%E6%9E%B6%E6%A7%8B/" rel="tag">電腦架構</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="電腦系統介紹"><a href="#電腦系統介紹" class="headerlink" title="電腦系統介紹"></a>電腦系統介紹</h1><a id="more"></a>
+<hr>
+<h2 id="電腦發展史"><a href="#電腦發展史" class="headerlink" title="電腦發展史"></a>電腦發展史</h2><table>
+<thead>
+<tr>
+<th align="left">名稱</th>
+<th align="center">組成</th>
+<th align="center">體積</th>
+<th align="right">Note</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1G 第一代電腦</td>
+<td align="center">由真空管</td>
+<td align="center">溫度高，速度慢</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">2G 第二代電腦</td>
+<td align="center">由電晶體</td>
+<td align="center">速度快，成本低，耗電低</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">3G 第三代電腦</td>
+<td align="center">由積體電路</td>
+<td align="center">速度更快，成本更低，耗電更低</td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">4G 第四代電腦</td>
+<td align="center">由超大積體電路</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td align="left">5G 第五代電腦</td>
+<td align="center">引入人工智慧技術</td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+</tbody></table>
+<h2 id="電腦架構"><a href="#電腦架構" class="headerlink" title="電腦架構"></a>電腦架構</h2><p>常見：范紐曼架構 Von-Neumann<br>特色：<br>    1. 採用<strong>內儲程式 Stored Programming</strong>概念：<br>      指欲執行的程式(Program)跟資料(data)必須先載入記憶體(Mem.)中，再由 CPU 從 memory 中抓取資料處理之<br>        * 程式：<br>            Def: 由指令組合之集合，永已達到某一特定任務<br>        * 指令：<br>            Instruction: 電腦最基本的執行單位，過程不可分割<br>            ex: 3+5 =&gt; <code>+</code> 是指令<br>    2. <strong>循序執行 Sequential Execution</strong>:<br>        指令會依序一一執行</p>
+<h2 id="五大單元結構"><a href="#五大單元結構" class="headerlink" title="五大單元結構"></a>五大單元結構</h2><h2 id="機器指令週期-Machine-Cycle"><a href="#機器指令週期-Machine-Cycle" class="headerlink" title="機器指令週期 (Machine Cycle)"></a>機器指令週期 (Machine Cycle)</h2><p>Def: 為 CPU 執行一個指令所需的時間<br>5個步驟：</p>
+<ol>
+<li>Instruction Fetch (IF) 指令擷取： 從記憶體中擷取指令</li>
+<li>Decode (DE) 解碼： 針對擷取指令解碼，以了解所需運算為何</li>
+<li>Fetch Operation (FO) 擷取運算元： 從記憶體中擷取 CPU 運算所需資料</li>
+<li>Execution (EX) 執行： 針對擷取資料進行運算</li>
+<li>Write to Memory (WM) 攜回記憶體：將運算結果寫回記憶體</li>
+</ol>
+<h2 id="Pipeline-管線技術"><a href="#Pipeline-管線技術" class="headerlink" title="Pipeline 管線技術"></a>Pipeline 管線技術</h2><p>Def: 指不同指令的不同執行週期重疊執行謂之<br>目的：提升系統的執行效能 (system performance 上升)<br>傳統指令：</p>
+<h4 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h4><h2 id="儲存單位"><a href="#儲存單位" class="headerlink" title="儲存單位"></a>儲存單位</h2><h2 id="匯流排"><a href="#匯流排" class="headerlink" title="匯流排"></a>匯流排</h2><h2 id="常見的時間單位"><a href="#常見的時間單位" class="headerlink" title="常見的時間單位"></a>常見的時間單位</h2><h2 id="硬體介紹"><a href="#硬體介紹" class="headerlink" title="硬體介紹"></a>硬體介紹</h2><h2 id="CPU-的種類"><a href="#CPU-的種類" class="headerlink" title="CPU 的種類"></a>CPU 的種類</h2><h2 id="記憶體階層"><a href="#記憶體階層" class="headerlink" title="記憶體階層"></a>記憶體階層</h2><h2 id="記憶體的種類"><a href="#記憶體的種類" class="headerlink" title="記憶體的種類"></a>記憶體的種類</h2><h2 id="ROM-vs-RAM"><a href="#ROM-vs-RAM" class="headerlink" title="ROM vs RAM"></a>ROM vs RAM</h2><h2 id="DRAM-vs-SRAM"><a href="#DRAM-vs-SRAM" class="headerlink" title="DRAM vs SRAM"></a>DRAM vs SRAM</h2><h2 id="I-O的定址方式"><a href="#I-O的定址方式" class="headerlink" title="I/O的定址方式"></a>I/O的定址方式</h2><h2 id="圖形表示法"><a href="#圖形表示法" class="headerlink" title="圖形表示法"></a>圖形表示法</h2>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories">Categories</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#電腦系統介紹"><span class="toc-number">1.</span> <span class="toc-text">電腦系統介紹</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦發展史"><span class="toc-number">1.1.</span> <span class="toc-text">電腦發展史</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#電腦架構"><span class="toc-number">1.2.</span> <span class="toc-text">電腦架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五大單元結構"><span class="toc-number">1.3.</span> <span class="toc-text">五大單元結構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#機器指令週期-Machine-Cycle"><span class="toc-number">1.4.</span> <span class="toc-text">機器指令週期 (Machine Cycle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pipeline-管線技術"><span class="toc-number">1.5.</span> <span class="toc-text">Pipeline 管線技術</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#例："><span class="toc-number">1.5.0.1.</span> <span class="toc-text">例：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#儲存單位"><span class="toc-number">1.6.</span> <span class="toc-text">儲存單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匯流排"><span class="toc-number">1.7.</span> <span class="toc-text">匯流排</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常見的時間單位"><span class="toc-number">1.8.</span> <span class="toc-text">常見的時間單位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#硬體介紹"><span class="toc-number">1.9.</span> <span class="toc-text">硬體介紹</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-的種類"><span class="toc-number">1.10.</span> <span class="toc-text">CPU 的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體階層"><span class="toc-number">1.11.</span> <span class="toc-text">記憶體階層</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#記憶體的種類"><span class="toc-number">1.12.</span> <span class="toc-text">記憶體的種類</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ROM-vs-RAM"><span class="toc-number">1.13.</span> <span class="toc-text">ROM vs RAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DRAM-vs-SRAM"><span class="toc-number">1.14.</span> <span class="toc-text">DRAM vs SRAM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I-O的定址方式"><span class="toc-number">1.15.</span> <span class="toc-text">I&#x2F;O的定址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#圖形表示法"><span class="toc-number">1.16.</span> <span class="toc-text">圖形表示法</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/" target="_blank" rel="noopener"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&text=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&is_video=false&description=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Chapter1-基本電腦概論&body=Check out this article: https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&title=Chapter1-基本電腦概論" target="_blank" rel="noopener"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/&name=Chapter1-基本電腦概論&description=&lt;h1 id=&#34;電腦系統介紹&#34;&gt;&lt;a href=&#34;#電腦系統介紹&#34; class=&#34;headerlink&#34; title=&#34;電腦系統介紹&#34;&gt;&lt;/a&gt;電腦系統介紹&lt;/h1&gt;" target="_blank" rel="noopener"><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 PinJing Wang
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Articles</a></li>
+         
+          <li><a href="/categories">Categories</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight .code pre").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      target: function(trigger) {
+        return trigger.nextElementSibling;
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
+<!-- particles -->
+
+<script src="/lib/particles/particles.min.js"></script>
+
+<script type="text/javascript">
+  particlesJS('particles-js', {
+         ...
+        }
+      )
+</script>
+
+</body>
+</html>
