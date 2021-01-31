@@ -68,7 +68,7 @@
 <li>Write to Memory (WM) 攜回記憶體：將運算結果寫回記憶體 (反正執行一定要抓運算元)<br><img src="maching_cycle.png" alt=""></li>
 </ol>
 <h2 id="Pipeline-管線技術"><a href="#Pipeline-管線技術" class="headerlink" title="Pipeline 管線技術"></a>Pipeline 管線技術</h2><p>Def: 指不同指令的不同執行週期重疊執行 (Overlay execution) 謂之<br>目的：提升系統的執行效能 (system performance 上升)<br>傳統指令：<br><img src="%E5%82%B3%E7%B5%B1%E6%8C%87%E4%BB%A4.png" alt=""></p>
-<p>In Pipeline:<br><img src="In_Pipeline.png" alt=""><br><strong>CPU 速度沒變快，只是效能提高</strong></p>
+<p>In Pipeline:<br><img src="In_pipeline.png" alt=""><br><strong>CPU 速度沒變快，只是效能提高</strong></p>
 <h4 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h4><p>Q: IF=3, DE=5, FO=2, EX=3, WM=2,問採 Pipeline 下, 100條指令, 所需花的總時間？</p>
 <p>Sol:<br><img src="Ex1.png" alt=""><br><code>Max(IF, DE, FO, EX, WM) = 5</code></p>
 <p>(N 條指令)<br>公式1: <code>第一條指令總時間 + (N-1) * Max(各週期值) = 510</code><br>        (3+5+2+3+2) + 99 * 5<br>(常用)<br>公式2: <code>以最大週期數算所有週期 = 520</code></p>
