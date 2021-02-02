@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/CISC.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/Pipe+parallel.png">
 <meta property="article:published_time" content="2021-01-31T11:57:21.000Z">
-<meta property="article:modified_time" content="2021-02-02T15:38:45.430Z">
+<meta property="article:modified_time" content="2021-02-02T16:04:44.983Z">
 <meta property="article:author" content="PinJing Wang">
 <meta property="article:tag" content="電腦架構">
 <meta property="article:tag" content="匯流排">
@@ -463,11 +463,151 @@ ex: (1) 1MHz =&gt; 每秒做 10 的 6 次方個 clock cycle
 圖示：
 <img src="Pipe+parallel.png" alt=""></p>
 <h2>記憶體階層</h2>
+<p>Q: Why Memory Hierarchy?
+A: 欲於 Speed 和 Cost 之間取得一平衡點</p>
+<ul>
+<li>策略：
+<ol>
+<li>常用的 data =&gt; 往 speed 快的放</li>
+<li>不常用的 data =&gt; 往 cost 低的放</li>
+</ol>
+</li>
+</ul>
 <h2>記憶體的種類</h2>
+<ol>
+<li>RAM (Random Access Memory) 隨機存取記憶體： SRAM, DRAM</li>
+<li>ROM (Read Only Memory) 唯讀記憶體
+<ul>
+<li>PROM (Programming ROM) 可程式唯讀記憶體
+寫入方式：燒錄器
+Read many, Write once</li>
+<li>EPROM (Erasable-Programming ROM) 可抹除式的可程式僅讀記憶體
+寫入方式：UV Light 紫外線
+Read many, Write many</li>
+<li>EEPROM (Electically Erasable-Programming ROM) 電子式(可覆寫)的可抹除-可程式化的唯讀記憶體
+寫入方式：電流
+Read many, Write many
+相較於 EPROM 可寫入更多次</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>Note: Flash ROM 快閃記憶體 (目前常用的 ROM) =&gt; 比 EEPROM 密度高(容量大)，又更便宜</li>
+</ul>
 <h2>ROM vs RAM</h2>
+<table>
+<thead>
+<tr>
+<th>ROM</th>
+<th>RAM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>容量較小</td>
+<td>容量較大</td>
+</tr>
+<tr>
+<td>只可讀</td>
+<td>可讀可寫</td>
+</tr>
+<tr>
+<td>Power-off, data 存在</td>
+<td>Power-off, data 消失</td>
+</tr>
+<tr>
+<td>儲存：BIOS, Bootstrap Loade</td>
+<td>儲存：program, data</td>
+</tr>
+<tr>
+<td>非揮發性 (Non-Volatile)</td>
+<td>揮發性 (Volatile)</td>
+</tr>
+</tbody>
+</table>
 <h2>DRAM vs SRAM</h2>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>DRAM (Dynamic) 動態隨機存取記憶體</th>
+<th>SRAM (Static)靜態隨機存取記憶體</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>存取速度</td>
+<td>慢</td>
+<td>快</td>
+</tr>
+<tr>
+<td>價格</td>
+<td>低</td>
+<td>高</td>
+</tr>
+<tr>
+<td>使用元件</td>
+<td>電容 (capaitor)</td>
+<td>正反器 (filp-flop)</td>
+</tr>
+<tr>
+<td>更新電路(Refresh)</td>
+<td>需更新</td>
+<td>不需更新</td>
+</tr>
+<tr>
+<td>電路密度</td>
+<td>密度高</td>
+<td>密度低</td>
+</tr>
+<tr>
+<td>用途</td>
+<td>作為主記憶體 (Main Memory)</td>
+<td>作為快取記憶體 (Cache)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ex:</li>
+</ul>
 <h2>I/O的定址方式</h2>
+<ol>
+<li>隔離式 I/O (isolated I/O): 不佔記憶體空間，但須額外指令來區分</li>
+<li>記憶體映射式 I/O (memory mapped I/O): 不需額外指令，但佔 Memory 空間</li>
+</ol>
 <h2>圖形表示法</h2>
+<ol>
+<li>點陣圖 bitmap
+<ul>
+<li>graphic 由許多點集合而成，每一個點為一個像素 (pixel)， pixel 是顯示器的基本單位 (Bit 是最基本的儲存單位)</li>
+<li>當 pixel 越多解析度就越高</li>
+</ul>
+</li>
+<li>向量圖 vector graphic
+<ul>
+<li>利用 Math 貝茲 (Bezier) 曲線去描述圖形輪廓</li>
+<li>可任意的將圖形放大、縮小、旋轉，而不會出現鋸齒狀</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>
+<p>Ex1: 圖形 size 為 1024 * 768, 而每個 pixels 需使用 24 bits, 問此圖 size?
+Sol:</p>
+</li>
+<li>
+<p>Ex2: 呈上，此圖可表示的顏色有幾種？
+Sol:</p>
+</li>
+<li>
+<p>Ex3: 若轉為黑白差幾倍？
+Sol:</p>
+</li>
+<li>
+<p>Ex4: 圖 1024 * 768, 由三色系 RGB 組成, 又各色系需 8 bits, 問圖的大小？
+Sol:</p>
+</li>
+</ul>
 
   </div>
 </article>
