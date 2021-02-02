@@ -231,13 +231,66 @@ ex: (1) 1MHz =&gt; 每秒做 10 的 6 次方個 clock cycle
 </ul>
 </li>
 </ol>
+<ul>
+<li>Ex: 下列哪個選項錯？
+(A) 8KB = 2^13 bytes (2^3 * 2^30)
+(B) 8MB = 2^13 KB (2^3 * 2^20 = 2^13 * 2^10)
+(C) 8GB = 2^33 bytes (2^3 * 2^30 = 2^33)
+(D) 8GHz = 2^33 Hz (2^3 * 10^9 = 2^20) 錯</li>
+</ul>
 </li>
 </ul>
 <h2>CPU 的種類</h2>
 <ol>
-<li>RISC</li>
-<li>CISC</li>
+<li>RISC(Reduced): 最大特點是指令長度固定，指令格式種類少，定址方式種類少，易於設計超純量(Superscalar) 和 Pipeline，暫存器數量多，RISC 比 CISC 性能高很多
+<img src="RISC.png" alt=""></li>
+<li>CISC(Complex): 大量的複雜指令、可變得指令長度、多種的定址方式，大大增加了解碼的難度
+<img src="CISC.png" alt=""></li>
 </ol>
+<ul>
+<li>比較：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>RISC</th>
+<th>CISC</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指令數目少&lt;br&gt;定址模式少&lt;br&gt;register 多</td>
+<td>指令數目多&lt;br&gt;定址模式多&lt;br&gt;register 少</td>
+</tr>
+<tr>
+<td>指令長度固定，decode 易</td>
+<td>指令長度不一，decode 不易</td>
+</tr>
+<tr>
+<td>Compiler 翻譯出來的指令數目較多</td>
+<td>Compiler 翻譯出來的指令數目較少</td>
+</tr>
+<tr>
+<td>需強力的 Compiler 支援</td>
+<td>不需強力的 Compiler 支援</td>
+</tr>
+<tr>
+<td>代表的有 IBM RS6000, Alphachip</td>
+<td>Intel Pentium 系列</td>
+</tr>
+<tr>
+<td>指令數目少，所以能使用 <strong>硬體線路控制 (Hardware Control)</strong> 來製作&lt;br&gt;=&gt; 速度快</td>
+<td>指令複雜度，採用 <strong>微程式 (Microprogramming control)</strong> 方式製作&lt;br&gt;=&gt; 較有彈性</td>
+</tr>
+<tr>
+<td>配合 <strong>Pipeline (管線技術)</strong> 和 <strong>Superscalar (超純量)</strong> &lt;br&gt; =&gt; 效果佳&lt;br&gt;因為每個指令只需花一個 clock cycle</td>
+<td>較 RISC 差</td>
+</tr>
+</tbody>
+</table>
+<p>Note: <strong>Pipeline (管線技術)</strong> 和 <strong>Superscalar (超純量)</strong> =&gt; 即 Pipeline + Parallel processing =&gt; 週期長度固定
+圖示：
+<img src="Pipe+parallel.png" alt=""></p>
 <h2>記憶體階層</h2>
 <h2>記憶體的種類</h2>
 <h2>ROM vs RAM</h2>
