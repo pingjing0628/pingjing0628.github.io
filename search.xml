@@ -259,7 +259,7 @@ ex: (1) 1MHz =&gt; 每秒做 10 的 6 次方個 clock cycle
 </thead>
 <tbody>
 <tr>
-<td>指令數目少 &lt;br&gt; 定址模式少 &lt;br&gt; register 多</td>
+<td>指令數目少 \n 定址模式少 \n register 多</td>
 <td>指令數目多 &lt;br&gt; 定址模式多 &lt;br&gt; register 少</td>
 </tr>
 <tr>
