@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/DRAM_vs_SRAM.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/RGB.png">
 <meta property="article:published_time" content="2021-01-31T11:57:21.000Z">
-<meta property="article:modified_time" content="2021-02-17T08:23:24.251Z">
+<meta property="article:modified_time" content="2021-02-17T08:26:54.535Z">
 <meta property="article:author" content="PinJing Wang">
 <meta property="article:tag" content="電腦架構">
 <meta property="article:tag" content="匯流排">
@@ -432,8 +432,8 @@ ex: (1) 1MHz =&gt; 每秒做 10 的 6 次方個 clock cycle
 </thead>
 <tbody>
 <tr>
-<td>指令數目少&lt;br&gt;定址模式少&lt;br&gt;register 多</td>
-<td>指令數目多&lt;br&gt;定址模式多&lt;br&gt;register 少</td>
+<td>指令數目少 &lt;br&gt; 定址模式少 &lt;br&gt; register 多</td>
+<td>指令數目多 &lt;br&gt; 定址模式多 &lt;br&gt; register 少</td>
 </tr>
 <tr>
 <td>指令長度固定，decode 易</td>
@@ -452,16 +452,17 @@ ex: (1) 1MHz =&gt; 每秒做 10 的 6 次方個 clock cycle
 <td>Intel Pentium 系列</td>
 </tr>
 <tr>
-<td>指令數目少，所以能使用 <strong>硬體線路控制 (Hardware Control)</strong> 來製作&lt;br&gt;=&gt; 速度快</td>
-<td>指令複雜度，採用 <strong>微程式 (Microprogramming control)</strong> 方式製作&lt;br&gt;=&gt; 較有彈性</td>
+<td>指令數目少，所以能使用 <strong>硬體線路控制 (Hardware Control)</strong> 來製作 &lt;br&gt; =&gt; 速度快</td>
+<td>指令複雜度，採用 <strong>微程式 (Microprogramming control)</strong> 方式製作 &lt;br&gt; =&gt; 較有彈性</td>
 </tr>
 <tr>
-<td>配合 <strong>Pipeline (管線技術)</strong> 和 <strong>Superscalar (超純量)</strong> &lt;br&gt; =&gt; 效果佳&lt;br&gt;因為每個指令只需花一個 clock cycle</td>
+<td>配合 <strong>Pipeline (管線技術)</strong> 和 <strong>Superscalar (超純量)</strong>  &lt;br&gt; =&gt; 效果佳 &lt;br&gt; 因為每個指令只需花一個 clock cycle</td>
 <td>較 RISC 差</td>
 </tr>
 </tbody>
 </table>
 <p>Note: <strong>Pipeline (管線技術)</strong> 和 <strong>Superscalar (超純量)</strong> =&gt; 即 Pipeline + Parallel processing =&gt; 週期長度固定
+&lt;br&gt;
 圖示：
 <img src="Pipe+parallel.png" alt=""></p>
 </li>
