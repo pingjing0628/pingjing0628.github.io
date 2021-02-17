@@ -24,8 +24,10 @@
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/RISC.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/CISC.png">
 <meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/Pipe+parallel.png">
+<meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/DRAM_vs_SRAM.png">
+<meta property="og:image" content="https://pingjing0628.github.io/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96/RGB.png">
 <meta property="article:published_time" content="2021-01-31T11:57:21.000Z">
-<meta property="article:modified_time" content="2021-02-02T16:05:46.995Z">
+<meta property="article:modified_time" content="2021-02-17T07:45:42.840Z">
 <meta property="article:author" content="PinJing Wang">
 <meta property="article:tag" content="電腦架構">
 <meta property="article:tag" content="匯流排">
@@ -570,7 +572,7 @@ Read many, Write many
 </tbody>
 </table>
 <ul>
-<li>Ex:</li>
+<li>Ex: <img src="DRAM_vs_SRAM.png" alt=""></li>
 </ul>
 <h2>I/O的定址方式</h2>
 <ol>
@@ -595,19 +597,20 @@ Read many, Write many
 <ul>
 <li>
 <p>Ex1: 圖形 size 為 1024 * 768, 而每個 pixels 需使用 24 bits, 問此圖 size?
-Sol:</p>
+Sol: 1024 * 768 * 24 bits(3 bytes) = 2304 KB 約等於 2.3 MB</p>
 </li>
 <li>
 <p>Ex2: 呈上，此圖可表示的顏色有幾種？
-Sol:</p>
+Sol: 1 bit =&gt; 2^1.....N bits = 2^N, Ans: 2 的 24 次方</p>
 </li>
 <li>
 <p>Ex3: 若轉為黑白差幾倍？
-Sol:</p>
+Sol: 各 pixel 只需 1 bit, 所以差 24 倍</p>
 </li>
 <li>
 <p>Ex4: 圖 1024 * 768, 由三色系 RGB 組成, 又各色系需 8 bits, 問圖的大小？
-Sol:</p>
+Sol: 8 bits = 1 byte
+<img src="RGB.png" alt=""></p>
 </li>
 </ul>
 
