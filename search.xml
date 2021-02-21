@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Chapter1-基本電腦概論-補數(Complement)</title>
+      <link href="2021/02/21/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E8%A3%9C%E6%95%B8-Complement/"/>
+      <url>2021/02/21/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E8%A3%9C%E6%95%B8-Complement/</url>
+      
+        <content type="html"><![CDATA[<h1>1.3 補數</h1><h2>&lt;!--more--&gt;</h2><h2>補數</h2><p>目的： 簡化減髮過程，縮減電路成本作法： 利用 &lt;b&gt;“補數相加”“取代減法”&lt;/b&gt;<code>ex: A - B = A + B' =&gt; (-B)</code>定義： 一數值 N (整數 n 位，小數 m 位)，基底為 b<img src="" alt=""></p><ol><li>b's 補數：(1) b^n - N, if N 不等於 0(2) 0, if N = 0</li><li>(b-1)'s 補數：b^n - b ^ -m - N</li></ol><p>ex: (49.2)10, 求 10's 補數及 9's 補數Sol:N = 49.2, b = 10, 整數位數 n = 2, 小數位數 m = 110's 補數： 10^2 - 49.2 = 50.89's 補數： 10^2 - 10^-1 - 49.2 = 100 - 0.1 - 49.2 = 50.7</p><blockquote><p>快速解法：欲求 b 進制的： (b-1)'s 補數：拿(b-1) 去減每一位數b's 補數：將(b-1)'s 補數之最後位元 +1 即(b-1)'s complement + b^-m</p></blockquote><p>ex: (1783.25)10, 求 10's 及 9's complement.Sol:</p><ol><li>9's complement正：10000 - 0.01 - 1783.25 = 8216.74快：9999.99 - 1783.25 = 8216.74</li><li>10's complement正：10000 - 1783.25 = 8216.75快：8216.74 + 0.01 = 8216.75</li></ol><p>ex1: 更快解(10101000)2 求 1's 及 2's1's: 01010111 =&gt; 1 -&gt; 0, 0 -&gt; 12's: 將最右 &quot;1&quot; bit 之前皆保留，其餘 1 -&gt; 0, 0 -&gt; 11010|1000 =&gt; 01011000</p><p>ex2: (0.01010)21's: 0.101012's: 0.010|10 =&gt; 0.10110</p><h2>整數的表示方法</h2><ol><li></li><li></li></ol><h2>Compare</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 計算機概論 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 補數 </tag>
+            
+            <tag> 溢位 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Chapter1-基本電腦概論-進制轉換</title>
       <link href="2021/02/17/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%80%B2%E5%88%B6%E8%BD%89%E6%8F%9B/"/>
       <url>2021/02/17/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%80%B2%E5%88%B6%E8%BD%89%E6%8F%9B/</url>
