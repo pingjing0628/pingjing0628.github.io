@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>1. Laravel Practice</title>
-    <url>/repository/2019/10/27/1-Laravel-Practice/</url>
+    <url>/2019/10/27/1-Laravel-Practice/</url>
     <content><![CDATA[<h1>Installation</h1>
 <span id="more"></span>
 <hr>
@@ -134,7 +134,7 @@ We edit its “up” function:</p>
   </entry>
   <entry>
     <title>2. Laravel blade</title>
-    <url>/repository/2019/10/27/2-Laravel-blade/</url>
+    <url>/2019/10/27/2-Laravel-blade/</url>
     <content><![CDATA[<h2 id="Laravel-blade">Laravel blade</h2>
 <span id="more"></span>
 <hr>
@@ -183,7 +183,7 @@ We edit its “up” function:</p>
   </entry>
   <entry>
     <title>3. 搭建Laravel後台</title>
-    <url>/repository/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/</url>
+    <url>/2019/10/27/3-%E6%90%AD%E5%BB%BALaravel%E5%BE%8C%E5%8F%B0/</url>
     <content><![CDATA[<h2 id="搭建Laravel後台">搭建Laravel後台</h2>
 <span id="more"></span>
 <hr>
@@ -252,7 +252,7 @@ We edit its “up” function:</p>
   </entry>
   <entry>
     <title>4. Laravel Restful</title>
-    <url>/repository/2019/10/27/4-Laravel-Restful/</url>
+    <url>/2019/10/27/4-Laravel-Restful/</url>
     <content><![CDATA[<h2 id="Restful">Restful</h2>
 <span id="more"></span>
 <hr>
@@ -433,7 +433,7 @@ We edit its “up” function:</p>
   </entry>
   <entry>
     <title>5.利用Laravel建立評論系統</title>
-    <url>/repository/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/</url>
+    <url>/2019/10/27/5-%E5%88%A9%E7%94%A8Laravel%E5%BB%BA%E7%AB%8B%E8%A9%95%E8%AB%96%E7%B3%BB%E7%B5%B1/</url>
     <content><![CDATA[<h3 id="基礎規則">基礎規則</h3>
 <ul>
 <li>需要新建一個表專門用來存放每一條評論，每一條評論都屬於某一篇文章。</li>
@@ -514,7 +514,7 @@ model可利用「create」方法將array型態的資料進行模型(實體)的�
   </entry>
   <entry>
     <title>About GoLang</title>
-    <url>/repository/2019/12/01/About-GoLang/</url>
+    <url>/2019/12/01/About-GoLang/</url>
     <content><![CDATA[<h2 id="Introduction">Introduction</h2>
 <span id="more"></span> 
 <hr>
@@ -567,7 +567,7 @@ model可利用「create」方法將array型態的資料進行模型(實體)的�
   </entry>
   <entry>
     <title>Caddy - Installation </title>
-    <url>/repository/2022/12/11/Caddy-Installation/</url>
+    <url>/2022/12/11/Caddy-Installation/</url>
     <content><![CDATA[<h1>Caddy Installation</h1>
 <h2 id="Build-Caddy">Build Caddy</h2>
 <ol>
@@ -670,7 +670,7 @@ model可利用「create」方法將array型態的資料進行模型(實體)的�
   </entry>
   <entry>
     <title>Chapter1-基本電腦概論-數碼, 文字碼</title>
-    <url>/repository/2021/04/01/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E6%95%B8%E7%A2%BC-%E6%96%87%E5%AD%97%E7%A2%BC/</url>
+    <url>/2021/04/01/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E6%95%B8%E7%A2%BC-%E6%96%87%E5%AD%97%E7%A2%BC/</url>
     <content><![CDATA[<h1>1.5 數碼、文字碼</h1>
 <hr>
 <h2 id="BCD-碼">BCD 碼</h2>
@@ -996,7 +996,7 @@ C: 000011<br>
   </entry>
   <entry>
     <title>Chapter1-基本電腦概論-浮點數表示方法(Floating - Point)</title>
-    <url>/repository/2021/03/29/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E6%B5%AE%E9%BB%9E%E6%95%B8%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95-Floating-Point/</url>
+    <url>/2021/03/29/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E6%B5%AE%E9%BB%9E%E6%95%B8%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95-Floating-Point/</url>
     <content><![CDATA[<h1>1.3 補數</h1>
 <hr>
 <h2 id="對應方式">對應方式</h2>
@@ -1302,7 +1302,7 @@ C: 000011<br>
   </entry>
   <entry>
     <title>Chapter1-基本電腦概論-補數(Complement)</title>
-    <url>/repository/2021/02/21/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E8%A3%9C%E6%95%B8-Complement/</url>
+    <url>/2021/02/21/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E8%A3%9C%E6%95%B8-Complement/</url>
     <content><![CDATA[<h1>1.3 補數</h1>
 <hr>
 <h2 id="補數">補數</h2>
@@ -1476,7 +1476,7 @@ range 為 -2^8-1 ~ +(2^8-1 -1)<br>
   </entry>
   <entry>
     <title>Chapter1-基本電腦概論-進制轉換</title>
-    <url>/repository/2021/02/17/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%80%B2%E5%88%B6%E8%BD%89%E6%8F%9B/</url>
+    <url>/2021/02/17/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%80%B2%E5%88%B6%E8%BD%89%E6%8F%9B/</url>
     <content><![CDATA[<h1>1.2 進制轉換</h1>
 <hr>
 <h2 id="10-進制-r-進制">10 進制 -&gt; r 進制</h2>
@@ -1620,7 +1620,7 @@ Sol: CB.A = 16^1 * C + 16^0 * B + 16^-1 * A<br>
   </entry>
   <entry>
     <title>Chapter1-基本電腦概論-電腦系統介紹</title>
-    <url>/repository/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%9B%BB%E8%85%A6%E7%B3%BB%E7%B5%B1%E4%BB%8B%E7%B4%B9/</url>
+    <url>/2021/01/31/Chapter1-%E5%9F%BA%E6%9C%AC%E9%9B%BB%E8%85%A6%E6%A6%82%E8%AB%96-%E9%9B%BB%E8%85%A6%E7%B3%BB%E7%B5%B1%E4%BB%8B%E7%B4%B9/</url>
     <content><![CDATA[<h1>1.1 電腦系統介紹</h1>
 <hr>
 <h2 id="電腦發展史">電腦發展史</h2>
@@ -2052,7 +2052,7 @@ Sol: 8 bits = 1 byte<br>
   </entry>
   <entry>
     <title>Chapter2-數位邏輯-Digital Logical</title>
-    <url>/repository/2021/04/01/Chapter2-%E6%95%B8%E4%BD%8D%E9%82%8F%E8%BC%AF-Digital-Logical/</url>
+    <url>/2021/04/01/Chapter2-%E6%95%B8%E4%BD%8D%E9%82%8F%E8%BC%AF-Digital-Logical/</url>
     <content><![CDATA[<h1>數位邏輯 Digital Logical</h1>
 <hr>
 <blockquote>
@@ -2744,7 +2744,7 @@ step1: 利用笛摩根定律, 將 ‘‾’ 置於單一變數上, 形成 pos �
   </entry>
   <entry>
     <title>Chapter3-作業系統-作業系統</title>
-    <url>/repository/2021/05/30/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</url>
+    <url>/2021/05/30/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1/</url>
     <content><![CDATA[<h1>3.1 作業系統</h1>
 <h2 id="O-S-作用">O.S. 作用</h2>
 <ol>
@@ -3037,7 +3037,7 @@ Def: 將常用的 data 複製一份到高速 device 中以提高 CPU 存取的 I
   </entry>
   <entry>
     <title>Chapter3-作業系統-作業系統結構</title>
-    <url>/repository/2021/06/06/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1%E7%B5%90%E6%A7%8B/</url>
+    <url>/2021/06/06/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1%E7%B5%90%E6%A7%8B/</url>
     <content><![CDATA[<h1>3.3 作業系統結構</h1>
 <p><img src="structure.png" alt=""></p>
 <hr>
@@ -3115,7 +3115,7 @@ Def: 將常用的 data 複製一份到高速 device 中以提高 CPU 存取的 I
   </entry>
   <entry>
     <title>Chapter3-作業系統-死結deadlock-part1</title>
-    <url>/repository/2021/06/18/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E6%AD%BB%E7%B5%90deadlock-part1/</url>
+    <url>/2021/06/18/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E6%AD%BB%E7%B5%90deadlock-part1/</url>
     <content><![CDATA[<h1>3.5 死結 Deadlock</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -3193,7 +3193,7 @@ Note: Pi -&gt; Pj =&gt; Process i 在等 Process j 手中的資源</li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-死結deadlock-part2</title>
-    <url>/repository/2021/06/19/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E6%AD%BB%E7%B5%90deadlock-part2/</url>
+    <url>/2021/06/19/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E6%AD%BB%E7%B5%90deadlock-part2/</url>
     <content><![CDATA[<h1>3.5 死結 Deadlock</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -3407,7 +3407,7 @@ Sol:</li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-磁碟管理-part1</title>
-    <url>/repository/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part1/</url>
+    <url>/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part1/</url>
     <content><![CDATA[<h1>3.9 磁碟管理 (Disk Management)</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -3636,7 +3636,7 @@ total data size = ?<br>
   </entry>
   <entry>
     <title>Chapter3-作業系統-磁碟管理-part2</title>
-    <url>/repository/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part2/</url>
+    <url>/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part2/</url>
     <content><![CDATA[<h1>3.9 磁碟管理 (Disk Management)</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -3807,7 +3807,7 @@ Sol: <img src="FCFS.png" alt=""></li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-磁碟管理-part3</title>
-    <url>/repository/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part3/</url>
+    <url>/2021/07/02/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A3%81%E7%A2%9F%E7%AE%A1%E7%90%86-part3/</url>
     <content><![CDATA[<h1>3.9 磁碟管理 (Disk Management)</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -4048,7 +4048,7 @@ Sol: <img src="FCFS.png" alt=""></li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-程序間的溝通-part1</title>
-    <url>/repository/2021/06/20/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A8%8B%E5%BA%8F%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A-part1/</url>
+    <url>/2021/06/20/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A8%8B%E5%BA%8F%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A-part1/</url>
     <content><![CDATA[<h1>3.6 程序間的溝通 (Process Communication)</h1>
 <p>又稱為 <strong>inter-process communication</strong> IPC<br>
 方法有兩種：</p>
@@ -4276,7 +4276,7 @@ Semaphore 初始值為 1 時, 則狀態永遠為 0 或 1, 故 Pj 謂之 <strong>
   </entry>
   <entry>
     <title>Chapter3-作業系統-程序間的溝通-part2</title>
-    <url>/repository/2021/06/20/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A8%8B%E5%BA%8F%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A-part2/</url>
+    <url>/2021/06/20/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E7%A8%8B%E5%BA%8F%E9%96%93%E7%9A%84%E6%BA%9D%E9%80%9A-part2/</url>
     <content><![CDATA[<h1>3.6 程序間的溝通 (Process Communication)</h1>
 <p>又稱為 <strong>inter-process communication</strong> IPC<br>
 方法有兩種：</p>
@@ -4353,7 +4353,7 @@ R.S. // 放下筷子
   </entry>
   <entry>
     <title>Chapter3-作業系統-虛擬記憶體-part1</title>
-    <url>/repository/2021/06/24/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94-part1/</url>
+    <url>/2021/06/24/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94-part1/</url>
     <content><![CDATA[<h1>3.8 虛擬記憶體 (Virtual Memory)</h1>
 <ul>
 <li>目的：允許 program size &gt; physical memory size, 而程式仍能執行</li>
@@ -4439,7 +4439,7 @@ R.S. // 放下筷子
   </entry>
   <entry>
     <title>Chapter3-作業系統-虛擬記憶體-part2</title>
-    <url>/repository/2021/06/24/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94-part2/</url>
+    <url>/2021/06/24/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%99%9B%E6%93%AC%E8%A8%98%E6%86%B6%E9%AB%94-part2/</url>
     <content><![CDATA[<h1>3.8 虛擬記憶體 (Virtual Memory)</h1>
 <ul>
 <li>目的：允許 program size &gt; physical memory size, 而程式仍能執行</li>
@@ -4821,7 +4821,7 @@ Total: 9</li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-行程-part1</title>
-    <url>/repository/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part1/</url>
+    <url>/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part1/</url>
     <content><![CDATA[<h1>3.4 行程</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -4926,7 +4926,7 @@ MTS 所挑選的部分為：1. priority 低的 process 2. waiting time 過長<br
   </entry>
   <entry>
     <title>Chapter3-作業系統-行程-part2</title>
-    <url>/repository/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part2/</url>
+    <url>/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part2/</url>
     <content><![CDATA[<h1>3.4 行程</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -5335,7 +5335,7 @@ Def: 同 6. , 但 <strong>process 可於 Queue 之間挪動</strong><br>
   </entry>
   <entry>
     <title>Chapter3-作業系統-行程-part3</title>
-    <url>/repository/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part3/</url>
+    <url>/2021/06/12/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A1%8C%E7%A8%8B-part3/</url>
     <content><![CDATA[<h1>3.4 行程</h1>
 <h2 id="目錄">目錄</h2>
 <ul>
@@ -5410,7 +5410,7 @@ Def: 同 6. , 但 <strong>process 可於 Queue 之間挪動</strong><br>
   </entry>
   <entry>
     <title>Chapter3-作業系統-記憶體管理</title>
-    <url>/repository/2021/06/22/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A8%98%E6%86%B6%E9%AB%94%E7%AE%A1%E7%90%86/</url>
+    <url>/2021/06/22/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E8%A8%98%E6%86%B6%E9%AB%94%E7%AE%A1%E7%90%86/</url>
     <content><![CDATA[<h1>3.7 記憶體管理 (Memory Management)</h1>
 <p>圖：<br>
 <img src="%E8%A8%98%E6%86%B6%E9%AB%94.png" alt=""></p>
@@ -5706,7 +5706,7 @@ Sol:</li>
   </entry>
   <entry>
     <title>Chapter3-作業系統-電腦系統結構</title>
-    <url>/repository/2021/06/03/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E9%9B%BB%E8%85%A6%E7%B3%BB%E7%B5%B1%E7%B5%90%E6%A7%8B/</url>
+    <url>/2021/06/03/Chapter3-%E4%BD%9C%E6%A5%AD%E7%B3%BB%E7%B5%B1-%E9%9B%BB%E8%85%A6%E7%B3%BB%E7%B5%B1%E7%B5%90%E6%A7%8B/</url>
     <content><![CDATA[<h1>3.2 電腦系統結構</h1>
 <h2 id="I-O-process-方式">I/O process 方式</h2>
 <h3 id="Polling-I-O-詢問式-又稱-busy-wait-或-“programmed-I-O”">Polling I/O (詢問式) 又稱 busy wait 或 “programmed I/O”</h3>
@@ -5818,7 +5818,7 @@ Sol: 1, 3, 4, 5</li>
   </entry>
   <entry>
     <title>Chapter4-系統程式-part1</title>
-    <url>/repository/2021/07/02/Chapter4-%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F-part1/</url>
+    <url>/2021/07/02/Chapter4-%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F-part1/</url>
     <content><![CDATA[<h1>4 系統程式 (System Program)</h1>
 <hr>
 <h2 id="Software-License">Software License</h2>
@@ -6192,7 +6192,7 @@ Ex: <code>A = 3.14 * 2.56 / 3.2 + 8 - E</code><br>
   </entry>
   <entry>
     <title>Chapter4-系統程式-part2</title>
-    <url>/repository/2021/07/02/Chapter4-%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F-part2/</url>
+    <url>/2021/07/02/Chapter4-%E7%B3%BB%E7%B5%B1%E7%A8%8B%E5%BC%8F-part2/</url>
     <content><![CDATA[<h1>4 系統程式 (System Program)</h1>
 <hr>
 <h2 id="補充-Linking-的種類">補充 - Linking 的種類</h2>
@@ -6274,7 +6274,7 @@ Ex: <code>A = 3.14 * 2.56 / 3.2 + 8 - E</code><br>
   </entry>
   <entry>
     <title>Chapter5-程式介紹-C++程式語言介紹</title>
-    <url>/repository/2022/06/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-C-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E4%BB%8B%E7%B4%B9/</url>
+    <url>/2022/06/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-C-%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80%E4%BB%8B%E7%B4%B9/</url>
     <content><![CDATA[<h1>5.4 C++ 程式語言介紹</h1>
 <hr>
 <h2 id="C-Language">C++ Language</h2>
@@ -6514,7 +6514,7 @@ Sol:</li>
   </entry>
   <entry>
     <title>Chapter5-程式介紹-C語言重點</title>
-    <url>/repository/2021/07/08/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-C%E8%AA%9E%E8%A8%80%E9%87%8D%E9%BB%9E/</url>
+    <url>/2021/07/08/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-C%E8%AA%9E%E8%A8%80%E9%87%8D%E9%BB%9E/</url>
     <content><![CDATA[<h1>5.2 C 語言重點</h1>
 <hr>
 <h2 id="C-Language">C Language</h2>
@@ -7223,7 +7223,7 @@ char *S = “hello”;
   </entry>
   <entry>
     <title>Chapter5-程式介紹-JAVA</title>
-    <url>/repository/2022/06/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-JAVA/</url>
+    <url>/2022/06/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-JAVA/</url>
     <content><![CDATA[<h1>5.5 JAVA</h1>
 <hr>
 <h2 id="Java-VS-C">Java VS C++</h2>
@@ -7603,7 +7603,7 @@ Note: java 中的 thread 的環境有較妥善的機制和方便 api 供 user �
   </entry>
   <entry>
     <title>Chapter5-程式介紹-基本介紹</title>
-    <url>/repository/2021/07/05/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/</url>
+    <url>/2021/07/05/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%B4%B9/</url>
     <content><![CDATA[<h1>5.1 基本介紹</h1>
 <hr>
 <h2 id="Programming-Language-程式語言">Programming Language 程式語言</h2>
@@ -7819,7 +7819,7 @@ Note: java 中的 thread 的環境有較妥善的機制和方便 api 供 user �
   </entry>
   <entry>
     <title>Chapter5-程式介紹-物件導向概論</title>
-    <url>/repository/2022/04/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E6%A6%82%E8%AB%96/</url>
+    <url>/2022/04/20/Chapter5-%E7%A8%8B%E5%BC%8F%E4%BB%8B%E7%B4%B9-%E7%89%A9%E4%BB%B6%E5%B0%8E%E5%90%91%E6%A6%82%E8%AB%96/</url>
     <content><![CDATA[<h1>5.3 物件導向概論</h1>
 <hr>
 <h2 id="Object-Oriented">Object Oriented:</h2>
@@ -7972,12 +7972,12 @@ Note:</p>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Advance Tree 高等樹</title>
-    <url>/repository/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Advance-Tree-%E9%AB%98%E7%AD%89%E6%A8%B9/</url>
+    <url>/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Advance-Tree-%E9%AB%98%E7%AD%89%E6%A8%B9/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Algorithm&#39;s Time Complexity and Recursive Program</title>
-    <url>/repository/2022/06/20/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Algorithm-s-Time-Complexity-and-Recursive-Program/</url>
+    <url>/2022/06/20/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Algorithm-s-Time-Complexity-and-Recursive-Program/</url>
     <content><![CDATA[<h1>6.1 Algorithm 的時間複雜度及遞迴程式</h1>
 <hr>
 <h2 id="algorithm-演算法">algorithm 演算法</h2>
@@ -8438,7 +8438,7 @@ O(1) &lt; O(log n) &lt; O(n) &lt; O(nlog n) &lt; O(n^2) &lt; O(n^3) &lt;…&lt; 
   </entry>
   <entry>
     <title>Chapter6-資料結構-Array</title>
-    <url>/repository/2022/09/18/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Array/</url>
+    <url>/2022/09/18/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Array/</url>
     <content><![CDATA[<h1>6.2 Array</h1>
 <hr>
 <h2 id="陣列-Array">陣列 Array</h2>
@@ -8638,22 +8638,22 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>Chapter6-資料結構-Binary Tree &amp; Tree</title>
-    <url>/repository/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Binary-Tree-Tree/</url>
+    <url>/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Binary-Tree-Tree/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Graph 圖形</title>
-    <url>/repository/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Graph-%E5%9C%96%E5%BD%A2/</url>
+    <url>/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Graph-%E5%9C%96%E5%BD%A2/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Hashing 雜湊法</title>
-    <url>/repository/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Hashing-%E9%9B%9C%E6%B9%8A%E6%B3%95/</url>
+    <url>/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Hashing-%E9%9B%9C%E6%B9%8A%E6%B3%95/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Linked List 鏈結串列</title>
-    <url>/repository/2022/12/05/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Linked-List-%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97/</url>
+    <url>/2022/12/05/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Linked-List-%E9%8F%88%E7%B5%90%E4%B8%B2%E5%88%97/</url>
     <content><![CDATA[<h1>6.4 Linked List 鏈結串列</h1>
 <h2 id="Linked-List">Linked List</h2>
 <ul>
@@ -8673,12 +8673,12 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>Chapter6-資料結構-Search &amp; Sort</title>
-    <url>/repository/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Search-Sort/</url>
+    <url>/2022/12/11/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Search-Sort/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>Chapter6-資料結構-Stack and Queue 堆疊與佇列</title>
-    <url>/repository/2022/09/22/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Stack-and-Queue-%E5%A0%86%E7%96%8A%E8%88%87%E4%BD%87%E5%88%97/</url>
+    <url>/2022/09/22/Chapter6-%E8%B3%87%E6%96%99%E7%B5%90%E6%A7%8B-Stack-and-Queue-%E5%A0%86%E7%96%8A%E8%88%87%E4%BD%87%E5%88%97/</url>
     <content><![CDATA[<h1>6.3 Stack and Queue 堆疊與佇列</h1>
 <h2 id="Stack-堆疊">Stack 堆疊</h2>
 <ul>
@@ -8823,7 +8823,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>Database ERModel</title>
-    <url>/repository/2019/11/26/Database-ERModel/</url>
+    <url>/2019/11/26/Database-ERModel/</url>
     <content><![CDATA[<h2 id="Database-實體關聯模型-E-R-model">Database 實體關聯模型(E-R model)</h2>
 <span id="more"></span>
 <hr>
@@ -8904,7 +8904,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>Eloquent</title>
-    <url>/repository/2019/10/27/Eloquent/</url>
+    <url>/2019/10/27/Eloquent/</url>
     <content><![CDATA[<h2 id="What-is-Eloquent">What is Eloquent?</h2>
 <span id="more"></span> 
 <hr>
@@ -9018,7 +9018,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>GoLang-1a2b game practice</title>
-    <url>/repository/2020/01/04/GoLang-1a2b-game-practice/</url>
+    <url>/2020/01/04/GoLang-1a2b-game-practice/</url>
     <content><![CDATA[<h2 id="1a2b-Game-practice">1a2b Game practice</h2>
 <span id="more"></span>
 <hr>
@@ -9044,7 +9044,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>GoLang-Anonymous Function</title>
-    <url>/repository/2019/12/03/GoLang-Anonymous-Function/</url>
+    <url>/2019/12/03/GoLang-Anonymous-Function/</url>
     <content><![CDATA[<h2 id="Anonymous-Function">Anonymous Function</h2>
 <span id="more"></span>
 <hr>
@@ -9095,7 +9095,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>GoLang-Array Type</title>
-    <url>/repository/2019/12/01/GoLang-Array-Type/</url>
+    <url>/2019/12/01/GoLang-Array-Type/</url>
     <content><![CDATA[<h2 id="Array-Type">Array Type</h2>
 <span id="more"></span>
 <hr>
@@ -9167,7 +9167,7 @@ Sol:  <figure class="highlight plaintext"><table><tr><td class="code"><pre><span
   </entry>
   <entry>
     <title>GoLang-Channel</title>
-    <url>/repository/2020/09/10/GoLang-Channel/</url>
+    <url>/2020/09/10/GoLang-Channel/</url>
     <content><![CDATA[<h1>Channel</h1>
 <span id="more"></span>
 <hr>
@@ -9242,7 +9242,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang - Constants</title>
-    <url>/repository/2019/11/30/GoLang-Constants/</url>
+    <url>/2019/11/30/GoLang-Constants/</url>
     <content><![CDATA[<h2 id="Constants">Constants</h2>
 <span id="more"></span> 
 <hr>
@@ -9366,7 +9366,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang-Database model design using gorm</title>
-    <url>/repository/2020/02/27/GoLang-Database-model-design-using-gorm/</url>
+    <url>/2020/02/27/GoLang-Database-model-design-using-gorm/</url>
     <content><![CDATA[<h2 id="DB-Setting">DB Setting</h2>
 <span id="more"></span>
 <hr>
@@ -9393,7 +9393,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang - Environment</title>
-    <url>/repository/2019/11/30/GoLang-Environment/</url>
+    <url>/2019/11/30/GoLang-Environment/</url>
     <content><![CDATA[<h2 id="安裝主程式">安裝主程式</h2>
 <span id="more"></span> 
 <hr>
@@ -9516,7 +9516,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang-First class function</title>
-    <url>/repository/2019/12/03/GoLang-First-class-function/</url>
+    <url>/2019/12/03/GoLang-First-class-function/</url>
     <content><![CDATA[<h2 id="First-class-function">First class function</h2>
 <span id="more"></span>
 <hr>
@@ -9554,7 +9554,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang-Function declarations</title>
-    <url>/repository/2019/12/02/GoLang-Function-declarations/</url>
+    <url>/2019/12/02/GoLang-Function-declarations/</url>
     <content><![CDATA[<h2 id="Function-declarations">Function declarations</h2>
 <span id="more"></span>
 <hr>
@@ -9600,7 +9600,7 @@ The second variable will define buffer length, it will only be blocked cause to 
   </entry>
   <entry>
     <title>GoLang-Goroutine</title>
-    <url>/repository/2020/09/07/GoLang-Goroutine/</url>
+    <url>/2020/09/07/GoLang-Goroutine/</url>
     <content><![CDATA[<h1>Goroutine</h1>
 <span id="more"></span>
 <hr>
@@ -9702,7 +9702,7 @@ Put <code>WaitGroup</code> to goroutine, using <code>wg.Done()</code> to  minus 
   </entry>
   <entry>
     <title>GoLang-Inheritance</title>
-    <url>/repository/2019/12/08/GoLang-Inheritance/</url>
+    <url>/2019/12/08/GoLang-Inheritance/</url>
     <content><![CDATA[<h2 id="Inheritance">Inheritance</h2>
 <span id="more"></span>
 <hr>
@@ -9735,7 +9735,7 @@ Put <code>WaitGroup</code> to goroutine, using <code>wg.Done()</code> to  minus 
   </entry>
   <entry>
     <title>GoLang-Map Type</title>
-    <url>/repository/2019/12/02/GoLang-Map-Type/</url>
+    <url>/2019/12/02/GoLang-Map-Type/</url>
     <content><![CDATA[<h2 id="Map-Type">Map Type</h2>
 <span id="more"></span>
 <hr>
@@ -9791,7 +9791,7 @@ Put <code>WaitGroup</code> to goroutine, using <code>wg.Done()</code> to  minus 
   </entry>
   <entry>
     <title>GoLang-Method</title>
-    <url>/repository/2019/12/08/GoLang-Method/</url>
+    <url>/2019/12/08/GoLang-Method/</url>
     <content><![CDATA[<h2 id="Method">Method</h2>
 <span id="more"></span>
 <hr>
@@ -9824,7 +9824,7 @@ Put <code>WaitGroup</code> to goroutine, using <code>wg.Done()</code> to  minus 
   </entry>
   <entry>
     <title>GoLang-Predeclared Type</title>
-    <url>/repository/2019/12/01/GoLang-Predeclared-Type/</url>
+    <url>/2019/12/01/GoLang-Predeclared-Type/</url>
     <content><![CDATA[<h2 id="Predeclared-Type">Predeclared Type</h2>
 <span id="more"></span>
 <hr>
@@ -9870,7 +9870,7 @@ Put <code>WaitGroup</code> to goroutine, using <code>wg.Done()</code> to  minus 
   </entry>
   <entry>
     <title>GoLang-Protocol Buffer</title>
-    <url>/repository/2020/06/01/GoLang-Protocol-Buffer/</url>
+    <url>/2020/06/01/GoLang-Protocol-Buffer/</url>
     <content><![CDATA[<h2 id="Protocol-Buffer">Protocol Buffer</h2>
 <span id="more"></span>
 <p><b>Protocol Buffer</b> is like json、xml, but smaller, faster, simplifier.<br>
@@ -9942,7 +9942,7 @@ These will make you remove one of the field without messing up entire data struc
   </entry>
   <entry>
     <title>GoLang-REST API with Mux</title>
-    <url>/repository/2019/12/17/GoLang-REST-API-with-Mux/</url>
+    <url>/2019/12/17/GoLang-REST-API-with-Mux/</url>
     <content><![CDATA[<h2 id="REST-API-with-Mux">REST API with Mux</h2>
 <span id="more"></span>
 <hr>
@@ -9990,7 +9990,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-Router design</title>
-    <url>/repository/2020/02/27/GoLang-Router-design/</url>
+    <url>/2020/02/27/GoLang-Router-design/</url>
     <content><![CDATA[<h2 id="規劃路由">規劃路由</h2>
 <span id="more"></span>
 <hr>
@@ -10021,7 +10021,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-Slice Type</title>
-    <url>/repository/2019/12/01/GoLang-Slice-Type/</url>
+    <url>/2019/12/01/GoLang-Slice-Type/</url>
     <content><![CDATA[<h2 id="Slice-Type">Slice Type</h2>
 <span id="more"></span>
 <hr>
@@ -10093,7 +10093,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-Struct</title>
-    <url>/repository/2019/12/03/GoLang-Struct/</url>
+    <url>/2019/12/03/GoLang-Struct/</url>
     <content><![CDATA[<h2 id="Struct">Struct</h2>
 <span id="more"></span>
 <hr>
@@ -10145,7 +10145,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-Token &amp; Middleware</title>
-    <url>/repository/2020/05/31/GoLang-Token/</url>
+    <url>/2020/05/31/GoLang-Token/</url>
     <content><![CDATA[<h2 id="Token-使用">Token 使用</h2>
 <span id="more"></span>
 <hr>
@@ -10183,7 +10183,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-gomodule</title>
-    <url>/repository/2020/01/05/GoLang-gomodule/</url>
+    <url>/2020/01/05/GoLang-gomodule/</url>
     <content><![CDATA[<h2 id="GoModule">GoModule</h2>
 <span id="more"></span>
 <hr>
@@ -10233,7 +10233,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-grpc</title>
-    <url>/repository/2020/07/08/GoLang-grpc/</url>
+    <url>/2020/07/08/GoLang-grpc/</url>
     <content><![CDATA[<h2 id="GRPC">GRPC</h2>
 <span id="more"></span>
 ]]></content>
@@ -10248,7 +10248,7 @@ create and update are manipulate memory space, so when you disconnect, then the 
   </entry>
   <entry>
     <title>GoLang-web application-Creating a data structure with methods</title>
-    <url>/repository/2020/01/08/GoLang-web-application-Creating-a-data-structure-with-methods/</url>
+    <url>/2020/01/08/GoLang-web-application-Creating-a-data-structure-with-methods/</url>
     <content><![CDATA[<h2 id="Data-Structures">Data Structures</h2>
 <span id="more"></span> 
 <hr>
@@ -10283,7 +10283,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>GoLang-web application-The net/http package</title>
-    <url>/repository/2020/01/08/GoLang-web-application-The-net-http-package/</url>
+    <url>/2020/01/08/GoLang-web-application-The-net-http-package/</url>
     <content><![CDATA[<h2 id="Using-net-http-to-serve">Using net/http to serve</h2>
 <hr>
 <p>承上篇文章，針對wiki 檔案進行http的操作</p>
@@ -10403,7 +10403,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>GoLang-練習姓名產生器-dep</title>
-    <url>/repository/2019/12/09/GoLang-%E7%B7%B4%E7%BF%92%E5%A7%93%E5%90%8D%E7%94%A2%E7%94%9F%E5%99%A8-dep/</url>
+    <url>/2019/12/09/GoLang-%E7%B7%B4%E7%BF%92%E5%A7%93%E5%90%8D%E7%94%A2%E7%94%9F%E5%99%A8-dep/</url>
     <content><![CDATA[<h2 id="Practice">Practice</h2>
 <span id="more"></span>
 <hr>
@@ -10458,7 +10458,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>GoLang-語法筆記整理</title>
-    <url>/repository/2019/12/15/GoLang-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E6%95%B4%E7%90%86/</url>
+    <url>/2019/12/15/GoLang-%E8%AA%9E%E6%B3%95%E7%AD%86%E8%A8%98%E6%95%B4%E7%90%86/</url>
     <content><![CDATA[<h2 id="整理">整理</h2>
 <span id="more"></span>
 <hr>
@@ -10539,7 +10539,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>Golang-Variables &amp; Constants declarations</title>
-    <url>/repository/2019/12/01/Golang-Variables-Constants-declarations/</url>
+    <url>/2019/12/01/Golang-Variables-Constants-declarations/</url>
     <content><![CDATA[<h2 id="變數與常數的宣告">變數與常數的宣告</h2>
 <span id="more"></span>
 <hr>
@@ -10623,7 +10623,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>Hexo command</title>
-    <url>/repository/2021/01/31/Hexo-command/</url>
+    <url>/2021/01/31/Hexo-command/</url>
     <content><![CDATA[<h1>Hexo Command</h1>
 <span id="more"></span>
 <p>–</p>
@@ -10646,7 +10646,7 @@ It takes no parameters, and returns a value of type error.</p>
   </entry>
   <entry>
     <title>Kubernetes-intro</title>
-    <url>/repository/2020/09/20/Kubernetes-intro/</url>
+    <url>/2020/09/20/Kubernetes-intro/</url>
     <content><![CDATA[<h1>Kubernetes Introduction</h1>
 <span id="more"></span>
 <p>–</p>
@@ -10744,7 +10744,7 @@ K8S 中多個 node 和 master 的集合<br>
   </entry>
   <entry>
     <title>Laravel CSRF</title>
-    <url>/repository/2019/10/27/Laravel-CSRF/</url>
+    <url>/2019/10/27/Laravel-CSRF/</url>
     <content><![CDATA[<h2 id="CSRF">CSRF</h2>
 <span id="more"></span>
 <hr>
@@ -10787,7 +10787,7 @@ K8S 中多個 node 和 master 的集合<br>
   </entry>
   <entry>
     <title>Laravel Database</title>
-    <url>/repository/2019/10/27/Laravel-Database/</url>
+    <url>/2019/10/27/Laravel-Database/</url>
     <content><![CDATA[<p>Laravel 將Model分成三個部分</p>
 <ol>
 <li>原生 SQL 查詢</li>
@@ -10933,7 +10933,7 @@ K8S 中多個 node 和 master 的集合<br>
   </entry>
   <entry>
     <title>Laravel Middleware</title>
-    <url>/repository/2019/10/27/Laravel-Middleware/</url>
+    <url>/2019/10/27/Laravel-Middleware/</url>
     <content><![CDATA[<h2 id="Middleware">Middleware</h2>
 <span id="more"></span>
 <hr>
@@ -11073,12 +11073,12 @@ Kao 為 handle 中的參數 $name</li>
   </entry>
   <entry>
     <title>Laravel service container</title>
-    <url>/repository/2019/11/24/Laravel-service-container/</url>
+    <url>/2019/11/24/Laravel-service-container/</url>
     <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>PHP Operators</title>
-    <url>/repository/2019/10/27/PHP-Operators/</url>
+    <url>/2019/10/27/PHP-Operators/</url>
     <content><![CDATA[<h2 id="PHP-Operators">PHP Operators</h2>
 <span id="more"></span>
 <hr>
@@ -11118,7 +11118,7 @@ Kao 為 handle 中的參數 $name</li>
   </entry>
   <entry>
     <title>PHP Setter and Getter</title>
-    <url>/repository/2019/10/27/PHP-Setter-and-Getter/</url>
+    <url>/2019/10/27/PHP-Setter-and-Getter/</url>
     <content><![CDATA[<h2 id="Setter-and-Getter">Setter and Getter</h2>
 <span id="more"></span>
 <hr>
@@ -11164,7 +11164,7 @@ Kao 為 handle 中的參數 $name</li>
   </entry>
   <entry>
     <title>PHP vs GoLang</title>
-    <url>/repository/2019/12/09/PHP-vs-GoLang/</url>
+    <url>/2019/12/09/PHP-vs-GoLang/</url>
     <content><![CDATA[<h2 id="PHP-vs-GoLang">PHP vs GoLang</h2>
 <span id="more"></span>
 <hr>
@@ -11419,7 +11419,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PHP 特點- 名稱空間&amp;介面</title>
-    <url>/repository/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E5%90%8D%E7%A8%B1%E7%A9%BA%E9%96%93-%E4%BB%8B%E9%9D%A2/</url>
+    <url>/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E5%90%8D%E7%A8%B1%E7%A9%BA%E9%96%93-%E4%BB%8B%E9%9D%A2/</url>
     <content><![CDATA[<h2 id="名稱空間-Namespaces">名稱空間 Namespaces</h2>
 <span id="more"></span>
 <hr>
@@ -11466,7 +11466,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PHP 特點- 特徵機制</title>
-    <url>/repository/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E7%89%B9%E5%BE%B5%E6%A9%9F%E5%88%B6/</url>
+    <url>/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E7%89%B9%E5%BE%B5%E6%A9%9F%E5%88%B6/</url>
     <content><![CDATA[<h2 id="特徵機制-Traits">特徵機制 Traits</h2>
 <span id="more"></span>
 <hr>
@@ -11514,7 +11514,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PHP 特點- 閉包</title>
-    <url>/repository/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/</url>
+    <url>/2019/11/03/PHP-%E7%89%B9%E9%BB%9E-%E9%96%89%E5%8C%85/</url>
     <content><![CDATA[<h2 id="閉包">閉包</h2>
 <span id="more"></span>
 <hr>
@@ -11542,7 +11542,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PHP 良好習慣- 消毒、驗證和逃脫</title>
-    <url>/repository/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E6%B6%88%E6%AF%92%E3%80%81%E9%A9%97%E8%AD%89%E5%92%8C%E9%80%83%E8%84%AB/</url>
+    <url>/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E6%B6%88%E6%AF%92%E3%80%81%E9%A9%97%E8%AD%89%E5%92%8C%E9%80%83%E8%84%AB/</url>
     <content><![CDATA[<h2 id="消毒">消毒</h2>
 <span id="more"></span>
 <hr>
@@ -11603,7 +11603,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PHP 良好習慣- 資料庫</title>
-    <url>/repository/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E8%B3%87%E6%96%99%E5%BA%AB/</url>
+    <url>/2019/11/03/PHP-%E8%89%AF%E5%A5%BD%E7%BF%92%E6%85%A3-%E8%B3%87%E6%96%99%E5%BA%AB/</url>
     <content><![CDATA[<h2 id="Database">Database</h2>
 <span id="more"></span>
 <hr>
@@ -11628,7 +11628,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>PSM-Learning</title>
-    <url>/repository/2022/12/11/PSM-Learning/</url>
+    <url>/2022/12/11/PSM-Learning/</url>
     <content><![CDATA[<h1>PSM Learning</h1>
 <h2 id="Role">Role</h2>
 <h2 id="Step">Step</h2>
@@ -11646,7 +11646,7 @@ Golang 在進行 <code>Foo</code> 嵌入 <code>Bar</code> 時，會自動將 <co
   </entry>
   <entry>
     <title>What is Kubernetes?</title>
-    <url>/repository/2019/11/11/What-is-Kubernetes/</url>
+    <url>/2019/11/11/What-is-Kubernetes/</url>
     <content><![CDATA[<h3 id="Kubernetes">Kubernetes</h3>
 <span id="more"></span>
 <hr>
@@ -11815,7 +11815,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   </entry>
   <entry>
     <title>docker-ENTRYPOINT介紹</title>
-    <url>/repository/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</url>
+    <url>/2019/12/22/docker-ENTRYPOINT%E4%BB%8B%E7%B4%B9/</url>
     <content><![CDATA[<h2 id="Docker-ENTRYPOINT">Docker ENTRYPOINT</h2>
 <span id="more"></span>
 <hr>
@@ -11868,7 +11868,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   </entry>
   <entry>
     <title>docker-Multi-Stage</title>
-    <url>/repository/2019/12/22/docker-Multi-Stage/</url>
+    <url>/2019/12/22/docker-Multi-Stage/</url>
     <content><![CDATA[<h2 id="Docker-Multi-Stage-compile-Golang-Image">Docker Multi-Stage compile Golang Image</h2>
 <span id="more"></span>
 <hr>
@@ -11937,7 +11937,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   </entry>
   <entry>
     <title>docker-create dockerfile(1)</title>
-    <url>/repository/2019/12/22/docker-create-dockerfile-1/</url>
+    <url>/2019/12/22/docker-create-dockerfile-1/</url>
     <content><![CDATA[<h2 id="Create-Dockerfile">Create Dockerfile</h2>
 <span id="more"></span>
 <hr>
@@ -11994,7 +11994,7 @@ ex: 譬如今天保證要有3台在運作，那麼就可以把replica設成3，�
   </entry>
   <entry>
     <title>docker-intro</title>
-    <url>/repository/2020/09/20/docker-intro/</url>
+    <url>/2020/09/20/docker-intro/</url>
     <content><![CDATA[<h1>Docker Introduction</h1>
 <span id="more"></span>
 <p>–</p>
@@ -12059,7 +12059,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 串列、Tuple、字典與集合(三)-字典</title>
-    <url>/repository/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/</url>
+    <url>/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%B8%89-%E5%AD%97%E5%85%B8/</url>
     <content><![CDATA[<h2 id="Python-字典">Python 字典</h2>
 <span id="more"></span>
 <hr>
@@ -12193,7 +12193,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 串列、Tuple、字典與集合(二)-Tuple</title>
-    <url>/repository/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%BA%8C-Tuple/</url>
+    <url>/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E4%BA%8C-Tuple/</url>
     <content><![CDATA[<h2 id="Python-串列與tuple">Python 串列與tuple</h2>
 <span id="more"></span>
 <hr>
@@ -12256,7 +12256,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 串列、Tuple、字典與集合(四)-集合</title>
-    <url>/repository/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E5%9B%9B-%E9%9B%86%E5%90%88/</url>
+    <url>/2019/11/17/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88-%E5%9B%9B-%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h2 id="Python-集合">Python 集合</h2>
 <span id="more"></span>
 <hr>
@@ -12416,7 +12416,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 串列、Tuple、字典與集合(一)-串列</title>
-    <url>/repository/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/</url>
+    <url>/2019/11/16/python-%E4%B8%B2%E5%88%97%E3%80%81Tuple%E3%80%81%E5%AD%97%E5%85%B8%E8%88%87%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<h2 id="Python-串列與tuple">Python 串列與tuple</h2>
 <span id="more"></span>
 <hr>
@@ -12602,7 +12602,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 函式</title>
-    <url>/repository/2019/11/17/python-%E5%87%BD%E5%BC%8F/</url>
+    <url>/2019/11/17/python-%E5%87%BD%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="Python-函式">Python 函式</h2>
 <span id="more"></span>
 <hr>
@@ -12791,7 +12791,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 命名空間與範圍</title>
-    <url>/repository/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/</url>
+    <url>/2019/11/22/python-%E5%91%BD%E5%90%8D%E7%A9%BA%E9%96%93%E8%88%87%E7%AF%84%E5%9C%8D/</url>
     <content><![CDATA[<h2 id="Python-命名空間與範圍">Python 命名空間與範圍</h2>
 <span id="more"></span>
 <hr>
@@ -12829,7 +12829,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 生成式</title>
-    <url>/repository/2019/11/17/python-%E7%94%9F%E6%88%90%E5%BC%8F/</url>
+    <url>/2019/11/17/python-%E7%94%9F%E6%88%90%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="Python-生成式">Python 生成式</h2>
 <span id="more"></span>
 <hr>
@@ -12895,7 +12895,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 產生器</title>
-    <url>/repository/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/</url>
+    <url>/2019/11/21/python-%E7%94%A2%E7%94%9F%E5%99%A8/</url>
     <content><![CDATA[<h2 id="Python-產生器">Python 產生器</h2>
 <span id="more"></span>
 <hr>
@@ -12931,7 +12931,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>python 裝飾器</title>
-    <url>/repository/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/</url>
+    <url>/2019/11/21/python-%E8%A3%9D%E9%A3%BE%E5%99%A8/</url>
     <content><![CDATA[<h2 id="Python-裝飾器">Python 裝飾器</h2>
 <span id="more"></span>
 <hr>
@@ -12986,7 +12986,7 @@ image 可由 dockerfile 建立</p>
   </entry>
   <entry>
     <title>利用 PHPUnit + Mockery 開發 API</title>
-    <url>/repository/2019/11/03/%E5%88%A9%E7%94%A8-PHPUnit-Mockery-%E9%96%8B%E7%99%BC-API/</url>
+    <url>/2019/11/03/%E5%88%A9%E7%94%A8-PHPUnit-Mockery-%E9%96%8B%E7%99%BC-API/</url>
     <content><![CDATA[<h2 id="Mockery">Mockery</h2>
 <!---more-->
 <hr>
